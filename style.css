@@ -4,204 +4,16 @@ html {
 
 body {
     margin: 0px;             /* Browser-Standard rückgängig machen: Äußerer Abstand */
-    font-family: "Raleway";  /* Schriftart für den ganzen Body-Bereich festlegen */
+    font-family: "PT Sans";  /* Schriftart für den ganzen Body-Bereich festlegen */
     overflow-x: hidden;     /* Standard: Was auf der X-Achse aus dem Body/Tag rausläuft wird nicht mehr gezeigt */
                            /* muss dem Body gegeben werden, ABER funktioniert nicht auf dem Handy -> Lösung: Alles in eine <div> was in <body> ist und diesem <div> das overflow-Attribut geben */
 }
 
 
 
-.Sammlung-von-Attributen{
-
-    scroll-behavior: smooth !important;
-    margin: 0px;
-    font-family: "Calibri";
-    color: white;
-    color: #777777;
-    color: rgb(255, 204, 255);
-
-
-    font-size: 25px;
-    font-size: 2.5em;
-
-    height: 100vh;
-    width: 100%;
-    width: calc(33.33% - 45px); /* Berechnung mittels calc-Funktion*/
-    max-width: 220px;
-    min-width: 220px;  /* Alle Geräte die eine geringere Breite als 220px haben werden nicht mehr unterstützt */
-    max-height:400px;
-    min-height:400px;
-    
-    object-fit: cover;
-    object-fit: contain;
-    object-fit: scale-down; /* Falls das Bild kleiner ist & bleiben soll als der Container */
-
-    background-image: url("./Img/motivation.jpg");
-    background-size: cover;
-    background-size: 100% 100%;
-    background-position: center;
-
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    flex-wrap: wrap;
-
-    padding: 16px;
-    padding-right: 50px;
-    padding-left: 50px;
-    padding-top: 50px;
-    padding-bottom: 0px;
-    margin-left: 4px;
-    margin-right: 4px;
-    margin-left:calc((100vw - 600px)/4);  /* Berechnung mittels calc-Funktion*/
-    margin-right:calc((100vw - 600px)/4);
-
-    text-decoration: double;
-    text-underline-offset: 5px;
-    text-align: center;
-    cursor:pointer;
-
-    opacity: 0.8; /* Durchlässigkeit: Aber besser ist background-color, weil opacity auch auf Kind-Elemente angewendet wird*/
-    background-color: rgba(0,0,0,0.7);
-
-    transition: all 225ms ease-in-out; /* 1. Argument der Funktion transition zeigt bei welcher CSS-Eigenschaft eine Transition eingeleitet wird, sobald sie verändert wird; max 225ms & ease-in-out laut Google Forschung */
-    transition: opacity 225ms ease-in-out;
-    transform:  translateX(501px); /* verschiebt um 501 Pixel auf der X-Achse */
-    transform:  rotate(180deg); /* Element um 180Grad drehen */
-    transform: scaleX(1.0); /* Skaliert ein Element entlang der X-Achse hoch & runter */
-    transform: scaleY(1.0); /* Skaliert ein Element entlang der Y-Achse hoch & runter */
-    transform: rotate(135deg) scaleX(0.0); /* Mehrere Funktionen werden angewendet */
-
-    /* 3. Dimension nach X- & Y-Achse */
-    z-index:2;
-    
-    background-color: rgb(250, 187, 120);
-    background-color: #F9F9F9;
-    background-color: green;
-
-
-    /* Für Ränder */
-    border-style: ridge;
-    border-color: white;
-    border-radius: 10px;  /* Ergibt runde Ecken ; Anm: um die runden Ecken überhaupt zu sehen muss eine Hintergrundfarbe oder ein Hintergrundbild festgelegt sein*/
-    border-radius: 100%; /* Ergibt einen Kreis */
-    border-radius: 10px 10px 10px 10px;
-    border-collapse: separate;
-    border-spacing: 10px;
-    border: 10px solid #000;  /* Dicke - Art - Farbe */
-    border: 4px solid transparent;
-    border-left: 1px solid green;
-    box-shadow: 0px 5px 5px #E6E6E6;  /* äußerer Schatten: offset-x (minus Werte für Schatten nach links) | offset-y (minus Werte für Schatten nach oben)| blur-radius (Stärke der Unschärfe) | color */
-    box-shadow: inset 0px 5px 5px #E6E6E6;  /* innerer Schatten */
-    
-    overflow-y:scroll; /* Sobald Dinge auf der y-Achse aus dem Container rauslaufen, wird ein Scroll-Balken für den Container eingeblendet */
-
-    /* Input-Fields */
-    outline:none;  /* Beim Klicken wird der Rand nicht hervorgehoben */
-
-}
-
-/* Instagram Bilder mit Farbverlauf des Randes */
-/* Image innerhalb der box*/
-.feed-storys-img{
-    height:80px;
-    width:80px;
-    object-fit: cover;
-    border-radius:100%;
-    cursor:pointer;   
-    /* border: 2px solid rgba(195, 7, 233, 0.5); */
-}
-
-/* Relative Position um den Inhalt der box sehen zu können*/
-.box {
-    position: relative;
-  }
-/* Pseudo-Element (::) um die box zu stylen*/
-.box::before {  
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: 100%; 
-    padding: 2px; 
-    background:linear-gradient(45deg,red,blue); 
-    -webkit-mask: 
-       linear-gradient(#fff 0 0) content-box, 
-       linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-            mask-composite: exclude; 
-  }
-/* Instagram Bilder mit Farbverlauf des Randes */
-
-
-/* Tabellen */
-table {
-    width: 100%;
-    border-spacing: 0px;
-    border-collapse: collapse; /* Lässt die Rahmen der Tabellen zusammenfallen */
-}
-
-table tr {
-    border-radius: 10px;
-    ;
-}
-
-table td {
-    height: 40px;
-    padding-left: 20px;
-}
-
-tr:nth-child(even) {
-    background-color: white;
-    
-}
-
-tr:nth-child(odd) {
-    background-color: #EFEFEF;
-}
-
-table tr:first-child td{} /* 1. Zeile (tr) und davon alle Datenzellen (td) auswählen */
-table tr td:first-child{} /* Von allen Zeilen (tr) die erste Datenzelle (td) auswählen */
-
-table tr:last-child td{} /* Letzte Zeile (tr) und davon alle Datenzellen (td) auswählen */
-table tr td:last-child{}  /* Von allen Zeilen (tr) die letzte Datenzelle (td) auswählen */
-/* Tabellen */
-
 
 /* INTERVALLE FÜRS HANDY */
 @media (min-width:301px) and (max-width:395px) {
-
-    /* Klasse ansprechen */
-    .klasse1 {
-      display: none;
-    }
-
-    /* ID ansprechen */
-    #id1 {
-    }
-
-    /* Mehrere Tags ansprechen */
-    h2, h3, h4 {
-    }
-
-    /* Kind-Element einer Tabelle ansprechen */
-    td:nth-child(1) {
-    }
-
-    /* Beim drübergehen mit der Maus */
-    a:hover {
-    }
-    
-    /* Tags innerhalb einer Klasse ansprechen*/
-    .sakura-ramen h1 {
-    }
-
 }
 
 
@@ -216,30 +28,6 @@ table tr td:last-child{}  /* Von allen Zeilen (tr) die letzte Datenzelle (td) au
 
 
 
-/* KEYFRAMES */
-
-
-/* Zugehörige Klasse */
-.game-over{
-    animation-name: zoomIn;
-    animation-duration: 4s;
-    animation-timing-function: ease-in-out;
-    /* ODER */
-    animation: zoomIn 225ms ease-in-out; /* Sobald das Element mit der Klasse "game-over" angesprochen wird, läuft die Animation mit dem Namen "zoomIn" ab */
-}
-
-@keyframes zoomIn {
-from
-{ 
-transform:scale(0);
-opacity:0;
-}  
-to 
-{
-transform:scale(1);
-opacity:1;
-}
-}  
                   
 
 
