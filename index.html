@@ -3,41 +3,61 @@
 
 <head>
     <!-- KOPFBEREICH STANDARD-->
-    <meta charset='UTF-8'>  <!-- UTF-8 ist Standard, Alternativen: "ASCII" oder "ISO-8859-15" --> 
+
+
+    <meta charset='UTF-8'> <!-- UTF-8 ist Standard, Alternativen: "ASCII" oder "ISO-8859-15" -->
     <meta http-equiv="X-UA-Compatible" content='IE=edge'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Sorgt für Barrierefreiheit -->
- 
+
     <title>JOIN</title>
 
-    <link href="img/logo.png" type="image/x-icon" rel="icon" />  <!-- Bindet FavIcon ein-->
-    <link rel="stylesheet" type='text/css' media='screen' href="fonts.css"> <!-- Fonts downloaden in entsprechenden Ordner legen und über Extra-CSS-Datei einbinden (https://google-webfonts-helper.herokuapp.com/) -->
+    <link href="img/logo.png" type="image/x-icon" rel="icon" /> <!-- Bindet FavIcon ein-->
+    <link rel="stylesheet" type='text/css' media='screen' href="fonts.css">
+    <!-- Fonts downloaden in entsprechenden Ordner legen und über Extra-CSS-Datei einbinden (https://google-webfonts-helper.herokuapp.com/) -->
     <link rel="stylesheet" type='text/css' media='screen' href="style.css"> <!-- Statt <style> ... </style> -->
 
-    <script src="script.js"></script> <!-- Statt <script> ... </script> -->
-    <script src="script.js"></script> <!-- Statt <script> ... </script> -->
-    <script src="script.js"></script> <!-- Statt <script> ... </script> -->
-    <!-- KOPFBEREICH STANDARD-->
 
+    <script src="mini_backend.js"></script> <!-- Zuerst einbinden, weil Funktion setURL verfügbar sein muss -->
+    <script>
+        // Funktion setURL() ändert die Variable BASE_SERVER_URL auf den angegebenen Pfad
+        setURL('https://gruppe-2970.developerakademie.net/smallest_backend_ever');
+
+        // WICHTIG ZU INSTALLIEREN SIND DIE FOLGENDEN ZWEI:
+        //  FÜR CHROME-ERWEITERUNG: https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf
+        //  FÜR LIVE-SERVER: https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer
+
+        async function init() {
+            await downloadFromServer();
+            users = JSON.parse(backend.getItem('users')) || [];
+        }   
+    </script>
+    <script src="script.js"></script> <!-- Statt <script> ... </script> -->
+    <script src="script.js"></script> <!-- Statt <script> ... </script> -->
+    <script src="script.js"></script> <!-- Statt <script> ... </script> -->
+
+
+    <!-- KOPFBEREICH STANDARD-->
 </head>
 
 
 <!--Sobald der body-Bereich geladen wurde, wird das Java-Script ausgeführt-->
+
 <body onload="loadData();">
 
 
-<!-- Header einbinden -->
+    <!-- Header einbinden -->
     <div w3-include-html="templates/header.html"></div>
-<!-- Header einbinden -->
+    <!-- Header einbinden -->
 
 
-<!-- MAIN -->
-<h1>So sieht die eingebundene Schrift aus</h1>
-<!-- MAIN -->
+    <!-- MAIN -->
+    <h1>So sieht die eingebundene Schrift aus</h1>
+    <!-- MAIN -->
 
 
-<!-- Footer einbinden -->
+    <!-- Footer einbinden -->
     <div w3-include-html="templates/footer.html"></div>
-<!-- Footer einbinden -->
+    <!-- Footer einbinden -->
 
 
 </body>
