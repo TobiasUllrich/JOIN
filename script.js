@@ -1,5 +1,39 @@
 /* [1.] Variablen ganz oben werden zuerst geladen/initialisiert und sind deshalb auch überall nutzbar */
-let variable = [];
+let users = [
+  {
+    "Name": "Tobias",
+    "Surname": "Ullrich",
+    "Picture": "tobias.jpg",
+    "EMail": "ullrich.tobias@gmx.de"
+  },
+  {
+    "Name": "Edip",
+    "Surname": "",
+    "Picture": "edip.jpg",
+    "EMail": ""
+  },
+  {
+    "Name": "Eugen",
+    "Surname": "",
+    "Picture": "eugen.jpg",
+    "EMail": ""
+  }
+];
+
+let tasks=[    
+  {
+    "Title": "Lasst uns starten :)",
+    "Category": "Management",   // Management, Marketing, Sale, usw. gerne weitere Vorschläge bzw. Ergänzungen
+    "Description": "BlaBlaBla",
+    "DueDate": "2010-10-30",
+    "Urgency": "High",        // High, Middle, Low
+    "Status": "Backlog",     // Backlog, To Do, In Progress, Testing, Done
+    "AssignedTo": [0,1,2]   // Index of users Array (ist eindeutig)
+  },
+  ];
+
+
+
 /* [1.] Variablen ganz oben werden zuerst geladen/initialisiert und sind deshalb auch überall nutzbar */
 
 
