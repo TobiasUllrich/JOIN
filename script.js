@@ -4,19 +4,22 @@ let users = [
     "Name": "Tobias",
     "Surname": "Ullrich",
     "Picture": "tobias.jpg",
-    "EMail": "ullrich.tobias@gmx.de"
+    "EMail": "ullrich.tobias@gmx.de",
+    "Password": "xxx"
   },
   {
     "Name": "Edip",
     "Surname": "",
     "Picture": "edip.jpg",
-    "EMail": ""
+    "EMail": "",
+    "Password": "xxx"
   },
   {
     "Name": "Eugen",
     "Surname": "",
     "Picture": "eugen.jpg",
-    "EMail": ""
+    "EMail": "",
+    "Password": "xxx"
   }
 ];
 
