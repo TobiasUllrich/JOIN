@@ -1,0 +1,38 @@
+body {
+  font-family: PT Sans;
+}
+
+.add-task-container {
+  width: 100%;
+  margin: 50px;
+}
+
+.headline h1 {
+  font-weight: bold;
+  font-size: 36px;
+}
+
+.headline span {
+  color: #0000ff;
+}
+
+.btn-primary {
+  background-color: #0000ff;
+}
+.addTaskBoard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: #eef0f1;
+  width: 100%;
+  padding: 30px;
+}
+
+.addTaskForm {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content:space-around;
+  width: 100%;
+}
