@@ -1,0 +1,25 @@
+/* BOARD STYLE START */
+
+.main-board-content{
+    margin-left: 200px;
+    margin-right: 200px;
+    margin-top: 100px;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.main-board-content h2{
+    font-size: 24px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.category-inputfield{
+    height: 80%;
+    width: 280px;
+    background-color: #edf0f1;
+}
+
+
+/* BOARD STYLE END */

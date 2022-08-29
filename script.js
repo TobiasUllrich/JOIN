@@ -1,37 +1,37 @@
 /* [1.] Variablen ganz oben werden zuerst geladen/initialisiert und sind deshalb auch überall nutzbar */
 let users = [
   {
-    "Name": "Tobias",
-    "Surname": "Ullrich",
-    "Picture": "tobias.jpg",
-    "EMail": "ullrich.tobias@gmx.de",
-    "Password": "xxx"
+    "name": "Tobias",
+    "surname": "Ullrich",
+    "picture": "tobias.jpg",
+    "email": "ullrich.tobias@gmx.de",
+    "password": "xxx"
   },
   {
-    "Name": "Edip",
-    "Surname": "Bahcecioglu",
-    "Picture": "edip.jpg",
-    "EMail": "edip-bahcecioglu@hotmail.de",
-    "Password": "xxx"
+    "name": "Edip",
+    "surname": "Bahcecioglu",
+    "picture": "edip.jpg",
+    "email": "edip-bahcecioglu@hotmail.de",
+    "password": "xxx"
   },
   {
-    "Name": "Eugen",
-    "Surname": "",
-    "Picture": "eugen.jpg",
-    "EMail": "oswaldeugen95@gmail.com",
-    "Password": "xxx"
+    "name": "Eugen",
+    "surname": "",
+    "picture": "eugen.jpg",
+    "email": "oswaldeugen95@gmail.com",
+    "password": "xxx"
   }
 ];
 
 let tasks=[    
   {
-    "Title": "Lasst uns starten :)",
-    "Category": "Management",   // Management, Marketing, Sale, usw. gerne weitere Vorschläge bzw. Ergänzungen
-    "Description": "BlaBlaBla",
-    "DueDate": "2010-10-30",
-    "Urgency": "High",        // High, Middle, Low
-    "Status": "Backlog",     // Backlog, To Do, In Progress, Testing, Done
-    "AssignedTo": [0,1,2]   // Index of users Array (ist eindeutig)
+    "title": "Lasst uns starten :)",
+    "category": "Management",   // Management, Marketing, Sale, usw. gerne weitere Vorschläge bzw. Ergänzungen
+    "description": "BlaBlaBla",
+    "dueDate": "2010-10-30",
+    "urgency": "High",        // High, Middle, Low
+    "status": "Backlog",     // Backlog, To Do, In Progress, Testing, Done
+    "assignedTo": [0,1,2]   // Index of users Array (ist eindeutig)
   },
   ];
 
