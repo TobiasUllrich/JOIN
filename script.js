@@ -9,9 +9,9 @@ let users = [
   },
   {
     "Name": "Edip",
-    "Surname": "",
+    "Surname": "Bahcecioglu",
     "Picture": "edip.jpg",
-    "EMail": "",
+    "EMail": "edip-bahcecioglu@hotmail.de",
     "Password": "xxx"
   },
   {
