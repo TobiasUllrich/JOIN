@@ -34,7 +34,8 @@ body{
     width: 350px;
     background-color: #edf0f1;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     overflow-y: hidden;
 }
 
@@ -67,7 +68,7 @@ body{
     flex-direction: column;
     justify-content: center;
     margin-top: 24px;
-    margin-bottom: 24px;
+    margin-bottom: -10px;
     cursor: pointer;
     box-sizing: border-box;
 }
@@ -97,10 +98,12 @@ body{
 .task-titel{
     display: flex;
     flex-direction: column;
+    text-align: center;
 }
 
 .task-titel h3{
-    font-size: 22px !important;
+    font-size: 15px !important;
+    font-weight: bold;
 }
 
 .task-details{
@@ -116,6 +119,13 @@ body{
 .task-details table tbody tr td{
     padding-right: 8px;
     min-width: 95px;
+}
+
+.task-description{
+    max-height: 30px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 /* BOARD STYLE END */
