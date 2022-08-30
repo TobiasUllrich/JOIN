@@ -27,7 +27,7 @@
     <script src="mini_backend.js"></script>
     <script>
         // https://github.com/JunusErgin/smallest_backend_ever
-        let users = ['test'];
+       
 
         // Funktion setURL() ändert die Variable BASE_SERVER_URL auf den angegebenen Pfad
         // Unter dem angegebenen Pfad muss der Ordner smallest_backend_ever mit allen Dateien von GitHub liegen
@@ -74,26 +74,21 @@
     <script src="addTask.js"></script>
 
 </head>
-<!--init()-->
+<!---->
 
-<body onload="includeHTML();">
-
-
-    <!-- Header einbinden -->
+<body onload="includeHTML();init();render()">
     <div w3-include-html="templates/header.html"></div>
-    <!-- Header einbinden -->
+   
 
-
-    <!-- MAIN -->
     <div class="add-task-container">
         <div class="headline">
             <h1>ADDTASK</h1>
             <span>Learning Management System Project</span>
         </div>
-        <div class="addTaskBoard">
+        <div class="add-task-board">
 
-            <form onsubmit="return submitAdvice(this);" action="" class="addTaskForm">
-                <div class="inputArea">
+            <form onsubmit="return submitAdvice(this);" action="" class="add-task-form ">
+                <div class="input-area">
                     <div>
                         <label for="exampleInputEmail1">TITLE</label>
                         <input required type="text" class="form-control" id="exampleInputText"
@@ -117,7 +112,7 @@
 
 
                 </div>
-                <div class="inputArea">
+                <div class="input-area">
                     <div>
                         <label for="dueDate">DUE DATE</label>
                         <input id="dueDate" class="form-control" type="date" />
@@ -130,6 +125,9 @@
                             <option value="2">Middle</option>
                             <option value="3">High</option>
                         </select>
+                    </div>
+                    <div id="avatarPicker">
+
                     </div>
                     <button type="button" class="btn btn-primary">CREATE TASK</button>
                 </div>
