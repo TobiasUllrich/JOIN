@@ -2,9 +2,13 @@
 .d-none{
     display: none;
 }
+
+.twohundert-height{
+    height: 200px !important;
+}
 .main-board-content{
-    margin-left: 200px;
-    margin-right: 200px;
+    margin-left: 150px;
+    margin-right: 150px;
     margin-top: 100px;
     display: flex;
     justify-content: space-around;
@@ -19,8 +23,84 @@
 
 .category-inputfield{
     height: 80%;
-    width: 280px;
+    width: 350px;
     background-color: #edf0f1;
+    display: flex;
+    justify-content: center;
+    overflow-y: hidden;
+}
+
+.border-left-red{
+    border-left: 8px solid red;
+    transition: all 225ms ease-in-out;
+}
+
+.border-left-yellow{
+    border-left: 8px solid yellow;
+    transition: all 225ms ease-in-out;
+}
+
+.border-left-blue{
+    border-left: 8px solid blue;
+    transition: all 225ms ease-in-out;
+}
+
+.border-left-green{
+    border-left: 8px solid green;
+    transition: all 225ms ease-in-out;
+}
+
+.main-task{
+    width: 85%;
+    height: 80px;
+    background-color: white;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 24px;
+    margin-bottom: 24px;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.main-task:hover{
+    border-left: 16px solid lightgray;
+}
+
+.task-headline{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.task-image{
+    height: 35px;
+    width: 35px;
+    object-fit: cover;
+}
+
+.delete-img{
+    height: 20px;
+    width: 20px;
+    object-fit: cover;
+}
+
+.task-titel{
+    display: flex;
+    flex-direction: column;
+}
+
+.task-titel h3{
+    font-size: 22px !important;
+}
+
+.task-details{
+    margin-top: 8px;
+    margin-left: 24px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
 
 
