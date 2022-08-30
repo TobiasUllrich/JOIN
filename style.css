@@ -8,13 +8,14 @@ body {
     overflow-x: hidden;     /* Standard: Was auf der X-Achse aus dem Body/Tag rausläuft wird nicht mehr gezeigt */
                            /* muss dem Body gegeben werden, ABER funktioniert nicht auf dem Handy -> Lösung: Alles in eine <div> was in <body> ist und diesem <div> das overflow-Attribut geben */
     display:flex;
-    justify-content:flex-start;
+    flex-direction:column;
+    
                            
  }
 
 
 .header{
-    position:relative;
+    position:fixed;
     display:flex;
     flex-direction:column;
     justify-content:space-between;
@@ -72,11 +73,20 @@ body {
 }
 
 .footer{
-    position:fixed;
+    
     display:flex;
-    justify-content:center;
-    bottom:0;
+    flex-direction:column;
+    align-items:center;
+    
     background-color: #edf0f1;
+    width: calc(100vw - 120px);  /*Be sure to put spaces around the '-' sign in the calculation*/
+    padding:16px;
+    margin-left:120px;
+}
+
+.footer a{
+    text-decoration: none;
+    color: #0000ff;
 }
 
 /* INTERVALLE FÜRS HANDY */

@@ -69,20 +69,14 @@ body {
  border: 2px solid white;
 }
 
-.footer{
-    position:fixed;
-    display:flex;
-    justify-content:center;
-    bottom:0;
-}
 
 /* BACKLOG */
 .backlog-container{
     display:flex;
     flex-direction:column;
-    background-color:yellow;
+    /* background-color:yellow; */
     width: calc(100vw - 120px);  /*Be sure to put spaces around the '-' sign in the calculation*/
-      
+    margin-left:120px;  /* Because of the fixed Menu on the left */  
 }
 
 .backlog-headlinecontainer{
@@ -108,7 +102,7 @@ body {
     display:flex;
     color: #0000ff;
     margin-left:16px;
-    margin-right:16px;
+    margin-right:29px;
 }
 
 .backlog-headlinesforbackloglist span{
@@ -140,7 +134,7 @@ text-align:left;
     border-radius:10px;
     margin-top:8px;
     margin-bottom:16px; 
-    margin-right:16px; 
+    margin-right:29px; 
     margin-left:16px; 
 }
 
@@ -185,7 +179,6 @@ text-align:left;
 /* INTERVALLE FÜRS HANDY */
 @media (min-width:301px) and (max-width:1400px) {
 }
-
 
 @media (min-width:400px) and (max-width:800px) {
 }
