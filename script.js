@@ -33,6 +33,33 @@ let tasks=[
     "status": "Backlog",     // Backlog, To Do, In Progress, Testing, Done
     "assignedTo": [0,1,2]   // Index of users Array (ist eindeutig)
   },
+  {
+    "title": "Lagebesprechung Preiserhöhungen",
+    "category": "Sales",
+    "description": "Hier wird ein unnötiger Beschreibungstext stehen, der von dem User festgelegt wird",
+    "dueDate": "2022-08-30",
+    "urgency": "High",
+    "status": "todo",
+    "assignedTo": "userX"
+  },
+  {
+    "title": "Planung der Weihnachtsfeier",
+    "category": "Marketing",
+    "description": "Hier wird ein unnötiger Beschreibungstext stehen, der von dem User festgelegt wird",
+    "dueDate": "2022-11-12",
+    "urgency": "Low",
+    "status": "todo",
+    "assignedTo": "userX"
+  },
+  {
+    "title": "Kündigung der Mitarbeiterin XXX",
+    "category": "Management",
+    "description": "Hier wird ein unnötiger Beschreibungstext stehen, der von dem User festgelegt wird",
+    "dueDate": "2022-12-16",
+    "urgency": "Middle",
+    "status": "todo",
+    "assignedTo": "userX"
+  },
   ];
 
 
