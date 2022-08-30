@@ -28,6 +28,7 @@
     <link rel="stylesheet" type='text/css' media='screen' href="fonts.css">
     <script src="script.js"></script> <!-- Statt <script> ... </script> -->
     <link rel="stylesheet" type='text/css' media='screen' href="backlog.css"> <!-- Statt <style> ... </style> -->
+    <link rel="stylesheet" type='text/css' media='screen' href="style.css"> <!-- Statt <style> ... </style> -->
 
     <!-- JavaScript Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
@@ -95,20 +96,58 @@
 <body onload="includeHTML();init();">
 
 
+    
+
     <!-- Header einbinden -->
     <div w3-include-html="templates/header.html"></div>
     <!-- Header einbinden -->
 
+    <div class="backlog-container">
 
     <!-- MAIN -->
-    <h1>BACKLOG</h1>
+    <div class="backlog-headlinecontainer">
+        <div class="backlog-headline">
+           <h1><b>Backlog</b></h1>
+           <span>Learning Management System Project</span>
+       </div>
+    </div>
     <!-- MAIN -->
+
+    <div class="backlog-headlinesforbackloglist">
+        <span><b>ASSIGNED TO</b></span>
+        <span><b>CATEGORY</b></span>
+        <span><b>DETAILS</b></span>
+    </div>
+
+
+    <div class="backlog-backloglist">
+     
+        <div class="backlog-task">
+             <div class="backlog-assignedto">
+                <img class="user" src="img/Tobias.jpg" alt="">
+                <div class="backlog-assignedto-user">
+                <div>Tobias Ullrich</div>
+                <div><a>ullrich.tobias@gmx.de</a></div>
+                </div>
+             </div>
+             <div class="backlog-category">
+                Marketing
+             </div>
+             <div class="backlog-details">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse soluta libero consequuntur ducimus natus, dolorum tempore magni voluptate eum, eaque deleniti neque incidunt sapiente omnis totam laboriosam consequatur id et!
+             </div>
+        </div>
+      
+
+    </div>
+
 
 
     <!-- Footer einbinden -->
     <div w3-include-html="templates/footer.html"></div>
     <!-- Footer einbinden -->
 
+    </div>
 
 </body>
 

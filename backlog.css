@@ -26,8 +26,6 @@ body {
     background-color: blue;
     height:calc((100vh - 50px)); 
 
-    
-
     width:120px;
 }
 
@@ -78,8 +76,78 @@ body {
     bottom:0;
 }
 
+/* BACKLOG */
+.backlog-container{
+    display:flex;
+    flex-direction:column;
+    background-color:yellow;
+    width: calc(100vw - 120px);  /*Be sure to put spaces around the '-' sign in the calculation*/
+      
+}
+
+.backlog-headlinecontainer{
+    display:flex;
+    flex-direction:column;
+}
+
+.backlog-headline{
+    display:flex;
+    flex-direction:column;
+    margin:16px;
+}
+
+.backlog-headline h1{
+    margin-bottom:0;
+}
+
+.backlog-headlinesforbackloglist{
+    display:flex;
+    justify-content:space-between;
+}
+
+.backlog-headlinesforbackloglist span{
+    margin:16px;
+}
+
+.backlog-backloglist{
+    display:flex;
+    flex-direction:column;
+
+}
+
+.backlog-task{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    background-color: #edf0f1;
+    border-radius:10px;
+    margin:16px; 
+}
+
+.backlog-assignedto{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.backlog-assignedto-user{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.backlog-category{
+
+}
+
+.backlog-details{
+
+}
+
+
 /* INTERVALLE FÜRS HANDY */
-@media (min-width:301px) and (max-width:395px) {
+@media (min-width:301px) and (max-width:1400px) {
 }
 
 

@@ -76,6 +76,7 @@ body {
     display:flex;
     justify-content:center;
     bottom:0;
+    background-color: #edf0f1;
 }
 
 /* INTERVALLE FÜRS HANDY */
