@@ -97,60 +97,65 @@
     <!-- Header einbinden -->
 
     <!-- MAIN -->
-    <div class="main-board-content">
-        <div id="todo" class="solo-category">
-            <h2>TO DO</h2>
-            <div class="category-inputfield">
-                <div id="main-task" class="main-task border-left-red" onclick="showTaskDetails()"> <!--CODE AB HIER BIS ZEILE 137 ist ein Template aus board.js Funktion templateOfNewTask // Es ist nur vorübergehend hier damit ich schonmal stylen kann-->
-                    <div class="task-headline">
-                        <div><img class="task-image" src="./img/todo.png"></div> <!--Es gibt für jede Kategorie ein Bild todo.png / inprogress.png / testing.png / done.png-->
-                        <div class="task-titel">
-                            <h3>TASKTITLE</h3>
-                            <span>TASKDATE</span>
+    <div class="main-page-container">
+        <div class="main-board-content">
+            <div id="todo" class="solo-category">
+                <h2>TO DO</h2>
+                <div class="category-inputfield">
+                    <div id="main-task" class="main-task border-left-red" onclick="showTaskDetails()">
+                        <!--CODE AB HIER BIS ZEILE 137 ist ein Template aus board.js Funktion templateOfNewTask // Es ist nur vorübergehend hier damit ich schonmal stylen kann-->
+                        <div class="task-headline">
+                            <div><img class="task-image" src="./img/todo.png"></div>
+                            <!--Es gibt für jede Kategorie ein Bild todo.png / inprogress.png / testing.png / done.png-->
+                            <div class="task-titel">
+                                <h3>TASKTITLE</h3>
+                                <span>TASKDATE</span>
+                            </div>
+                            <div class="delete-btn"><img class="delete-img" title="Delete Task" src="./img/delete.png">
+                            </div>
                         </div>
-                        <div class="delete-btn"><img class="delete-img" title="Delete Task" src="./img/delete.png"></div>
-                    </div>
-            
-                    <div id="task-details" class="task-details d-none">
-                        <table>
-                            <tr>
-                                <td><b>Description:</b></td>
-                                <td>TASKDESCRIPTION</td>
-                            </tr>
 
-                            <tr>
-                                <td><b>Category:</b></td>
-                                <td>TASKCATEGORY</td>
-                            </tr>
+                        <div id="task-details" class="task-details d-none">
+                            <table>
+                                <tr>
+                                    <td><b>Description:</b></td>
+                                    <td>TASKDESCRIPTION</td>
+                                </tr>
 
-                            <tr>
-                                <td><b>Urgency:</b></td>
-                                <td>TASKURGENCY</td>
-                            </tr>
+                                <tr>
+                                    <td><b>Category:</b></td>
+                                    <td>TASKCATEGORY</td>
+                                </tr>
 
-                            <tr>
-                                <td><b>Assigned to:</b></td>
-                                <td>USER</td>
-                            </tr>
-                        </table>
+                                <tr>
+                                    <td><b>Urgency:</b></td>
+                                    <td>TASKURGENCY</td>
+                                </tr>
+
+                                <tr>
+                                    <td><b>Assigned to:</b></td>
+                                    <td>USER</td>
+                                </tr>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div id="progress" class="solo-category">
-            <h2>IN PROGRESS</h2>
-            <div class="category-inputfield"></div>
-        </div>
+            <div id="progress" class="solo-category">
+                <h2>IN PROGRESS</h2>
+                <div class="category-inputfield"></div>
+            </div>
 
-        <div id="testing" class="solo-category">
-            <h2>TESTING</h2>
-            <div class="category-inputfield"></div>
-        </div>
+            <div id="testing" class="solo-category">
+                <h2>TESTING</h2>
+                <div class="category-inputfield"></div>
+            </div>
 
-        <div id="done" class="solo-category">
-            <h2>DONE</h2>
-            <div class="category-inputfield"></div>
+            <div id="done" class="solo-category">
+                <h2>DONE</h2>
+                <div class="category-inputfield"></div>
+            </div>
         </div>
     </div>
 
