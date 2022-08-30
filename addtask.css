@@ -4,7 +4,9 @@ body {
 
 .add-task-container {
   width: 100%;
-  margin: 50px;
+  margin: 20px;
+  padding-left: 120px;
+  padding-right: 40px;
 }
 
 .headline h1 {
@@ -21,18 +23,48 @@ body {
 }
 .addTaskBoard {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
   background-color: #eef0f1;
   width: 100%;
   padding: 30px;
+  margin-top: 20px;
 }
 
 .addTaskForm {
   display: flex;
-  flex-direction: column;
+  justify-content: space-evenly;
+  flex-direction: row;
   flex-wrap: wrap;
-  justify-content:space-around;
   width: 100%;
+}
+.inputArea{
+  
+  width: 50%;
+}
+
+.inputArea label {
+  color: #0000ff;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.inputArea h3 {
+  color: #0000ff;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.inputArea input{
+  height: 50px;
+  width: 90%;;
+  margin-top: 10px;
+}
+
+.inputArea select{
+  height: 50px;
+  width: 90%;
+  margin-top: 10px;
+}
+
+.inputArea textarea{
+  width: 90%;
 }
