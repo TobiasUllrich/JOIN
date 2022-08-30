@@ -1,0 +1,107 @@
+html {
+    scroll-behavior: smooth;  /* Standard */
+}
+
+body {
+    margin: 0px;             /* Browser-Standard rückgängig machen: Äußerer Abstand */
+    font-family: "PT Sans";  /* Schriftart für den ganzen Body-Bereich festlegen */
+    overflow-x: hidden;     /* Standard: Was auf der X-Achse aus dem Body/Tag rausläuft wird nicht mehr gezeigt */
+                           /* muss dem Body gegeben werden, ABER funktioniert nicht auf dem Handy -> Lösung: Alles in eine <div> was in <body> ist und diesem <div> das overflow-Attribut geben */
+    display:flex;
+    justify-content:flex-start;
+                           
+ }
+
+
+.header{
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    align-items:center;
+    left:0;
+    margin-top:25px;
+    margin-bottom:25px;
+
+    background-color: blue;
+    height:calc((100vh - 50px)); 
+
+    
+
+    width:120px;
+}
+
+.header-uppersection{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    width:100%;
+}
+
+.header a{
+    color:white;
+    text-decoration: none;
+    padding-top:5px;
+    padding-bottom:5px;
+    width:100%;
+    text-align:center;
+}
+
+.header a:hover{
+    border-left: 4px solid white;
+}
+
+.header nav{
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
+    align-items:center;
+    width:100%;
+}
+
+.logo{
+    margin:15px;
+    height:50px;
+}
+
+.user{
+ border-radius:100%;
+ height:60px;
+ margin:15px;   
+ border: 2px solid white;
+}
+
+.footer{
+    position:fixed;
+    display:flex;
+    justify-content:center;
+    bottom:0;
+}
+
+/* INTERVALLE FÜRS HANDY */
+@media (min-width:301px) and (max-width:395px) {
+}
+
+
+@media (min-width:400px) and (max-width:800px) {
+}
+
+@media (min-width:215px) and (max-width:300px) {
+}
+
+@media (min-width:299px) and (max-width:0px) {   /* Ab hier leer lassen */
+}
+
+
+
+                  
+
+
+
+
+
+
+
+
+
+
