@@ -16,7 +16,7 @@ let users = [
   },
   {
     "name": "Eugen",
-    "surname": "",
+    "surname": "Oswald",
     "picture": "eugen.jpg",
     "email": "oswaldeugen95@gmail.com",
     "password": "xxx"
