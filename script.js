@@ -57,7 +57,25 @@ let tasks=[
     "description": "Hier wird ein unnötiger Beschreibungstext stehen, der von dem User festgelegt wird",
     "dueDate": "2022-12-16",
     "urgency": "Middle",
-    "status": "todo",
+    "status": "inprogress",
+    "assignedTo": "userX"
+  },
+  {
+    "title": "Einführung neues Softwaresystem ERBY",
+    "category": "Management",
+    "description": "Hier wird ein unnötiger Beschreibungstext stehen, der von dem User festgelegt wird",
+    "dueDate": "2022-09-04",
+    "urgency": "High",
+    "status": "testing",
+    "assignedTo": "userX"
+  },
+  {
+    "title": "Einführungsschulung betriebseigenes Canbanboard",
+    "category": "Sales",
+    "description": "Hier wird ein unnötiger Beschreibungstext stehen, der von dem User festgelegt wird",
+    "dueDate": "2022-08-30",
+    "urgency": "High",
+    "status": "done",
     "assignedTo": "userX"
   },
   ];
