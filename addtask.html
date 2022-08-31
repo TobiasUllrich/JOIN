@@ -30,7 +30,7 @@
 </head>
 <!---->
 
-<body onload="includeHTML();init();render()">
+<body onload="includeHTML();init();renderAddTask()">
     <div w3-include-html="templates/header.html"></div>
    
 
@@ -41,7 +41,7 @@
         </div>
         <div class="add-task-board">
 
-            <form onsubmit="return submitAdvice(this);" action="" class="add-task-form ">
+            <form onsubmit="myFunction(); return false;" class="add-task-form ">
                 <div class="input-area">
                     <div>
                         <label for="exampleInputEmail1">TITLE</label>

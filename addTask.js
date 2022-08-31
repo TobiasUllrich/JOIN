@@ -2,7 +2,7 @@ let usersTEST = ['.img/edip.png', '.img/Tobias.png', '.img/eugen.png', '.img/gas
 let selectedUsersTEST = []
 
 
-function render() {
+function renderAddTask() {
     let avatarPicker = document.getElementById('avatarPicker');
     avatarPicker.innerHTML = '';
 
@@ -24,8 +24,6 @@ function selectUser(i) {
     }
 }
 
-function submitAdvice(f) {
-    alert('submitting');
-    return false;
+function myFunction(){
+    console.log('Hello');
 }
-
