@@ -1,3 +1,4 @@
+// ##############BOARD TEMPLATES START################# //
 function templateOfNewTaskToDo(todo ,i) {
     return `
     <div id="main-task-todo${i}" class="main-task border-left-red" onclick="showTaskDetailsToDo(${i})">
@@ -149,3 +150,5 @@ function templateOfTaskDone(doneTask, l){
         </div>
     </div>`
 }
+
+// ##############BOARD TEMPLATES END################# //
