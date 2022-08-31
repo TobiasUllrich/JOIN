@@ -81,7 +81,27 @@ let tasksScript = [
   ];
 /* [1.] Variablen ganz oben werden zuerst geladen/initialisiert und sind deshalb auch überall nutzbar */
 
-/* [2.]  Für den*/
+/* [2.] Leert die Datenbank-Arrays users & tasks und befüllt sie mit den Daten von usersScript und tasksScript*/
+function RESETandFILL(){
+    
+    deleteAllUsers(); 
+    deleteAllTasks(); 
+    console.log('huhu');
+
+for (i=0;i<usersScript.length;i++){
+    addUser(usersScript[i]);
+    console.log(usersScript[i]);
+};
+
+for (i=0;i<tasksScript.length;i++){
+    addTask(tasksScript[i]);
+    console.log(tasksScript[i]);
+};
+}
+/* [2.] Leert die Datenbank-Arrays users & tasks und befüllt sie mit den Daten von usersScript und tasksScript*/
+
+
+/* [3.]  Für den Datenaustausch mit dem Server */
 
 // https://github.com/JunusErgin/smallest_backend_ever
 let users = [];
@@ -173,7 +193,7 @@ async function deleteAllTasks() {
     //-> Wenn jetzt nach dem Deleten ein init() ausgeführt wird, dann sieht man, dass das Array leer ist
 }
 
-/* [2.] */
+/* [3.]  Für den Datenaustausch mit dem Server */
 
 
 
@@ -183,7 +203,7 @@ async function deleteAllTasks() {
 
 
 
-/* [3.] Funktion um weitere HTML-Dateien einzubinden (Code von w3c)*/
+/* [4.] Funktion um weitere HTML-Dateien einzubinden (Code von w3c)*/
 /* Code von w3c*/
 async function includeHTML() {
     let includeElements = document.querySelectorAll('[w3-include-html]'); //Alle Elemente mit Attribut '[w3-include-html]' werden ausgewählt
@@ -198,11 +218,11 @@ async function includeHTML() {
         }
     }
 }
-/* [3.] Funktion um weitere HTML-Dateien einzubinden (Code von w3c)*/
+/* [4.] Funktion um weitere HTML-Dateien einzubinden (Code von w3c)*/
 
 
 
-/* [4.] Array zu String und wieder zurück */
+/* [5.] Array zu String und wieder zurück */
 /* Im localStorage kann nur Text gespeichert werden, ABER im Code kann nur ein Array sinnvoll genutzt werden */
 /* key ist der Name unter welchem der Array gespeichert werden soll (frei wählbarer Text) und array ist das Array selbst  */
 function setArray (key,array){
@@ -212,4 +232,4 @@ function setArray (key,array){
 function getArray (key){
   return JSON.parse(localStorage.getItem(key)); // JSON.parse() wandelt einen String in einen Array um
 }
-/* [4.] Array zu String und wieder zurück */
+/* [5.] Array zu String und wieder zurück */
