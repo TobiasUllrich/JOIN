@@ -146,7 +146,7 @@ text-align:left;
     padding-left:16px;
     
     text-align:left;
-    width: calc((100vw - 120px - 2*16px)/3);  /*Be sure to put spaces around the '-' sign in the calculation*/
+    width: calc((100vw - 120px - 2*16px - 13px)/3);  /*Be sure to put spaces around the '-' sign in the calculation*/
 }
 
 .backlog-assignedto-user-picture{
@@ -166,13 +166,13 @@ text-align:left;
 .backlog-category{
     
     text-align:center;
-    width: calc((100vw - 120px - 2*16px)/3);  /*Be sure to put spaces around the '-' sign in the calculation*/
+    width: calc((100vw - 120px - 2*16px - 13px)/3);  /*Be sure to put spaces around the '-' sign in the calculation*/
 }
 
 .backlog-details{
     padding:16px;
     text-align:left;
-    width: calc((100vw - 120px - 2*16px)/3);  /*Be sure to put spaces around the '-' sign in the calculation*/
+    width: calc((100vw - 120px - 2*16px  - 13px)/3);  /*Be sure to put spaces around the '-' sign in the calculation*/
 }
 
 

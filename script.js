@@ -1,5 +1,5 @@
 /* [1.] Variablen ganz oben werden zuerst geladen/initialisiert und sind deshalb auch überall nutzbar */
-let users = [
+let usersScript = [
   {
     "name": "Tobias",
     "surname": "Ullrich",
@@ -23,7 +23,7 @@ let users = [
   }
 ];
 
-let tasks=[    
+let tasksScript = [    
   {
     "title": "Lasst uns starten :)",
     "category": "Management",   // Management, Marketing, Sale, usw. gerne weitere Vorschläge bzw. Ergänzungen

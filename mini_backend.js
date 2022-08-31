@@ -17,6 +17,7 @@ const backend = {
         return saveJSONToServer();
     }
 };
+
 window.onload = async function() {
     downloadFromServer();
 }

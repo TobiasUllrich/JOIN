@@ -39,6 +39,7 @@
     <script>
         // https://github.com/JunusErgin/smallest_backend_ever
         //let users = [];
+        //let tasks = [];
 
         // Funktion setURL() ändert die Variable BASE_SERVER_URL auf den angegebenen Pfad
         // Unter dem angegebenen Pfad muss der Ordner smallest_backend_ever mit allen Dateien von GitHub liegen
@@ -52,6 +53,7 @@
         async function init() {
             await downloadFromServer();
             users = JSON.parse(backend.getItem('users')) || [];
+            tasks = JSON.parse(backend.getItem('tasks')) || [];
         }
 
         // ADD USER TO ARRAY
@@ -59,6 +61,13 @@
             users.push(name);
             //-> Im Live Array können wir gleich sehen, dass das Element inzugefügt wurde, es wird in der nächsten Zeile noch ins Backend übertragen
             await backend.setItem('users', JSON.stringify(users));
+        }
+
+        // ADD TASK TO ARRAY
+                async function addTask(name) {
+            tasks.push(name);
+            //-> Im Live Array können wir gleich sehen, dass das Element inzugefügt wurde, es wird in der nächsten Zeile noch ins Backend übertragen
+            await backend.setItem('tasks', JSON.stringify(tasks));
         }
 
         // DELETE SPECIFIC USER FROM ARRAY
@@ -101,7 +110,9 @@
 
 
     <!-- MAIN -->
-    <h1>So sieht die eingebundene Schrift aus</h1>
+    <div style="margin-left:120px;">
+        <h1>So sieht die eingebundene Schrift aus</h1>
+    </div>
     <!-- MAIN -->
 
 
