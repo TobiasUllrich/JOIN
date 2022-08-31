@@ -21,27 +21,29 @@
         integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
         crossorigin="anonymous"></script>
 
-        <script src="mini_backend.js"></script> <!-- Zuerst einbinden, weil Funktion setURL verfügbar sein muss -->
-        <script src="script.js"></script> <!-- Statt <script> ... </script> -->
-        <script src="board.js"></script> <!-- Statt <script> ... </script> -->
-        <script src="backlog.js"></script> <!-- Statt <script> ... </script> -->
-        <script src="addTask.js"></script> <!-- Statt <script> ... </script> -->
+    <script src="mini_backend.js"></script> <!-- Zuerst einbinden, weil Funktion setURL verfügbar sein muss -->
+    <script src="script.js"></script> <!-- Statt <script> ... </script> -->
+    <script src="board.js"></script> <!-- Statt <script> ... </script> -->
+    <script src="backlog.js"></script> <!-- Statt <script> ... </script> -->
+    <script src="addTask.js"></script> <!-- Statt <script> ... </script> -->
 
 </head>
 <!---->
 
-<body onload="includeHTML();init();renderAddTask()">
+<body onload="includeHTML();init();renderAddTask();">
     <div w3-include-html="templates/header.html"></div>
-   
 
+    <!-- headline -->
     <div class="add-task-container">
         <div class="headline">
             <h1>ADDTASK</h1>
             <span>Learning Management System Project</span>
         </div>
+        <!-- headline -->
         <div class="add-task-board">
-
+            <!-- Form -->
             <form onsubmit="myFunction(); return false;" class="add-task-form ">
+                <!-- left site -->
                 <div class="input-area">
                     <div>
                         <label for="exampleInputEmail1">TITLE</label>
@@ -66,6 +68,8 @@
 
 
                 </div>
+                <!-- left site -->
+                <!-- right site -->
                 <div class="input-area">
                     <div>
                         <label for="dueDate">DUE DATE</label>
@@ -85,7 +89,9 @@
                     </div>
                     <button type="button" class="btn btn-primary">CREATE TASK</button>
                 </div>
+                <!-- right site -->
             </form>
+            <!-- Form -->
         </div>
 
     </div>
