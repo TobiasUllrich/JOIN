@@ -48,12 +48,12 @@
                     <div>
                         <label for="exampleInputEmail1">TITLE</label>
                         <input required type="text" class="form-control" id="exampleInputText"
-                            aria-describedby="textarea" placeholder="Add title">
+                            aria-describedby="textarea" placeholder="Add title" required>
                     </div>
                     <div>
                         <label>CATEGORY</label>
                         <select id="category" class="form-select form-select-lg mb-3"
-                            aria-label=".form-select-lg example">
+                            aria-label=".form-select-lg example" required>
                             <option value="1">Management</option>
                             <option value="2">Marketing</option>
                             <option value="3">Sale</option>
@@ -62,7 +62,7 @@
                     <h3>DESCRIPTION</h3>
                     <div class="form-floating">
                         <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
-                            style="height: 100px"></textarea>
+                            style="height: 100px" required></textarea>
 
                     </div>
 
@@ -73,18 +73,18 @@
                 <div class="input-area">
                     <div>
                         <label for="dueDate">DUE DATE</label>
-                        <input id="dueDate" class="form-control" type="date" />
+                        <input id="dueDate" class="form-control" type="date" required />
                     </div>
                     <div>
                         <label>URGENCY</label>
                         <select id="urgency" class="form-select form-select-lg mb-3"
-                            aria-label=".form-select-lg example">
+                            aria-label=".form-select-lg example" required>
                             <option value="1">Low</option>
                             <option value="2">Middle</option>
                             <option value="3">High</option>
                         </select>
                     </div>
-                    <div id="avatarPicker">
+                    <div id="avatarPicker" >
 
                     </div>
                     <button type="button" class="btn btn-primary">CREATE TASK</button>
