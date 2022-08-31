@@ -26,7 +26,6 @@
 
     <!-- Fonts downloaden in entsprechenden Ordner legen und über Extra-CSS-Datei einbinden (https://google-webfonts-helper.herokuapp.com/) -->
     <link rel="stylesheet" type='text/css' media='screen' href="fonts.css">
-    <script src="script.js"></script> <!-- Statt <script> ... </script> -->
     <link rel="stylesheet" type='text/css' media='screen' href="style.css"> <!-- Statt <style> ... </style> -->
 
     <!-- JavaScript Bootstrap -->
@@ -36,102 +35,7 @@
     <!-- JavaScript Bootstrap -->
 
     <script src="mini_backend.js"></script> <!-- Zuerst einbinden, weil Funktion setURL verfügbar sein muss -->
-    <script>
-        // https://github.com/JunusErgin/smallest_backend_ever
-        let users = [];
-        let tasks = [];
-
-        // Funktion setURL() ändert die Variable BASE_SERVER_URL auf den angegebenen Pfad
-        // Unter dem angegebenen Pfad muss der Ordner smallest_backend_ever mit allen Dateien von GitHub liegen
-        setURL('https://gruppe-2970.developerakademie.net/smallest_backend_ever');
-
-        // WICHTIG ZU INSTALLIEREN SIND DIE FOLGENDEN ZWEI:
-        //  FÜR CHROME-ERWEITERUNG: https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf
-        //  FÜR LIVE-SERVER: https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer
-
-
-        async function init() {
-
-            // GET User-Data form the Server which is saved in backend
-            await downloadFromServer();
-            users = JSON.parse(backend.getItem('users')) || [];
-
-            // GET Tasks-Data form the Server which is saved in backendTWO
-            await downloadFromServerTWO(); /** INSERT FOR SECOND JSON-FILE */
-            tasks = JSON.parse(backendTWO.getItem('tasks')) || [];
-
-        }
-
-        // ADD USER TO ARRAY
-        async function addUser(object) {
-            users.push(object);
-            //-> Im Live Array können wir gleich sehen, dass das Element inzugefügt wurde, es wird in der nächsten Zeile noch ins Backend übertragen
-            await backend.setItem('users', JSON.stringify(users));
-        }
-
-        // ADD TASK TO ARRAY
-        async function addTask(object) {
-            tasks.push(object);
-            console.log(tasks);
-            //-> Im Live Array können wir gleich sehen, dass das Element inzugefügt wurde, es wird in der nächsten Zeile noch ins Backend übertragen
-            await backendTWO.setItem('tasks', JSON.stringify(tasks));
-        }
-
-        // DELETE SPECIFIC USER FROM ARRAY
-        async function delUser(index) {
-            //let id = users.indexOf(name);
-            if (index !== parseInt(index, 10))
-              {console.log("Data is not an integer!");}
-            if (index >= users.length || index < 0)
-              {console.log("ERROR: Number to High or to Low!");}
-            else if (index == 0 && users.length == 1)
-              {console.log("KILL Complete Array");deleteAllUsers();}
-            else 
-            {
-                console.log("Data is an integer!");
-                users.splice(index, 1);
-                //-> Im Live Array können wir gleich sehen, dass das Element gelöscht wurde, es wird in der nächsten Zeile noch ins Backend übertragen
-                await backend.setItem('users', JSON.stringify(users));
-            }
-        }
-
-        // DELETE SPECIFIC TASK FROM ARRAY
-        async function delTask(index) {
-            //let id = tasks.indexOf(name);
-            if (index !== parseInt(index, 10))
-              {console.log("Data is not an integer!");}
-            if (index >= tasks.length || index < 0)
-              {console.log("ERROR: Number to High or to Low!");}
-            else if (index == 0 && tasks.length == 1)
-              {console.log("KILL Complete Array");deleteAllTasks();}
-            else 
-            {
-                console.log("Data is an integer!");
-                tasks.splice(index, 1);
-                //-> Im Live Array können wir gleich sehen, dass das Element gelöscht wurde, es wird in der nächsten Zeile noch ins Backend übertragen
-                await backendTWO.setItem('tasks', JSON.stringify(tasks));
-            }
-        }
-
-
-        // DELETE ALL USERS FROM ARRAY
-        async function deleteAllUsers() {
-            await backend.deleteItem('users');
-            //-> Wenn jetzt nach dem Deleten ein init() ausgeführt wird, dann sieht man, dass das Array leer ist
-        }
-
-
-        // DELETE ALL TASKS FROM ARRAY
-        async function deleteAllTasks() {
-            await backendTWO.deleteItem('tasks');
-            //-> Wenn jetzt nach dem Deleten ein init() ausgeführt wird, dann sieht man, dass das Array leer ist
-        }
-
-
-    </script>
-
-
-
+    <script src="script.js"></script> <!-- Statt <script> ... </script> -->
     <script src="board.js"></script> <!-- Statt <script> ... </script> -->
     <script src="backlog.js"></script> <!-- Statt <script> ... </script> -->
     <script src="addTask.js"></script> <!-- Statt <script> ... </script> -->

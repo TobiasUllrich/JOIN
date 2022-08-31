@@ -26,7 +26,6 @@
     
     <!-- Fonts downloaden in entsprechenden Ordner legen und über Extra-CSS-Datei einbinden (https://google-webfonts-helper.herokuapp.com/) -->
     <link rel="stylesheet" type='text/css' media='screen' href="fonts.css">
-    <script src="script.js"></script> <!-- Statt <script> ... </script> -->
     <link rel="stylesheet" type='text/css' media='screen' href="style.css"> <!-- Statt <style> ... </style> -->
 
     <!-- JavaScript Bootstrap -->
@@ -36,51 +35,7 @@
     <!-- JavaScript Bootstrap -->
 
     <script src="mini_backend.js"></script> <!-- Zuerst einbinden, weil Funktion setURL verfügbar sein muss -->
-    <script>
-        // https://github.com/JunusErgin/smallest_backend_ever
-        let users = [];
-
-        // Funktion setURL() ändert die Variable BASE_SERVER_URL auf den angegebenen Pfad
-        // Unter dem angegebenen Pfad muss der Ordner smallest_backend_ever mit allen Dateien von GitHub liegen
-        setURL('https://gruppe-2970.developerakademie.net/smallest_backend_ever');
-
-        // WICHTIG ZU INSTALLIEREN SIND DIE FOLGENDEN ZWEI:
-        //  FÜR CHROME-ERWEITERUNG: https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf
-        //  FÜR LIVE-SERVER: https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer
-
-
-        async function init() {
-            await downloadFromServer();
-            users = JSON.parse(backend.getItem('users')) || [];
-        }
-
-        // ADD USER TO ARRAY
-        async function addUser(name) {
-            users.push(name);
-            //-> Im Live Array können wir gleich sehen, dass das Element inzugefügt wurde, es wird in der nächsten Zeile noch ins Backend übertragen
-            await backend.setItem('users', JSON.stringify(users));
-        }
-
-        // DELETE SPECIFIC USER FROM ARRAY
-        async function delUser(name) {
-            let id = users.indexOf(name);
-            console.log(id);
-            users.splice(id, 1);
-            //-> Im Live Array können wir gleich sehen, dass das Element gelöscht wurde, es wird in der nächsten Zeile noch ins Backend übertragen
-            await backend.setItem('users', JSON.stringify(users));
-        }
-
-        // DELETE ALL USERS FROM ARRAY
-        async function deleteAllUsers() {
-            await backend.deleteItem('users');
-            //-> Wenn jetzt nach dem Deleten ein init() ausgeführt wird, dann sieht man, dass das Array leer ist
-        }
-
-
-    </script>
-
-
-    
+    <script src="script.js"></script> <!-- Statt <script> ... </script> -->
     <script src="board.js"></script> <!-- Statt <script> ... </script> -->
     <script src="backlog.js"></script> <!-- Statt <script> ... </script> -->
     <script src="addTask.js"></script> <!-- Statt <script> ... </script> -->

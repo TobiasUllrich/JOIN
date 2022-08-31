@@ -79,13 +79,111 @@ let tasksScript = [
     "assignedTo": "userX"
   },
   ];
-
-
-
 /* [1.] Variablen ganz oben werden zuerst geladen/initialisiert und sind deshalb auch überall nutzbar */
 
+/* [2.]  Für den*/
 
-/* [2.] Funktion um weitere HTML-Dateien einzubinden (Code von w3c)*/
+// https://github.com/JunusErgin/smallest_backend_ever
+let users = [];
+let tasks = [];
+
+// Funktion setURL() ändert die Variable BASE_SERVER_URL auf den angegebenen Pfad
+// Unter dem angegebenen Pfad muss der Ordner smallest_backend_ever mit allen Dateien von GitHub liegen
+setURL('https://gruppe-2970.developerakademie.net/smallest_backend_ever');
+
+// WICHTIG ZU INSTALLIEREN SIND DIE FOLGENDEN ZWEI:
+//  FÜR CHROME-ERWEITERUNG: https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf
+//  FÜR LIVE-SERVER: https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer
+
+
+async function init() {
+
+    // GET User-Data form the Server which is saved in backend
+    await downloadFromServer();
+    users = JSON.parse(backend.getItem('users')) || [];
+
+    // GET Tasks-Data form the Server which is saved in backendTWO
+    await downloadFromServerTWO(); /** INSERT FOR SECOND JSON-FILE */
+    tasks = JSON.parse(backendTWO.getItem('tasks')) || [];
+
+}
+
+// ADD USER TO ARRAY
+async function addUser(object) {
+    users.push(object);
+    //-> Im Live Array können wir gleich sehen, dass das Element inzugefügt wurde, es wird in der nächsten Zeile noch ins Backend übertragen
+    await backend.setItem('users', JSON.stringify(users));
+}
+
+// ADD TASK TO ARRAY
+async function addTask(object) {
+    tasks.push(object);
+    console.log(tasks);
+    //-> Im Live Array können wir gleich sehen, dass das Element inzugefügt wurde, es wird in der nächsten Zeile noch ins Backend übertragen
+    await backendTWO.setItem('tasks', JSON.stringify(tasks));
+}
+
+// DELETE SPECIFIC USER FROM ARRAY
+async function delUser(index) {
+    //let id = users.indexOf(name);
+    if (index !== parseInt(index, 10))
+      {console.log("Data is not an integer!");}
+    if (index >= users.length || index < 0)
+      {console.log("ERROR: Number to High or to Low!");}
+    else if (index == 0 && users.length == 1)
+      {console.log("KILL Complete Array");deleteAllUsers();}
+    else 
+    {
+        console.log("Data is an integer!");
+        users.splice(index, 1);
+        //-> Im Live Array können wir gleich sehen, dass das Element gelöscht wurde, es wird in der nächsten Zeile noch ins Backend übertragen
+        await backend.setItem('users', JSON.stringify(users));
+    }
+}
+
+// DELETE SPECIFIC TASK FROM ARRAY
+async function delTask(index) {
+    //let id = tasks.indexOf(name);
+    if (index !== parseInt(index, 10))
+      {console.log("Data is not an integer!");}
+    if (index >= tasks.length || index < 0)
+      {console.log("ERROR: Number to High or to Low!");}
+    else if (index == 0 && tasks.length == 1)
+      {console.log("KILL Complete Array");deleteAllTasks();}
+    else 
+    {
+        console.log("Data is an integer!");
+        tasks.splice(index, 1);
+        //-> Im Live Array können wir gleich sehen, dass das Element gelöscht wurde, es wird in der nächsten Zeile noch ins Backend übertragen
+        await backendTWO.setItem('tasks', JSON.stringify(tasks));
+    }
+}
+
+
+// DELETE ALL USERS FROM ARRAY
+async function deleteAllUsers() {
+    await backend.deleteItem('users');
+    //-> Wenn jetzt nach dem Deleten ein init() ausgeführt wird, dann sieht man, dass das Array leer ist
+}
+
+
+// DELETE ALL TASKS FROM ARRAY
+async function deleteAllTasks() {
+    await backendTWO.deleteItem('tasks');
+    //-> Wenn jetzt nach dem Deleten ein init() ausgeführt wird, dann sieht man, dass das Array leer ist
+}
+
+/* [2.] */
+
+
+
+
+
+
+
+
+
+/* [3.] Funktion um weitere HTML-Dateien einzubinden (Code von w3c)*/
 /* Code von w3c*/
 async function includeHTML() {
     let includeElements = document.querySelectorAll('[w3-include-html]'); //Alle Elemente mit Attribut '[w3-include-html]' werden ausgewählt
@@ -100,11 +198,11 @@ async function includeHTML() {
         }
     }
 }
-/* [2.] Funktion um weitere HTML-Dateien einzubinden (Code von w3c)*/
+/* [3.] Funktion um weitere HTML-Dateien einzubinden (Code von w3c)*/
 
 
 
-/* [3.] Array zu String und wieder zurück */
+/* [4.] Array zu String und wieder zurück */
 /* Im localStorage kann nur Text gespeichert werden, ABER im Code kann nur ein Array sinnvoll genutzt werden */
 /* key ist der Name unter welchem der Array gespeichert werden soll (frei wählbarer Text) und array ist das Array selbst  */
 function setArray (key,array){
@@ -114,4 +212,4 @@ function setArray (key,array){
 function getArray (key){
   return JSON.parse(localStorage.getItem(key)); // JSON.parse() wandelt einen String in einen Array um
 }
-/* [3.] Array zu String und wieder zurück */
+/* [4.] Array zu String und wieder zurück */
