@@ -21,7 +21,7 @@ function selectUser(i) {
         selectedUsersTEST = selectedUsersTEST.filter(a => a !=user[i]);
     } else {
         selectedUsersTEST.push(usersTEST[i]);
-    }
+    };
 }
 
 function myFunction(){
