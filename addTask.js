@@ -1,14 +1,14 @@
-let usersTEST = ['.img/edip.png', '.img/Tobias.png', '.img/eugen.png', '.img/gast.png']
+let usersTEST = ['img/edip.jpg', 'img/Tobias.jpg', 'img/eugen.jpg', 'img/gast.png']
 let selectedUsersTEST = []
 
 
 function renderAddTask() {
     let avatarPicker = document.getElementById('avatarPicker');
     avatarPicker.innerHTML = '';
-
-    for (let i = 0; i < usersTEST.length; i++) {
+    
+    for (let i = 0; i < usersTEST.length; i++) {    
         const avatar = usersTEST[i];
-        avatarPicker.innerHTML += `<img id="user-${i}" onclick="selectUser(${i}) src="${avatar}" class="avatar"`;
+        avatarPicker.innerHTML += `<img id="user-${i}" onclick="selectUser(${i})" src="${avatar}" class="avatar">`;
     }
 }
 
