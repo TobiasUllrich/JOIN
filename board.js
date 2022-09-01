@@ -1,4 +1,3 @@
-//TESTBRANCH
 function renderBoard() {
     renderToDo();
     renderProgress();
