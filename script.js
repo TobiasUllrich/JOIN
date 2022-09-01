@@ -1,24 +1,24 @@
 /* [1.] Variablen ganz oben werden zuerst geladen/initialisiert und sind deshalb auch überall nutzbar */
 let usersScript = [
   {
-    "name": "Tobias",
-    "surname": "Ullrich",
+    "name": "Tobias Ullrich",
     "picture": "tobias.jpg",
     "email": "ullrich.tobias@gmx.de",
+    "phone":"888",
     "password": "xxx"
   },
   {
-    "name": "Edip",
-    "surname": "Bahcecioglu",
+    "name": "Edip Bahcecioglu",
     "picture": "edip.jpg",
     "email": "edip-bahcecioglu@hotmail.de",
+    "phone":"888",
     "password": "xxx"
   },
   {
-    "name": "Eugen",
-    "surname": "Oswald",
+    "name": "Eugen Oswald",
     "picture": "eugen.jpg",
     "email": "oswaldeugen95@gmail.com",
+    "phone":"888",
     "password": "xxx"
   }
 ];
@@ -26,57 +26,63 @@ let usersScript = [
 let tasksScript = [    
   {
     "title": "Lasst uns starten :)",
-    "category": "Management",   // Management, Marketing, Sale, usw. gerne weitere Vorschläge bzw. Ergänzungen
+    "category": "Management",  // Design, Marketing, Sales, Backoffice, Media usw. gerne weitere Vorschläge bzw. Ergänzungen
     "description": "BlaBlaBla",
-    "dueDate": "2010-10-30",
-    "urgency": "High",        // High, Middle, Low
-    "status": "Backlog",     // Backlog, To Do, In Progress, Testing, Done
-    "assignedTo": [0,1,2]   // Index of users Array (ist eindeutig)
+    "dueDate": "30/10/2010",
+    "priority": "High",       // Urgent, Medium, Low
+    "status": "Backlog",     // To do, In progress, Awaiting feedback, Done
+    "assignedTo": [0,1,2],   // Index of users Array (ist eindeutig)
+    "subTasks": ['Putzen','Spülen','Saubermachen'] 
   },
   {
     "title": "Lagebesprechung Preiserhöhungen",
-    "category": "Sales",
+    "category": "Sales",  // Design, Marketing, Sales, Backoffice, Media usw. gerne weitere Vorschläge bzw. Ergänzungen
     "description": "Hier wird ein unnötiger Beschreibungstext stehen, der von dem User festgelegt wird",
-    "dueDate": "2022-08-30",
-    "urgency": "High",
-    "status": "todo",
-    "assignedTo": "userX"
+    "dueDate": "30/10/2010",
+    "priority": "High",       // Urgent, Medium, Low
+    "status": "Backlog",     // To do, In progress, Awaiting feedback, Done
+    "assignedTo": [0,1,2],   // Index of users Array (ist eindeutig)
+    "subTasks": ['Putzen','Spülen','Saubermachen'] 
   },
   {
     "title": "Planung der Weihnachtsfeier",
-    "category": "Marketing",
+    "category": "Marketing",  // Design, Marketing, Sales, Backoffice, Media usw. gerne weitere Vorschläge bzw. Ergänzungen
     "description": "Hier wird ein unnötiger Beschreibungstext stehen, der von dem User festgelegt wird",
-    "dueDate": "2022-11-12",
-    "urgency": "Low",
-    "status": "todo",
-    "assignedTo": "userX"
+    "dueDate": "30/10/2010",
+    "priority": "High",       // Urgent, Medium, Low
+    "status": "Backlog",     // To do, In progress, Awaiting feedback, Done
+    "assignedTo": [0,1,2],   // Index of users Array (ist eindeutig)
+    "subTasks": ['Putzen','Spülen','Saubermachen'] 
   },
   {
     "title": "Kündigung der Mitarbeiterin XXX",
-    "category": "Management",
+    "category": "Management",  // Design, Marketing, Sales, Backoffice, Media usw. gerne weitere Vorschläge bzw. Ergänzungen
     "description": "Hier wird ein unnötiger Beschreibungstext stehen, der von dem User festgelegt wird",
-    "dueDate": "2022-12-16",
-    "urgency": "Middle",
-    "status": "inprogress",
-    "assignedTo": "userX"
+    "dueDate": "30/10/2010",
+    "priority": "High",       // Urgent, Medium, Low
+    "status": "Backlog",     // To do, In progress, Awaiting feedback, Done
+    "assignedTo": [0,1,2],   // Index of users Array (ist eindeutig)
+    "subTasks": ['Putzen','Spülen','Saubermachen'] 
   },
   {
     "title": "Einführung neues Softwaresystem ERBY",
-    "category": "Management",
+    "category": "Management",  // Design, Marketing, Sales, Backoffice, Media usw. gerne weitere Vorschläge bzw. Ergänzungen
     "description": "Hier wird ein unnötiger Beschreibungstext stehen, der von dem User festgelegt wird",
-    "dueDate": "2022-09-04",
-    "urgency": "High",
-    "status": "testing",
-    "assignedTo": "userX"
+    "dueDate": "30/10/2010",
+    "priority": "High",       // Urgent, Medium, Low
+    "status": "Backlog",     // To do, In progress, Awaiting feedback, Done
+    "assignedTo": [0,1,2],   // Index of users Array (ist eindeutig)
+    "subTasks": ['Putzen','Spülen','Saubermachen'] 
   },
   {
     "title": "Einführungsschulung betriebseigenes Canbanboard",
-    "category": "Sales",
+    "category": "Sales",  // Design, Marketing, Sales, Backoffice, Media usw. gerne weitere Vorschläge bzw. Ergänzungen
     "description": "Hier wird ein unnötiger Beschreibungstext stehen, der von dem User festgelegt wird",
-    "dueDate": "2022-08-30",
-    "urgency": "High",
-    "status": "done",
-    "assignedTo": "userX"
+    "dueDate": "30/10/2010",
+    "priority": "High",       // Urgent, Medium, Low
+    "status": "Backlog",     // To do, In progress, Awaiting feedback, Done
+    "assignedTo": [0,1,2],   // Index of users Array (ist eindeutig)
+    "subTasks": ['Putzen','Spülen','Saubermachen'] 
   },
   ];
 /* [1.] Variablen ganz oben werden zuerst geladen/initialisiert und sind deshalb auch überall nutzbar */

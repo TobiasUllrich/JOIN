@@ -23,9 +23,10 @@
     <!-- Bootstrap CSS only -->
 
     <link href="img/logo.png" type="image/x-icon" rel="icon" /> <!-- Bindet FavIcon ein-->
-
+    
     <!-- Fonts downloaden in entsprechenden Ordner legen und über Extra-CSS-Datei einbinden (https://google-webfonts-helper.herokuapp.com/) -->
     <link rel="stylesheet" type='text/css' media='screen' href="fonts.css">
+    <link rel="stylesheet" type='text/css' media='screen' href="backlog.css"> <!-- Statt <style> ... </style> -->
     <link rel="stylesheet" type='text/css' media='screen' href="style.css"> <!-- Statt <style> ... </style> -->
 
     <!-- JavaScript Bootstrap -->
@@ -34,6 +35,7 @@
         crossorigin="anonymous"></script>
     <!-- JavaScript Bootstrap -->
 
+    
     <script src="mini_backend.js"></script> <!-- Zuerst einbinden, weil Funktion setURL verfügbar sein muss -->
     <script src="script.js"></script> <!-- Statt <script> ... </script> -->
     <script src="board.js"></script> <!-- Statt <script> ... </script> -->
@@ -47,26 +49,24 @@
 
 
 <!--Sobald der body-Bereich geladen wurde, wird das Java-Script ausgeführt-->
-
 <body onload="includeHTML();init();">
 
+
+    
 
     <!-- Header einbinden -->
     <div w3-include-html="templates/header.html"></div>
     <!-- Header einbinden -->
 
+    <div class="contacts-container">
 
-    <!-- MAIN -->
-    <div style="margin-left:120px;">
-        <h1>So sieht die eingebundene Schrift aus</h1>
+    
     </div>
-    <!-- MAIN -->
 
 
     <!-- Footer einbinden -->
     <div w3-include-html="templates/footer.html"></div>
     <!-- Footer einbinden -->
-
 
 </body>
 
