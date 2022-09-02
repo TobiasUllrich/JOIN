@@ -239,3 +239,4 @@ function getArray (key){
   return JSON.parse(localStorage.getItem(key)); // JSON.parse() wandelt einen String in einen Array um
 }
 /* [5.] Array zu String und wieder zurück */
+
