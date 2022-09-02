@@ -23,74 +23,50 @@
     <!-- Bootstrap CSS only -->
 
     <link href="img/logo.png" type="image/x-icon" rel="icon" /> <!-- Bindet FavIcon ein-->
-
+    
     <!-- Fonts downloaden in entsprechenden Ordner legen und über Extra-CSS-Datei einbinden (https://google-webfonts-helper.herokuapp.com/) -->
     <link rel="stylesheet" type='text/css' media='screen' href="fonts.css">
-    <link rel="stylesheet" type='text/css' media='screen' href="style.css"> 
-    <link rel="stylesheet" type='text/css' media='screen' href="board.css"> 
-
+    <link rel="stylesheet" type='text/css' media='screen' href="style.css">
+    <link rel="stylesheet" type='text/css' media='screen' href="contacts.css">
+    
     <!-- JavaScript Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
         crossorigin="anonymous"></script>
     <!-- JavaScript Bootstrap -->
 
+    
     <script src="mini_backend.js"></script> <!-- Zuerst einbinden, weil Funktion setURL verfügbar sein muss -->
     <script src="script.js"></script> <!-- Statt <script> ... </script> -->
     <script src="board.js"></script> <!-- Statt <script> ... </script> -->
     <script src="summary.js"></script> <!-- Statt <script> ... </script> -->
     <script src="addtask.js"></script> <!-- Statt <script> ... </script> -->
-    <script src="./templates/template.js"></script>
     <script src="contacts.js"></script> <!-- Statt <script> ... </script> -->
     <script src="help.js"></script> <!-- Statt <script> ... </script> -->
-
 
     <!-- KOPFBEREICH STANDARD-->
 </head>
 
 
 <!--Sobald der body-Bereich geladen wurde, wird das Java-Script ausgeführt-->
+<body onload="includeHTML();init();">
 
-<body onload="includeHTML();init();renderBoard()">
 
+    
 
     <!-- Header einbinden -->
     <div w3-include-html="templates/header.html"></div>
     <!-- Header einbinden -->
 
-    <!-- MAIN -->
-    <div class="main-page-container">
-        <div class="main-board-content">
-            <div id="todo" class="solo-category">
-                <h2>TO DO</h2>
-                <div id="category-todo" class="category-inputfield">
-                </div>
-            </div>
+    <div class="contacts-container">
 
-            <div id="progress" class="solo-category">
-                <h2>IN PROGRESS</h2>
-                <div id="category-progress" class="category-inputfield"></div>
-            </div>
-
-            <div id="testing" class="solo-category">
-                <h2>TESTING</h2>
-                <div id="category-testing" class="category-inputfield"></div>
-            </div>
-
-            <div id="done" class="solo-category">
-                <h2>DONE</h2>
-                <div id="category-done" class="category-inputfield"></div>
-            </div>
-        </div>
+    
     </div>
-
-    <!-- MAIN -->
 
 
     <!-- Footer einbinden -->
     <div w3-include-html="templates/footer.html"></div>
     <!-- Footer einbinden -->
-
 
 </body>
 
