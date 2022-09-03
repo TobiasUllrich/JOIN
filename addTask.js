@@ -24,3 +24,7 @@ function category() {
 
     console.log(category, index);
 }
+
+$(document).ready(function() {
+    $('#assignedToSelect').multiselect();
+});

@@ -41,7 +41,7 @@
         <div class="headline">
             <h1>Add Task</h1>
         </div>
-        <!-- headline -->
+    <!-- headline -->
         <div class="add-task-board">
             <!-- Form -->
             <form onsubmit="myFunction(); return false;" class="add-task-form ">
@@ -59,17 +59,17 @@
                     <div>
                         <label>Category</label>
                         <select id="category" class="form-select form-select-lg mb-3" required>
-                            <option value="1">New category</option>
-                            <option value="2">Sales</option>
-                            <option value="3">Backoffice</option>
+                            <option value="New category">New category</option>
+                            <option value="Sales">Sales</option>
+                            <option value="Backoffice">Backoffice</option>
                         </select>
                     </div>
                     <div>
                         <label>Assigned to</label>
-                        <select id="category" class="form-select form-select-lg mb-3" required>
-                            <option value="1">Management</option>
-                            <option value="2">Sales</option>
-                            <option value="3">Backoffice</option>
+                        <select name="Select contacts to assign[]" id="assignedToSelect" class="form-select form-select-lg mb-3" multiple="multiple" required>
+                            <option value="Management">Management</option>
+                            <option value="Sales">Sales</option>
+                            <option value="Backoffice">Backoffice</option>
                         </select>
                     </div>
                 </div>
@@ -85,10 +85,10 @@
                     </div>
                     <div>
                         <label>Prio</label>
-                        <select id="prio" class=" mb-3" required>
-                            <option value="1">Low</option>
-                            <option value="2">Medium</option>
-                            <option value="3">Urgent</option>
+                        <select id="prio" class=" mb-3" multiple="multiple" required>
+                            <option value="Low">Low</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Urgent">Urgent</option>
                         </select>
                         <!-- https://stackoverflow.com/questions/52707749/how-can-i-display-select-options-as-buttons -->
                     </div>
@@ -103,7 +103,7 @@
                 </div>
                 <!-- right site -->
                 <div class="button-container">
-                    <button class="btn btn-primary">Clear</button> <button class="btn btn-primary">Create Task</button>
+                    <button onclick="cleatForm()" class="btn btn-primary">Clear</button> <button class="btn btn-primary">Create Task</button>
                 </div>
             </form>
             <!-- Form -->
