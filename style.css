@@ -73,7 +73,6 @@ body {
   width: calc(
     100vw - 232px
   ); /*Be sure to put spaces around the '-' sign in the calculation*/
-  padding: 16px;
   margin-left: 232px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
 }

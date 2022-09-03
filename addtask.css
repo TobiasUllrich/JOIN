@@ -27,11 +27,18 @@ body {
 }
 
 .add-task-container {
-  width: 100%;
+
   padding-top: 150px;
-  padding-left: 160px;
+  margin-left: 232px;
   padding-right: 40px;
   padding-bottom: 20px;
+  width: calc(
+    100vw - 232px)
+}
+
+.headline{
+
+    margin-left: 116px;
 }
 
 .headline h1 {
@@ -41,7 +48,8 @@ body {
   font-size: 61px;
   line-height: 120%;
   color: #000000;
-  padding-left: 160px;
+ 
+
 }
 
 .btn-primary {
@@ -50,8 +58,10 @@ body {
 }
 .add-task-board {
   display: flex;
-  width: 100%;
-  padding: 30px;
+  width: calc(
+    100vw - 232px);
+    padding-left: 116px;
+    padding-right: 116px;
   margin-top: 20px;
 }
 
@@ -59,18 +69,19 @@ body {
   width: 0px;
   height: 551px;
   border: 1px solid #d1d1d1;
-  margin-left: -35px;
+  margin-left: -60px;
 }
 
 .add-task-form {
   display: flex;
-  justify-content: space-evenly;
+  justify-content:space-between;
   flex-direction: row;
   flex-wrap: wrap;
-  width: 100%;
+  width: calc(
+    100vw - 232px);
 }
 .input-area {
-  width: 40%;
+  width: 422px;
 }
 
 .input-area label {
@@ -95,18 +106,18 @@ body {
 
 .input-area input {
   height: 50px;
-  width: 90%;
+  width: 422px;
   margin-top: 10px;
 }
 
 .input-area select {
   height: 50px;
-  width: 90%;
+  width: 422px;
   margin-top: 10px;
 }
 
 .input-area textarea {
-  width: 90%;
+  width: 422px;
   height: 200px !important;
   max-height: 200px;
 }
