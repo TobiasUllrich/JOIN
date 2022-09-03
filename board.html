@@ -51,7 +51,7 @@
 
 <!--Sobald der body-Bereich geladen wurde, wird das Java-Script ausgeführt-->
 
-<body onload="includeHTML();init();renderBoard()">
+<body onload="includeHTML();init()"> <!--renderBoard() kommt hier noch rein !!!!!!!!!!-->
 
 
     <!-- Header einbinden -->
@@ -59,7 +59,73 @@
     <!-- Header einbinden -->
 
     <!-- MAIN -->
-    <div class="main-page-container">
+
+    <div class="main-board-container">
+        <div class="main-headline-container">
+            <div class="headline-navbar">
+                <div class="headline">
+                    <h2>Board</h2>
+                </div>
+                <div class="navbar">
+                    <div class="search-task"><input placeholder="Find Task                         |"></div>
+                    <div class="add-task"><button class="add-task-button">Add task<img class="add-img-straight" src="./img/board/plus1.png"><img class="add-img-up" src="./img/board/plus2.png"></button></div>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        <div class="main-tasks-container">
+            <div class="main-solo-task-container">
+                <div class="main-task-headline">
+                    <div class="headline-task"><h3>To do</h3></div>
+                    <div class="add-image"><img src="./img/board/plus-button.png"></div>
+                </div>
+                <div class="todo-output"></div>
+            </div>
+            
+            <div class="main-solo-task-container">
+                <div class="main-task-headline">
+                    <div class="headline-task"><h3>In progress</h3></div>
+                    <div class="add-image"><img src="./img/board/plus-button.png"></div>
+                </div>
+                <div class="in-progress-output"></div>
+            </div>
+
+            <div class="main-solo-task-container">
+                <div class="main-task-headline">
+                    <div class="headline-task"><h3>Awaiting feedback</h3></div>
+                    <div class="add-image"><img src="./img/board/plus-button.png"></div>
+                </div>
+                <div class="awaiting-feedback-output"></div>
+            </div>
+
+            <div class="main-solo-task-container">
+                <div class="main-task-headline">
+                    <div class="headline-task"><h3>Done</h3></div>
+                    <div class="add-image"><img src="./img/board/plus-button.png"></div>
+                </div>
+                <div class="done-output"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN -->
+
+
+    <!-- Footer einbinden -->
+    <div w3-include-html="templates/footer.html"></div>
+    <!-- Footer einbinden -->
+
+
+</body>
+
+
+
+</html>
+
+    <!-- ALTES DESIGN !!!!!!!
+        <div class="main-page-container">
         <div class="main-board-content">
             <div id="todo" class="solo-category">
                 <h2>TO DO</h2>
@@ -84,16 +150,4 @@
         </div>
     </div>
 
-    <!-- MAIN -->
-
-
-    <!-- Footer einbinden -->
-    <div w3-include-html="templates/footer.html"></div>
-    <!-- Footer einbinden -->
-
-
-</body>
-
-
-
-</html>
+     -->

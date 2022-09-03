@@ -1,4 +1,4 @@
-function renderBoard() {
+/*function renderBoard() {
     renderToDo();
     renderProgress();
     renderTesting();
@@ -70,4 +70,4 @@ function showTaskDetailsDone(l){
 }
 
 function deleteTask(i){
-}
+}*/ // ALTE LOGIK !!!!!
