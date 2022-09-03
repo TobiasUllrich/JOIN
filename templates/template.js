@@ -74,7 +74,7 @@ function templateOfTaskInProgress(taskProgress, j) {
         </div>
     </div>`
 }
-
+// Tobias:  templateOfTaskTes-t-ing ???
 function templateOfTaskTesing(taskTest, k){
     return `
     <div id="main-task-testing${k}" draggable="true" class="main-task border-left-blue" onclick="showTaskDetailsTesting(${k})">

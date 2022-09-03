@@ -1,109 +1,130 @@
 html {
-  scroll-behavior: smooth; /* Standard */
+  scroll-behavior: smooth;
+  /* Standard */
 }
 
 body {
-  margin: 0px; /* Browser-Standard rückgängig machen: Äußerer Abstand */
-  font-family: "Inter"; /* Schriftart für den ganzen Body-Bereich festlegen */
-  overflow-x: hidden; /* Standard: Was auf der X-Achse aus dem Body/Tag rausläuft wird nicht mehr gezeigt */
+  margin: 0px;
+  /* Browser-Standard rückgängig machen: Äußerer Abstand */
+  font-family: "Inter";
+  /* Schriftart für den ganzen Body-Bereich festlegen */
+  overflow-x: hidden;
+  /* Standard: Was auf der X-Achse aus dem Body/Tag rausläuft wird nicht mehr gezeigt */
   /* muss dem Body gegeben werden, ABER funktioniert nicht auf dem Handy -> Lösung: Alles in eine <div> was in <body> ist und diesem <div> das overflow-Attribut geben */
+}
+
+
+/*  HEADER  */
+.logo {
+  margin: 50px;
 }
 
 .header {
   position: fixed;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
   left: 0;
-  margin-bottom: 25px;
   background-color: #2a3647;
   height: 100vh;
   width: 232px;
 }
 
-.header-uppersection {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-}
-
-.header a {
-  color: white;
-  text-decoration: none;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  width: 100%;
-  text-align: center;
-}
-
-.header a:hover {
-  border-left: 4px solid white;
-}
-
-.header nav {
+.header-navigation {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: center;
-  width: 100%;
+  height:calc(100vh - 102px - 50px - 50px);
+  width:100%;
 }
 
-.logo {
-  margin: 15px;
-  height: 50px;
+.header-navigation a {
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  height:45px;
+  width:100%;
+  color: white;
+  text-decoration: none;
 }
 
-.user {
-  border-radius: 100%;
-  height: 60px;
-  margin: 15px;
-  border: 2px solid white;
+.header-navigation a:hover {
+  background-color: #091931;
 }
 
+.img-container{
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 25px;
+  width:40%;
+}
+
+.header span{
+width:60%;
+}
+
+.legnotice{
+  margin-top:300px;
+}
+
+.summary{
+  margin-top:50px;
+}
+
+
+
+
+
+
+
+/* FOOTER  */
 .footer {
   position: fixed;
   top: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 89px;
+  height: 80px;
   background-color: #ffffff;
-  width: calc(
-    100vw - 232px
-  ); /*Be sure to put spaces around the '-' sign in the calculation*/
-  padding: 16px;
+  width: calc(100vw - 232px); /*Be sure to put spaces around the '-' sign in the calculation*/
   margin-left: 232px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
 }
 
 .footer h1 {
-  width: 335px;
-  height: 25px;
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 21px;
-  line-height: 120%;
-  color: #000000;
-  margin-left:116px;
+  font-size: 16px;
+  margin-left: 60px;
 }
 
-.footer a {
-  text-decoration: none;
-  color: #0000ff;
+.footer-headline{
+  display: flex;
 }
+
+.footer-icons {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.user {
+  border-radius: 100%;
+  height: 60px;
+  margin: 15px;
+  border: 2px solid #2a3647;
+}
+
+.footer img:hover {
+  cursor: pointer;
+}
+
+
 
 /* INTERVALLE FÜRS HANDY */
-@media (min-width: 301px) and (max-width: 395px) {
-}
+@media (min-width: 301px) and (max-width: 395px) {}
 
-@media (min-width: 400px) and (max-width: 800px) {
-}
+@media (min-width: 400px) and (max-width: 800px) {}
 
-@media (min-width: 215px) and (max-width: 300px) {
-}
+@media (min-width: 215px) and (max-width: 300px) {}
 
 @media (min-width: 299px) and (max-width: 0px) {
   /* Ab hier leer lassen */
