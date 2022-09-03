@@ -121,3 +121,8 @@ body {
   height: 119px !important;
   max-height: 119px;
 }
+
+.button-container{
+  display: flex;
+  justify-content: flex-end;
+}
