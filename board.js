@@ -7,8 +7,7 @@ function renderBoard() {
 
 function renderToDo() {
     let todoOutput = document.getElementById('category-todo');
-    let todos = tasks.filter(status => status.status == 'todo');
-    //console.log(todo);
+    let todos = tasksScript.filter(status => status.status == 'todo');
     todoOutput.innerHTML = '';
 
     for (let i = 0; i < todos.length; i++) {
@@ -19,8 +18,7 @@ function renderToDo() {
 
 function renderProgress() {
     let inProgressOutput = document.getElementById('category-progress');
-    let progress = tasks.filter(status => status.status == 'inprogress');
-    //console.log(progress);
+    let progress = tasksScript.filter(status => status.status == 'inprogress');
     inProgressOutput.innerHTML = '';
 
     for (let j = 0; j < progress.length; j++) {
@@ -31,8 +29,7 @@ function renderProgress() {
 
 function renderTesting() {
     let testingOutput = document.getElementById('category-testing');
-    let testing = tasks.filter(status => status.status == 'testing');
-    console.log(testing);
+    let testing = tasksScript.filter(status => status.status == 'testing');
     testingOutput.innerHTML = '';
 
     for (let k = 0; k < testing.length; k++) {
@@ -43,8 +40,7 @@ function renderTesting() {
 
 function renderDone() {
     let doneOutput = document.getElementById('category-done');
-    let doneTasks = tasks.filter(status => status.status == 'done');
-    console.log(doneTasks);
+    let doneTasks = tasksScript.filter(status => status.status == 'done');
     doneOutput.innerHTML = '';
 
     for (let l = 0; l < doneTasks.length; l++) {

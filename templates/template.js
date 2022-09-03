@@ -1,7 +1,7 @@
 // ##############BOARD TEMPLATES START################# //
 function templateOfNewTaskToDo(todo ,i) {
     return `
-    <div id="main-task-todo${i}" class="main-task border-left-red" onclick="showTaskDetailsToDo(${i})">
+    <div id="main-task-todo${i}" draggable="true" class="main-task border-left-red" onclick="showTaskDetailsToDo(${i})">
         <div class="task-headline">
             <div><img class="task-image" src="./img/todo.png"></div>
             <div class="task-titel">
@@ -39,7 +39,7 @@ function templateOfNewTaskToDo(todo ,i) {
 
 function templateOfTaskInProgress(taskProgress, j) {
     return `
-    <div id="main-task-progress${j}" class="main-task border-left-yellow" onclick="showTaskDetailsProgress(${j})">
+    <div id="main-task-progress${j}" draggable="true" class="main-task border-left-yellow" onclick="showTaskDetailsProgress(${j})">
         <div class="task-headline">
             <div><img class="task-image" src="./img/inprogress.png"></div>
             <div class="task-titel">
@@ -77,7 +77,7 @@ function templateOfTaskInProgress(taskProgress, j) {
 
 function templateOfTaskTesing(taskTest, k){
     return `
-    <div id="main-task-testing${k}" class="main-task border-left-blue" onclick="showTaskDetailsTesting(${k})">
+    <div id="main-task-testing${k}" draggable="true" class="main-task border-left-blue" onclick="showTaskDetailsTesting(${k})">
         <div class="task-headline">
             <div><img class="task-image" src="./img/testing.png"></div>
             <div class="task-titel">
@@ -115,7 +115,7 @@ function templateOfTaskTesing(taskTest, k){
 
 function templateOfTaskDone(doneTask, l){
     return `
-    <div id="main-task-done${l}" class="main-task border-left-green" onclick="showTaskDetailsDone(${l})">
+    <div id="main-task-done${l}" draggable="true" class="main-task border-left-green" onclick="showTaskDetailsDone(${l})">
         <div class="task-headline">
             <div><img class="task-image" src="./img/done.png"></div>
             <div class="task-titel">
