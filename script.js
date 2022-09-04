@@ -29,8 +29,8 @@ let tasksScript = [
     "category": "Management",  // Design, Marketing, Sales, Backoffice, Media usw. gerne weitere Vorschläge bzw. Ergänzungen
     "description": "BlaBlaBla",
     "dueDate": "30/10/2010",
-    "priority": "High",       // Urgent, Medium, Low
-    "status": "Backlog",     // To do, In progress, Awaiting feedback, Done
+    "priority": "Urgent",       // Urgent, Medium, Low
+    "status": "To do",     // To do, In progress, Awaiting feedback, Done
     "assignedTo": [0,1,2],   // Index of users Array (ist eindeutig)
     "subTasks": ['Putzen','Spülen','Saubermachen'] 
   },
@@ -39,8 +39,8 @@ let tasksScript = [
     "category": "Sales",  // Design, Marketing, Sales, Backoffice, Media usw. gerne weitere Vorschläge bzw. Ergänzungen
     "description": "Hier wird ein unnötiger Beschreibungstext stehen, der von dem User festgelegt wird",
     "dueDate": "30/10/2010",
-    "priority": "High",       // Urgent, Medium, Low
-    "status": "Backlog",     // To do, In progress, Awaiting feedback, Done
+    "priority": "Urgent",       // Urgent, Medium, Low
+    "status": "To do",     // To do, In progress, Awaiting feedback, Done
     "assignedTo": [0,1,2],   // Index of users Array (ist eindeutig)
     "subTasks": ['Putzen','Spülen','Saubermachen'] 
   },
@@ -49,8 +49,8 @@ let tasksScript = [
     "category": "Marketing",  // Design, Marketing, Sales, Backoffice, Media usw. gerne weitere Vorschläge bzw. Ergänzungen
     "description": "Hier wird ein unnötiger Beschreibungstext stehen, der von dem User festgelegt wird",
     "dueDate": "30/10/2010",
-    "priority": "High",       // Urgent, Medium, Low
-    "status": "Backlog",     // To do, In progress, Awaiting feedback, Done
+    "priority": "Urgent",       // Urgent, Medium, Low
+    "status": "In progress",     // To do, In progress, Awaiting feedback, Done
     "assignedTo": [0,1,2],   // Index of users Array (ist eindeutig)
     "subTasks": ['Putzen','Spülen','Saubermachen'] 
   },
@@ -59,8 +59,8 @@ let tasksScript = [
     "category": "Management",  // Design, Marketing, Sales, Backoffice, Media usw. gerne weitere Vorschläge bzw. Ergänzungen
     "description": "Hier wird ein unnötiger Beschreibungstext stehen, der von dem User festgelegt wird",
     "dueDate": "30/10/2010",
-    "priority": "High",       // Urgent, Medium, Low
-    "status": "Backlog",     // To do, In progress, Awaiting feedback, Done
+    "priority": "Medium",       // Urgent, Medium, Low
+    "status": "In progress",     // To do, In progress, Awaiting feedback, Done
     "assignedTo": [0,1,2],   // Index of users Array (ist eindeutig)
     "subTasks": ['Putzen','Spülen','Saubermachen'] 
   },
@@ -69,8 +69,8 @@ let tasksScript = [
     "category": "Management",  // Design, Marketing, Sales, Backoffice, Media usw. gerne weitere Vorschläge bzw. Ergänzungen
     "description": "Hier wird ein unnötiger Beschreibungstext stehen, der von dem User festgelegt wird",
     "dueDate": "30/10/2010",
-    "priority": "High",       // Urgent, Medium, Low
-    "status": "Backlog",     // To do, In progress, Awaiting feedback, Done
+    "priority": "Urgent",       // Urgent, Medium, Low
+    "status": "Awaiting feedback",     // To do, In progress, Awaiting feedback, Done
     "assignedTo": [0,1,2],   // Index of users Array (ist eindeutig)
     "subTasks": ['Putzen','Spülen','Saubermachen'] 
   },
@@ -79,8 +79,8 @@ let tasksScript = [
     "category": "Sales",  // Design, Marketing, Sales, Backoffice, Media usw. gerne weitere Vorschläge bzw. Ergänzungen
     "description": "Hier wird ein unnötiger Beschreibungstext stehen, der von dem User festgelegt wird",
     "dueDate": "30/10/2010",
-    "priority": "High",       // Urgent, Medium, Low
-    "status": "Backlog",     // To do, In progress, Awaiting feedback, Done
+    "priority": "Urgent",       // Urgent, Medium, Low
+    "status": "Awaiting feedback",     // To do, In progress, Awaiting feedback, Done
     "assignedTo": [0,1,2],   // Index of users Array (ist eindeutig)
     "subTasks": ['Putzen','Spülen','Saubermachen'] 
   },
