@@ -16,8 +16,8 @@ body {
     display:flex;
     flex-direction:column;
     background-color:#F5F5F5; 
-    /* height: calc(100vh - 80px);
-    width: calc(100vw - 232px);  Be sure to put spaces around the '-' sign in the calculation */
+    height: calc(100vh - 80px);
+    width: calc(100vw - 232px);  /* Be sure to put spaces around the '-' sign in the calculation */ 
     margin-top:80px;   /* Because of the fixed Menu on the top */
     margin-left:232px;  /* Because of the fixed Menu on the left */  
 }
@@ -30,6 +30,7 @@ align-items:center;
 
 .summary-headline h1{
     font-size:61px;
+    font-weight:700; 
 }
 
 .summary-headline span{
@@ -59,6 +60,12 @@ align-items:center;
     text-align:center;
 }
 
+.summary-overview-tasksboard:hover{
+    background-color: #091931;
+    color: #FFFFFF;
+    cursor:pointer;
+}
+
 .summary-overview-tasksprogress{
     display:flex;
     flex-direction:column;
@@ -71,6 +78,12 @@ align-items:center;
     text-align:center;
 }
 
+.summary-overview-tasksprogress:hover{
+    background-color: #091931;
+    color: #FFFFFF;
+    cursor:pointer;
+}
+
 .summary-overview-tasksawaitingfeedback{
     display:flex;
     flex-direction:column;
@@ -81,6 +94,12 @@ align-items:center;
     background: #FFFFFF;
     border-radius:10px;
     text-align:center;
+}
+
+.summary-overview-tasksawaitingfeedback:hover{
+    background-color: #091931;
+    color: #FFFFFF;
+    cursor:pointer;
 }
 
 .summary-priority{
@@ -96,6 +115,12 @@ align-items:center;
     border-radius:10px;
     width:580px;
     height:150px;   
+}
+
+.summary-priority-box:hover{
+    background-color: #091931;
+    color: #FFFFFF;
+    cursor:pointer;
 }
 
 .summary-priority-urgent{
@@ -129,6 +154,7 @@ font-size:47px;
 
 .summary-welcome h1{
     font-size:47px;
+    font-weight:500;
 }
 
 .summary-welcome span{
@@ -159,6 +185,12 @@ font-size:47px;
     width: 272.5px;
 }
 
+.summary-overview-taskstodo:hover{
+    background-color: #091931;
+    color: #FFFFFF;
+    cursor:pointer;
+}
+
 .summary-overview-tasksdone{
     display:flex;
     justify-content: center;
@@ -167,6 +199,12 @@ font-size:47px;
     border-radius:10px;
     height: 150px;
     width: 272.5px;
+}
+
+.summary-overview-tasksdone:hover{
+    background-color: #091931;
+    color: #FFFFFF;
+    cursor:pointer;
 }
 
 .summary-overview-taskstodo2{
@@ -182,6 +220,80 @@ font-size:47px;
     align-items:center;
     font-size:21px;
 }
+
+.urgent-icon{
+ width:69px;
+ height:69px;
+ border-radius:100%;
+}
+
+.todo-icon{
+    width:69px;
+    height:69px;
+    border-radius:100%;
+    background-color: #091931;    
+}
+
+
+.todo-icon img{
+    position:relative;
+    left: 22px;
+    top: 17px;
+    opacity:1;
+}
+
+.done-icon{
+    width:69px;
+    height:69px;
+    border-radius:100%;
+    background-color: #091931;
+}  
+
+.done-icon img{
+    position:relative;
+    left: 16px;
+    top: 18px;
+    opacity:1;
+}
+
+   
+   #numberTasksBoard{
+    font-weight:600;
+   }
+   #numberTasksinProgress{
+    font-weight:600;
+   }
+   #numberTasksawaitingFeedback{
+    font-weight:600;
+   }
+   
+   #numberTasksUrgent{
+    font-weight:600;
+   }
+   
+   #numberTasksTodo{
+    font-weight:600;
+   }
+   
+   #numberTasksDone{
+    font-weight:600;
+   }
+   
+   #actuser{
+       font-weight:700; 
+   }
+   
+   #urgentdate{
+       font-weight:700; 
+   }
+
+
+
+
+
+
+
+
 
 /* INTERVALLE FÜRS HANDY */
 @media (min-width:301px) and (max-width:1400px) {

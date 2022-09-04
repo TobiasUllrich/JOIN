@@ -1,10 +1,14 @@
 
 function renderBacklog(){
 
-let backlogli = document.getElementById('backlog-backloglist');
-let b =0;
-let a = b;
-let C=a+4574;
+}
 
-    // zzzz
+function addBackground(idOfElementToChange){
+   document.getElementById(idOfElementToChange).style='background-color: #FFFFFF;';
+   //document.getElementById('tdi').src='img/todo3-icon.png';
+}
+
+function removeBackground(idOfElementToChange){
+document.getElementById(idOfElementToChange).style='background-color: #091931;';
+  // document.getElementById('tdi').src='img/todo2-icon.png';
 }
