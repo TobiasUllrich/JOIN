@@ -55,8 +55,7 @@ body {
 
 .header-img-container{
   display: flex;
-  justify-content: flex-end;
-  padding-right: 25px;
+  justify-content: center;
   width:40%;
 }
 

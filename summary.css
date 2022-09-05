@@ -79,6 +79,8 @@ margin:50px;
     background-color: #091931;
     color: #FFFFFF;
     cursor:pointer;
+    width:172px;
+    height:172px;
 }
 
 .summary-overview-tasksprogress{
@@ -99,6 +101,8 @@ margin:50px;
     background-color: #091931;
     color: #FFFFFF;
     cursor:pointer;
+    width:172px;
+    height:172px;
 }
 
 .summary-overview-tasksawaitingfeedback{
@@ -117,6 +121,8 @@ margin:50px;
     background-color: #091931;
     color: #FFFFFF;
     cursor:pointer;
+    width:172px;
+    height:172px;
 }
 
 .summary-priority{
@@ -140,6 +146,8 @@ margin:50px;
     background-color: #091931;
     color: #FFFFFF;
     cursor:pointer;
+    width:552px;
+    height:152px;
 }
 
 .summary-priority-urgent{
@@ -215,7 +223,10 @@ margin-left:20px;
     background-color: #091931;
     color: #FFFFFF;
     cursor:pointer;
+    width:267px;
+    height:152px;
 }
+
 
 .summary-overview-tasksdone{
     display:flex;
@@ -232,6 +243,8 @@ margin-left:20px;
     background-color: #091931;
     color: #FFFFFF;
     cursor:pointer;
+    width:267px;
+    height:152px;
 }
 
 .summary-overview-taskstodo2{
@@ -260,7 +273,6 @@ margin-left:20px;
     border-radius:100%;
     background-color: #091931;    
 }
-
 
 .todo-icon img{
     position:relative;
