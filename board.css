@@ -12,7 +12,7 @@ body {
 }
 
 .main-headline-container {
-    width: 95%;
+    width: 90%;
     height: 40vh;
     left: 267px;
     top: 57px;
@@ -21,16 +21,11 @@ body {
 
 .headline-navbar {
     display: flex;
-    /* flex-direction: row; */
     justify-content: space-between;
     align-items: center;
     padding: 0px;
-    /* gap: 47%; */
-    /* position: absolute; */
     width: 100%;
     height: 73px;
-    /* left: 35px; */
-    /* top: 91px; */
     margin-top: 91px;
 }
 
@@ -161,14 +156,14 @@ body {
 }
 
 .main-tasks-container {
-    align-content: space-evenly;
     display: flex;
     align-items: center;
     padding: 0px;
     gap: 26px;
-    width: 100%;
-    height: 60vh;
-    justify-content: space-evenly;
+    width: 90%;
+    height: 65vh;
+    justify-content: space-between;
+    margin-top: -130px;
 }
 
 .main-solo-task-container {
@@ -187,7 +182,6 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 0px;
-    gap: 35px;
     width: 100%;
     height: 30px;
     cursor: pointer;
