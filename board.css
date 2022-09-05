@@ -8,14 +8,12 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     height: 100vh;
 }
 
 .main-headline-container {
-    position: absolute;
-    width: 84%;
-    height: 327px;
+    width: 95%;
+    height: 40vh;
     left: 267px;
     top: 57px;
     background: #F6F7F8;
@@ -28,12 +26,12 @@ body {
     align-items: center;
     padding: 0px;
     /* gap: 47%; */
-    position: absolute;
-    width: 95%;
+    /* position: absolute; */
+    width: 100%;
     height: 73px;
-    left: 35px;
-    top: 91px;
-
+    /* left: 35px; */
+    /* top: 91px; */
+    margin-top: 91px;
 }
 
 .navbar {
@@ -163,17 +161,14 @@ body {
 }
 
 .main-tasks-container {
+    align-content: space-evenly;
     display: flex;
-    /* flex-direction: row; */
-    justify-content: space-evenly;
-    align-items: flex-start;
+    align-items: center;
     padding: 0px;
     gap: 26px;
-    position: absolute;
-    width: 90%;
-    height: 508px;
-    left: 205px;
-    top: 343px;
+    width: 100%;
+    height: 60vh;
+    justify-content: space-evenly;
 }
 
 .main-solo-task-container {
@@ -193,8 +188,9 @@ body {
     align-items: center;
     padding: 0px;
     gap: 35px;
-    width: 257px;
+    width: 100%;
     height: 30px;
+    cursor: pointer;
 }
 
 .headline-task h3 {
