@@ -1,40 +1,28 @@
 // ##############BOARD TEMPLATES START################# //
-function templateOfNewTaskToDo(todo ,i) {
+function templateOfNewTaskToDo(todo, i) {
     return `
-    <div id="main-task-todo${i}" draggable="true" class="main-task border-left-red" onclick="showTaskDetailsToDo(${i})">
-        <div class="task-headline">
-            <div><img class="task-image" src="./img/todo.png"></div>
-            <div class="task-titel">
-                <h3>${todo.title}</h3>
-                <span>${todo.dueDate}</span>
+    <div class="main-task-container" draggable="true">
+        <div class="headline-category">
+            <div class="headline-solo-task"><h3>${todo.category}</h3></div>
+        </div>
+        <div class="task-title">
+            <span id="task-title">${todo.title}</span>
+        </div>
+        <div class="task-description">ss
+            <span title="${todo.description}">${todo.description}</span>
+        </div>
+        <div class="workers-prio">
+            <div class="main-workers">
+                <div id="solo-worker" class="solo-worker">
+                    <!--TEMPLATE RENDERN VON ARBEIERN-->
+                    <span class="worker-name-start-letters">EB</span>
+                </div>
             </div>
-            <div class="delete-btn"><img onclick=deleteTask(${i}) class="delete-img" title="Delete Task" src="./img/delete.png"></div>
+        <div id="prio-img" class="prio-img">
+            <img src="./img/board/prio-low.png">
         </div>
-
-        <div id="task-details-todo${i}" class="task-details d-none">
-            <table>
-                <tr>
-                    <td><b>Description:</b></td>
-                    <td title="${todo.description}"><div class="task-description">${todo.description}</div></td>
-                </tr>
-
-                <tr>
-                    <td><b>Category:</b></td>
-                    <td>${todo.category}</td>
-                </tr>
-
-                <tr>
-                    <td><b>Urgency:</b></td>
-                    <td>${todo.urgency}</td>
-                </tr>
-
-                <tr>
-                    <td><b>Assigned to:</b></td>
-                    <td>${todo.assignedTo}</td>
-                </tr>
-            </table>
-        </div>
-    </div>`
+    </div>
+</div>`
 }
 
 function templateOfTaskInProgress(taskProgress, j) {
@@ -74,8 +62,8 @@ function templateOfTaskInProgress(taskProgress, j) {
         </div>
     </div>`
 }
-// Tobias:  templateOfTaskTes-t-ing ???
-function templateOfTaskTesing(taskTest, k){
+
+function templateOfTaskTesting(taskTest, k) {
     return `
     <div id="main-task-testing${k}" draggable="true" class="main-task border-left-blue" onclick="showTaskDetailsTesting(${k})">
         <div class="task-headline">
@@ -113,7 +101,7 @@ function templateOfTaskTesing(taskTest, k){
     </div>`
 }
 
-function templateOfTaskDone(doneTask, l){
+function templateOfTaskDone(doneTask, l) {
     return `
     <div id="main-task-done${l}" draggable="true" class="main-task border-left-green" onclick="showTaskDetailsDone(${l})">
         <div class="task-headline">

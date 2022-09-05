@@ -51,7 +51,7 @@
 
 <!--Sobald der body-Bereich geladen wurde, wird das Java-Script ausgeführt-->
 
-<body onload="includeHTML();init()"> <!--renderBoard() kommt hier noch rein !!!!!!!!!!-->
+<body onload="includeHTML();init();renderBoard()">
 
 
     <!-- Header einbinden -->
@@ -79,7 +79,9 @@
                     <div class="headline-task"><h3>To do</h3></div>
                     <div class="add-image"><img src="./img/board/plus-button.png"></div>
                 </div>
-                <div class="todo-output"></div>
+                <div id="category-todo" class="category-todo">
+                    <!--TEMPLATE // VORERST ZUM DESIGN HIER-->
+                </div>
             </div>
             
             <div class="main-solo-task-container">

@@ -30,7 +30,7 @@ let tasksScript = [
     "description": "BlaBlaBla",
     "dueDate": "30/10/2010",
     "priority": "Urgent",       // Urgent, Medium, Low
-    "status": "To do",     // To do, In progress, Awaiting feedback, Done
+    "status": "In Progress",     // To do, In progress, Awaiting feedback, Done
     "assignedTo": [0,1,2],   // Index of users Array (ist eindeutig)
     "subTasks": ['Putzen','Spülen','Saubermachen'] 
   },

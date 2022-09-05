@@ -1,4 +1,4 @@
-/*function renderBoard() {
+function renderBoard() {
     renderToDo();
     renderProgress();
     renderTesting();
@@ -7,7 +7,7 @@
 
 function renderToDo() {
     let todoOutput = document.getElementById('category-todo');
-    let todos = tasksScript.filter(status => status.status == 'todo');
+    let todos = tasksScript.filter(status => status.status == 'To do');
     todoOutput.innerHTML = '';
 
     for (let i = 0; i < todos.length; i++) {
@@ -34,7 +34,7 @@ function renderTesting() {
 
     for (let k = 0; k < testing.length; k++) {
         const taskTest = testing[k];
-        testingOutput.innerHTML += templateOfTaskTesing(taskTest, k);
+        testingOutput.innerHTML += templateOfTaskTesting(taskTest, k);
     }
 }
 
@@ -70,4 +70,4 @@ function showTaskDetailsDone(l){
 }
 
 function deleteTask(i){
-}*/ // ALTE LOGIK !!!!!
+}
