@@ -26,6 +26,7 @@
   border-radius: 10px;
 }
 
+
 body {
   font-family: "Inter";
   background-color: #f6f7f8;
@@ -36,7 +37,6 @@ body {
   margin-left: 232px;
   padding-right: 40px;
   padding-bottom: 20px;
-  width: calc(100vw - 232px);
 }
 
 .headline {
@@ -58,10 +58,15 @@ body {
 }
 .add-task-board {
   display: flex;
-  width: calc(100vw - 232px);
+  width: 60%;
   padding-left: 116px;
   padding-right: 116px;
   margin-top: 20px;
+}
+
+.column{
+  display: flex;
+  flex-direction: column;
 }
 
 .separator-line {
@@ -76,10 +81,13 @@ body {
   justify-content: space-between;
   flex-direction: row;
   flex-wrap: wrap;
-  width: calc(100vw - 232px);
+  width: 60vw;
 }
 .input-area {
   width: 422px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .input-area label {
