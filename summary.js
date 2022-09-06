@@ -3,12 +3,12 @@ function renderBacklog(){
 
 }
 
-function addBackground(idOfElementToChange){
+function addBackground(idOfElementToChange,idOfPicture){
    document.getElementById(idOfElementToChange).style='background-color: #FFFFFF;';
-   //document.getElementById('tdi').src='img/todo3-icon.png';
+   document.getElementById(`${idOfPicture}`).style='filter: invert(100%);';
 }
 
-function removeBackground(idOfElementToChange){
-document.getElementById(idOfElementToChange).style='background-color: #091931;';
-  // document.getElementById('tdi').src='img/todo2-icon.png';
+function removeBackground(idOfElementToChange,idOfPicture){
+  document.getElementById(idOfElementToChange).style='background-color: #091931;';
+  document.getElementById(`${idOfPicture}`).style='filter: invert(0%);';
 }
