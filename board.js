@@ -48,26 +48,3 @@ function renderDone() {
         doneOutput.innerHTML += templateOfTaskDone(doneTask, l);
     }
 }
-
-function showTaskDetailsToDo(i) {
-    document.getElementById(`main-task-todo${i}`).classList.toggle('twohundert-height');
-    document.getElementById(`task-details-todo${i}`).classList.toggle('d-none');
-}
-
-function showTaskDetailsProgress(j){
-    document.getElementById(`main-task-progress${j}`).classList.toggle('twohundert-height');
-    document.getElementById(`task-details-progress${j}`).classList.toggle('d-none');
-}
-
-function showTaskDetailsTesting(k){
-    document.getElementById(`main-task-testing${k}`).classList.toggle('twohundert-height');
-    document.getElementById(`task-details-testing${k}`).classList.toggle('d-none');
-}
-
-function showTaskDetailsDone(l){
-    document.getElementById(`main-task-done${l}`).classList.toggle('twohundert-height');
-    document.getElementById(`task-details-done${l}`).classList.toggle('d-none');
-}
-
-function deleteTask(i){
-}
