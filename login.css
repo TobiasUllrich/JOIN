@@ -34,6 +34,14 @@ body {
     height:30%;
 }
 
+.moving-logo{
+    position:absolute;
+    z-index:11;
+    left:50px;
+    top:50px;
+
+}
+
 .Login-Box h1{
 border-bottom: blue;
 }
