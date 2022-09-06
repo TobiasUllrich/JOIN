@@ -37,7 +37,6 @@ body {
 
 .moving-logo{
     position:absolute;
-    z-index:11;
     left:50px;
     top:25px;
     width:101px;
@@ -45,8 +44,7 @@ body {
 }
 
 .moving-logo-first{
-    position:absolute;
-    z-index:11;
+    position:absolute;   
     left:calc(100vw - 50% - 101px); /* Um mittig zu positionieren muss zusätzlich die Hälfte der Breite des Bildes abgezogen werden */
     top:calc(100vh - 50% - 122px); /* Um mittig zu positionieren muss zusätzlich die Hälfte der Höhe des Bildes abgezogen werden */
     width:202px;
@@ -219,6 +217,89 @@ to
 }
 }  
 /* Login-Animation */
+
+/* SIGN UP */
+.signup-Box{
+    position:absolute;
+    z-index:19;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    background-color: #ffffff;
+    border-radius: 30px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+
+    height: 513px;
+    width: 652px;
+}
+
+.signup-Box h1{
+    border-bottom: 3px solid #29ABE2;
+    font-size:61px; 
+    font-weight: bold;
+    margin-bottom:25px; 
+    padding-bottom:15px; 
+    }
+
+.signup-backbutton{
+    display: flex;
+    position:absolute;
+    left: 40px;
+    top: 40px;
+    cursor:pointer;
+}
+
+.signup-inputdesign{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height:51px;
+    width:422px;
+    margin-bottom:17px; 
+
+    border: 1px solid #D1D1D1;
+    border-radius:10px;  
+}
+
+.signup-inputdesign:hover{
+ cursor:pointer;
+}
+.signup-inputdesign input:hover{
+ cursor:pointer;
+}
+
+.signup-inputdesign input{
+    border: none;
+    font-size:21px;
+    outline: none;
+    padding-left:15px;
+    height: 49px;
+    border-radius: 30px;
+}
+
+.signup-inputdesign img{
+    margin-right:15px; 
+}
+
+.signup-user{
+    height: 51px;
+    width: 161px;
+    font-size:21px;
+    border-radius:8px;
+    background-color: #091931;
+    color:#FFFFFF;
+    font-weight: bold; 
+    margin-right:12.5px;
+    box-shadow: none;
+}
+
+.signup-user:hover{
+    background-color: #29ABE2;
+    border-color:#29ABE2;
+    box-shadow: inset 0px 0px 0px 0px #29ABE2;
+}
 
 
 /* INTERVALLE FÜRS HANDY */
