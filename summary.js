@@ -1,5 +1,5 @@
 
-function renderBacklog(){
+function renderSummary(){
 
 }
 
