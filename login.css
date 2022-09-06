@@ -39,8 +39,18 @@ body {
     position:absolute;
     z-index:11;
     left:50px;
-    top:50px;
+    top:25px;
+    width:101px;
+    height:122px;
+}
 
+.moving-logo-first{
+    position:absolute;
+    z-index:11;
+    left:calc(100vw - 50% - 101px); /* Um mittig zu positionieren muss zusätzlich die Hälfte der Breite des Bildes abgezogen werden */
+    top:calc(100vh - 50% - 122px); /* Um mittig zu positionieren muss zusätzlich die Hälfte der Höhe des Bildes abgezogen werden */
+    width:202px;
+    height: 244px;
 }
 
 .login-Box h1{
@@ -179,6 +189,35 @@ padding-bottom:15px;
     border-color:#29ABE2;
     box-shadow: inset 0px 0px 0px 0px #29ABE2;
 }
+
+/* Login-Animation */
+.animate-logo{
+    animation: moveJOINLogo 325ms ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+@keyframes moveJOINLogo {
+from
+{ 
+    position:absolute;
+    z-index:11;
+    left:calc(100vw - 50% - 101px); /* Um mittig zu positionieren muss zusätzlich die Hälfte der Breite des Bildes abgezogen werden */
+    top:calc(100vh - 50% - 122px); /* Um mittig zu positionieren muss zusätzlich die Hälfte der Höhe des Bildes abgezogen werden */
+    width:202px;
+    height: 244px;
+}  
+to 
+{
+    position:absolute;
+    z-index:11;
+    left:50px;
+    top:25px;
+    width:101px;
+    height:122px;
+}
+}  
+/* Login-Animation */
+
 
 /* INTERVALLE FÜRS HANDY */
 @media (min-width:301px) and (max-width:1400px) {

@@ -55,14 +55,17 @@
 
 <!--Sobald der body-Bereich geladen wurde, wird das Java-Script ausgeführt-->
 
-<body onload="init();">
+<body onload="init();loginAnimation();">
 
-  
+    
 
     <!-- MAIN -->
-    <div class="login-Container">
-        <img class="moving-logo" src="img/JOIN-Logo.png">
+    <img id="animatedlogo" class="moving-logo-first" src="img/JOIN-Logo.png">
 
+    <!-- <img class="moving-logo" src="img/JOIN-Logo.png">   -->
+
+    <div class="login-Container">
+        
         <div class="login-Box">
             <h1>Log in</h1>
             <div class="login-inputdesign"><input placeholder="Email" type="text"><img src="img/email-icon.png"></div>
