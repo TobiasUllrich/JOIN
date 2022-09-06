@@ -85,6 +85,8 @@ padding-bottom:15px;
     font-size:21px;
     outline: none;
     padding-left:15px;
+    height: 49px;
+    border-radius: 30px;
 }
 
 ::placeholder{
