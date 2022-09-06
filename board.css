@@ -69,10 +69,6 @@ body {
     height: 31px;
     border: none;
     outline: none;
-    /*background-image: url(./img/board/search.png);
-    background-repeat: no-repeat;
-    background-position: right;
-    background-position-x: 195px;*/
 }
 
 .search-task::placeholder {
@@ -247,7 +243,6 @@ body {
     gap: 10px;
     width: 125px;
     height: 27px;
-    background: #FF7A00;
     border-radius: 8px;
     justify-content: center;
 }

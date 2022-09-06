@@ -11,9 +11,9 @@ function renderToDo() {
     todoOutput.innerHTML = '';
 
     for (let i = 0; i < todos.length; i++) {
-        const todo = todos[i];
-        todoOutput.innerHTML += templateOfNewTaskToDo(todo, i);
-        updateTasksHeadlinesStatusTodo(i)
+        const taskTodo = todos[i];
+        todoOutput.innerHTML += templateOfNewTaskToDo(taskTodo, i);
+        updateTasksHeadlinesStatusTodo(i);
     }
 }
 
@@ -47,8 +47,8 @@ function renderDone() {
     doneOutput.innerHTML = '';
 
     for (let l = 0; l < doneTasks.length; l++) {
-        const doneTask = doneTasks[l];
-        doneOutput.innerHTML += templateOfTaskDone(doneTask, l);
+        const taskDone = doneTasks[l];
+        doneOutput.innerHTML += templateOfTaskDone(taskDone, l);
         updateStatusHeadlinesStatusDone(l);
     }
 }
