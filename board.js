@@ -152,3 +152,11 @@ function updateStatusHeadlinesStatusDone(l){
         }
     }
 }
+
+function addTask(){
+    document.getElementById('main-add-task-container').classList.remove('d-none');
+}
+
+function closeAddTaskContainer(){
+    document.getElementById('main-add-task-container').classList.add('d-none')
+}
