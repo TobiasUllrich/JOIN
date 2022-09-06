@@ -30,13 +30,13 @@ let tasksScript = [
     "description": "BlaBlaBla",
     "dueDate": "30/10/2010",
     "priority": "Urgent",       // Urgent, Medium, Low
-    "status": "In Progress",     // To do, In progress, Awaiting feedback, Done
+    "status": "Awaiting feedback",     // To do, In progress, Awaiting feedback, Done
     "assignedTo": [0,1,2],   // Index of users Array (ist eindeutig)
     "subTasks": ['Putzen','Spülen','Saubermachen'] 
   },
   {
     "title": "Lagebesprechung Preiserhöhungen",
-    "category": "Sales",  // Design, Marketing, Sales, Backoffice, Media usw. gerne weitere Vorschläge bzw. Ergänzungen
+    "category": "Design",  // Design, Marketing, Sales, Backoffice, Media usw. gerne weitere Vorschläge bzw. Ergänzungen
     "description": "Hier wird ein unnötiger Beschreibungstext stehen, der von dem User festgelegt wird",
     "dueDate": "30/10/2010",
     "priority": "Urgent",       // Urgent, Medium, Low
@@ -50,7 +50,7 @@ let tasksScript = [
     "description": "Hier wird ein unnötiger Beschreibungstext stehen, der von dem User festgelegt wird",
     "dueDate": "30/10/2010",
     "priority": "Urgent",       // Urgent, Medium, Low
-    "status": "In progress",     // To do, In progress, Awaiting feedback, Done
+    "status": "Awaiting feedback",     // To do, In progress, Awaiting feedback, Done
     "assignedTo": [0,1,2],   // Index of users Array (ist eindeutig)
     "subTasks": ['Putzen','Spülen','Saubermachen'] 
   },
@@ -60,7 +60,7 @@ let tasksScript = [
     "description": "Hier wird ein unnötiger Beschreibungstext stehen, der von dem User festgelegt wird",
     "dueDate": "30/10/2010",
     "priority": "Medium",       // Urgent, Medium, Low
-    "status": "In progress",     // To do, In progress, Awaiting feedback, Done
+    "status": "Awaiting feedback",     // To do, In progress, Awaiting feedback, Done
     "assignedTo": [0,1,2],   // Index of users Array (ist eindeutig)
     "subTasks": ['Putzen','Spülen','Saubermachen'] 
   },
@@ -84,6 +84,16 @@ let tasksScript = [
     "assignedTo": [0,1,2],   // Index of users Array (ist eindeutig)
     "subTasks": ['Putzen','Spülen','Saubermachen'] 
   },
+  {
+    "title": "Call popentcial clients",
+    "category": "Sales",  // Design, Marketing, Sales, Backoffice, Media usw. gerne weitere Vorschläge bzw. Ergänzungen
+    "description": "Make the product presentation to prospective buyers",
+    "dueDate": "05-08-2022",
+    "priority": "Urgent",       // Urgent, Medium, Low
+    "status": "In progress",     // To do, In progress, Awaiting feedback, Done
+    "assignedTo": [0,1,2],   // Index of users Array (ist eindeutig)
+    "subTasks": ['Putzen','Spülen','Saubermachen'] 
+  }
   ];
 /* [1.] Variablen ganz oben werden zuerst geladen/initialisiert und sind deshalb auch überall nutzbar */
 

@@ -3,6 +3,7 @@ function renderBoard() {
     renderProgress();
     renderTesting();
     renderDone();
+    checkHeadlineColors();
 }
 
 function renderToDo() {
@@ -18,7 +19,7 @@ function renderToDo() {
 
 function renderProgress() {
     let inProgressOutput = document.getElementById('category-progress');
-    let progress = tasksScript.filter(status => status.status == 'inprogress');
+    let progress = tasksScript.filter(status => status.status == 'In progress');
     inProgressOutput.innerHTML = '';
 
     for (let j = 0; j < progress.length; j++) {
@@ -28,7 +29,7 @@ function renderProgress() {
 }
 
 function renderTesting() {
-    let testingOutput = document.getElementById('category-testing');
+    let testingOutput = document.getElementById('category-feedback');
     let testing = tasksScript.filter(status => status.status == 'testing');
     testingOutput.innerHTML = '';
 
@@ -46,5 +47,21 @@ function renderDone() {
     for (let l = 0; l < doneTasks.length; l++) {
         const doneTask = doneTasks[l];
         doneOutput.innerHTML += templateOfTaskDone(doneTask, l);
+    }
+}
+
+function checkHeadlineColors(){
+    let headlineTaskTodoContainer = document.getElementById('headline-solo-task-todo'); // Abteilung Design
+    let headlineTodoText = document.getElementById('headline-task-todo').innerHTML;
+
+    let headlineTaskProgressContainer = document.getElementById('headline-solo-task-progress'); // Abteilung Sales
+    let headlineProgressText = document.getElementById('headline-task-progress').innerHTML;
+
+    if(headlineTodoText == 'Design'){ // Das gleiche noch für alle anderen Abteilungen // Noch nicht fertig
+        headlineTaskTodoContainer.style.background ='#FF7A00;';
+    }
+
+    if(headlineProgressText == 'Sales'){
+        headlineTaskProgressContainer.style.background = '#FC71FF';
     }
 }
