@@ -72,7 +72,7 @@
                             <div>
                                 <label>Assigned to</label>
                                 <select name="Select contacts to assign[]" id="assignedToSelect"
-                                    class="form-select form-select-lg mb-3" multiple="multiple" required>
+                                    class="form-select form-select-lg mb-3" required>
                                     <option value="Management">Management</option>
                                     <option value="Sales">Sales</option>
                                     <option value="Backoffice">Backoffice</option>
@@ -92,16 +92,21 @@
                             <div>
                                 <label>Prio</label>
                                 <select id="prio" class=" mb-3" multiple="multiple" required>
-                                    <option id="urgent" value="Urgent" data-icon="img/urgent-addtask.png"> Urgent
-                                    </option>
+                                    <option style="background-image:url(img/urgent-addtask.png)" id="urgent" value="Urgent"> Urgent</option>
                                     <option id="medium" value="Medium">Medium</option>
                                     <option id="low" value="Low"> Low </option>
                                 </select>
                             </div>
 
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Add new subtask" aria-label="Recipient's username with two button addons">
+                                <button id="txtAmount" class="btn btn-outline-secondary" type="button">X</button>
+                                <button class="btn btn-outline-secondary" type="button">Button</button>
+                              </div>
+
                             <div>
                                 <label>Subtasks</label>
-                                <input type="text" class="form-control" placeholder="Add new subtask">
+                                <input type="text" class="form-control" >
                             </div>
 
 
@@ -110,8 +115,8 @@
                     </div>
                     <!-- right site -->
                     <div class="button-container">
-                        <button onclick="cleatForm()" class="btn btn-primary">Clear</button> <button
-                            class="btn btn-primary">Create Task</button>
+                        <button type="reset" class="btn btn-primary clear-button">Clear</button> <button
+                            class="btn btn-primary create-task-button">Create Task</button>
                     </div>
                 </div>
             </form>
