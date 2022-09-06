@@ -26,17 +26,17 @@ let usersScript = [
 let tasksScript = [    
   {
     "title": "Lasst uns starten :)",
-    "category": "Management",  // Design, Marketing, Sales, Backoffice, Media usw. gerne weitere Vorschläge bzw. Ergänzungen
+    "category": "Design",  // Design, Marketing, Sales, Backoffice, Media usw. gerne weitere Vorschläge bzw. Ergänzungen
     "description": "BlaBlaBla",
     "dueDate": "30/10/2010",
     "priority": "Urgent",       // Urgent, Medium, Low
-    "status": "Awaiting feedback",     // To do, In progress, Awaiting feedback, Done
+    "status": "To do",     // To do, In progress, Awaiting feedback, Done
     "assignedTo": [0,1,2],   // Index of users Array (ist eindeutig)
     "subTasks": ['Putzen','Spülen','Saubermachen'] 
   },
   {
     "title": "Lagebesprechung Preiserhöhungen",
-    "category": "Design",  // Design, Marketing, Sales, Backoffice, Media usw. gerne weitere Vorschläge bzw. Ergänzungen
+    "category": "Sales",  // Design, Marketing, Sales, Backoffice, Media usw. gerne weitere Vorschläge bzw. Ergänzungen
     "description": "Hier wird ein unnötiger Beschreibungstext stehen, der von dem User festgelegt wird",
     "dueDate": "30/10/2010",
     "priority": "Urgent",       // Urgent, Medium, Low
@@ -46,7 +46,7 @@ let tasksScript = [
   },
   {
     "title": "Planung der Weihnachtsfeier",
-    "category": "Marketing",  // Design, Marketing, Sales, Backoffice, Media usw. gerne weitere Vorschläge bzw. Ergänzungen
+    "category": "Backoffice",  // Design, Marketing, Sales, Backoffice, Media usw. gerne weitere Vorschläge bzw. Ergänzungen
     "description": "Hier wird ein unnötiger Beschreibungstext stehen, der von dem User festgelegt wird",
     "dueDate": "30/10/2010",
     "priority": "Urgent",       // Urgent, Medium, Low
@@ -56,7 +56,7 @@ let tasksScript = [
   },
   {
     "title": "Kündigung der Mitarbeiterin XXX",
-    "category": "Management",  // Design, Marketing, Sales, Backoffice, Media usw. gerne weitere Vorschläge bzw. Ergänzungen
+    "category": "Media",  // Design, Marketing, Sales, Backoffice, Media usw. gerne weitere Vorschläge bzw. Ergänzungen
     "description": "Hier wird ein unnötiger Beschreibungstext stehen, der von dem User festgelegt wird",
     "dueDate": "30/10/2010",
     "priority": "Medium",       // Urgent, Medium, Low
@@ -66,17 +66,17 @@ let tasksScript = [
   },
   {
     "title": "Einführung neues Softwaresystem ERBY",
-    "category": "Management",  // Design, Marketing, Sales, Backoffice, Media usw. gerne weitere Vorschläge bzw. Ergänzungen
+    "category": "Marketing",  // Design, Marketing, Sales, Backoffice, Media usw. gerne weitere Vorschläge bzw. Ergänzungen
     "description": "Hier wird ein unnötiger Beschreibungstext stehen, der von dem User festgelegt wird",
     "dueDate": "30/10/2010",
     "priority": "Urgent",       // Urgent, Medium, Low
-    "status": "Awaiting feedback",     // To do, In progress, Awaiting feedback, Done
+    "status": "Done",     // To do, In progress, Awaiting feedback, Done
     "assignedTo": [0,1,2],   // Index of users Array (ist eindeutig)
     "subTasks": ['Putzen','Spülen','Saubermachen'] 
   },
   {
     "title": "Einführungsschulung betriebseigenes Canbanboard",
-    "category": "Sales",  // Design, Marketing, Sales, Backoffice, Media usw. gerne weitere Vorschläge bzw. Ergänzungen
+    "category": "Design",  // Design, Marketing, Sales, Backoffice, Media usw. gerne weitere Vorschläge bzw. Ergänzungen
     "description": "Hier wird ein unnötiger Beschreibungstext stehen, der von dem User festgelegt wird",
     "dueDate": "30/10/2010",
     "priority": "Urgent",       // Urgent, Medium, Low
