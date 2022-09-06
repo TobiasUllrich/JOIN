@@ -121,8 +121,8 @@ margin:50px;
     background-color: #091931;
     color: #FFFFFF;
     cursor:pointer;
-    width:172px;
-    height:172px;
+    transform: scale(1.05);
+    transition: all 225ms ease-in-out;
 }
 
 .summary-priority{
