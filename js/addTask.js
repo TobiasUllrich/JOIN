@@ -3,7 +3,7 @@ let selectedUsersTEST = []
 
 
 // onsubmit test
-function myFunction(){
+function myFunction() {
     console.log('Hello');
     category();
 }
@@ -24,3 +24,13 @@ function category() {
 
     console.log(category, index);
 }
+
+
+function addBackground(idOfPicture) {
+    document.getElementById(`${idOfPicture}`).style = 'transition: all 225ms ease-in-out; filter: invert(67%) sepia(27%) saturate(4917%) hue-rotate(164deg) brightness(94%) contrast(88%);';
+}
+
+function removeBackground(idOfPicture) {
+    document.getElementById(`${idOfPicture}`).style = 'filter: invert(0%);';
+}
+
