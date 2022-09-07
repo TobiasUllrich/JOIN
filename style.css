@@ -89,7 +89,7 @@ width:60%;
 
 .footer h1 {
   font-size: 21px;
-  margin-left: 60px;
+  margin-left: calc(60px + 60px);
 }
 
 .footer-headline{

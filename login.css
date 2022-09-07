@@ -53,11 +53,10 @@ body {
 }
 
 .login-Box h1{
-border-bottom: 3px solid #29ABE2;
 font-size:61px; 
 font-weight: bold;
-margin-bottom:25px; 
-padding-bottom:15px; 
+padding-bottom:15px;
+margin-bottom:0;
 }
 
 .login-inputdesign{
@@ -180,15 +179,15 @@ padding-bottom:15px;
     width: 91px;
     font-size:19px;
     border-radius:8px;
-    background-color: #091931;
     color:#FFFFFF;
-    font-weight: bold; 
+    font-weight: bold;
+    background-color: #091931;
+    border: 1px solid #091931; 
 }
 
 .login-signupbtn:hover{
     background-color: #29ABE2;
-    border-color:#29ABE2;
-    box-shadow: inset 0px 0px 0px 0px #29ABE2;
+    border: 1px solid #29ABE2; 
 }
 
 /* Login-Animation */
@@ -237,11 +236,10 @@ to
 }
 
 .signup-Box h1{
-    border-bottom: 3px solid #29ABE2;
     font-size:61px; 
     font-weight: bold;
-    margin-bottom:25px; 
-    padding-bottom:15px; 
+    padding-bottom:15px;
+    margin-bottom:0; 
     }
 
 .signup-backbutton{
@@ -286,20 +284,19 @@ to
 
 .signup-user{
     height: 51px;
-    width: 161px;
+    width: 145px;
     font-size:21px;
     border-radius:8px;
-    background-color: #091931;
     color:#FFFFFF;
     font-weight: bold; 
     margin-right:12.5px;
-    box-shadow: none;
+    background-color: #091931;
+    border: 1px solid #091931; 
 }
 
 .signup-user:hover{
     background-color: #29ABE2;
-    border-color:#29ABE2;
-    box-shadow: inset 0px 0px 0px 0px #29ABE2;
+    border: 1px solid #29ABE2; 
 }
 
 /* RESET PASSWORD */
@@ -320,11 +317,10 @@ to
 }
 
 .resetpassword-Box h1{
-    border-bottom: 3px solid #29ABE2;
     font-size:61px; 
     font-weight: bold;
-    margin-bottom:25px; 
     padding-bottom:15px; 
+    margin-bottom:0;
 }
 
 .resetpassword-Box span{
@@ -364,7 +360,24 @@ to
     margin-right:15px; 
 }
 
-/* RESET PASSWORD */
+.reset-user{
+    height: 51px;
+    width: 264px;
+    font-size:21px;
+    border-radius:8px;
+    color:#FFFFFF;
+    font-weight: bold; 
+    margin-right:12.5px;
+    background-color: #091931;
+    border: 1px solid #091931; 
+}
+
+.reset-user:hover{
+    background-color: #29ABE2;
+    border: 1px solid #29ABE2; 
+}
+
+/* FORGOT PASSWORD */
 .forgotpassword-Box{
     position:absolute;
     z-index:3;
@@ -382,11 +395,10 @@ to
 }
 
 .forgotpassword-Box h1{
-    border-bottom: 3px solid #29ABE2;
     font-size:61px; 
     font-weight: bold;
-    margin-bottom:25px; 
     padding-bottom:15px; 
+    margin-bottom:0;
 }
 
 .forgotpassword-Box span{
@@ -432,20 +444,20 @@ to
 
 .forgotpassword-send{
     height: 51px;
-    width: 250px;
+    width: 264px;
     font-size:21px;
     border-radius:8px;
-    background-color: #091931;
     color:#FFFFFF;
     font-weight: bold; 
     margin-right:12.5px;
     box-shadow: none;
+    background-color: #091931;
+    border: 1px solid #091931;
 }
 
 .forgotpassword-send:hover{
     background-color: #29ABE2;
-    border-color:#29ABE2;
-    box-shadow: inset 0px 0px 0px 0px #29ABE2;
+    border: 1px solid #29ABE2;   
 }
 
 /* INTERVALLE FÜRS HANDY */

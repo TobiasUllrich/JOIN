@@ -79,8 +79,8 @@ margin:50px;
     background-color: #091931;
     color: #FFFFFF;
     cursor:pointer;
-    width:172px;
-    height:172px;
+    transform: scale(1.05);
+    transition: all 225ms ease-in-out;
 }
 
 .summary-overview-tasksprogress{
@@ -101,8 +101,8 @@ margin:50px;
     background-color: #091931;
     color: #FFFFFF;
     cursor:pointer;
-    width:172px;
-    height:172px;
+    transform: scale(1.05);
+    transition: all 225ms ease-in-out;
 }
 
 .summary-overview-tasksawaitingfeedback{
@@ -146,8 +146,8 @@ margin:50px;
     background-color: #091931;
     color: #FFFFFF;
     cursor:pointer;
-    width:552px;
-    height:152px;
+    transform: scale(1.05);
+    transition: all 225ms ease-in-out;
 }
 
 .summary-priority-urgent{
@@ -223,8 +223,8 @@ margin-left:20px;
     background-color: #091931;
     color: #FFFFFF;
     cursor:pointer;
-    width:267px;
-    height:152px;
+    transform: scale(1.05);
+    transition: all 225ms ease-in-out;
 }
 
 
@@ -243,8 +243,8 @@ margin-left:20px;
     background-color: #091931;
     color: #FFFFFF;
     cursor: pointer;
-    width:267px;
-    height:152px;
+    transform: scale(1.05);
+    transition: all 225ms ease-in-out;
 }
 
 .summary-overview-taskstodo2{
