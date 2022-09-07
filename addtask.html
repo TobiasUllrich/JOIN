@@ -48,7 +48,7 @@
         <!-- headline -->
         <div class="add-task-board">
             <!-- Form -->
-            <form onsubmit="myFunction(); return false;">
+            <form onsubmit="creatTask(); return false;">
                 <!-- left site -->
                 <div class="column">
                     <div class="add-task-form ">
@@ -64,10 +64,10 @@
                             </div>
                             <div>
                                 <label>Category</label>
-                                <select id="category" class="form-select form-select-lg mb-3" required>
+                                <select id="category" class="form-select form-select-lg mb-3"  placeholder="Select task category">
                                     <option value="New category">New category</option>
-                                    <option value="Sales">Sales</option>
-                                    <option value="Backoffice">Backoffice</option>
+                                    <option value="Sales" required>Sales </option>
+                                    <option value="Backoffice" required>Backoffice</option>
                                 </select>
                             </div>
                             <div>
@@ -90,25 +90,24 @@
                                 <label for="dueDate">Due date</label>
                                 <input id="dueDate" class="form-control" type="date" required />
                             </div>
-                            <!--  <div>
-                                <label>Prio</label>
-                              <select id="prio" class=" mb-3" multiple="multiple" required>
-                                    <option id="urgent" value="Urgent"> Urgent</option>
-                                    <option id="medium" value="Medium">Medium</option>
-                                    <option id="low" value="Low"> Low </option>
-                                </select>
-                            </div> -->
+
 
                             <div>
                                 <label id="prio">Prio</label>
                                 <div class="toggle-buttons">
 
-                                    <input type="radio" id="urgent" name="fav_language" value="Urgent" required>
-                                    <label class="prio-label-urgent" for="urgent">Urgent <img src="/img/addtask/urgent-addtask.png"></label>
-                                    <input type="radio" id="medium" name="fav_language" value="Medium">
-                                    <label class="prio-label-medium" for="medium">Medium <img src="/img/addtask/medium-addtask.png"></label>
-                                    <input type="radio" id="low" name="fav_language" value="Low">
-                                    <label onfocus="lowFocus(lowIcon)" class="prio-label-low" for="low">Low <img id="lowIcon" src="/img/addtask/low-addtask.png"></label>
+                                    <input onclick="prioCheck('urgentIcon')" type="radio" id="urgent"
+                                        name="fav_language" value="Urgent" required>
+                                    <label class="prio-label-urgent" for="urgent">Urgent <img id="urgentIcon"
+                                            src="/img/addtask/urgent-addtask.png" ></label>
+                                    <input onclick="prioCheck('mediumIcon')" type="radio" id="medium"
+                                        name="fav_language" value="Medium">
+                                    <label class="prio-label-medium" for="medium">Medium <img id="mediumIcon"
+                                            src="/img/addtask/medium-addtask.png"></label>
+                                    <input onclick="prioCheck('lowIcon')" type="radio" id="low" name="fav_language"
+                                        value="Low">
+                                    <label class="prio-label-low" for="low">Low <img id="lowIcon"
+                                            src="/img/addtask/low-addtask.png"></label>
 
                                 </div>
                             </div>
@@ -118,9 +117,20 @@
                             <div>
                                 <label>Subtasks</label>
                                 <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Add new subtask"
-                                        aria-label="Recipient's username with two button addons">
+                                    <input onclick="subtaskInputStar()" id="subtaskInput" type="text"
+                                        class="form-control" placeholder="Add new subtask">
+                                    <button onclick="subtaskInputDelete()" id="subtaskDelete" class="d-none"
+                                        type="button"><img src="/img/addtask/x-vector.png" alt=""></button>
+                                    <button  onclick="subtaskInputAdd()" id="subtaskAdd"
+                                        class="subtasks-right-butten d-none" type="button"><img
+                                            src="/img/addtask/ok-vector.png" alt=""></button>
+                                    <button  onclick="subtaskInputStar()" id="subtaskStart" class="subtasks-right-butten"
+                                        type="button"><img src="/img/plus.png" alt=""></button>
                                 </div>
+
+                            </div>
+                            <div id="subtaskList">
+
                             </div>
 
 
@@ -128,9 +138,12 @@
                         </div>
                     </div>
                     <!-- right site -->
-                    <div class="button-container" >
-                        <button onmouseover="addBackground('clear-x');" onmouseout="removeBackground('clear-x');" type="reset" class="addtask-clear-button">Clear <img id="clear-x" src="/img/addtask/x-vector.png" ></button> <button
-                            class="addtask-create-task-button">Create Task <img  src="/img/addtask/ok-vector.png" ></button>
+                    <div class="button-container">
+                        <button onmouseover="addBackground('clear-x');" onmouseout="removeBackground('clear-x');"
+                            type="reset" class="addtask-clear-button">Clear <img id="clear-x"
+                                src="/img/addtask/x-vector.png"></button>
+                        <button class="addtask-create-task-button">Create Task <img
+                                src="/img/addtask/ok-vector.png"></button>
                     </div>
                 </div>
             </form>
