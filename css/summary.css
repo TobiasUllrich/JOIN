@@ -1,0 +1,362 @@
+html {
+    scroll-behavior: smooth;  /* Standard */
+}
+
+body {
+    margin: 0px;             /* Browser-Standard rückgängig machen: Äußerer Abstand */
+    font-family: "Inter";   /* Schriftart für den ganzen Body-Bereich festlegen */
+    overflow-x: hidden;     /* Standard: Was auf der X-Achse aus dem Body/Tag rausläuft wird nicht mehr gezeigt */
+                           /* muss dem Body gegeben werden, ABER funktioniert nicht auf dem Handy -> Lösung: Alles in eine <div> was in <body> ist und diesem <div> das overflow-Attribut geben */           
+    display:flex;
+    flex-direction:column;    
+    }
+
+/* SUMMARY */
+.summary-container{
+    display:flex;
+    justify-content: center;
+    background-color:#F5F5F5; 
+    height: calc(100vh - 80px);
+    width: calc(100vw - 232px);  /* Be sure to put spaces around the '-' sign in the calculation */ 
+    margin-top:80px;   /* Because of the fixed Menu on the top */
+    margin-left:232px;  /* Because of the fixed Menu on the left */  
+}
+
+.summary-headline{
+display:flex;
+justify-content: flex-start;
+align-items:center;
+margin:50px;
+}
+
+.summary-headline h1{
+    font-size:61px;
+    font-weight:700;
+    padding-right:35px; 
+}
+
+.summary-headline span{
+    font-size:27px;
+    border-left: 3px solid #29ABE2;
+    padding-left:35px; 
+}
+
+.summary-infoboxes{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+}
+
+.summary-numberbox{
+    display:flex;
+    flex-direction: column;
+    margin-left:50px;
+}
+
+.summary-overview-tasks{
+    display:flex;
+    justify-content: flex-start;
+    align-items:center;
+}
+
+.summary-overview-tasks span{
+    font-size:64px;
+}
+
+.summary-overview-tasksboard{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    font-size:21px;
+    width:170px;
+    height:170px;
+    background: #FFFFFF;
+    border-radius:30px;
+    text-align:center; 
+}
+
+.summary-overview-tasksboard:hover{
+    background-color: #091931;
+    color: #FFFFFF;
+    cursor:pointer;
+    transform: scale(1.05);
+    transition: all 225ms ease-in-out;
+}
+
+.summary-overview-tasksprogress{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    font-size:21px;
+    width:170px;
+    height:170px;
+    background: #FFFFFF;
+    border-radius:30px;
+    text-align:center;
+    margin-right:20px;
+    margin-left:20px;
+}
+
+.summary-overview-tasksprogress:hover{
+    background-color: #091931;
+    color: #FFFFFF;
+    cursor:pointer;
+    transform: scale(1.05);
+    transition: all 225ms ease-in-out;
+}
+
+.summary-overview-tasksawaitingfeedback{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    font-size:21px;
+    width:170px;
+    height:170px;
+    background: #FFFFFF;
+    border-radius:30px;
+    text-align:center;
+}
+
+.summary-overview-tasksawaitingfeedback:hover{
+    background-color: #091931;
+    color: #FFFFFF;
+    cursor:pointer;
+    transform: scale(1.05);
+    transition: all 225ms ease-in-out;
+}
+
+.summary-priority{
+    display:flex;
+    justify-content: flex-start; 
+}
+
+.summary-priority-box{
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    background: #FFFFFF;
+    border-radius:30px;
+    width:550px;
+    height:150px;
+    margin-top:20px;
+    margin-bottom:20px;   
+}
+
+.summary-priority-box:hover{
+    background-color: #091931;
+    color: #FFFFFF;
+    cursor:pointer;
+    transform: scale(1.05);
+    transition: all 225ms ease-in-out;
+}
+
+.summary-priority-urgent{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:16px;
+    padding-right:35px; 
+}
+
+.summary-priority-urgent span{
+font-size:47px;
+}
+
+.summary-priority-urgent-flex{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.summary-priority-urgentdeadline{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    border-left: 2px solid #D1D1D1;
+    font-size:16px;
+    padding-left:35px; 
+}
+
+.summary-priority-urgentdeadline span{
+    font-size:21px;
+}
+
+.summary-welcome span{
+margin-left:20px;
+}
+
+.summary-welcome h1{
+    font-size:47px;
+    font-weight:500;
+}
+
+.summary-welcome span{
+    font-size:64px;
+    color: #29ABE2;
+    margin-left:0;
+}
+
+.summary-overview-tasks2{
+    display:flex;
+    justify-content: flex-start;
+    align-items:center;
+    width:580px;
+    height:150px;  
+}
+
+.summary-overview-tasks2 span{
+    font-size:64px;
+}
+
+.summary-overview-taskstodo{
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    background: #FFFFFF;
+    border-radius:30px;
+    height: 150px;
+    width: 265px;
+    margin-right:10px;
+}
+
+.summary-overview-taskstodo:hover{
+    background-color: #091931;
+    color: #FFFFFF;
+    cursor:pointer;
+    transform: scale(1.05);
+    transition: all 225ms ease-in-out;
+}
+
+
+.summary-overview-tasksdone{
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    background: #FFFFFF;
+    border-radius:30px;
+    height: 150px;
+    width: 265px;
+    margin-left:10px;
+}
+
+.summary-overview-tasksdone:hover{
+    background-color: #091931;
+    color: #FFFFFF;
+    cursor: pointer;
+    transform: scale(1.05);
+    transition: all 225ms ease-in-out;
+}
+
+.summary-overview-taskstodo2{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    font-size:21px;
+}
+
+.summary-overview-tasksdone2{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    font-size:21px;
+}
+
+.urgent-icon{
+ width:69px;
+ height:69px;
+ border-radius:100%;
+}
+
+.todo-icon{
+    width:69px;
+    height:69px;
+    border-radius:100%;
+    background-color: #091931;    
+}
+
+.todo-icon img{
+    position:relative;
+    left: 22px;
+    top: 17px;
+    opacity:1;
+}
+
+.done-icon{
+    width:69px;
+    height:69px;
+    border-radius:100%;
+    background-color: #091931;
+}  
+
+.done-icon img{
+    position:relative;
+    left: 16px;
+    top: 18px;
+    opacity:1;
+}
+
+   
+   #numberTasksBoard{
+    font-weight:600;
+   }
+   #numberTasksinProgress{
+    font-weight:600;
+   }
+   #numberTasksawaitingFeedback{
+    font-weight:600;
+   }
+   
+   #numberTasksUrgent{
+    font-weight:600;
+   }
+   
+   #numberTasksTodo{
+    font-weight:600;
+   }
+   
+   #numberTasksDone{
+    font-weight:600;
+   }
+   
+   #actuser{
+       font-weight:700; 
+   }
+   
+   #urgentdate{
+       font-weight:700; 
+   }
+
+
+
+
+
+
+
+
+
+/* INTERVALLE FÜRS HANDY */
+@media (min-width:301px) and (max-width:1400px) {
+}
+
+@media (min-width:400px) and (max-width:800px) {
+}
+
+@media (min-width:215px) and (max-width:300px) {
+}
+
+@media (min-width:299px) and (max-width:0px) {   /* Ab hier leer lassen */
+}
+
+
+
+                  
+
+
+
+
+
+
+
+
+
+
