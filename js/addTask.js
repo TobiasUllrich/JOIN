@@ -26,11 +26,11 @@ function category() {
 }
 
 
-function addBackground(idOfPicture) {
+function addBg(idOfPicture) {
     document.getElementById(`${idOfPicture}`).style = 'transition: all 225ms ease-in-out; filter: invert(67%) sepia(27%) saturate(4917%) hue-rotate(164deg) brightness(94%) contrast(88%);';
 }
 
-function removeBackground(idOfPicture) {
+function removeBg(idOfPicture) {
     document.getElementById(`${idOfPicture}`).style = 'filter: invert(0%);';
 }
 
