@@ -50,7 +50,7 @@
             <form onsubmit="myFunction(); return false;">
                 <!-- left site -->
                 <div class="column">
-                    <div  class="add-task-form ">
+                    <div class="add-task-form ">
                         <div class="input-area">
                             <div>
                                 <label>Titel</label>
@@ -89,24 +89,39 @@
                                 <label for="dueDate">Due date</label>
                                 <input id="dueDate" class="form-control" type="date" required />
                             </div>
-                            <div>
+                            <!--  <div>
                                 <label>Prio</label>
-                                <select id="prio" class=" mb-3" multiple="multiple" required>
-                                    <option style="background-image:url(img/urgent-addtask.png)" id="urgent" value="Urgent"> Urgent</option>
+                              <select id="prio" class=" mb-3" multiple="multiple" required>
+                                    <option id="urgent" value="Urgent"> Urgent</option>
                                     <option id="medium" value="Medium">Medium</option>
                                     <option id="low" value="Low"> Low </option>
                                 </select>
+                            </div> -->
+
+                            <div>
+                                <label id="prio">Prio</label>
+                                <div class="toggle-buttons">
+                                     
+                                    <input type="radio" id="urgent" name="fav_language" value="Urgent" required>
+                                    <label for="urgent">Urgent</label>
+                                    <input type="radio" id="medium" name="fav_language" value="Medium">
+                                    <label for="medium">Medium</label>
+                                    <input type="radio" id="low" name="fav_language" value="Low">
+                                    <label for="low">Low</label>
+                                    
+                                </div>
                             </div>
 
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Add new subtask" aria-label="Recipient's username with two button addons">
+                                <input type="text" class="form-control" placeholder="Add new subtask"
+                                    aria-label="Recipient's username with two button addons">
                                 <button id="txtAmount" class="btn btn-outline-secondary" type="button">X</button>
                                 <button class="btn btn-outline-secondary" type="button">Button</button>
-                              </div>
+                            </div>
 
                             <div>
                                 <label>Subtasks</label>
-                                <input type="text" class="form-control" >
+                                <input type="text" class="form-control">
                             </div>
 
 
