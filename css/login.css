@@ -55,7 +55,7 @@ body {
 .login-Box h1{
 font-size:61px; 
 font-weight: bold;
-padding-bottom:15px;
+padding-bottom:20px;
 margin-bottom:0;
 }
 
@@ -99,7 +99,7 @@ margin-bottom:0;
     display:flex;
     justify-content: space-between;
     font-size:16px;
-    margin-top:12.5px;
+    margin-top:0;
     margin-bottom:12.5px;
     width: calc(161px * 2 + 12.5px * 2);
 }
@@ -121,6 +121,7 @@ margin-bottom:0;
 
 .login-buttons{
     margin:12.5px;
+    margin-bottom:0 !important;
 }
 
 .login-rememberOrforgotPw a{
@@ -133,17 +134,17 @@ margin-bottom:0;
     width: 161px;
     font-size:21px;
     border-radius:8px;
-    background-color: #091931;
     color:#FFFFFF;
     font-weight: bold; 
     margin-right:12.5px;
     box-shadow: none;
+    background-color: #091931;
+    border: 1px solid #091931; 
 }
 
 .login-user:hover{
     background-color: #29ABE2;
-    border-color:#29ABE2;
-    box-shadow: inset 0px 0px 0px 0px #29ABE2;
+    border: 1px solid #29ABE2; 
 }
 
 .login-guest{
@@ -231,14 +232,14 @@ to
     border-radius: 30px;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
 
-    height: 513px;
+    height: 559px;
     width: 652px;
 }
 
 .signup-Box h1{
     font-size:61px; 
     font-weight: bold;
-    padding-bottom:15px;
+    padding-bottom:20px;
     margin-bottom:0; 
     }
 
@@ -256,7 +257,7 @@ to
     align-items: center;
     height:51px;
     width:422px;
-    margin-bottom:17px; 
+    margin-bottom:50px; 
 
     border: 1px solid #D1D1D1;
     border-radius:10px;  
@@ -312,7 +313,7 @@ to
     border-radius: 30px;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
 
-    height: 513px;
+    height: 537px;
     width: 826px;
 }
 
@@ -325,7 +326,10 @@ to
 
 .resetpassword-Box span{
     font-size:21px;
-    margin:25px; 
+    margin-top:0; 
+    margin-bottom:25px; 
+    margin-left:25px; 
+    margin-right:25px; 
 }
 
 .resetpassword-inputdesign{
@@ -403,7 +407,7 @@ to
 
 .forgotpassword-Box span{
     font-size:21px;
-    margin-top:25px; 
+    margin-top:0; 
     margin-bottom:25px; 
     margin-left:83px; 
     margin-right:83px; 
