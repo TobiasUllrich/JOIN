@@ -132,10 +132,9 @@ body {
   transition: all 225ms ease-in-out;
 }
 
-#clear-x{
+#clear-x {
   margin-left: 10px;
 }
-
 
 .addtask-create-task-button {
   display: flex;
@@ -163,7 +162,6 @@ body {
   transform: scale(1.02);
   transition: all 225ms ease-in-out;
 }
-
 
 /* Toggle-Buttons */
 
@@ -211,7 +209,14 @@ input:active + label {
   margin-left: 10px;
 }
 
+input[type=radio]#urgent {
+  background-color: #ff3d00 ;
+}
 
-.prio-label-urgent input[type="radio"]:checked+label {
-  background-color: #ff3d00;
+input[type=radio]#medium {
+  accent-color: #ffa800 ;
+}
+
+input[type=radio]#low {
+  accent-color: #7ae229;
 }
