@@ -34,3 +34,7 @@ function removeBackground(idOfPicture) {
     document.getElementById(`${idOfPicture}`).style = 'filter: invert(0%);';
 }
 
+
+function lowFocus(idOfPicture){
+    document.getElementById(`${idOfPicture}`).style = 'filter: invert(100%) sepia(93%) saturate(27%) hue-rotate(98deg) brightness(106%) contrast(109%);';
+}

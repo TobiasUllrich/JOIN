@@ -104,11 +104,11 @@
                                 <div class="toggle-buttons">
 
                                     <input type="radio" id="urgent" name="fav_language" value="Urgent" required>
-                                    <label for="urgent">Urgent <img src="/img/addtask/urgent-addtask.png"></label>
+                                    <label class="prio-label-urgent" for="urgent">Urgent <img src="/img/addtask/urgent-addtask.png"></label>
                                     <input type="radio" id="medium" name="fav_language" value="Medium">
-                                    <label for="medium">Medium <img src="/img/addtask/medium-addtask.png"></label>
+                                    <label class="prio-label-medium" for="medium">Medium <img src="/img/addtask/medium-addtask.png"></label>
                                     <input type="radio" id="low" name="fav_language" value="Low">
-                                    <label for="low">Low <img id="lowIcon" src="/img/addtask/low-addtask.png"></label>
+                                    <label onfocus="lowFocus(lowIcon)" class="prio-label-low" for="low">Low <img id="lowIcon" src="/img/addtask/low-addtask.png"></label>
 
                                 </div>
                             </div>
