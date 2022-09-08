@@ -19,7 +19,7 @@ function templateOfNewTaskToDo(taskTodo, i) {
                 </div>
             </div>
         <div id="prio-img-todo" class="prio-img">
-            <img id="prio-img${i}" src="./img/board/prio-${taskTodo.priority}.png">
+            <img id="prio-img-todo${i}" src="./img/board/prio-${taskTodo.priority}.png">
         </div>
     </div>
 </div>`
@@ -45,7 +45,7 @@ function templateOfTaskInProgress(taskProgress, j) {
                 </div>
             </div>
         <div id="prio-img-progress" class="prio-img">
-            <img id="prio-img${j}" src="./img/board/prio-${taskProgress.priority}.png">
+            <img id="prio-img-progress${j}" src="./img/board/prio-${taskProgress.priority}.png">
         </div>
     </div>
 </div>`
@@ -71,7 +71,7 @@ function templateOfTaskFeedback(taskFeedback, k) {
                 </div>
             </div>
         <div id="prio-img-feedback" class="prio-img">
-            <img id="prio-img${k}" src="./img/board/prio-${taskFeedback.priority}.png">
+            <img id="prio-img-feedback${k}" src="./img/board/prio-${taskFeedback.priority}.png">
         </div>
     </div>
 </div>`
@@ -97,30 +97,30 @@ function templateOfTaskDone(taskDone, l) {
                 </div>
             </div>
         <div id="prio-img-done" class="prio-img">
-            <img id="prio-img${l}" src="./img/board/prio-${taskDone.priority}.png">
+            <img id="prio-img-done${l}" src="./img/board/prio-${taskDone.priority}.png">
         </div>
     </div>
 </div>`
 }
 
-function templateImportantTaskTodo(importantTask, m){
+function templateImportantTaskTodo(i){ // importantTask, m
     return `
-    <div id="main-important-task-container${m}" class="main-important-task-container d-none">
-        <div onclick="closeImportantTaskTodo(${m})" class="close-important-task"><img src="./img/board/close.png"></div>
+    <div id="main-important-task-container-todo${i}" class="main-important-task-container d-none">
+        <div onclick="closeImportantTaskTodo(${i})" class="close-important-task"><img src="./img/board/close.png"></div>
         <div class="important-task-headline">
-            <h4>${importantTask.category}</h4>
+            <h4>${importantTasksTodo[i].category}</h4>
         </div>
         <div class="important-task-title">
-            <h2>${importantTask.title}</h2>
+            <h2>${importantTasksTodo[i].title}</h2>
         </div>
         <div class="important-task-description">
-            <span>${importantTask.description}</span>
+            <span>${importantTasksTodo[i].description}</span>
         </div>
         <div class="important-task-date">
             <table>
                 <tr>
                     <td>Due date:</td>
-                    <td>${importantTask.dueDate}</td>
+                    <td>${importantTasksTodo[i].dueDate}</td>
                 </tr>
             </table>
         </div>
@@ -128,7 +128,142 @@ function templateImportantTaskTodo(importantTask, m){
             <table>
                 <tr>
                     <td>Priority:</td>
-                    <td>${importantTask.priority}</td>
+                    <td>${importantTasksTodo[i].priority}</td>
+                </tr>
+            </table>
+        </div>
+        <div class="main-assigned-to">
+            <div class="assigned-to-headline">
+                <h4>Assigned To:</h4>
+            </div>
+            <div class="assigned-to-workers">
+                <table>
+                    <tr>
+                        <td>NAMENKÜRZEL</td>
+                        <td>VOLLSTÄNDIGER NAME</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>`
+}
+
+function templateImportantTaskProgress(j){ // importantTask, m
+    return `
+    <div id="main-important-task-container-progress${j}" class="main-important-task-container d-none">
+        <div onclick="closeImportantTaskProgress(${j})" class="close-important-task"><img src="./img/board/close.png"></div>
+        <div class="important-task-headline">
+            <h4>${importantTasksProgress[j].category}</h4>
+        </div>
+        <div class="important-task-title">
+            <h2>${importantTasksProgress[j].title}</h2>
+        </div>
+        <div class="important-task-description">
+            <span>${importantTasksProgress[j].description}</span>
+        </div>
+        <div class="important-task-date">
+            <table>
+                <tr>
+                    <td>Due date:</td>
+                    <td>${importantTasksProgress[j].dueDate}</td>
+                </tr>
+            </table>
+        </div>
+        <div class="important-task-prio">
+            <table>
+                <tr>
+                    <td>Priority:</td>
+                    <td>${importantTasksProgress[j].priority}</td>
+                </tr>
+            </table>
+        </div>
+        <div class="main-assigned-to">
+            <div class="assigned-to-headline">
+                <h4>Assigned To:</h4>
+            </div>
+            <div class="assigned-to-workers">
+                <table>
+                    <tr>
+                        <td>NAMENKÜRZEL</td>
+                        <td>VOLLSTÄNDIGER NAME</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>`
+}
+
+function templateImportantTaskFeedback(k){ // importantTask, m
+    return `
+    <div id="main-important-task-container-feedback${k}" class="main-important-task-container d-none">
+        <div onclick="closeImportantTaskFeedback(${k})" class="close-important-task"><img src="./img/board/close.png"></div>
+        <div class="important-task-headline">
+            <h4>${importantTasksFeedback[k].category}</h4>
+        </div>
+        <div class="important-task-title">
+            <h2>${importantTasksFeedback[k].title}</h2>
+        </div>
+        <div class="important-task-description">
+            <span>${importantTasksFeedback[k].description}</span>
+        </div>
+        <div class="important-task-date">
+            <table>
+                <tr>
+                    <td>Due date:</td>
+                    <td>${importantTasksFeedback[k].dueDate}</td>
+                </tr>
+            </table>
+        </div>
+        <div class="important-task-prio">
+            <table>
+                <tr>
+                    <td>Priority:</td>
+                    <td>${importantTasksFeedback[k].priority}</td>
+                </tr>
+            </table>
+        </div>
+        <div class="main-assigned-to">
+            <div class="assigned-to-headline">
+                <h4>Assigned To:</h4>
+            </div>
+            <div class="assigned-to-workers">
+                <table>
+                    <tr>
+                        <td>NAMENKÜRZEL</td>
+                        <td>VOLLSTÄNDIGER NAME</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>`
+}
+
+function templateImportantTaskDone(l){ // importantTask, m
+    return `
+    <div id="main-important-task-container-done${l}" class="main-important-task-container d-none">
+        <div onclick="closeImportantTaskDone(${l})" class="close-important-task"><img src="./img/board/close.png"></div>
+        <div class="important-task-headline">
+            <h4>${importantTasksDone[l].category}</h4>
+        </div>
+        <div class="important-task-title">
+            <h2>${importantTasksDone[l].title}</h2>
+        </div>
+        <div class="important-task-description">
+            <span>${importantTasksDone[l].description}</span>
+        </div>
+        <div class="important-task-date">
+            <table>
+                <tr>
+                    <td>Due date:</td>
+                    <td>${importantTasksDone[l].dueDate}</td>
+                </tr>
+            </table>
+        </div>
+        <div class="important-task-prio">
+            <table>
+                <tr>
+                    <td>Priority:</td>
+                    <td>${importantTasksDone[l].priority}</td>
                 </tr>
             </table>
         </div>

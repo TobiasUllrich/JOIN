@@ -1,11 +1,15 @@
 let importantTasks = [];
+let importantTasksTodo = [];
+let importantTasksProgress = [];
+let importantTasksFeedback = [];
+let importantTasksDone = [];
 
 function renderBoard() {
     renderToDo();
     renderProgress();
     renderFeedback();
     renderDone();
-    renderImportantTask();
+    filterTasks();
 }
 
 function renderToDo() {
@@ -17,7 +21,6 @@ function renderToDo() {
         const taskTodo = todos[i];
         todoOutput.innerHTML += templateOfNewTaskToDo(taskTodo, i);
         updateTasksHeadlinesStatusTodo(i);
-        console.log(i);
     }
 }
 
@@ -57,20 +60,18 @@ function renderDone() {
     }
 }
 
-function renderImportantTask(){
-    let importantTaskOutput = document.getElementById('main-board-container');
+function filterTasks() {
     importantTasks = tasksScript.filter(priority => priority.priority == 'Urgent');
-
-    for (let m = 0; m < importantTasks.length; m++) {
-        const importantTask = importantTasks[m];
-        importantTaskOutput.innerHTML += templateImportantTaskTodo(importantTask, m);
-    }
+    importantTasksTodo = importantTasks.filter(status => status.status == 'To do');
+    importantTasksProgress = importantTasks.filter(status => status.status == 'In progress');
+    importantTasksFeedback = importantTasks.filter(status => status.status == 'Awaiting feedback');
+    importantTasksDone = importantTasks.filter(status => status.status == 'Done');
 }
 
 function updateTasksHeadlinesStatusTodo(i) {
     let headlineTaskTodoContainer = document.getElementById(`headline-solo-task-todo${i}`);
     let headlineTodoText = document.getElementById(`headline-task-todo${i}`).innerHTML;
-    
+
     if (headlineTodoText == 'Design') {
         headlineTaskTodoContainer.style.background = '#FF7A00';
     } else {
@@ -92,10 +93,10 @@ function updateTasksHeadlinesStatusTodo(i) {
     }
 }
 
-function updateTasksHeadlinesStatusProgress(j){
+function updateTasksHeadlinesStatusProgress(j) {
     let headlineTaskProgressContainer = document.getElementById(`headline-solo-task-progress${j}`);
     let headlineProgressText = document.getElementById(`headline-task-progress${j}`).innerHTML;
-    
+
     if (headlineProgressText == 'Design') {
         headlineTaskProgressContainer.style.background = '#FF7A00';
     } else {
@@ -117,11 +118,11 @@ function updateTasksHeadlinesStatusProgress(j){
     }
 }
 
-function updateTaskHeadlinesStatusFeedback(k){
+function updateTaskHeadlinesStatusFeedback(k) {
     let headlineTaskFeedbackContainer = document.getElementById(`headline-solo-task-feedback${k}`);
     let headlineFeedbackText = document.getElementById(`headline-task-feedback${k}`).innerHTML;
-    
-    if (headlineFeedbackText == 'Design') { 
+
+    if (headlineFeedbackText == 'Design') {
         headlineTaskFeedbackContainer.style.background = '#FF7A00';
     } else {
         if (headlineFeedbackText == 'Sales') {
@@ -142,11 +143,11 @@ function updateTaskHeadlinesStatusFeedback(k){
     }
 }
 
-function updateStatusHeadlinesStatusDone(l){
+function updateStatusHeadlinesStatusDone(l) {
     let headlineTaskDoneContainer = document.getElementById(`headline-solo-task-done${l}`);
     let headlineDoneText = document.getElementById(`headline-task-done${l}`).innerHTML;
-    
-    if (headlineDoneText == 'Design') { 
+
+    if (headlineDoneText == 'Design') {
         headlineTaskDoneContainer.style.background = '#FF7A00';
     } else {
         if (headlineDoneText == 'Sales') {
@@ -167,25 +168,66 @@ function updateStatusHeadlinesStatusDone(l){
     }
 }
 
-function addTask(){
+function addTask() {
     document.getElementById('main-add-task-container').classList.remove('d-none');
     renderBoard();
 }
 
-function closeAddTaskContainer(){
+function closeAddTaskContainer() {
     document.getElementById('main-add-task-container').classList.add('d-none');
     renderBoard();
 }
+// BIS HIER ALLES IN ORDNUNG ####################################### // 
 
-function openImportantTaskTodo(i){
-    let priorityImageInTask = document.getElementById(`prio-img${i}`).src;
+function openImportantTaskTodo(i) {
+    let priorityImageInTask = document.getElementById(`prio-img-todo${i}`).src; // Bis hier alles richtig 
 
-    if(priorityImageInTask == 'http://127.0.0.1:5500/img/board/prio-Urgent.png'){
+    if (priorityImageInTask == 'http://127.0.0.1:5500/img/board/prio-Urgent.png') { // Bis hier alles richtig
         document.getElementById('main-board-container').innerHTML += templateImportantTaskTodo(i);
-        document.getElementById(`main-important-task-container${i}`).classList.remove('d-none');
+        document.getElementById(`main-important-task-container-todo${i}`).classList.remove('d-none');
     }
 }
 
-function closeImportantTaskTodo(i){
-    document.getElementById(`main-important-task-container${i}`).classList.add('d-none');
+function closeImportantTaskTodo(i) {
+    document.getElementById(`main-important-task-container-todo${i}`).classList.add('d-none');
 }
+
+function openImportantTaskProgress(j) {
+    let priorityImageInTask = document.getElementById(`prio-img-progress${j}`).src; // Bis hier alles richtig 
+
+    if (priorityImageInTask == 'http://127.0.0.1:5500/img/board/prio-Urgent.png') { // Bis hier alles richtig
+        document.getElementById('main-board-container').innerHTML += templateImportantTaskProgress(j);
+        document.getElementById(`main-important-task-container-progress${j}`).classList.remove('d-none');
+    }
+}
+
+function closeImportantTaskProgress(j){
+    document.getElementById(`main-important-task-container-progress${j}`).classList.add('d-none');
+}
+
+function openImportantTaskFeedback(k) {
+    let priorityImageInTask = document.getElementById(`prio-img-feedback${k}`).src; // Bis hier alles richtig 
+
+    if (priorityImageInTask == 'http://127.0.0.1:5500/img/board/prio-Urgent.png') { // Bis hier alles richtig
+        document.getElementById('main-board-container').innerHTML += templateImportantTaskFeedback(k);
+        document.getElementById(`main-important-task-container-feedback${k}`).classList.remove('d-none');
+    }
+}
+
+function closeImportantTaskFeedback(k) {
+    document.getElementById(`main-important-task-container-feedback${k}`).classList.add('d-none');
+}
+
+function openImportantTaskDone(l) {
+    let priorityImageInTask = document.getElementById(`prio-img-done${l}`).src; // Bis hier alles richtig 
+
+    if (priorityImageInTask == 'http://127.0.0.1:5500/img/board/prio-Urgent.png') { // Bis hier alles richtig
+        document.getElementById('main-board-container').innerHTML += templateImportantTaskDone(l);
+        document.getElementById(`main-important-task-container-done${l}`).classList.remove('d-none');
+    }
+}
+
+function closeImportantTaskDone(l) {
+    document.getElementById(`main-important-task-container-done${l}`).classList.add('d-none');
+}
+
