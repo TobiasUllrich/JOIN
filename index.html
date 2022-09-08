@@ -69,20 +69,24 @@
         <!-- Erste Seite -->
         <div id="login-Box" class="login-Box">
             <h1>Log in</h1>
-            <div style="width:160px;height:35px;border-top: 3px solid #29abe2;"></div>
-            <div class="login-inputdesign"><input id="login-email" placeholder="Email" type="text"><img src="img/email-icon.png"></div>
-            <div class="login-inputdesign"><input id="login-password" placeholder="Password" type="text"><img src="img/password-icon.png"></div>
+            <div style="width:160px;height:35px;border-top: 3px solid #29abe2;"></div>      
+            <form onsubmit="tryLogin(); return false;">
+            <div class="login-inputdesign"><input required type="email" id="login-email" placeholder="Email" type="text"><img src="img/email-icon.png"></div>
+            <div class="login-inputdesign"><input required type="password" min="5" id="login-password" placeholder="Password" type="text"><img src="img/password-icon.png"></div>
             <div class="login-rememberOrforgotPw"><div class="login-cbx"><input type="checkbox"><span>Remember me</span></div><div class="login-forgotpw"><a onclick="showPasswordForgottenForm();">Forgot my password</a></div></div>
-            <div class="login-buttons"><button onclick="tryLogin();" class="login-user">Log in</button><button  onclick="loginAsGuest();" class="login-guest">Guest Log in</button></div>
+            <div class="login-buttons"><button class="login-user">Log in</button><button  onclick="loginAsGuest();" class="login-guest">Guest Log in</button></div>
+            </form>
         </div>
         <!-- SignUp Seite -->
         <div id="signup-Box" class="signup-Box d-none">
             <h1>Sign up</h1>
             <div style="width:160px;height:35px;border-top: 3px solid #29abe2;"></div>
-            <div class="signup-inputdesign"><input id="signup-name" placeholder="Name" type="text"><img src="img/user-icon.png"></div>
-            <div class="signup-inputdesign"><input id="signup-email" placeholder="Email" type="text"><img src="img/email-icon.png"></div>
-            <div class="signup-inputdesign"><input id="signup-password" placeholder="Password" type="text"><img src="img/password-icon.png"></div>
-            <div class="login-buttons"><button onclick="trySignup();" class="signup-user">Sign up</button></div>
+            <form onsubmit="trySignup(); return false;">
+            <div class="signup-inputdesign"><input required type="text" min="5" id="signup-name" placeholder="Name" type="text"><img src="img/user-icon.png"></div>
+            <div class="signup-inputdesign"><input required type="email" id="signup-email" placeholder="Email" type="text"><img src="img/email-icon.png"></div>
+            <div class="signup-inputdesign"><input required type="password" min="5" id="signup-password" placeholder="Password" type="text"><img src="img/password-icon.png"></div>
+            <div class="login-buttons"><button class="signup-user">Sign up</button></div>
+            </form>
             <img id="backfromsignup" onclick="showLoginForm();" class="backbutton" src="img/backarrow-icon.png">
         </div> 
         <!-- ForgotPassword Seite -->
@@ -90,9 +94,10 @@
                     <h1>I forgot my password</h1>
                     <div style="width:160px;height:25px;border-top: 3px solid #29abe2;"></div>
                     <span>Don't worry! We will send you an email with the instruction to reset your password.</span>
-                    <div class="forgotpassword-inputdesign"><input id="forgotpassword-email" placeholder="Email" type="text"><img src="img/email-icon.png"></div>
-        
-                    <div class="login-buttons"><button onclick="tryToSendEmail();" class="forgotpassword-send">Send me the email</button></div>
+                    <form onsubmit="tryToSendEmail(); return false;">
+                    <div class="forgotpassword-inputdesign"><input required type="email" id="forgotpassword-email" placeholder="Email" type="text"><img src="img/email-icon.png"></div>
+                    <div class="login-buttons"><button class="forgotpassword-send">Send me the email</button></div>
+                    </form>
                     <img id="backfromforgotten" onclick="showLoginForm();" class="backbutton" src="img/backarrow-icon.png">
         </div> 
         <!-- ResetPassword Seite -->
@@ -100,9 +105,11 @@
             <h1>Reset your password</h1>
             <div style="width:160px;height:25px;border-top: 3px solid #29abe2;"></div>
             <span>Change your account password</span>
-            <div class="resetpassword-inputdesign"><input id="reset-pw" placeholder="New password" type="text"></div>
-            <div class="resetpassword-inputdesign"><input id="reset-pw2" placeholder="Confirm password" type="text"></div>
-            <div class="login-buttons"><button onclick="resetPwAnimation();" class="reset-user">Continue</button></div>
+            <form onsubmit="resetPwAnimation(); return false;">
+            <div class="resetpassword-inputdesign"><input required type="password" min="5" id="reset-pw" placeholder="New password" type="text"></div>
+            <div class="resetpassword-inputdesign"><input required type="password" min="5" id="reset-pw2" placeholder="Confirm password" type="text"></div>
+            <div class="login-buttons"><button class="reset-user">Continue</button></div>
+            </form>
             <img id="backfromreset" onclick="showPasswordForgottenForm();" class="backbutton" src="img/backarrow-icon.png">
         </div> 
     </div>
