@@ -1,7 +1,7 @@
 // ##############BOARD TEMPLATES START################# //
 function templateOfNewTaskToDo(taskTodo, i) {
     return `
-    <div class="main-task-container" draggable="true">
+    <div onclick="openImportantTask()" class="main-task-container" draggable="true">
         <div class="headline-category">
             <div id="headline-solo-task-todo${i}" class="headline-solo-task"><h3 id="headline-task-todo${i}">${taskTodo.category}</h3></div>
         </div>
@@ -19,7 +19,7 @@ function templateOfNewTaskToDo(taskTodo, i) {
                 </div>
             </div>
         <div id="prio-img-todo" class="prio-img">
-            <img src="./img/board/prio-${taskTodo.priority}.png">
+            <img id="prio-img${i}" src="./img/board/prio-${taskTodo.priority}.png">
         </div>
     </div>
 </div>`

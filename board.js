@@ -158,5 +158,8 @@ function addTask(){
 }
 
 function closeAddTaskContainer(){
-    document.getElementById('main-add-task-container').classList.add('d-none')
+    document.getElementById('main-add-task-container').classList.add('d-none');
+}
+
+function openImportantTask(){
 }
