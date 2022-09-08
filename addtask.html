@@ -59,26 +59,34 @@
                             </div>
                             <h3>Description</h3>
                             <div class="form-floating">
-                                <textarea id="description" class="form-control" placeholder="Enter a Description"
-                                    git style="height: 100px" required></textarea>
+                                <textarea id="description" class="form-control" placeholder="Enter a Description" git
+                                    style="height: 100px" required></textarea>
                             </div>
                             <div>
                                 <label>Category</label>
-                                <select id="category" class="form-select form-select-lg mb-3" required>
-                                    <option value="" hidden >Select task category</option>
-                                    <option onfocus="test()" value="New category">New category</option>
-                                    <option value="Sales" required>Sales </option>
-                                    <option value="Backoffice" required>Backoffice</option>
-                                </select>
+                                <div class="dropdown">
+                                    <input required type="text" id="myInput" class="hidden-input" id="hidden-input">
+                                    <button onclick="openCategory()" class="dropbtn" type="button">Select task
+                                        category <img src="./img/addtask/dropdown-Vector.png" alt=""></button>
+                                    <div id="categoryDropdown" class="dropdown-content">
+                                        <p>New category</p>
+                                        <p>Sales</p>
+                                        <p>Backoffice</p>
+                                    </div>
+                                </div>
                             </div>
                             <div>
                                 <label>Assigned to</label>
-                                <select name="Select contacts to assign" id="assignedToSelect"
-                                    class="form-select form-select-lg mb-3" required>
-                                    <option value="Management">Management</option>
-                                    <option value="Sales">Sales</option>
-                                    <option value="Backoffice">Backoffice</option>
-                                </select>
+                                <div class="dropdown">
+                                    <input required type="text" id="myInput" class="hidden-input" id="hidden-input">
+                                    <button onclick="openAssign()" class="dropbtn" type="button">Select contacts to
+                                        assign<img src="./img/addtask/dropdown-Vector.png" alt=""></button>
+                                    <div id="assignDropdown" class="dropdown-content">
+                                        <p>You</p>
+                                        <p>Max Mustermann</p>
+                                        <p>Invite new contact</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <!-- left site -->
@@ -137,17 +145,18 @@
                             </div>
 
 
-
+                            <div class="button-container">
+                                <button onclick="clearSubtasksArray()" onmouseover="addBg('clear-x');" onmouseout="removeBg('clear-x');" type="reset"
+                                    class="addtask-clear-button">Clear <img id="clear-x"
+                                        src="./img/addtask/x-vector.png"></button>
+                                <button class="addtask-create-task-button">Create Task <img
+                                        src="./img/addtask/ok-vector.png"></button>
+                            </div>
                         </div>
                     </div>
+
                     <!-- right site -->
-                    <div class="button-container">
-                        <button onmouseover="addBg('clear-x');" onmouseout="removeBg('clear-x');" type="reset"
-                            class="addtask-clear-button">Clear <img id="clear-x"
-                                src="./img/addtask/x-vector.png"></button>
-                        <button class="addtask-create-task-button">Create Task <img
-                                src="./img/addtask/ok-vector.png"></button>
-                    </div>
+
                 </div>
             </form>
             <!-- Form -->
