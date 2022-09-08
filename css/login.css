@@ -7,6 +7,7 @@ body {
     font-family: "Inter";   /* Schriftart für den ganzen Body-Bereich festlegen */
     overflow-x: hidden;     /* Standard: Was auf der X-Achse aus dem Body/Tag rausläuft wird nicht mehr gezeigt */
                            /* muss dem Body gegeben werden, ABER funktioniert nicht auf dem Handy -> Lösung: Alles in eine <div> was in <body> ist und diesem <div> das overflow-Attribut geben */           
+    overflow-y: hidden;
     display:flex;
     flex-direction:column;    
     }
@@ -30,8 +31,6 @@ body {
     background-color: #ffffff;
     border-radius: 30px;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
-    z-index:0;
-
     height: 513px;
     width: 652px;
 }
@@ -45,7 +44,8 @@ body {
 }
 
 .moving-logo-first{
-    position:absolute;   
+    position:absolute;
+    z-index:11;   
     left:calc(100vw - 50% - 101px); /* Um mittig zu positionieren muss zusätzlich die Hälfte der Breite des Bildes abgezogen werden */
     top:calc(100vh - 50% - 122px); /* Um mittig zu positionieren muss zusätzlich die Hälfte der Höhe des Bildes abgezogen werden */
     width:202px;
@@ -200,8 +200,6 @@ margin-bottom:0;
 @keyframes moveJOINLogo {
 from
 { 
-    position:absolute;
-    z-index:11;
     left:calc(100vw - 50% - 101px); /* Um mittig zu positionieren muss zusätzlich die Hälfte der Breite des Bildes abgezogen werden */
     top:calc(100vh - 50% - 122px); /* Um mittig zu positionieren muss zusätzlich die Hälfte der Höhe des Bildes abgezogen werden */
     width:202px;
@@ -209,8 +207,6 @@ from
 }  
 to 
 {
-    position:absolute;
-    z-index:11;
     left:50px;
     top:25px;
     width:101px;
@@ -222,8 +218,6 @@ to
 /* SIGN UP */
 .signup-Box{
     position:absolute;
-    z-index:1;
-
     display:flex;
     flex-direction:column;
     justify-content:center;
@@ -243,7 +237,7 @@ to
     margin-bottom:0; 
     }
 
-.signup-backbutton{
+.backbutton{
     display: flex;
     position:absolute;
     left: 40px;
@@ -303,8 +297,6 @@ to
 /* RESET PASSWORD */
 .resetpassword-Box{
     position:absolute;
-    z-index:2;
-
     display:flex;
     flex-direction:column;
     justify-content:center;
@@ -381,11 +373,53 @@ to
     border: 1px solid #29ABE2; 
 }
 
+
+/* ResetPw-Animation */
+#reset-info{
+    position: absolute;
+    top: 100vh;
+    left:calc(100% - 50vw - 326px/2);
+    z-index:99;
+    height: 74px;
+    width: 326px;
+    font-size:23px;
+    border-radius:20px;
+    color:#FFFFFF;
+    font-weight: 400; 
+    background-color: #091931;
+    border: 1px solid #091931; 
+}
+
+#resetpw-box{
+    position:absolute;
+    background-color: #091931;
+    z-index:100;
+    opacity:0.2;
+    width:100vw;
+    height:100ch;
+}
+
+.animate-resetPw{
+    animation: resetPwbutton 325ms ease-in-out;
+    animation-fill-mode:forwards;
+}
+
+@keyframes resetPwbutton {
+from
+{ 
+    top: 100vh;
+}  
+to 
+{
+    top: calc(100% - 50vh - 74px/2);
+}
+}  
+/* ResetPw-Animation */
+
+
 /* FORGOT PASSWORD */
 .forgotpassword-Box{
     position:absolute;
-    z-index:3;
-
     display:flex;
     flex-direction:column;
     justify-content:center;
@@ -462,6 +496,11 @@ to
 .forgotpassword-send:hover{
     background-color: #29ABE2;
     border: 1px solid #29ABE2;   
+}
+
+/* */
+.d-none{
+    display:none;
 }
 
 /* INTERVALLE FÜRS HANDY */

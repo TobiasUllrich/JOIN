@@ -16,16 +16,6 @@ function urgency() {
     console.log(urgency, index);
 }
 
-
-// selcet test
-function category() {
-    let category = document.getElementById('category');
-    let index = category.options[category.selectedIndex];
-
-    console.log(category, index);
-}
-
-
 function addBg(idOfPicture) {
     document.getElementById(`${idOfPicture}`).style = 'transition: all 225ms ease-in-out; filter: invert(67%) sepia(27%) saturate(4917%) hue-rotate(164deg) brightness(94%) contrast(88%);';
 }
