@@ -68,6 +68,11 @@ function createTask() {
 }
 
 
+function test(){
+    console.log('TEST')
+}
+
+
 //****************HTML*****************HTML*************HTML****************HTML */ 
 
 function subtaskListHTML(i) {

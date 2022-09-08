@@ -60,14 +60,13 @@
                             <h3>Description</h3>
                             <div class="form-floating">
                                 <textarea id="description" class="form-control" placeholder="Enter a Description"
-                                    style="height: 100px" required></textarea>
-
+                                    git style="height: 100px" required></textarea>
                             </div>
                             <div>
                                 <label>Category</label>
                                 <select id="category" class="form-select form-select-lg mb-3" required>
                                     <option value="" hidden >Select task category</option>
-                                    <option value="New category">New category</option>
+                                    <option onfocus="test()" value="New category">New category</option>
                                     <option value="Sales" required>Sales </option>
                                     <option value="Backoffice" required>Backoffice</option>
                                 </select>
@@ -76,7 +75,6 @@
                                 <label>Assigned to</label>
                                 <select name="Select contacts to assign" id="assignedToSelect"
                                     class="form-select form-select-lg mb-3" required>
-                                    <option value="" hidden >Select contacts to assign</option>
                                     <option value="Management">Management</option>
                                     <option value="Sales">Sales</option>
                                     <option value="Backoffice">Backoffice</option>
