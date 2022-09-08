@@ -161,5 +161,12 @@ function closeAddTaskContainer(){
     document.getElementById('main-add-task-container').classList.add('d-none');
 }
 
-function openImportantTask(){
+function openImportantTask(i){
+    let importantImage = document.getElementById(`prio-img${i}`).src;
+
+    if(importantImage == './img/board/prio-Urgent.png'){
+        console.log('Wichtige Aufgabe wird geöffnet!');
+    } else{
+        console.log('Es besteht noch ein Fehler!');
+    }
 }
