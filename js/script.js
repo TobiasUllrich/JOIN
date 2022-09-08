@@ -144,6 +144,22 @@ async function init() {
 
 }
 
+// CHECK IF USER IN ARRAY
+function checkifUserEMailexists(email) {
+  let userfound=false;
+  for (i=0;i<users.length;i++){
+    if (users[i]['email']==email) {
+      console.log('Email exists ',users[i]['email']);
+      userfound=true;
+      return users[i]['password'];
+    }
+  }
+  //Schleife is durch
+  if(userfound==false){
+    //console.log('Email doesnt exist');
+  }
+}
+
 // ADD USER TO ARRAY
 async function addUser(object) {
     users.push(object);

@@ -63,14 +63,20 @@ function loginAsGuest(){
 }
 
 //Try to Login
-function tryLogin(){
+async function tryLogin(){
+let email=document.getElementById('login-email').value;
+let password=document.getElementById('login-password').value;
+
 console.log('Now trying to login');
-console.log('Email is ', document.getElementById('login-email').value);  
-console.log('Password is ', document.getElementById('login-password').value);  
+console.log('Email is ', email );  
+console.log('Password is ', password);  
+pwdb = checkifUserEMailexists(email);
+console.log(pwdb);
+
 }
 
 //Try to Signup
-function trySignup(){
+async function trySignup(){
     console.log('Now trying to signup');
     console.log('Name is ', document.getElementById('signup-name').value);  
     console.log('Email is ', document.getElementById('signup-email').value);  
@@ -79,16 +85,16 @@ function trySignup(){
     }
 
 //Try to send Email
-function tryToSendEmail(){
+async function tryToSendEmail(){
     console.log('Email should have been sent');
     console.log('Email is ', document.getElementById('forgotpassword-email').value);  
     showResetPasswordForm();  
 }
 
-// Password benötigt mindestens einen Großbuchstaben, Kleinbuchstaben und eine Zahl    
-function checkPassword(str)
-{ 
-  // at least one number, one lowercase and one uppercase letter
+// Password benötigt mindestens einen Großbuchstaben, Kleinbuchstaben und eine Zahl
+// Liefert true -> Test bestanden; Liefert false -> Test nicht bestanden!
+function checkPasswordSyntax(str) 
+{ // at least one number, one lowercase and one uppercase letter
   // at least six characters that are letters, numbers or the underscore
   var re = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])\w{6,}$/;
   return re.test(str);
