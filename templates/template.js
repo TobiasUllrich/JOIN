@@ -1,7 +1,7 @@
 // ##############BOARD TEMPLATES START################# //
 function templateOfNewTaskToDo(taskTodo, i) {
     return `
-    <div onclick="openImportantTask(${i})" class="main-task-container" draggable="true">
+    <div onclick="openImportantTaskTodo(${i})" class="main-task-container" draggable="true">
         <div class="headline-category">
             <div id="headline-solo-task-todo${i}" class="headline-solo-task"><h3 id="headline-task-todo${i}">${taskTodo.category}</h3></div>
         </div>
@@ -27,7 +27,7 @@ function templateOfNewTaskToDo(taskTodo, i) {
 
 function templateOfTaskInProgress(taskProgress, j) {
     return `
-    <div class="main-task-container" draggable="true">
+    <div onclick="openImportantTaskProgress(${j})" class="main-task-container" draggable="true">
         <div class="headline-category">
             <div id="headline-solo-task-progress${j}" class="headline-solo-task"><h3 id="headline-task-progress${j}">${taskProgress.category}</h3></div>
         </div>
@@ -45,7 +45,7 @@ function templateOfTaskInProgress(taskProgress, j) {
                 </div>
             </div>
         <div id="prio-img-progress" class="prio-img">
-            <img src="./img/board/prio-${taskProgress.priority}.png">
+            <img id="prio-img${j}" src="./img/board/prio-${taskProgress.priority}.png">
         </div>
     </div>
 </div>`
@@ -53,7 +53,7 @@ function templateOfTaskInProgress(taskProgress, j) {
 
 function templateOfTaskFeedback(taskFeedback, k) {
     return `
-    <div class="main-task-container" draggable="true">
+    <div onclick="openImportantTaskFeedback(${k})" class="main-task-container" draggable="true">
         <div class="headline-category">
             <div id="headline-solo-task-feedback${k}" class="headline-solo-task"><h3 id="headline-task-feedback${k}">${taskFeedback.category}</h3></div>
         </div>
@@ -71,7 +71,7 @@ function templateOfTaskFeedback(taskFeedback, k) {
                 </div>
             </div>
         <div id="prio-img-feedback" class="prio-img">
-            <img src="./img/board/prio-${taskFeedback.priority}.png">
+            <img id="prio-img${k}" src="./img/board/prio-${taskFeedback.priority}.png">
         </div>
     </div>
 </div>`
@@ -79,7 +79,7 @@ function templateOfTaskFeedback(taskFeedback, k) {
 
 function templateOfTaskDone(taskDone, l) {
     return `
-    <div class="main-task-container" draggable="true">
+    <div onclick="openImportantTaskDone(${l})" class="main-task-container" draggable="true">
         <div class="headline-category">
             <div id="headline-solo-task-done${l}" class="headline-solo-task"><h3 id="headline-task-done${l}">${taskDone.category}</h3></div>
         </div>
@@ -97,7 +97,7 @@ function templateOfTaskDone(taskDone, l) {
                 </div>
             </div>
         <div id="prio-img-done" class="prio-img">
-            <img src="./img/board/prio-${taskDone.priority}.png">
+            <img id="prio-img${l}" src="./img/board/prio-${taskDone.priority}.png">
         </div>
     </div>
 </div>`

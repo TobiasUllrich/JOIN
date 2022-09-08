@@ -155,18 +155,22 @@ function updateStatusHeadlinesStatusDone(l){
 
 function addTask(){
     document.getElementById('main-add-task-container').classList.remove('d-none');
+    renderBoard();
 }
 
 function closeAddTaskContainer(){
     document.getElementById('main-add-task-container').classList.add('d-none');
+    renderBoard();
 }
 
-function openImportantTask(i){
-    let importantImage = document.getElementById(`prio-img${i}`).src;
+function openImportantTaskTodo(i){
+    let priorityImageInTask = document.getElementById(`prio-img${i}`).src;
 
-    if(importantImage == './img/board/prio-Urgent.png'){
-        console.log('Wichtige Aufgabe wird geöffnet!');
-    } else{
-        console.log('Es besteht noch ein Fehler!');
+    if(priorityImageInTask == 'http://127.0.0.1:5500/img/board/prio-Urgent.png'){
+        document.getElementById('main-important-task-container').classList.remove('d-none');
     }
+}
+
+function closeImportantTaskTodo(){
+    document.getElementById('main-important-task-container').classList.add('d-none');
 }
