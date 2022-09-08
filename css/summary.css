@@ -71,7 +71,7 @@ margin:50px;
     width:170px;
     height:170px;
     background: #FFFFFF;
-    border-radius:10px;
+    border-radius:30px;
     text-align:center; 
 }
 
@@ -79,8 +79,8 @@ margin:50px;
     background-color: #091931;
     color: #FFFFFF;
     cursor:pointer;
-    width:172px;
-    height:172px;
+    transform: scale(1.05);
+    transition: all 225ms ease-in-out;
 }
 
 .summary-overview-tasksprogress{
@@ -91,7 +91,7 @@ margin:50px;
     width:170px;
     height:170px;
     background: #FFFFFF;
-    border-radius:10px;
+    border-radius:30px;
     text-align:center;
     margin-right:20px;
     margin-left:20px;
@@ -101,8 +101,8 @@ margin:50px;
     background-color: #091931;
     color: #FFFFFF;
     cursor:pointer;
-    width:172px;
-    height:172px;
+    transform: scale(1.05);
+    transition: all 225ms ease-in-out;
 }
 
 .summary-overview-tasksawaitingfeedback{
@@ -113,7 +113,7 @@ margin:50px;
     width:170px;
     height:170px;
     background: #FFFFFF;
-    border-radius:10px;
+    border-radius:30px;
     text-align:center;
 }
 
@@ -121,8 +121,8 @@ margin:50px;
     background-color: #091931;
     color: #FFFFFF;
     cursor:pointer;
-    width:172px;
-    height:172px;
+    transform: scale(1.05);
+    transition: all 225ms ease-in-out;
 }
 
 .summary-priority{
@@ -135,7 +135,7 @@ margin:50px;
     justify-content: center;
     align-items:center;
     background: #FFFFFF;
-    border-radius:10px;
+    border-radius:30px;
     width:550px;
     height:150px;
     margin-top:20px;
@@ -146,8 +146,8 @@ margin:50px;
     background-color: #091931;
     color: #FFFFFF;
     cursor:pointer;
-    width:552px;
-    height:152px;
+    transform: scale(1.05);
+    transition: all 225ms ease-in-out;
 }
 
 .summary-priority-urgent{
@@ -213,7 +213,7 @@ margin-left:20px;
     justify-content: center;
     align-items:center;
     background: #FFFFFF;
-    border-radius:10px;
+    border-radius:30px;
     height: 150px;
     width: 265px;
     margin-right:10px;
@@ -223,8 +223,8 @@ margin-left:20px;
     background-color: #091931;
     color: #FFFFFF;
     cursor:pointer;
-    width:267px;
-    height:152px;
+    transform: scale(1.05);
+    transition: all 225ms ease-in-out;
 }
 
 
@@ -233,7 +233,7 @@ margin-left:20px;
     justify-content: center;
     align-items:center;
     background: #FFFFFF;
-    border-radius:10px;
+    border-radius:30px;
     height: 150px;
     width: 265px;
     margin-left:10px;
@@ -243,8 +243,8 @@ margin-left:20px;
     background-color: #091931;
     color: #FFFFFF;
     cursor: pointer;
-    width:267px;
-    height:152px;
+    transform: scale(1.05);
+    transition: all 225ms ease-in-out;
 }
 
 .summary-overview-taskstodo2{
