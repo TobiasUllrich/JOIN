@@ -1,6 +1,6 @@
-let usersTEST = ['img/edip.jpg', 'img/Tobias.jpg', 'img/eugen.jpg', 'img/gast.png'];
-let selectedUsersTEST = [];
 let subtasks = [];
+let category = [];
+let assign = [];
 
 // onsubmit test
 function myFunction() {
@@ -44,6 +44,7 @@ function subtaskInputStar() {
     document.getElementById('subtaskStart').classList.add('d-none');
     document.getElementById('subtaskDelete').classList.remove('d-none');
     document.getElementById('subtaskAdd').classList.remove('d-none');
+    document.getElementById('subtask-separator-line').classList.remove('d-none');
 }
 
 function subtaskInputDelete() {
@@ -51,17 +52,18 @@ function subtaskInputDelete() {
     document.getElementById('subtaskStart').classList.remove('d-none');
     document.getElementById('subtaskDelete').classList.add('d-none');
     document.getElementById('subtaskAdd').classList.add('d-none');
+    document.getElementById('subtask-separator-line').classList.add('d-none');
 }
 
-function subtaskInputAdd() {
-    let subtask = document.getElementById('subtaskInput').value;
-    subtasks.push(subtask);
-    showSubstasks();
-    document.getElementById('subtaskInput').value = '';
-    document.getElementById('subtaskStart').classList.remove('d-none');
-    document.getElementById('subtaskDelete').classList.add('d-none');
-    document.getElementById('subtaskAdd').classList.add('d-none');
-
+function subtaskInputAdd(idOInput) {
+    let subtask = document.getElementById(`${idOInput}`).value;
+    if (subtask.length >= 1 ) {
+        subtasks.push(subtask);
+        showSubstasks();
+        subtaskInputDelete();
+    } else {
+        subtaskInputDelete();
+    }
 }
 
 function showSubstasks() {
@@ -71,7 +73,7 @@ function showSubstasks() {
     }
 }
 
-function createTask(){
+function createTask() {
     console.log('TEST')
 }
 
@@ -81,9 +83,9 @@ function createTask(){
 function subtaskListHTML(i) {
     const subtask = subtasks[i];
     return /*html*/`
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-            <label class="form-check-label" for="flexCheckDefault">
+        <div class="subtask-list-form-check">
+            <input class="subtask-list-input" type="checkbox" value="" id="flexCheckDefault">
+            <label class="subtask-list-label" for="flexCheckDefault" id=${subtask}>
             ${subtask}
             </label>
         </div>`
