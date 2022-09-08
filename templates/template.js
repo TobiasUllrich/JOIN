@@ -103,4 +103,49 @@ function templateOfTaskDone(taskDone, l) {
 </div>`
 }
 
+function templateImportantTaskTodo(importantTask, m){
+    return `
+    <div id="main-important-task-container${m}" class="main-important-task-container d-none">
+        <div onclick="closeImportantTaskTodo(${m})" class="close-important-task"><img src="./img/board/close.png"></div>
+        <div class="important-task-headline">
+            <h4>${importantTask.category}</h4>
+        </div>
+        <div class="important-task-title">
+            <h2>${importantTask.title}</h2>
+        </div>
+        <div class="important-task-description">
+            <span>${importantTask.description}</span>
+        </div>
+        <div class="important-task-date">
+            <table>
+                <tr>
+                    <td>Due date:</td>
+                    <td>${importantTask.dueDate}</td>
+                </tr>
+            </table>
+        </div>
+        <div class="important-task-prio">
+            <table>
+                <tr>
+                    <td>Priority:</td>
+                    <td>${importantTask.priority}</td>
+                </tr>
+            </table>
+        </div>
+        <div class="main-assigned-to">
+            <div class="assigned-to-headline">
+                <h4>Assigned To:</h4>
+            </div>
+            <div class="assigned-to-workers">
+                <table>
+                    <tr>
+                        <td>NAMENKÜRZEL</td>
+                        <td>VOLLSTÄNDIGER NAME</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>`
+}
+
 // ##############BOARD TEMPLATES END################# //

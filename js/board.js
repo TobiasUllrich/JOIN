@@ -1,8 +1,11 @@
+let importantTasks = [];
+
 function renderBoard() {
     renderToDo();
     renderProgress();
     renderFeedback();
     renderDone();
+    renderImportantTask();
 }
 
 function renderToDo() {
@@ -14,6 +17,7 @@ function renderToDo() {
         const taskTodo = todos[i];
         todoOutput.innerHTML += templateOfNewTaskToDo(taskTodo, i);
         updateTasksHeadlinesStatusTodo(i);
+        console.log(i);
     }
 }
 
@@ -50,6 +54,16 @@ function renderDone() {
         const taskDone = doneTasks[l];
         doneOutput.innerHTML += templateOfTaskDone(taskDone, l);
         updateStatusHeadlinesStatusDone(l);
+    }
+}
+
+function renderImportantTask(){
+    let importantTaskOutput = document.getElementById('main-board-container');
+    importantTasks = tasksScript.filter(priority => priority.priority == 'Urgent');
+
+    for (let m = 0; m < importantTasks.length; m++) {
+        const importantTask = importantTasks[m];
+        importantTaskOutput.innerHTML += templateImportantTaskTodo(importantTask, m);
     }
 }
 
@@ -167,10 +181,11 @@ function openImportantTaskTodo(i){
     let priorityImageInTask = document.getElementById(`prio-img${i}`).src;
 
     if(priorityImageInTask == 'http://127.0.0.1:5500/img/board/prio-Urgent.png'){
-        document.getElementById('main-important-task-container').classList.remove('d-none');
+        document.getElementById('main-board-container').innerHTML += templateImportantTaskTodo(i);
+        document.getElementById(`main-important-task-container${i}`).classList.remove('d-none');
     }
 }
 
-function closeImportantTaskTodo(){
-    document.getElementById('main-important-task-container').classList.add('d-none');
+function closeImportantTaskTodo(i){
+    document.getElementById(`main-important-task-container${i}`).classList.add('d-none');
 }
