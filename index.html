@@ -72,7 +72,7 @@
             <div style="width:160px;height:35px;border-top: 3px solid #29abe2;"></div>      
             <form onsubmit="tryLogin(); return false;">
             <div class="login-inputdesign"><input required type="email" id="login-email" placeholder="Email" type="text"><img src="img/email-icon.png"></div>
-            <div class="login-inputdesign"><input required type="password" min="5" id="login-password" placeholder="Password" type="text"><img src="img/password-icon.png"></div>
+            <div class="login-inputdesign"><input required type="password" minlength="5" id="login-password" placeholder="Password" type="text"><img src="img/password-icon.png"></div>
             <div class="login-rememberOrforgotPw"><div class="login-cbx"><input type="checkbox"><span>Remember me</span></div><div class="login-forgotpw"><a onclick="showPasswordForgottenForm();">Forgot my password</a></div></div>
             <div class="login-buttons"><button class="login-user">Log in</button><button  onclick="loginAsGuest();" class="login-guest">Guest Log in</button></div>
             </form>
@@ -82,9 +82,9 @@
             <h1>Sign up</h1>
             <div style="width:160px;height:35px;border-top: 3px solid #29abe2;"></div>
             <form onsubmit="trySignup(); return false;">
-            <div class="signup-inputdesign"><input required type="text" min="5" id="signup-name" placeholder="Name" type="text"><img src="img/user-icon.png"></div>
+            <div class="signup-inputdesign"><input required type="text" minlength="5" id="signup-name" placeholder="Name" type="text"><img src="img/user-icon.png"></div>
             <div class="signup-inputdesign"><input required type="email" id="signup-email" placeholder="Email" type="text"><img src="img/email-icon.png"></div>
-            <div class="signup-inputdesign"><input required type="password" min="5" id="signup-password" placeholder="Password" type="text"><img src="img/password-icon.png"></div>
+            <div class="signup-inputdesign"><input required type="password" minlength="5" id="signup-password" placeholder="Password" type="text"><img src="img/password-icon.png"></div>
             <div class="login-buttons"><button class="signup-user">Sign up</button></div>
             </form>
             <img id="backfromsignup" onclick="showLoginForm();" class="backbutton" src="img/backarrow-icon.png">
@@ -106,8 +106,8 @@
             <div style="width:160px;height:25px;border-top: 3px solid #29abe2;"></div>
             <span>Change your account password</span>
             <form onsubmit="resetPwAnimation(); return false;">
-            <div class="resetpassword-inputdesign"><input required type="password" min="5" id="reset-pw" placeholder="New password" type="text"></div>
-            <div class="resetpassword-inputdesign"><input required type="password" min="5" id="reset-pw2" placeholder="Confirm password" type="text"></div>
+            <div class="resetpassword-inputdesign"><input required type="password" minlength="5" id="reset-pw" placeholder="New password" type="text"></div>
+            <div class="resetpassword-inputdesign"><input required type="password" minlength="5" id="reset-pw2" placeholder="Confirm password" type="text"></div>
             <div class="login-buttons"><button class="reset-user">Continue</button></div>
             </form>
             <img id="backfromreset" onclick="showPasswordForgottenForm();" class="backbutton" src="img/backarrow-icon.png">

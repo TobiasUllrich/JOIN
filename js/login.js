@@ -22,20 +22,8 @@ function resetPwAnimation(){
 }
 
 //Wrong-Email-Animation
-function wrongEmailAnimation(){
-    document.getElementById('alert-text').innerHTML='Wrong E-Mail!';
-    document.getElementById('alert-info').classList.add('animate-Wrong');
-    document.getElementById('alert-box').classList.remove('d-none');
-
-    setTimeout(function (){
-        document.getElementById('alert-info').classList.remove('animate-Wrong');
-        document.getElementById('alert-box').classList.add('d-none');     
-    }, 1000);    
-}
-
-//Wrong-PW-Animation
-function wrongPwAnimation(){
-    document.getElementById('alert-text').innerHTML='Wrong Password!';
+function animateMessage(message){
+    document.getElementById('alert-text').innerHTML=message;
     document.getElementById('alert-info').classList.add('animate-Wrong');
     document.getElementById('alert-box').classList.remove('d-none');
 
@@ -91,38 +79,75 @@ function tryLogin(){
 let email=document.getElementById('login-email').value;
 let password=document.getElementById('login-password').value;
 
-// console.log('Now trying to login');
-// console.log('Email is ', email );  
-// console.log('Password is ', password);  
-
 checkifEMailexists(email);
 checkifPasswordMatches(email,password);
-if (checkifEMailexists(email) && checkifPasswordMatches(email,password)){
-    window.location.href = 'summary.html';
-    console.log('DURCHLASSEN!');
-}
+if (checkifEMailexists(email) && checkifPasswordMatches(email,password))
+{window.location.href = 'summary.html';console.log('DURCHLASSEN!');}
 else if (!checkifEMailexists(email))
-{console.log('This E-Mail is not registered');
-wrongEmailAnimation();}
+{animateMessage('E-Mail not found!');console.log('This E-Mail is not registered!');}
 else
-{console.log('The password you entered is incorrect');
-wrongPwAnimation();}
+{animateMessage('Wrong Password!');console.log('The password you entered is incorrect!');}
 }
 
 //Try to Signup
 async function trySignup(){
-    console.log('Now trying to signup');
-    console.log('Name is ', document.getElementById('signup-name').value);  
-    console.log('Email is ', document.getElementById('signup-email').value);  
-    console.log('Password is ', document.getElementById('signup-password').value);  
-    showLoginForm();  
+    let name=document.getElementById('signup-name').value;
+    let email=document.getElementById('signup-email').value;
+    let password=document.getElementById('signup-password').value;
+    let object={
+        "name": name,
+        "picture": "randomprofilepicture.webp",
+        "email": email,
+        "phone":"",
+        "password": password
+      }
+    //console.log(object);
+    if(checkifEMailexists(email))
+    {
+    animateMessage('E-Mail already exists!');
+    }
+    else
+    {
+    addUser(object);
+    emptySignUpForm();
+    showLoginForm();
+    }
+
+
+    // console.log('Now trying to signup');
+    // console.log('Name is ', document.getElementById('signup-name').value);  
+    // console.log('Email is ', document.getElementById('signup-email').value);  
+    // console.log('Password is ', document.getElementById('signup-password').value);  
+      
     }
 
 //Try to send Email
 async function tryToSendEmail(){
-    console.log('Email should have been sent');
-    console.log('Email is ', document.getElementById('forgotpassword-email').value);  
-    showResetPasswordForm();  
+    let email=document.getElementById('forgotpassword-email').value;
+    let password = '';
+
+    if(checkifEMailexists(email))
+    {   // Hier muss E-Mail geschickt werden
+        // Für den User mit der Entsprechenden E-Mail wird automatisch ein Random-Password festgelegt
+        password='Elefant123';
+        setRandomPasswordForUser(email,password)
+        console.log('Email should have been sent');
+        console.log('Email is ', document.getElementById('forgotpassword-email').value);
+
+        showResetPasswordForm();   
+    }
+    else
+    {
+        animateMessage('E-Mail not found!');
+    }
+
+     
+}
+
+function emptySignUpForm(){
+    document.getElementById('signup-name').value='';
+    document.getElementById('signup-email').value='';
+    document.getElementById('signup-password').value='';
 }
 
 // Password benötigt mindestens einen Großbuchstaben, Kleinbuchstaben und eine Zahl

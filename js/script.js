@@ -159,15 +159,27 @@ function checkifEMailexists(email) {
 
 // CHECK IF PASSWORD-ENTRY OF USER WITH CERTAIN EMAIL MATCHES DATABASE-PASSWORD
 function checkifPasswordMatches(email,password) {
-  passwordmatches = false;
+  let passwordmatches = false;
   for (i=0;i<users.length;i++){      
      if (users[i]['email'].toLowerCase() == email.toLowerCase() && users[i]['password'] == password)
       {passwordmatches = true;
         console.log('PW matches');
         return passwordmatches; //If found once "true" is returned, else it stays "false"
       }
-  }
-  
+  }  
+}
+
+// SET RANDOM PASSWORD FOR PASSWORDFORGOTTEN-REQUESTS
+function setRandomPasswordForUser(email,password) {
+let passwordSet = false;
+  for (i=0;i<users.length;i++){      
+     if (users[i]['email'].toLowerCase() == email.toLowerCase())
+      { users[i]['password'] = password;
+        passwordSet = true;
+        console.log('PW set');
+        return passwordSet; //If changed "true" is returned, else it stays "false"
+      }
+  }  
 }
 
 // ADD USER TO ARRAY
