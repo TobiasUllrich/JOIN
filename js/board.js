@@ -9,7 +9,7 @@ function renderBoard() {
     renderProgress();
     renderFeedback();
     renderDone();
-    filterTasks();
+    filterImportentTasks();
 }
 
 function renderToDo() {
@@ -60,13 +60,14 @@ function renderDone() {
     }
 }
 
-function filterTasks() {
-    importantTasks = tasksScript.filter(priority => priority.priority == 'Urgent');
-    importantTasksTodo = importantTasks.filter(status => status.status == 'To do');
-    importantTasksProgress = importantTasks.filter(status => status.status == 'In progress');
-    importantTasksFeedback = importantTasks.filter(status => status.status == 'Awaiting feedback');
-    importantTasksDone = importantTasks.filter(status => status.status == 'Done');
+function filterImportentTasks() {
+    importantTasks = tasksScript.filter(priority => priority.priority == 'Urgent'); // All important Tasks
+    importantTasksTodo = importantTasks.filter(status => status.status == 'To do'); // All important Tasks in Todo
+    importantTasksProgress = importantTasks.filter(status => status.status == 'In progress'); // All important Tasks in Progress
+    importantTasksFeedback = importantTasks.filter(status => status.status == 'Awaiting feedback'); // All important Tasks in Feedback
+    importantTasksDone = importantTasks.filter(status => status.status == 'Done'); // All important Tasks in Done
 }
+
 
 function updateTasksHeadlinesStatusTodo(i) {
     let headlineTaskTodoContainer = document.getElementById(`headline-solo-task-todo${i}`);
@@ -170,64 +171,86 @@ function updateStatusHeadlinesStatusDone(l) {
 
 function addTask() {
     document.getElementById('main-add-task-container').classList.remove('d-none');
-    renderBoard();
 }
 
 function closeAddTaskContainer() {
     document.getElementById('main-add-task-container').classList.add('d-none');
-    renderBoard();
 }
 // BIS HIER ALLES IN ORDNUNG ####################################### // 
 
 function openImportantTaskTodo(i) {
-    let priorityImageInTask = document.getElementById(`prio-img-todo${i}`).src; // Bis hier alles richtig 
+    let importantTaskOutput = document.getElementById('main-important-task-container');
+    let priorityImageInTask = document.getElementById(`prio-img-todo${i}`).src;
+    console.log('Index von i ist', i);
 
-    if (priorityImageInTask == 'http://127.0.0.1:5500/img/board/prio-Urgent.png') { // Bis hier alles richtig
-        document.getElementById('main-board-container').innerHTML += templateImportantTaskTodo(i);
-        document.getElementById(`main-important-task-container-todo${i}`).classList.remove('d-none');
+    for (let m = 0; m < importantTasksTodo.length; m++) {
+        console.log(importantTasksTodo);
+        const importantTaskTodo = importantTasksTodo[m];
+        console.log(importantTaskTodo, 'Index von m ist', m);
+
+        if (priorityImageInTask == 'http://127.0.0.1:5500/img/board/prio-Urgent.png') {
+            //document.getElementById(`main-important-task-container-todo${m}`).classList.remove('d-none');
+            importantTaskOutput.classList.remove('d-none');
+            console.log('M in der If Abfrage ist', m);
+            importantTaskOutput.innerHTML = templateImportantTaskTodo(importantTaskTodo, m);
+        }
     }
 }
 
+
 function closeImportantTaskTodo(i) {
     document.getElementById(`main-important-task-container-todo${i}`).classList.add('d-none');
+    document.getElementById('main-important-task-container').classList.add('d-none');
 }
 
 function openImportantTaskProgress(j) {
-    let priorityImageInTask = document.getElementById(`prio-img-progress${j}`).src; // Bis hier alles richtig 
+    let importantTaskOutput = document.getElementById('main-board-container');
+    let priorityImageInTask = document.getElementById(`prio-img-progress${j}`).src;
 
-    if (priorityImageInTask == 'http://127.0.0.1:5500/img/board/prio-Urgent.png') { // Bis hier alles richtig
-        document.getElementById('main-board-container').innerHTML += templateImportantTaskProgress(j);
+    if (priorityImageInTask == 'http://127.0.0.1:5500/img/board/prio-Urgent.png') {
+        importantTaskOutput.innerHTML += templateImportantTaskProgress(j);
         document.getElementById(`main-important-task-container-progress${j}`).classList.remove('d-none');
     }
 }
 
-function closeImportantTaskProgress(j){
+function closeImportantTaskProgress(j) {
     document.getElementById(`main-important-task-container-progress${j}`).classList.add('d-none');
 }
 
-function openImportantTaskFeedback(k) {
-    let priorityImageInTask = document.getElementById(`prio-img-feedback${k}`).src; // Bis hier alles richtig 
+function openImportantTaskFeedback(k) { // Baustelle Anfang
+    let importantTaskOutput = document.getElementById('main-important-task-container');
+    let priorityImageInTask = document.getElementById(`prio-img-feedback${k}`).src;
 
-    if (priorityImageInTask == 'http://127.0.0.1:5500/img/board/prio-Urgent.png') { // Bis hier alles richtig
-        document.getElementById('main-board-container').innerHTML += templateImportantTaskFeedback(k);
-        document.getElementById(`main-important-task-container-feedback${k}`).classList.remove('d-none');
+    for (let o = 0; o < importantTasksFeedback.length; o++) {
+        const importantTaskFeedback = importantTasksFeedback[o];
+
+        if (priorityImageInTask == 'http://127.0.0.1:5500/img/board/prio-Urgent.png') {
+            importantTaskOutput.innerHTML = templateImportantTaskFeedback(importantTaskFeedback, o);
+            document.getElementById(`main-important-task-container-feedback${o}`).classList.remove('d-none');
+            document.getElementById('main-important-task-container').classList.remove('d-none');
+        }
     }
-}
+} // Baustelle Ende
 
 function closeImportantTaskFeedback(k) {
     document.getElementById(`main-important-task-container-feedback${k}`).classList.add('d-none');
+    document.getElementById('main-important-task-container').classList.add('d-none');
 }
 
 function openImportantTaskDone(l) {
-    let priorityImageInTask = document.getElementById(`prio-img-done${l}`).src; // Bis hier alles richtig 
+    let importantTaskOutput = document.getElementById('main-board-container');
+    let priorityImageInTask = document.getElementById(`prio-img-done${l}`).src;
 
-    if (priorityImageInTask == 'http://127.0.0.1:5500/img/board/prio-Urgent.png') { // Bis hier alles richtig
-        document.getElementById('main-board-container').innerHTML += templateImportantTaskDone(l);
-        document.getElementById(`main-important-task-container-done${l}`).classList.remove('d-none');
+    for (let n = 0; n < importantTasksDone.length; n++) {
+        const importantTaskDone = importantTasksDone[n];
+
+        if (priorityImageInTask == 'http://127.0.0.1:5500/img/board/prio-Urgent.png') {
+            importantTaskOutput.innerHTML += templateImportantTaskDone(importantTaskDone, n);
+            document.getElementById(`main-important-task-container-done${n}`).classList.remove('d-none');
+        }
     }
 }
 
 function closeImportantTaskDone(l) {
     document.getElementById(`main-important-task-container-done${l}`).classList.add('d-none');
 }
-
