@@ -170,13 +170,16 @@ function checkifPasswordMatches(email,password) {
 }
 
 // SET RANDOM PASSWORD FOR PASSWORDFORGOTTEN-REQUESTS
-function setRandomPasswordForUser(email,password) {
+async function setPasswordForUser(email,password) {
 let passwordSet = false;
   for (i=0;i<users.length;i++){      
      if (users[i]['email'].toLowerCase() == email.toLowerCase())
       { users[i]['password'] = password;
+      console.log(users[i]['password'],password);
         passwordSet = true;
         console.log('PW set');
+        //-> Im Live Array können wir gleich sehen, dass das Element inzugefügt wurde, es wird in der nächsten Zeile noch ins Backend übertragen
+        await backend.setItem('users', JSON.stringify(users));
         return passwordSet; //If changed "true" is returned, else it stays "false"
       }
   }  
