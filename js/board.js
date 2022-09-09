@@ -182,7 +182,7 @@ function openImportantTaskTodo(i) {
     let importantTaskOutput = document.getElementById('main-important-task-container');
     let priorityImageInTask = document.getElementById(`prio-img-todo${i}`).src;
     console.log('Index von i ist', i);
-
+    
     for (let m = 0; m < importantTasksTodo.length; m++) {
         console.log(importantTasksTodo);
         const importantTaskTodo = importantTasksTodo[m];
