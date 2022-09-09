@@ -123,31 +123,49 @@ async function trySignup(){
 
 //Try to send Email
 async function tryToSendEmail(){
-    let email=document.getElementById('forgotpassword-email').value;
-    let password = '';
+    let email = document.getElementById('forgotpassword-email').value;
 
     if(checkifEMailexists(email))
     {   // Hier muss E-Mail geschickt werden
-        // Für den User mit der Entsprechenden E-Mail wird automatisch ein Random-Password festgelegt
-        password='Elefant123';
-        setRandomPasswordForUser(email,password)
+        // E-Mail enthält den Link zur nächsten Seite (wird jetzt automatisch geöffnet)
         console.log('Email should have been sent');
         console.log('Email is ', document.getElementById('forgotpassword-email').value);
-
         showResetPasswordForm();   
     }
     else
     {
         animateMessage('E-Mail not found!');
-    }
+    }     
+}
 
-     
+function resetPassword(){
+    let email = document.getElementById('forgotpassword-email').value;
+    let pw1 = document.getElementById('reset-pw').value;
+    let pw2 = document.getElementById('reset-pw2').value;
+    // console.log(email);
+    // console.log(pw1,pw2);
+    if (pw1 == pw2)
+    {
+    setPasswordForUser(email,pw1);
+    resetPwAnimation();
+    emptyResetPWForm();    
+    }
+    else
+    {
+    animateMessage('Passwords have to be equal!');  
+    }
 }
 
 function emptySignUpForm(){
     document.getElementById('signup-name').value='';
     document.getElementById('signup-email').value='';
     document.getElementById('signup-password').value='';
+}
+
+function emptyResetPWForm(){
+    document.getElementById('forgotpassword-email').value='';
+    document.getElementById('reset-pw').value='';
+    document.getElementById('reset-pw2').value='';
 }
 
 // Password benötigt mindestens einen Großbuchstaben, Kleinbuchstaben und eine Zahl
