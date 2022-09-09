@@ -321,7 +321,7 @@ body {
     filter: brightness(0) invert(1);
 }
 
-.main-important-task-container {
+.main-big-box-task-container {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -337,22 +337,23 @@ body {
     top: 15%;
 }
 
-.important-task-headline {
+.big-box-task-headline {
     padding: 4px 36.5px;
     gap: 10px;
     background-color: lightgray;
     width: 142px;
     height: 40px;
+    margin-bottom: 24px;
 }
 
-.important-task-headline h4 {
+.big-box-task-headline h4 {
     font-weight: 400;
     font-size: 27px;
     line-height: 120%;
     color: #FFFFFF;
 }
 
-.important-task-title {
+.big-box-task-title {
     padding: 0px;
     gap: 1px;
     width: 523px;
@@ -360,29 +361,30 @@ body {
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    margin-bottom: 12px;
 }
 
-.important-task-title h2 {
+.big-box-task-title h2 {
     font-weight: 700;
-    font-size: 61px;
+    font-size: 49px;
     line-height: 120%;
     color: #2A3647;
 }
 
-.important-task-description span {
+.big-box-task-description span {
     font-weight: 400;
     font-size: 21px;
     line-height: 120%;
 }
 
-.important-task-date {
+.big-box-task-date {
     padding: 0px;
     gap: 25px;
-    width: 246px;
+    width: 270px;
     height: 25px;
 }
 
-.important-task-date table tr td:first-child {
+.big-box-task-date table tr td:first-child {
     font-weight: 700;
     font-size: 21px;
     line-height: 120%;
@@ -391,32 +393,34 @@ body {
     height: 25px;
 }
 
-.important-task-date table tr td:last-child {
+.big-box-task-date table tr td:last-child {
     width: 122px;
     height: 25px;
     font-weight: 400;
     font-size: 21px;
     line-height: 120%;
     color: #000000;
+    padding-left: 8px;
 }
 
-.important-task-prio {
+.big-box-task-prio {
     padding: 0px;
     gap: 25px;
-    width: 238px;
+    width: 270px;
     height: 33px;
 }
 
-.important-task-prio table tr td:first-child {
+.big-box-task-prio table tr td:first-child {
     font-weight: 700;
     font-size: 21px;
     line-height: 120%;
     color: #000000;
     width: 82px;
     height: 25px;
+    padding-right: 8px;
 }
 
-.important-task-prio table tr td:last-child {
+.big-box-task-prio table tr td:last-child {
     padding: 4px 18px;
     gap: 10px;
     width: 131px;
@@ -435,14 +439,14 @@ body {
     color: #000000;
 }
 
-.close-important-task{
+.close-big-box-task{
     position: absolute;
     top: 25px;
     right: 25px;
     cursor: pointer;
 }
 
-.important-tasks-container-full-size{
+.big-box-tasks-container-full-size{
     width: calc(100vw - 232px);
     height: calc(100vh - 80px);
     position: absolute;

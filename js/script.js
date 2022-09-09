@@ -29,7 +29,7 @@ let tasksScript = [
     "category": "Design",  // Design, Marketing, Sales, Backoffice, Media usw. gerne weitere Vorschläge bzw. Ergänzungen
     "description": "BlaBlaBla",
     "dueDate": "30/10/2010",
-    "priority": "Urgent",       // Urgent, Medium, Low
+    "priority": "Low",       // Urgent, Medium, Low
     "status": "To do",     // To do, In progress, Awaiting feedback, Done
     "assignedTo": [0,1,2],   // Index of users Array (ist eindeutig)
     "subTasks": ['Putzen','Spülen','Saubermachen'] 
@@ -59,7 +59,7 @@ let tasksScript = [
     "category": "Media",  // Design, Marketing, Sales, Backoffice, Media usw. gerne weitere Vorschläge bzw. Ergänzungen
     "description": "Hier wird ein unnötiger Beschreibungstext stehen, der von dem User festgelegt wird",
     "dueDate": "30/10/2010",
-    "priority": "Urgent",       // Urgent, Medium, Low
+    "priority": "Medium",       // Urgent, Medium, Low
     "status": "Awaiting feedback",     // To do, In progress, Awaiting feedback, Done
     "assignedTo": [0,1,2],   // Index of users Array (ist eindeutig)
     "subTasks": ['Putzen','Spülen','Saubermachen'] 
