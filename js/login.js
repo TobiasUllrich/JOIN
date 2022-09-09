@@ -18,9 +18,31 @@ function resetPwAnimation(){
         document.getElementById('login-Box').classList.remove('d-none');
         console.log('Now you should be able to login');
         showLoginForm();
-    }, 1000);
+    }, 1000);    
+}
 
-    
+//Wrong-Email-Animation
+function wrongEmailAnimation(){
+    document.getElementById('alert-text').innerHTML='Wrong E-Mail!';
+    document.getElementById('alert-info').classList.add('animate-Wrong');
+    document.getElementById('alert-box').classList.remove('d-none');
+
+    setTimeout(function (){
+        document.getElementById('alert-info').classList.remove('animate-Wrong');
+        document.getElementById('alert-box').classList.add('d-none');     
+    }, 1000);    
+}
+
+//Wrong-PW-Animation
+function wrongPwAnimation(){
+    document.getElementById('alert-text').innerHTML='Wrong Password!';
+    document.getElementById('alert-info').classList.add('animate-Wrong');
+    document.getElementById('alert-box').classList.remove('d-none');
+
+    setTimeout(function (){
+        document.getElementById('alert-info').classList.remove('animate-Wrong');
+        document.getElementById('alert-box').classList.add('d-none');     
+    }, 1000);    
 }
 
 //Login-Screen
@@ -65,10 +87,9 @@ function loginAsGuest(){
 }
 
 //Try to Login
-async function tryLogin(){
+function tryLogin(){
 let email=document.getElementById('login-email').value;
 let password=document.getElementById('login-password').value;
-let IndexofUser;
 
 // console.log('Now trying to login');
 // console.log('Email is ', email );  
@@ -77,8 +98,15 @@ let IndexofUser;
 checkifEMailexists(email);
 checkifPasswordMatches(email,password);
 if (checkifEMailexists(email) && checkifPasswordMatches(email,password)){
+    window.location.href = 'summary.html';
     console.log('DURCHLASSEN!');
 }
+else if (!checkifEMailexists(email))
+{console.log('This E-Mail is not registered');
+wrongEmailAnimation();}
+else
+{console.log('The password you entered is incorrect');
+wrongPwAnimation();}
 }
 
 //Try to Signup

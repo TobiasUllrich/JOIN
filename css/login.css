@@ -405,7 +405,7 @@ to
     z-index:100;
     opacity:0.2;
     width:100vw;
-    height:100ch;
+    height:100vh;
 }
 
 .animate-resetPw{
@@ -512,6 +512,49 @@ to
 .d-none{
     display:none;
 }
+
+/* Wrong PW or EMail-Animation */
+#alert-info{
+    position: absolute;
+    top: 100vh;
+    left:calc(100% - 50vw - 326px/2);
+    z-index:99;
+    height: 74px;
+    width: 326px;
+    font-size:23px;
+    border-radius:20px;
+    color:#FFFFFF;
+    font-weight: 400; 
+    background-color: #091931;
+    border: 1px solid #091931; 
+}
+
+#alert-box{
+    position:absolute;
+    background-color: #091931;
+    z-index:100;
+    opacity:0.2;
+    width:100vw;
+    height:100vh;
+}
+
+.animate-Wrong{
+    animation: wrongButton 325ms ease-in-out;
+    animation-fill-mode:forwards;
+}
+
+@keyframes wrongButton {
+from
+{ 
+    top: 100vh;
+}  
+to 
+{
+    top: calc(100% - 50vh - 74px/2);
+}
+}  
+/* Wrong PW or EMail-Animation */
+
 
 /* INTERVALLE FÜRS HANDY */
 @media (min-width:301px) and (max-width:1400px) {
