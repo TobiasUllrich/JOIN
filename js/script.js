@@ -144,20 +144,30 @@ async function init() {
 
 }
 
-// CHECK IF USER IN ARRAY
-function checkifUserEMailexists(email) {
-  let userfound=false;
+// CHECK IF EMAIL OF USER IS IN ARRAY
+function checkifEMailexists(email) {
+  let userfound = false;
+
   for (i=0;i<users.length;i++){
-    if (users[i]['email']==email) {
-      console.log('Email exists ',users[i]['email']);
-      userfound=true;
-      return users[i]['password'];
+    if (users[i]['email'].toLowerCase() == email.toLowerCase()) 
+    { userfound = true;
+      console.log('Email found');
+      return userfound;
     }
   }
-  //Schleife is durch
-  if(userfound==false){
-    //console.log('Email doesnt exist');
+}
+
+// CHECK IF PASSWORD-ENTRY OF USER WITH CERTAIN EMAIL MATCHES DATABASE-PASSWORD
+function checkifPasswordMatches(email,password) {
+  passwordmatches = false;
+  for (i=0;i<users.length;i++){      
+     if (users[i]['email'].toLowerCase() == email.toLowerCase() && users[i]['password'] == password)
+      {passwordmatches = true;
+        console.log('PW matches');
+        return passwordmatches; //If found once "true" is returned, else it stays "false"
+      }
   }
+  
 }
 
 // ADD USER TO ARRAY

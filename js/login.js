@@ -1,3 +1,5 @@
+let letUserpass;
+
 //Logo-Animation
 function loginAnimation(){
     document.getElementById('animatedlogo').classList.add('animate-logo');
@@ -66,13 +68,17 @@ function loginAsGuest(){
 async function tryLogin(){
 let email=document.getElementById('login-email').value;
 let password=document.getElementById('login-password').value;
+let IndexofUser;
 
-console.log('Now trying to login');
-console.log('Email is ', email );  
-console.log('Password is ', password);  
-pwdb = checkifUserEMailexists(email);
-console.log(pwdb);
+// console.log('Now trying to login');
+// console.log('Email is ', email );  
+// console.log('Password is ', password);  
 
+checkifEMailexists(email);
+checkifPasswordMatches(email,password);
+if (checkifEMailexists(email) && checkifPasswordMatches(email,password)){
+    console.log('DURCHLASSEN!');
+}
 }
 
 //Try to Signup
