@@ -103,24 +103,24 @@ function templateOfTaskDone(taskDone, l) {
 </div>`
 }
 
-function templateImportantTaskTodo(i){ // importantTask, m
+function templateImportantTaskTodo(importantTaskTodo, m){ // i
     return `
-    <div id="main-important-task-container-todo${i}" class="main-important-task-container d-none">
-        <div onclick="closeImportantTaskTodo(${i})" class="close-important-task"><img src="./img/board/close.png"></div>
+    <div id="main-important-task-container-todo${m}" class="main-important-task-container"> <!-- d-none muss noch hier rein -->
+        <div onclick="closeImportantTaskTodo(${m})" class="close-important-task"><img src="./img/board/close.png"></div>
         <div class="important-task-headline">
-            <h4>${importantTasksTodo[i].category}</h4>
+            <h4>${importantTaskTodo.category}</h4>
         </div>
         <div class="important-task-title">
-            <h2>${importantTasksTodo[i].title}</h2>
+            <h2>${importantTaskTodo.title}</h2>
         </div>
         <div class="important-task-description">
-            <span>${importantTasksTodo[i].description}</span>
+            <span>${importantTaskTodo.description}</span>
         </div>
         <div class="important-task-date">
             <table>
                 <tr>
                     <td>Due date:</td>
-                    <td>${importantTasksTodo[i].dueDate}</td>
+                    <td>${importantTaskTodo.dueDate}</td>
                 </tr>
             </table>
         </div>
@@ -128,7 +128,7 @@ function templateImportantTaskTodo(i){ // importantTask, m
             <table>
                 <tr>
                     <td>Priority:</td>
-                    <td>${importantTasksTodo[i].priority}</td>
+                    <td>${importantTaskTodo.priority}</td>
                 </tr>
             </table>
         </div>
@@ -148,7 +148,7 @@ function templateImportantTaskTodo(i){ // importantTask, m
     </div>`
 }
 
-function templateImportantTaskProgress(j){ // importantTask, m
+function templateImportantTaskProgress(j){ // j
     return `
     <div id="main-important-task-container-progress${j}" class="main-important-task-container d-none">
         <div onclick="closeImportantTaskProgress(${j})" class="close-important-task"><img src="./img/board/close.png"></div>
@@ -193,24 +193,24 @@ function templateImportantTaskProgress(j){ // importantTask, m
     </div>`
 }
 
-function templateImportantTaskFeedback(k){ // importantTask, m
+function templateImportantTaskFeedback(importantTaskFeedback, o){ // k
     return `
-    <div id="main-important-task-container-feedback${k}" class="main-important-task-container d-none">
-        <div onclick="closeImportantTaskFeedback(${k})" class="close-important-task"><img src="./img/board/close.png"></div>
+    <div id="main-important-task-container-feedback${o}" class="main-important-task-container d-none">
+        <div onclick="closeImportantTaskFeedback(${o})" class="close-important-task"><img src="./img/board/close.png"></div>
         <div class="important-task-headline">
-            <h4>${importantTasksFeedback[k].category}</h4>
+            <h4>${importantTaskFeedback.category}</h4>
         </div>
         <div class="important-task-title">
-            <h2>${importantTasksFeedback[k].title}</h2>
+            <h2>${importantTaskFeedback.title}</h2>
         </div>
         <div class="important-task-description">
-            <span>${importantTasksFeedback[k].description}</span>
+            <span>${importantTaskFeedback.description}</span>
         </div>
         <div class="important-task-date">
             <table>
                 <tr>
                     <td>Due date:</td>
-                    <td>${importantTasksFeedback[k].dueDate}</td>
+                    <td>${importantTaskFeedback.dueDate}</td>
                 </tr>
             </table>
         </div>
@@ -218,7 +218,7 @@ function templateImportantTaskFeedback(k){ // importantTask, m
             <table>
                 <tr>
                     <td>Priority:</td>
-                    <td>${importantTasksFeedback[k].priority}</td>
+                    <td>${importantTaskFeedback.priority}</td>
                 </tr>
             </table>
         </div>
@@ -238,24 +238,24 @@ function templateImportantTaskFeedback(k){ // importantTask, m
     </div>`
 }
 
-function templateImportantTaskDone(l){ // importantTask, m
+function templateImportantTaskDone(importantTaskDone, n){ // importantTask, m
     return `
-    <div id="main-important-task-container-done${l}" class="main-important-task-container d-none">
-        <div onclick="closeImportantTaskDone(${l})" class="close-important-task"><img src="./img/board/close.png"></div>
+    <div id="main-important-task-container-done${n}" class="main-important-task-container d-none">
+        <div onclick="closeImportantTaskDone(${n})" class="close-important-task"><img src="./img/board/close.png"></div>
         <div class="important-task-headline">
-            <h4>${importantTasksDone[l].category}</h4>
+            <h4>${importantTaskDone.category}</h4>
         </div>
         <div class="important-task-title">
-            <h2>${importantTasksDone[l].title}</h2>
+            <h2>${importantTaskDone.title}</h2>
         </div>
         <div class="important-task-description">
-            <span>${importantTasksDone[l].description}</span>
+            <span>${importantTaskDone.description}</span>
         </div>
         <div class="important-task-date">
             <table>
                 <tr>
                     <td>Due date:</td>
-                    <td>${importantTasksDone[l].dueDate}</td>
+                    <td>${importantTaskDone.dueDate}</td>
                 </tr>
             </table>
         </div>
@@ -263,7 +263,7 @@ function templateImportantTaskDone(l){ // importantTask, m
             <table>
                 <tr>
                     <td>Priority:</td>
-                    <td>${importantTasksDone[l].priority}</td>
+                    <td>${importantTaskDone.priority}</td>
                 </tr>
             </table>
         </div>
