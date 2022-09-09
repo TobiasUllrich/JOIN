@@ -333,8 +333,7 @@ body {
     background: #FFFFFF;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
     border-radius: 30px;
-    position: absolute;
-    top: 15%;
+    position: relative;
 }
 
 .big-box-task-headline {
@@ -450,7 +449,7 @@ body {
     width: calc(100vw - 232px);
     height: calc(100vh - 80px);
     position: absolute;
-    top: 0;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
