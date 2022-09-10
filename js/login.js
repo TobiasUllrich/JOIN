@@ -22,7 +22,6 @@ function resetPwAnimation(){
     setTimeout(function (){
         document.getElementById('reset-info').classList.remove('animate-resetPw');
         document.getElementById('resetpw-box').classList.add('d-none');
-        document.getElementById('login-Box').classList.remove('d-none');
         console.log('Now you should be able to login');
         showLoginForm();
     }, 1000);    
@@ -118,35 +117,21 @@ async function trySignup(){
 async function tryToSendEmail(){
     let email = document.getElementById('forgotpassword-email').value;
 
-    if(checkifEMailexists(email))
-    {   // Hier muss E-Mail geschickt werden
-        // E-Mail enthält den Link zur nächsten Seite (wird jetzt automatisch geöffnet)
-        console.log('Email should have been sent');
-        console.log('Email is ', document.getElementById('forgotpassword-email').value);
-        showResetPasswordForm();   
-    }
-    else
-    {
-        animateMessage('E-Mail not found!');
-    }     
+    if(checkifEMailexists(email) == false)
+    {   
+        animateMessage('E-Mail not found!')
+        event.preventDefault();  //<- "action" eines Formulars wird immer nach "onsubmit" ausgeführt
+    }                            //<- Über die Funktion die bei "onsubmit" ausgeführt wird, kann man action stoppen
+                                 //<- event.preventDefault(); stoppt eine weitere Verarbeitung des Formulars und damit auch die Ausführung von "action"
 }
 
 function resetPassword(){
     // Der Funktion URLSearchParams() muss ein String übergeben werden
     // The window.location.search property contains the query string portion (=search-part) of a specific query of the current url
     const urlParams = new URLSearchParams(window.location.search); 
-    const myParam = urlParams.get('msg');
-
-    if(myParam){
-       document.getElementById('msgBox').innerHTML=myParam;
-       msgBox.innerHTML=myParam; // ist div-ID laut Junus
-    }
-    else{
-       //display none
-    }
-
-
-    let email = document.getElementById('forgotpassword-email').value;
+    let email = urlParams.get('msg');
+    console.log(email);
+    
     let pw1 = document.getElementById('reset-pw').value;
     let pw2 = document.getElementById('reset-pw2').value;
     // console.log(email);
@@ -154,8 +139,7 @@ function resetPassword(){
     if (pw1 == pw2)
     {
     setPasswordForUser(email,pw1);
-    resetPwAnimation();
-    emptyResetPWForm();    
+    resetPwAnimation(); 
     }
     else
     {
@@ -163,17 +147,6 @@ function resetPassword(){
     }
 }
 
-function emptySignUpForm(){
-    document.getElementById('signup-name').value='';
-    document.getElementById('signup-email').value='';
-    document.getElementById('signup-password').value='';
-}
-
-function emptyResetPWForm(){
-    document.getElementById('forgotpassword-email').value='';
-    document.getElementById('reset-pw').value='';
-    document.getElementById('reset-pw2').value='';
-}
 
 // Password benötigt mindestens einen Großbuchstaben, Kleinbuchstaben und eine Zahl
 // Liefert true -> Test bestanden; Liefert false -> Test nicht bestanden!
@@ -184,6 +157,3 @@ function checkPasswordSyntax(str)
   return re.test(str);
 }
 
-function testFunktion(){
-    consolge.log('FOKUS');
-}
