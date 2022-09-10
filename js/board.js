@@ -285,3 +285,19 @@ function renderAssignedNamesOfTask(i) {
 function doNotClose(event) {
     event.stopPropagation();
 }
+
+function changeEditContainerColors(){
+    let editContainer = document.getElementById('edit-button');
+    let editPencil = document.getElementById('edit-pencil');
+
+    editContainer.style.background = '#29ABE2';
+    editPencil.style.filter = 'filter: brightness(0) invert(1);';
+}
+
+function RemoveEditContainerColors(){
+    let editContainer = document.getElementById('edit-button');
+    let editPencil = document.getElementById('edit-pencil');
+
+    editContainer.style.background = '#2a3647';
+    editPencil.style.filter = 'filter: brightness(0) invert(1);';
+}
