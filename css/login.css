@@ -559,7 +559,7 @@ to
 /* Keep white background-color for ALL input-fields when autocomplete is activated for a form (<form autocomplete="on">) */
 input:-webkit-autofill {
     -webkit-text-fill-color: black ; /* Textfarbe bleibt bei schwarz (könnte man auch rausnehmen) */
-    -webkit-box-shadow: 0 0 0px 1000px white inset; /* Input-Feld behält den weißen Hintergrund, statt auf hellblau zu wechseln! */
+    -webkit-box-shadow: inset 0 0 0px 1000px white; /* Input-Feld behält den weißen Hintergrund, statt auf hellblau zu wechseln! */
 }
 
 
