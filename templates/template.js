@@ -67,6 +67,7 @@ function templateOfTaskFeedback(taskFeedback, k) {
                 <div id="solo-worker" class="solo-worker">
                     <!--TEMPLATE RENDERN VON ARBEIERN-->
                     <div class="worker-name-start-letters d-center">EB</div>
+                    <div class="worker-name-start-letters d-center">TU</div>
                 </div>
             </div>
         <div id="prio-img-feedback" class="prio-img">
@@ -92,6 +93,7 @@ function templateOfTaskDone(taskDone, l) {
             <div class="main-workers">
                 <div id="solo-worker" class="solo-worker">
                     <!--TEMPLATE RENDERN VON ARBEIERN-->
+                    <div class="worker-name-start-letters d-center">EB</div>
                     <div class="worker-name-start-letters d-center">EB</div>
                 </div>
             </div>
@@ -146,6 +148,7 @@ function templateBigBoxSoloTask(soloTasks, indexOfSoloTask){
                 </table>
             </div>
         </div>
+        <div id="edit-button" onmouseover="changeEditContainerColors()" onmouseleave="RemoveEditContainerColors()" class="edit-button d-center"><img id="edit-pencil" src="./img/board/pencil.png"></div>
     </div>`
 }
 
