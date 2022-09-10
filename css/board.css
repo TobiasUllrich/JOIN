@@ -8,6 +8,12 @@ body {
     display: none;
 }
 
+.d-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .main-board-container {
     padding-left: 232px;
     padding-top: 80px;
@@ -340,7 +346,7 @@ body {
     padding: 4px 36.5px;
     gap: 10px;
     background-color: lightgray;
-    width: 142px;
+    width: 170px;
     height: 40px;
     margin-bottom: 24px;
 }
@@ -393,13 +399,12 @@ body {
 }
 
 .big-box-task-date table tr td:last-child {
-    width: 122px;
+    width: 150px;
     height: 25px;
     font-weight: 400;
     font-size: 21px;
     line-height: 120%;
     color: #000000;
-    padding-left: 8px;
 }
 
 .big-box-task-prio {
