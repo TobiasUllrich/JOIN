@@ -15,8 +15,8 @@ function loginAnimation() {
 function resetPwAnimation() {
     document.getElementById('reset-info').classList.add('animate-resetPw');
     document.getElementById('resetpw-box').classList.remove('d-none');
-    console.log('New Password is ', document.getElementById('reset-pw').value);
-    console.log('Confirmed Password is ', document.getElementById('reset-pw2').value);
+    //console.log('New Password is ', document.getElementById('reset-pw').value);
+    //console.log('Confirmed Password is ', document.getElementById('reset-pw2').value);
 
     setTimeout(function () {
         document.getElementById('reset-info').classList.remove('animate-resetPw');
@@ -70,8 +70,8 @@ function tryLogin() {
     let email = document.getElementById('login-email').value;
     let password = document.getElementById('login-password').value;
 
-    checkifEMailexists(email);
-    checkifPasswordMatches(email, password);
+    //checkifEMailexists(email);
+    //checkifPasswordMatches(email, password);
     if (checkifEMailexists(email) && checkifPasswordMatches(email, password)) { window.location.href = 'summary.html'; console.log('DURCHLASSEN!'); }
     else if (!checkifEMailexists(email)) { animateMessage('E-Mail not found!'); console.log('This E-Mail is not registered!'); }
     else { animateMessage('Wrong Password!'); console.log('The password you entered is incorrect!'); }
@@ -126,9 +126,13 @@ function resetPassword() {
     let pw2 = document.getElementById('reset-pw2').value;
     // console.log(email);
     // console.log(pw1,pw2);
-    if (checkifEMailexists(email) == false)
+    if (!email)
     {
-    animateMessage('E-Mail not found!')    
+        animateMessage('E-Mail not found!');
+    }
+    else if (!checkifEMailexists(email))
+    {
+        animateMessage('E-Mail not found!');
     }
     else if (pw1 == pw2) {
         setPasswordForUser(email, pw1);
