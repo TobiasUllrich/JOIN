@@ -114,10 +114,12 @@ async function trySignup(){
     }
 
 //Try to send Email
-async function tryToSendEmail(){
+function tryToSendEmail(){
     let email = document.getElementById('forgotpassword-email').value;
-
-    if(checkifEMailexists(email) == false)
+    console.log('HALOOOOOOOOOOOOOOOOOOOOOOOOOOOO');
+    if(checkifEMailexists(email))
+    {}
+    else
     {   
         animateMessage('E-Mail not found!')
         event.preventDefault();  //<- "action" eines Formulars wird immer nach "onsubmit" ausgeführt
