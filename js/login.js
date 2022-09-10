@@ -1,13 +1,28 @@
-let animationPlayed = false;
+/* [3.] Array zu String und wieder zurück */
+/* Im localStorage kann nur Text gespeichert werden, ABER im Code kann nur ein Array sinnvoll genutzt werden */
+/* key ist der Name unter welchem der Array gespeichert werden soll (frei wählbarer Text) und array ist das Array selbst  */
+function setArray (key,array){
+    localStorage.setItem(key,JSON.stringify(array)); // JSON.stringify() wandelt ein Array in einen String um
+  }
+  
+  function getArray (key){
+    return JSON.parse(localStorage.getItem(key)); // JSON.parse() wandelt einen String in einen Array um
+  }
+  /* [3.] Array zu String und wieder zurück */
+
 
 //Logo-Animation
 function loginAnimation() {
+let status = [];
+status = getArray ('animationPlayed');     
 
-    if (animationPlayed == false) {
-        console.log('Animation abspielen ', animationPlayed);
-        document.getElementById('animatedlogo').classList.add('animate-logo');
-        animationPlayed = true;
-        console.log('Animation abspielen ', animationPlayed);
+    if(status == 'false' || status == ''){
+    document.getElementById('animatedlogo').classList.add('animate-logo');
+    setArray('animationPlayed',[true]);
+    }
+    else{
+        document.getElementById('animatedlogo').classList.add('d-none');
+        document.getElementById('animatedlogo2').classList.remove('d-none');
     }
 }
 
