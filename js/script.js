@@ -160,7 +160,7 @@ function checkifEMailexists(email) {
 }
 
 // CHECK IF PASSWORD-ENTRY OF USER WITH CERTAIN EMAIL MATCHES DATABASE-PASSWORD
-async function checkifPasswordMatches(email,password) {
+function checkifPasswordMatches(email,password) {
   let passwordmatches = false;
   for (i=0;i<users.length;i++){      
      if (users[i]['email'].toLowerCase() == email.toLowerCase() && users[i]['password'] == password)
@@ -197,7 +197,6 @@ async function addUser(object) {
 // ADD TASK TO ARRAY
 async function addTask(object) {
     tasks.push(object);
-    console.log(tasks);
     //-> Im Live Array können wir gleich sehen, dass das Element inzugefügt wurde, es wird in der nächsten Zeile noch ins Backend übertragen
     await backendTWO.setItem('tasks', JSON.stringify(tasks));
 }
