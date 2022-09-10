@@ -1,8 +1,8 @@
 <?php
 
 ########### CONFIG ###############
-
-$recipient = 'ullrich.tobias@gmx.de';
+$name = 'fiction';
+$message = 'Here is your activation link :)';
 $redirect = 'success.html';
 
 ########### CONFIG END ###########
@@ -39,10 +39,10 @@ switch ($_SERVER['REQUEST_METHOD']) {
     case ("POST"): //Send the email;
         header("Access-Control-Allow-Origin: *");
 
-        $subject = "Contact From " . $_POST['name'];             // Variable [name] that is fetched from send_mail.html
+        $subject = "Contact From " . $name;             
         $headers = "From:  noreply@developerakademie.com";
 
-        mail($recipient, $subject, $_POST['message'], $headers); // Variable [message] that is fetched from send_mail.html
+        mail($_POST['email'], $subject, $message, $headers); // Variable [email] that is fetched from index.html
         header("Location: " . $redirect); 
 
         break;
