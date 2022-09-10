@@ -19,8 +19,10 @@ function renderToDo() {
 
     for (let i = 0; i < todos.length; i++) {
         const taskTodo = todos[i];
+        // console.log(taskTodo);
         todoOutput.innerHTML += templateOfNewTaskToDo(taskTodo, i);
         updateTasksHeadlinesStatusTodo(i);
+        renderAssignedNamesOfTask(i);
     }
 }
 
@@ -178,6 +180,7 @@ function closeAddTaskContainer() {
 
 function openCurrentTaskBigBoxTodo(indexOfSoloTask) {
     let bigBoxContainer = document.getElementById('main-bigbox-solo-task-container');
+    document.getElementById('main-board-container').style.opacity = '0.6';
     bigBoxContainer.classList.remove('d-none');
     bigBoxContainer.innerHTML = '';
 
@@ -188,6 +191,7 @@ function openCurrentTaskBigBoxTodo(indexOfSoloTask) {
 
 function openCurrentTaskBigBoxProgress(indexOfSoloTask) {
     let bigBoxContainer = document.getElementById('main-bigbox-solo-task-container');
+    document.getElementById('main-board-container').style.opacity = '0.6';
     bigBoxContainer.classList.remove('d-none');
     bigBoxContainer.innerHTML = '';
 
@@ -198,6 +202,7 @@ function openCurrentTaskBigBoxProgress(indexOfSoloTask) {
 
 function openCurrentTaskBigBoxFeedback(indexOfSoloTask) {
     let bigBoxContainer = document.getElementById('main-bigbox-solo-task-container');
+    document.getElementById('main-board-container').style.opacity = '0.6';
     bigBoxContainer.classList.remove('d-none');
     bigBoxContainer.innerHTML = '';
 
@@ -208,6 +213,7 @@ function openCurrentTaskBigBoxFeedback(indexOfSoloTask) {
 
 function openCurrentTaskBigBoxDone(indexOfSoloTask) {
     let bigBoxContainer = document.getElementById('main-bigbox-solo-task-container');
+    document.getElementById('main-board-container').style.opacity = '0.6';
     bigBoxContainer.classList.remove('d-none');
     bigBoxContainer.innerHTML = '';
 
@@ -219,9 +225,10 @@ function openCurrentTaskBigBoxDone(indexOfSoloTask) {
 function closeSoloTaskBigBox() {
     let bigBoxContainer = document.getElementById('main-bigbox-solo-task-container');
     bigBoxContainer.classList.add('d-none');
+    document.getElementById('main-board-container').style.opacity = '1.0';
 }
 
-function checkHeadlineColorBigBox(){
+function checkHeadlineColorBigBox() {
     let bigBoxHeadlineContainer = document.getElementById('big-box-task-headline');
     let bigBoxHeadlineText = document.getElementById('big-box-headline').innerHTML;
 
@@ -246,18 +253,30 @@ function checkHeadlineColorBigBox(){
     }
 }
 
-function checkPriorityBackgroundColor(){
+function checkPriorityBackgroundColor() {
     let prioBackgroundColor = document.getElementById('priority-big-box-color');
 
-    if(prioBackgroundColor.innerHTML == 'Urgent'){
+    if (prioBackgroundColor.innerHTML == 'Urgent') {
         prioBackgroundColor.style.background = '#ff5520';
-    } 
+    }
 
-    if(prioBackgroundColor.innerHTML == 'Low'){
+    if (prioBackgroundColor.innerHTML == 'Low') {
         prioBackgroundColor.style.background = '#7ae229';
     }
 
-    if(prioBackgroundColor.innerHTML == 'Medium'){
+    if (prioBackgroundColor.innerHTML == 'Medium') {
         prioBackgroundColor.style.background = '#ffc85f';
     }
+}
+
+function renderAssignedNamesOfTask(i) {
+    let renderOutputContainer = document.getElementById(`solo-worker-todo${i}`);
+
+    renderOutputContainer.innerHTML = '';
+    console.log(users[i]);
+    renderOutputContainer.innerHTML += `<div class="worker-name-start-letters d-center"></div>`
+}
+
+function doNotClose(event) {
+    event.stopPropagation();
 }
