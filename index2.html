@@ -55,29 +55,29 @@
 
 <!--Sobald der body-Bereich geladen wurde, wird das Java-Script ausgeführt-->
 
-<body onload="init();">
+<body id="body" onload="init();">
 
     
 
     <!-- MAIN -->
     <!-- Nur im LogIn-Formular sichtbar -->
-    <img id="animatedlogo" class="moving-logo-later" src="img/JOIN-Logo.png">
+    <img id="animatedlogo2" class="moving-logo-later" src="img/JOIN-Logo.png">
 
     <!-- In allen anderen Formularen sichtbar -->
     <!-- <img class="moving-logo" src="img/JOIN-Logo.png">   -->
 
     <div id="login-Container" class="login-Container">
-        <!-- ForgotPassword Seite -->
-        <div id="forgotpassword-Box" class="forgotpassword-Box">
-                    <h1>I forgot my password</h1>
-                    <div style="width:160px;height:25px;border-top: 3px solid #29abe2;"></div>
-                    <span>Don't worry! We will send you an email with the instruction to reset your password.</span>
-                    <form action="https://gruppe-2970.developerakademie.net/send_mail.php" method="POST" onsubmit="tryToSendEmail();"> <!-- "return false;" rausgenommen, weil sonst keine E-Mail gesendet wird -->
-                    <div class="forgotpassword-inputdesign"><input name="email" required type="email" id="forgotpassword-email" placeholder="Email" type="text"><img src="img/email-icon.png"></div>
-                    <div class="login-buttons"><button class="forgotpassword-send">Send me the email</button></div>
-                    </form>  
-                    <img id="backfromforgotten" onclick="showLoginForm2();" class="backbutton" src="img/backarrow-icon.png">
-        </div> 
+        <!-- Erste Seite -->
+        <div id="login-Box" class="login-Box">
+            <h1>Log in</h1>
+            <div style="width:160px;height:35px;border-top: 3px solid #29abe2;"></div>      
+            <form onsubmit="tryLogin(); return false;">
+            <div class="login-inputdesign"><input required type="email" id="login-email" placeholder="Email" type="text"><img src="img/email-icon.png"></div>
+            <div class="login-inputdesign"><input required type="password" minlength="5" id="login-password" placeholder="Password" type="text"><img src="img/password-icon.png"></div>
+            <div class="login-rememberOrforgotPw"><div class="login-cbx"><input type="checkbox"><span>Remember me</span></div><div class="login-forgotpw"><a onclick="showPasswordForgottenForm();">Forgot my password</a></div></div>
+            <div class="login-buttons"><button class="login-user">Log in</button><button  onclick="loginAsGuest();" class="login-guest">Guest Log in</button></div>
+            </form>
+        </div>
     </div>
 
     <!-- Password reset animations -->
@@ -90,6 +90,11 @@
     </div>
     <button id="alert-info"><img src="img/alert.png" style="padding-right:15px;"><span id="alert-text">Wrong Password!</span></button>
 
+   <!-- For Sign-Up -->
+    <div id="login-notajoinuser" class="login-notajoinuser">
+        <span>Not a Join user?</span>
+        <button onclick="showSignUpForm();" class="login-signupbtn">Sign up</button>
+    </div>
     <!-- MAIN -->
 
 

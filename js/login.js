@@ -1,29 +1,6 @@
-/* [3.] Array zu String und wieder zurück */
-/* Im localStorage kann nur Text gespeichert werden, ABER im Code kann nur ein Array sinnvoll genutzt werden */
-/* key ist der Name unter welchem der Array gespeichert werden soll (frei wählbarer Text) und array ist das Array selbst  */
-function setArray (key,array){
-    localStorage.setItem(key,JSON.stringify(array)); // JSON.stringify() wandelt ein Array in einen String um
-  }
-  
-  function getArray (key){
-    return JSON.parse(localStorage.getItem(key)); // JSON.parse() wandelt einen String in einen Array um
-  }
-  /* [3.] Array zu String und wieder zurück */
-
-
 //Logo-Animation
 function loginAnimation() {
-let status = [];
-status = getArray ('animationPlayed');     
-
-    if(status == 'false' || status == ''){
     document.getElementById('animatedlogo').classList.add('animate-logo');
-    setArray('animationPlayed',[true]);
-    }
-    else{
-        document.getElementById('animatedlogo').classList.add('d-none');
-        document.getElementById('animatedlogo2').classList.remove('d-none');
-    }
 }
 
 //Reset-PW-Animation
@@ -37,7 +14,7 @@ function resetPwAnimation() {
         document.getElementById('reset-info').classList.remove('animate-resetPw');
         document.getElementById('resetpw-box').classList.add('d-none');
         console.log('Now you should be able to login');
-        showLoginForm();
+        showLoginForm2();
     }, 1000);
 }
 
@@ -53,9 +30,14 @@ function animateMessage(message) {
     }, 1000);
 }
 
-//Login-Screen
+//Login-Screen with animation
 function showLoginForm() {
     window.location.href = 'index.html';
+}
+
+//Login-Screen without animation
+function showLoginForm2() {
+    window.location.href = 'index2.html';
 }
 
 //SignUp-Screen
@@ -110,14 +92,14 @@ async function trySignup() {
     }
     else {
         addUser(object);
-        emptySignUpForm();
-        showLoginForm();
+        showLoginForm2();
     }
 }
 
 //Try to send Email
 function tryToSendEmail() {
     let email = document.getElementById('forgotpassword-email').value;
+    //console.log(email);
     if (checkifEMailexists(email)) { }
     else {
         animateMessage('E-Mail not found!')
@@ -154,7 +136,7 @@ function resetPassword() {
         resetPwAnimation();
     }
     else {
-        animateMessage('Passwords have to be equal!');
+        animateMessage('Unequal Passwords!');
     }
 }
 
