@@ -119,8 +119,8 @@ function resetPassword() {
     // The window.location.search property contains the query string portion (=search-part) of a specific query of the current url
     const urlParams = new URLSearchParams(window.location.search);
     let email = urlParams.get('msg');
-    console.log(email);
-    console.log(checkifEMailexists(email));
+    //console.log(email);
+    //console.log(checkifEMailexists(email));
 
     let pw1 = document.getElementById('reset-pw').value;
     let pw2 = document.getElementById('reset-pw2').value;
