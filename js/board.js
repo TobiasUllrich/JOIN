@@ -182,6 +182,8 @@ function openCurrentTaskBigBoxTodo(indexOfSoloTask) {
     bigBoxContainer.innerHTML = '';
 
     bigBoxContainer.innerHTML = templateBigBoxSoloTask(soloTasksTodo, indexOfSoloTask);
+    checkPriorityBackgroundColor();
+    checkHeadlineColorBigBox();
 }
 
 function openCurrentTaskBigBoxProgress(indexOfSoloTask) {
@@ -190,6 +192,8 @@ function openCurrentTaskBigBoxProgress(indexOfSoloTask) {
     bigBoxContainer.innerHTML = '';
 
     bigBoxContainer.innerHTML = templateBigBoxSoloTask(soloTasksProgress, indexOfSoloTask);
+    checkPriorityBackgroundColor();
+    checkHeadlineColorBigBox();
 }
 
 function openCurrentTaskBigBoxFeedback(indexOfSoloTask) {
@@ -198,6 +202,8 @@ function openCurrentTaskBigBoxFeedback(indexOfSoloTask) {
     bigBoxContainer.innerHTML = '';
 
     bigBoxContainer.innerHTML = templateBigBoxSoloTask(soloTasksFeedback, indexOfSoloTask);
+    checkPriorityBackgroundColor();
+    checkHeadlineColorBigBox();
 }
 
 function openCurrentTaskBigBoxDone(indexOfSoloTask) {
@@ -206,9 +212,52 @@ function openCurrentTaskBigBoxDone(indexOfSoloTask) {
     bigBoxContainer.innerHTML = '';
 
     bigBoxContainer.innerHTML = templateBigBoxSoloTask(soloTasksDone, indexOfSoloTask);
+    checkPriorityBackgroundColor();
+    checkHeadlineColorBigBox();
 }
 
 function closeSoloTaskBigBox() {
     let bigBoxContainer = document.getElementById('main-bigbox-solo-task-container');
     bigBoxContainer.classList.add('d-none');
+}
+
+function checkHeadlineColorBigBox(){
+    let bigBoxHeadlineContainer = document.getElementById('big-box-task-headline');
+    let bigBoxHeadlineText = document.getElementById('big-box-headline').innerHTML;
+
+    if (bigBoxHeadlineText == 'Design') {
+        bigBoxHeadlineContainer.style.background = '#FF7A00';
+    } else {
+        if (bigBoxHeadlineText == 'Sales') {
+            bigBoxHeadlineContainer.style.background = '#FC71FF';
+        } else {
+            if (bigBoxHeadlineText == 'Backoffice') {
+                bigBoxHeadlineContainer.style.background = '#1FD7C1';
+            } else {
+                if (bigBoxHeadlineText == 'Media') {
+                    bigBoxHeadlineContainer.style.background = '#FFC701';
+                } else {
+                    if (bigBoxHeadlineText == 'Marketing') {
+                        bigBoxHeadlineContainer.style.background = '#0038FF';
+                    }
+                }
+            }
+        }
+    }
+}
+
+function checkPriorityBackgroundColor(){
+    let prioBackgroundColor = document.getElementById('priority-big-box-color');
+
+    if(prioBackgroundColor.innerHTML == 'Urgent'){
+        prioBackgroundColor.style.background = '#ff5520';
+    } 
+
+    if(prioBackgroundColor.innerHTML == 'Low'){
+        prioBackgroundColor.style.background = '#7ae229';
+    }
+
+    if(prioBackgroundColor.innerHTML == 'Medium'){
+        prioBackgroundColor.style.background = '#ffc85f';
+    }
 }

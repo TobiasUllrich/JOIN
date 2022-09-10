@@ -107,11 +107,11 @@ function templateBigBoxSoloTask(soloTasks, indexOfSoloTask){
     return `
     <div id="big-box-solo-task" class="main-big-box-task-container">
         <div onclick="closeSoloTaskBigBox(${indexOfSoloTask})" class="close-big-box-task"><img src="./img/board/close.png"></div>
-        <div class="big-box-task-headline">
-            <h4>${soloTasks[indexOfSoloTask].category}</h4>
+        <div id="big-box-task-headline" class="big-box-task-headline">
+            <div><h4 class="d-center" id="big-box-headline">${soloTasks[indexOfSoloTask].category}</h4></div>
         </div>
         <div class="big-box-task-title">
-            <h2>${soloTasks[indexOfSoloTask].title}</h2>
+            <span><h2>${soloTasks[indexOfSoloTask].title}</h2></span>
         </div>
         <div class="big-box-task-description">
             <span>${soloTasks[indexOfSoloTask].description}</span>
@@ -128,7 +128,7 @@ function templateBigBoxSoloTask(soloTasks, indexOfSoloTask){
             <table>
                 <tr>
                     <td>Priority:</td>
-                    <td>${soloTasks[indexOfSoloTask].priority}</td>
+                    <td id="priority-big-box-color">${soloTasks[indexOfSoloTask].priority}</td>
                 </tr>
             </table>
         </div>
