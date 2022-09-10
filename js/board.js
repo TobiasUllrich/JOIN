@@ -181,6 +181,7 @@ function closeAddTaskContainer() {
 function openCurrentTaskBigBoxTodo(indexOfSoloTask) {
     let bigBoxContainer = document.getElementById('main-bigbox-solo-task-container');
     document.getElementById('main-board-container').style.opacity = '0.6';
+    document.getElementById('main-board-container').style.pointerEvents = 'none';
     bigBoxContainer.classList.remove('d-none');
     bigBoxContainer.innerHTML = '';
 
@@ -192,6 +193,7 @@ function openCurrentTaskBigBoxTodo(indexOfSoloTask) {
 function openCurrentTaskBigBoxProgress(indexOfSoloTask) {
     let bigBoxContainer = document.getElementById('main-bigbox-solo-task-container');
     document.getElementById('main-board-container').style.opacity = '0.6';
+    document.getElementById('main-board-container').style.pointerEvents = 'none';
     bigBoxContainer.classList.remove('d-none');
     bigBoxContainer.innerHTML = '';
 
@@ -203,6 +205,7 @@ function openCurrentTaskBigBoxProgress(indexOfSoloTask) {
 function openCurrentTaskBigBoxFeedback(indexOfSoloTask) {
     let bigBoxContainer = document.getElementById('main-bigbox-solo-task-container');
     document.getElementById('main-board-container').style.opacity = '0.6';
+    document.getElementById('main-board-container').style.pointerEvents = 'none';
     bigBoxContainer.classList.remove('d-none');
     bigBoxContainer.innerHTML = '';
 
@@ -214,6 +217,7 @@ function openCurrentTaskBigBoxFeedback(indexOfSoloTask) {
 function openCurrentTaskBigBoxDone(indexOfSoloTask) {
     let bigBoxContainer = document.getElementById('main-bigbox-solo-task-container');
     document.getElementById('main-board-container').style.opacity = '0.6';
+    document.getElementById('main-board-container').style.pointerEvents = 'none';
     bigBoxContainer.classList.remove('d-none');
     bigBoxContainer.innerHTML = '';
 
@@ -226,6 +230,7 @@ function closeSoloTaskBigBox() {
     let bigBoxContainer = document.getElementById('main-bigbox-solo-task-container');
     bigBoxContainer.classList.add('d-none');
     document.getElementById('main-board-container').style.opacity = '1.0';
+    document.getElementById('main-board-container').style.pointerEvents = 'all';
 }
 
 function checkHeadlineColorBigBox() {
