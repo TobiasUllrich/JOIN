@@ -170,7 +170,7 @@ function updateStatusHeadlinesStatusDone(l) {
     }
 }
 
-function addTask() {
+function addTaskTEST() {
     document.getElementById('main-add-task-container').classList.remove('d-none');
 }
 

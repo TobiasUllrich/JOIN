@@ -86,12 +86,13 @@ async function trySignup() {
         "phone": "",
         "password": password
     }
-    //console.log(object);
+    console.log(object);
     if (checkifEMailexists(email)) {
+        console.log(checkifEMailexists(email));
         animateMessage('E-Mail already exists!');
     }
     else {
-        addUser(object);
+        await addUser(object);
         showLoginForm2();
     }
 }
@@ -111,7 +112,7 @@ function tryToSendEmail() {
 
 
 
-function resetPassword() {
+async function resetPassword() {
     // Der Funktion URLSearchParams() muss ein String übergeben werden
     // The window.location.search property contains the query string portion (=search-part) of a specific query of the current url
     const urlParams = new URLSearchParams(window.location.search);
@@ -132,7 +133,7 @@ function resetPassword() {
         animateMessage('E-Mail not found!');
     }
     else if (pw1 == pw2) {
-        setPasswordForUser(email, pw1);
+        await setPasswordForUser(email, pw1);
         resetPwAnimation();
     }
     else {

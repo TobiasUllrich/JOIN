@@ -98,7 +98,7 @@ let tasksScript = [
 /* [1.] Variablen ganz oben werden zuerst geladen/initialisiert und sind deshalb auch überall nutzbar */
 
 /* [2.] Leert die Datenbank-Arrays users & tasks und befüllt sie mit den Daten von usersScript und tasksScript*/
-function RESETandFILL(){
+async function RESETandFILL(){
     
     deleteAllUsers(); 
     deleteAllTasks(); 
@@ -113,6 +113,7 @@ for (i=0;i<tasksScript.length;i++){
     addTask(tasksScript[i]);
     console.log(tasksScript[i]);
 };
+
 }
 /* [2.] Leert die Datenbank-Arrays users & tasks und befüllt sie mit den Daten von usersScript und tasksScript*/
 
@@ -149,6 +150,7 @@ function checkifEMailexists(email) {
   let userfound = false;
 
   for (i=0;i<users.length;i++){
+    console.log(users[i]['email'].toLowerCase());
     if (users[i]['email'].toLowerCase() == email.toLowerCase()) 
     { userfound = true;
       console.log('Email found');
@@ -158,7 +160,7 @@ function checkifEMailexists(email) {
 }
 
 // CHECK IF PASSWORD-ENTRY OF USER WITH CERTAIN EMAIL MATCHES DATABASE-PASSWORD
-function checkifPasswordMatches(email,password) {
+async function checkifPasswordMatches(email,password) {
   let passwordmatches = false;
   for (i=0;i<users.length;i++){      
      if (users[i]['email'].toLowerCase() == email.toLowerCase() && users[i]['password'] == password)
@@ -169,7 +171,7 @@ function checkifPasswordMatches(email,password) {
   }  
 }
 
-// SET RANDOM PASSWORD FOR PASSWORDFORGOTTEN-REQUESTS
+// SET PASSWORD FOR PASSWORDFORGOTTEN-REQUESTS
 async function setPasswordForUser(email,password) {
 let passwordSet = false;
   for (i=0;i<users.length;i++){      
