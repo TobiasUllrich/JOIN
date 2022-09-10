@@ -1,8 +1,15 @@
-let letUserpass;
+let animationPlayed = false;
 
 //Logo-Animation
 function loginAnimation(){
-    document.getElementById('animatedlogo').classList.add('animate-logo');
+
+    if (animationPlayed == false)
+    {
+        console.log('Animation abspielen ',  animationPlayed);
+        document.getElementById('animatedlogo').classList.add('animate-logo');
+        animationPlayed = true;
+        console.log('Animation abspielen ',  animationPlayed);
+    }
 }
 
 //Reset-PW-Animation
@@ -35,38 +42,23 @@ function animateMessage(message){
 
 //Login-Screen
 function showLoginForm(){
-    document.getElementById('login-Box').classList.remove('d-none');
-    document.getElementById('login-notajoinuser').classList.remove('d-none');
-    document.getElementById('signup-Box').classList.add('d-none');
-    document.getElementById('resetpassword-Box').classList.add('d-none');
-    document.getElementById('forgotpassword-Box').classList.add('d-none');
+    window.location.href = 'index.html';
 }
 
 //SignUp-Screen
 function showSignUpForm(){
-    document.getElementById('login-Box').classList.add('d-none');
-    document.getElementById('login-notajoinuser').classList.add('d-none');
-    document.getElementById('signup-Box').classList.remove('d-none');    
+    window.location.href = 'signup.html';
 }
 
 //PasswordForgotten-Screen
 function showPasswordForgottenForm(){
-    document.getElementById('login-Box').classList.add('d-none');
-    document.getElementById('login-notajoinuser').classList.add('d-none');
-    document.getElementById('signup-Box').classList.add('d-none');
-    document.getElementById('resetpassword-Box').classList.add('d-none');
-    document.getElementById('forgotpassword-Box').classList.remove('d-none');
+    window.location.href = 'sendemail.html';
 }
 
 //PasswordReset-Screen
 function showResetPasswordForm(){
-    document.getElementById('login-Box').classList.add('d-none');
-    document.getElementById('login-notajoinuser').classList.add('d-none');
-    document.getElementById('signup-Box').classList.add('d-none');
-    document.getElementById('resetpassword-Box').classList.remove('d-none');
-    document.getElementById('forgotpassword-Box').classList.add('d-none');
+    window.location.href = 'setpassword.html';
 };
-
 
 //Login as Guest
 function loginAsGuest(){

@@ -2,7 +2,7 @@
 
 ########### CONFIG ###############
 $message =  'Please go to https://gruppe-2970.developerakademie.net/setpassword.html';
-$redirect = 'setpassword.html';
+$redirect = 'index.html';
 
 ########### CONFIG END ###########
 

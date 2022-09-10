@@ -58,6 +58,15 @@ form{
     height: 244px;
 }
 
+.moving-logo-later{
+    position:absolute;
+    z-index:11;   
+    left:50px;
+    top:25px;
+    width:101px;
+    height:122px;
+}
+
 .login-Box h1{
 font-size:61px; 
 font-weight: bold;

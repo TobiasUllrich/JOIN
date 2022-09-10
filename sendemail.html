@@ -57,6 +57,8 @@
 
 <body onload="init();">
 
+    
+
     <!-- MAIN -->
     <!-- Nur im LogIn-Formular sichtbar -->
     <img id="animatedlogo" class="moving-logo-later" src="img/JOIN-Logo.png">
@@ -65,17 +67,16 @@
     <!-- <img class="moving-logo" src="img/JOIN-Logo.png">   -->
 
     <div id="login-Container" class="login-Container">
-        <!-- ResetPassword Seite -->
-        <div id="resetpassword-Box" class="resetpassword-Box">
-            <h1>Reset your password</h1>
-            <div style="width:160px;height:25px;border-top: 3px solid #29abe2;"></div>
-            <span>Change your account password</span>
-            <form onsubmit="resetPassword(); return false;">
-            <div class="resetpassword-inputdesign"><input required type="password" minlength="5" id="reset-pw" placeholder="New password" type="text"></div>
-            <div class="resetpassword-inputdesign"><input required type="password" minlength="5" id="reset-pw2" placeholder="Confirm password" type="text"></div>
-            <div class="login-buttons"><button class="reset-user">Continue</button></div>
-            </form>
-            <img id="backfromreset" onclick="showPasswordForgottenForm();" class="backbutton" src="img/backarrow-icon.png">
+        <!-- ForgotPassword Seite -->
+        <div id="forgotpassword-Box" class="forgotpassword-Box">
+                    <h1>I forgot my password</h1>
+                    <div style="width:160px;height:25px;border-top: 3px solid #29abe2;"></div>
+                    <span>Don't worry! We will send you an email with the instruction to reset your password.</span>
+                    <form action="https://gruppe-2970.developerakademie.net/send_mail.php" method="POST"> <!-- onsubmit="tryToSendEmail(); return false;" rausgenommen, weil sonst keine E-Mail gesendet wird [return false ist schuld!] -->
+                    <div class="forgotpassword-inputdesign"><input name="email" required type="email" id="forgotpassword-email" placeholder="Email" type="text"><img src="img/email-icon.png"></div>
+                    <div class="login-buttons"><button class="forgotpassword-send">Send me the email</button></div>
+                    </form>  
+                    <img id="backfromforgotten" onclick="showLoginForm();" class="backbutton" src="img/backarrow-icon.png">
         </div> 
     </div>
 
