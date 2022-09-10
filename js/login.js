@@ -176,3 +176,7 @@ function checkPasswordSyntax(str)
   var re = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])\w{6,}$/;
   return re.test(str);
 }
+
+function testFunktion(){
+    consolge.log('FOKUS');
+}
