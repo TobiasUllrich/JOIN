@@ -1,8 +1,8 @@
 <?php
 
 ########### CONFIG ###############
-$message =  'Please go to https://gruppe-2970.developerakademie.net/setpassword.html to reset your Password!';
-$redirect = 'index.html';
+$message =  'Please go to https://gruppe-2970.developerakademie.net/setpassword.html?msg=' . $_POST['email'];
+$redirect = 'success.html';
 
 ########### CONFIG END ###########
 

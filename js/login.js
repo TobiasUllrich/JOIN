@@ -57,7 +57,8 @@ function showPasswordForgottenForm(){
 
 //PasswordReset-Screen
 function showResetPasswordForm(){
-    window.location.href = 'setpassword.html';
+    let emailtochange = document.getElementById('forgotpassword-email').value;
+    window.location.href = `setpassword.html?msg=${emailtochange}`;
 };
 
 //Login as Guest
@@ -131,6 +132,20 @@ async function tryToSendEmail(){
 }
 
 function resetPassword(){
+    // Der Funktion URLSearchParams() muss ein String übergeben werden
+    // The window.location.search property contains the query string portion (=search-part) of a specific query of the current url
+    const urlParams = new URLSearchParams(window.location.search); 
+    const myParam = urlParams.get('msg');
+
+    if(myParam){
+       document.getElementById('msgBox').innerHTML=myParam;
+       msgBox.innerHTML=myParam; // ist div-ID laut Junus
+    }
+    else{
+       //display none
+    }
+
+
     let email = document.getElementById('forgotpassword-email').value;
     let pw1 = document.getElementById('reset-pw').value;
     let pw2 = document.getElementById('reset-pw2').value;
