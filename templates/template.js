@@ -13,9 +13,8 @@ function templateOfNewTaskToDo(taskTodo, i) {
         </div>
         <div class="workers-prio">
             <div class="main-workers">
-                <div id="solo-worker" class="solo-worker">
+                <div id="solo-worker-todo${i}" class="solo-worker">
                     <!--TEMPLATE RENDERN VON ARBEIERN-->
-                    <span class="worker-name-start-letters">EB</span>
                 </div>
             </div>
         <div id="prio-img-todo" class="prio-img">
@@ -41,7 +40,7 @@ function templateOfTaskInProgress(taskProgress, j) {
             <div class="main-workers">
                 <div id="solo-worker" class="solo-worker">
                     <!--TEMPLATE RENDERN VON ARBEIERN-->
-                    <span class="worker-name-start-letters">EB</span>
+                    <div class="worker-name-start-letters d-center">EB</div>
                 </div>
             </div>
         <div id="prio-img-progress" class="prio-img">
@@ -67,7 +66,7 @@ function templateOfTaskFeedback(taskFeedback, k) {
             <div class="main-workers">
                 <div id="solo-worker" class="solo-worker">
                     <!--TEMPLATE RENDERN VON ARBEIERN-->
-                    <span class="worker-name-start-letters">EB</span>
+                    <div class="worker-name-start-letters d-center">EB</div>
                 </div>
             </div>
         <div id="prio-img-feedback" class="prio-img">
@@ -93,7 +92,7 @@ function templateOfTaskDone(taskDone, l) {
             <div class="main-workers">
                 <div id="solo-worker" class="solo-worker">
                     <!--TEMPLATE RENDERN VON ARBEIERN-->
-                    <span class="worker-name-start-letters">EB</span>
+                    <div class="worker-name-start-letters d-center">EB</div>
                 </div>
             </div>
         <div id="prio-img-done" class="prio-img">
@@ -102,6 +101,8 @@ function templateOfTaskDone(taskDone, l) {
     </div>
 </div>`
 }
+
+// BREAK SOLO TASK TEMPLATE
 
 function templateBigBoxSoloTask(soloTasks, indexOfSoloTask){
     return `
@@ -147,5 +148,7 @@ function templateBigBoxSoloTask(soloTasks, indexOfSoloTask){
         </div>
     </div>`
 }
+
+// BREAK BIG BOX TEMPLATE
 
 // ##############BOARD TEMPLATES END################# //

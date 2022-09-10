@@ -277,18 +277,24 @@ body {
 .workers-prio {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 100%;
+}
+
+.solo-worker{
+    display: flex;
 }
 
 .worker-name-start-letters {
     padding: 10px 8px;
     gap: 10px;
-    width: 35px;
-    height: 35px;
+    width: 45px;
+    height: 45px;
     background: #0190E0;
     border: 1px solid #FFFFFF;
     border-radius: 58px;
     color: white;
+    margin-left: -10px;
 }
 
 .main-add-task-container {
@@ -346,7 +352,7 @@ body {
     padding: 4px 36.5px;
     gap: 10px;
     background-color: lightgray;
-    width: 170px;
+    width: 150px;
     height: 40px;
     margin-bottom: 24px;
 }
@@ -451,10 +457,13 @@ body {
 }
 
 .big-box-tasks-container-full-size{
-    width: calc(100vw - 232px);
+    /*width: calc(100vw - 232px);
     height: calc(100vh - 80px);
     position: absolute;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center;*/
+    position: absolute;
+    left: 40%;
+    top: 15%;
 }
