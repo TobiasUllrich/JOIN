@@ -71,7 +71,7 @@
         <!-- Erste Seite -->
         <div id="login-Box" class="login-Box">
             <h1>Log in</h1>
-            <div style="width:160px;height:35px;border-top: 3px solid #29abe2;"></div>      
+            <div class="dummy"></div>      
             <form onsubmit="tryLogin(); return false;">
             <div class="login-inputdesign"><input required type="email" id="login-email" placeholder="Email" type="text"><img src="img/email-icon.png"></div>
             <div class="login-inputdesign"><input required type="password" minlength="5" id="login-password" placeholder="Password" type="text"><img src="img/password-icon.png"></div>
@@ -89,7 +89,7 @@
     <!-- Wrong PW or Email animations -->
     <div id="alert-box" class="d-none">
     </div>
-    <button id="alert-info"><img src="img/alert.png" style="padding-right:15px;"><span id="alert-text">Wrong Password!</span></button>
+    <button id="alert-info"><img src="img/alert.png"><span id="alert-text">Wrong Password!</span></button>
 
    <!-- For Sign-Up -->
     <div id="login-notajoinuser" class="login-notajoinuser">

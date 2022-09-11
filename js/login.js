@@ -145,7 +145,7 @@ async function resetPassword() {
 }
 
 //SET USER PIC FOR KANBAN-BOARD
-async function setUserpic(){
+function setUserpic(){
     let picturearray = [];
     picturearray = getArray ('picOfActUser') //Get User-Picture from local Storage
 

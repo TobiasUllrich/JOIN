@@ -19,6 +19,12 @@ form{
     align-items: center;
 }
 
+.dummy{
+    width:160px;
+    height:35px;
+    border-top: 3px solid #29abe2;
+}
+
 /* LOGIN */
 .login-Container{
     display:flex;
@@ -536,6 +542,10 @@ to
     font-weight: 400; 
     background-color: #091931;
     border: 1px solid #091931; 
+}
+
+#alert-info img{
+    padding-right:15px;
 }
 
 #alert-box{
