@@ -169,7 +169,7 @@ function updateStatusHeadlinesStatusDone(l) {
     }
 }
 
-function addTask() {
+function addTaskTEST() { // addTask existiert besreits in der main js, daher hier TEST
     let addTaskContainer = document.getElementById('main-add-task-container');
     removeDisplayNoneMainContainer(addTaskContainer);
 }
