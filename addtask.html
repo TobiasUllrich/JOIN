@@ -37,7 +37,7 @@
 </head>
 <!---->
 
-<body onload="includeHTML();init();">
+<body onload="includeHTML();init();loadAddTastk()">
     <div w3-include-html="templates/header.html"></div>
 
     <!-- headline -->
@@ -66,22 +66,19 @@
                                 <label>Category</label>
                                 <div class="dropdown">
                                     <input required type="text" id="myInput" class="hidden-input" id="hidden-input">
-                                    <dt onclick="openCategory()" id="dropbtnCategory" class="dropbtn" >Select task
-                                        category <img src="./img/addtask/dropdown-Vector.png" alt=""></dt>
-                                    <dd id="categoryDropdown" class="dropdown-content">
-                                        <p>New category</p>
-                                        <p>Sales</p>
-                                        <p>Backoffice</p>
-                                    </dd>
+                                    <div id="categoryContainer">
+                                    
+                                    </div>
                                 </div>
                             </div>
                             <div>
                                 <label>Assigned to</label>
                                 <div class="dropdown">
                                     <input required type="text" id="myInput" class="hidden-input" id="hidden-input">
-                                    <div onclick="openAssign()" id="dropbtnAssign" class="dropbtn" type="button">Select contacts to
+                                    <div onclick="openAssign()" id="dropbtnAssign" class="dropbtn" type="button">Select
+                                        contacts to
                                         assign<img src="./img/addtask/dropdown-Vector.png" alt=""></div>
-                                    <div id="assignDropdown" class="dropdown-content ">
+                                    <div id="assignDropdown" class="dropdown-content">
                                         <p>You</p>
                                         <p>Max Mustermann</p>
                                         <p>Invite new contact</p>
@@ -146,9 +143,9 @@
 
 
                             <div class="button-container">
-                                <button onclick="clearSubtasksArray()" onmouseover="addBg('clear-x');" onmouseout="removeBg('clear-x');" type="reset"
-                                    class="addtask-clear-button">Clear <img id="clear-x"
-                                        src="./img/addtask/x-vector.png"></button>
+                                <button onclick="clearSubtasksArray()" onmouseover="addBg('clear-x');"
+                                    onmouseout="removeBg('clear-x');" type="reset" class="addtask-clear-button">Clear
+                                    <img id="clear-x" src="./img/addtask/x-vector.png"></button>
                                 <button class="addtask-create-task-button">Create Task <img
                                         src="./img/addtask/ok-vector.png"></button>
                             </div>
