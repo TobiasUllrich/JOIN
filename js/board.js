@@ -69,6 +69,14 @@ function filterImportentTasks() {
     soloTasksDone = tasksScript.filter(status => status.status == 'Done'); // All tasks done
 }
 
+function renderAssignedNamesOfTask(i) { // NOCH NICHT FERTIG ___ MUSS NOCH GESCHRIEBEN WERDEN
+    let renderOutputContainer = document.getElementById(`solo-worker-todo${i}`);
+
+    renderOutputContainer.innerHTML = '';
+    console.log(users[i]);
+    renderOutputContainer.innerHTML += `<div class="worker-name-start-letters d-center"></div>`
+}
+
 function updateTasksHeadlinesStatusTodo(i) {
     let headlineTaskTodoContainer = document.getElementById(`headline-solo-task-todo${i}`);
     let headlineTodoText = document.getElementById(`headline-task-todo${i}`).innerHTML;
@@ -169,7 +177,7 @@ function updateStatusHeadlinesStatusDone(l) {
     }
 }
 
-function addTaskTEST() { // addTask existiert besreits in der main js, daher hier TEST
+function addTaskBoard() { // addTask existiert besreits in der main js, daher hier TEST
     let addTaskContainer = document.getElementById('main-add-task-container');
     removeDisplayNoneMainContainer(addTaskContainer);
 }
@@ -275,14 +283,6 @@ function checkPriorityBackgroundColor() {
     }
 }
 
-function renderAssignedNamesOfTask(i) {
-    let renderOutputContainer = document.getElementById(`solo-worker-todo${i}`);
-
-    renderOutputContainer.innerHTML = '';
-    console.log(users[i]);
-    renderOutputContainer.innerHTML += `<div class="worker-name-start-letters d-center"></div>`
-}
-
 function doNotClose(event) {
     event.stopPropagation();
 }
@@ -291,16 +291,32 @@ function changeEditContainerColors(){
     let editContainer = document.getElementById('edit-button');
     let editPencil = document.getElementById('edit-pencil');
 
-    editContainer.style.background = '#29ABE2';
-    editPencil.style.filter = 'filter: brightness(0) invert(1);';
+    makeContainerBlue(editContainer);
+    makeImgWhite(editPencil);
 }
 
 function RemoveEditContainerColors(){
     let editContainer = document.getElementById('edit-button');
     let editPencil = document.getElementById('edit-pencil');
 
-    editContainer.style.background = '#2a3647';
-    editPencil.style.filter = 'filter: brightness(0) invert(1);';
+    removeContainerColorBlue(editContainer);
+    makeImageColorDefault(editPencil);
+}
+
+function makeContainerBlue(container){
+    container.style.background = '#29ABE2';
+}
+
+function removeContainerColorBlue(container){
+    container.style.background = '#2a3647';
+}
+
+function makeImgWhite(image){
+    image.style.filter = 'filter: brightness(0) invert(1)';
+}
+
+function makeImageColorDefault(image){
+    image.style.filter = 'filter: brightness(0) invert(1)';
 }
 
 function addOpacityToMainBackground(){
@@ -333,5 +349,6 @@ function addDisplayNoneMainContainer(bigBoxContainer){
     - Add Task Funktion
     - Drag und Drop Function
     - Assigned To Render / mini Task and Big Task 
+    - Unscrollable Board - sticky Boardheadline 
 */
 
