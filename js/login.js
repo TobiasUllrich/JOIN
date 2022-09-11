@@ -7,14 +7,11 @@ function loginAnimation() {
 function resetPwAnimation() {
     document.getElementById('reset-info').classList.add('animate-resetPw');
     document.getElementById('resetpw-box').classList.remove('d-none');
-    //console.log('New Password is ', document.getElementById('reset-pw').value);
-    //console.log('Confirmed Password is ', document.getElementById('reset-pw2').value);
 
     setTimeout(function () {
         document.getElementById('reset-info').classList.remove('animate-resetPw');
         document.getElementById('resetpw-box').classList.add('d-none');
-        console.log('Now you should be able to login');
-        showLoginForm2();
+        showLoginForm2(); //Login-Screen without animation
     }, 1000);
 }
 
@@ -58,8 +55,7 @@ function showResetPasswordForm() {
 
 //Login as Guest
 function loginAsGuest() {
-    setArray ('picOfActUser',['randomprofilepicture.webp']);
-    console.log('Now logged in as Guest');
+    setArray ('picOfActUser',['randomprofilepicture.webp']); //Save Random-Guest-Picture in local Storage
     window.location.href = 'summary.html';
 }
 
@@ -68,21 +64,18 @@ function tryLogin() {
     let email = document.getElementById('login-email').value;
     let password = document.getElementById('login-password').value;
 
-    //checkifEMailexists(email);
-    //checkifPasswordMatches(email, password);
     if (checkifEMailexists(email) && checkifPasswordMatches(email, password)) { 
-        window.location.href = 'summary.html'; 
-        
-        // NEW NEW
+        window.location.href = 'summary.html'; //Password & Email correct
         let actuser = getUserAsObject(email);
         let actpic = actuser['picture'];
-        setArray ('picOfActUser',[actpic]);
-        // NEW NEW
-        console.log('DURCHLASSEN!'); 
-
+        setArray ('picOfActUser',[actpic]); //Save User-Picture in local Storage
     }
-    else if (!checkifEMailexists(email)) { animateMessage('E-Mail not found!'); console.log('This E-Mail is not registered!'); }
-    else { animateMessage('Wrong Password!'); console.log('The password you entered is incorrect!'); }
+    else if (!checkifEMailexists(email)) 
+    { animateMessage('E-Mail not found!'); //Email incorrect
+    }
+    else 
+    { animateMessage('Wrong Password!'); //Password incorrect
+    }
 }
 
 //Try to Signup
@@ -97,12 +90,13 @@ async function trySignup() {
         "phone": "",
         "password": password
     }
-    console.log(object);
+
     if (checkifEMailexists(email)) {
-        console.log(checkifEMailexists(email));
+        //Email already in Database
         animateMessage('E-Mail already exists!');
     }
     else {
+        //Signed up successfully
         await addUser(object);
         showLoginForm2();
     }
@@ -111,62 +105,55 @@ async function trySignup() {
 //Try to send Email
 function tryToSendEmail() {
     let email = document.getElementById('forgotpassword-email').value;
-    //console.log(email);
-    if (checkifEMailexists(email)) { }
-    else {
-        animateMessage('E-Mail not found!')
+
+    if (checkifEMailexists(email)) { } //Email sent 
+    else 
+    {
+        animateMessage('E-Mail not found!') //Email not sent
+
         event.preventDefault();  //<- "action" eines Formulars wird immer nach "onsubmit" ausgeführt
     }                            //<- Über die Funktion die bei "onsubmit" ausgeführt wird, kann man action stoppen
                                  //<- event.preventDefault(); stoppt eine weitere Verarbeitung des Formulars und damit auch die Ausführung von "action"  
 }
 
-
+//Password reset after request
 async function resetPassword() {
-    // Der Funktion URLSearchParams() muss ein String übergeben werden
-    // The window.location.search property contains the query string portion (=search-part) of a specific query of the current url
+
     const urlParams = new URLSearchParams(window.location.search);
     let email = urlParams.get('msg');
-    //console.log(email);
-    //console.log(checkifEMailexists(email));
 
     let pw1 = document.getElementById('reset-pw').value;
     let pw2 = document.getElementById('reset-pw2').value;
-    // console.log(email);
-    // console.log(pw1,pw2);
+
     if (!email)
     {
-        animateMessage('E-Mail not found!');
+        animateMessage('E-Mail not found!'); //Check if qry contained in URL
     }
-    else if (!checkifEMailexists(email))
+    else if (!checkifEMailexists(email)) //Check if Email exists
     {
         animateMessage('E-Mail not found!');
     }
-    else if (pw1 == pw2) {
+    else if (pw1 == pw2) //Check Pws are equal
+    {
         await setPasswordForUser(email, pw1);
         resetPwAnimation();
     }
-    else {
+    else 
+    {
         animateMessage('Unequal Passwords!');
     }
 }
 
+//SET USER PIC FOR KANBAN-BOARD
 async function setUserpic(){
     let picturearray = [];
-    // console.log(ar);
-    // console.log(getArray ('picOfActUser'));
-    picturearray = getArray ('picOfActUser')
-    // console.log(ar);
-    // console.log(`img/${ar[0]}`);
-    // document.getElementById('footer-picture').src=`img/${ar[0]}`;
-    // document.getElementById('footer-picture').src = 'img/Tobias.jpg';
+    picturearray = getArray ('picOfActUser') //Get User-Picture from local Storage
 
     //Ohne setTimeout versucht er src zu beschreiben bevor die Seite fertig geladen ist (Tipp: sr="" als Standard beim zu beschreibenden Element)
     setTimeout(function () {
         document.getElementById('footer-picture').src=`img/${picturearray[0]}`;         
     }, 500);
 }
-
-
 
 // Password benötigt mindestens einen Großbuchstaben, Kleinbuchstaben und eine Zahl
 // Liefert true -> Test bestanden; Liefert false -> Test nicht bestanden!

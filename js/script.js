@@ -1,4 +1,3 @@
-
 /* [1.] Variablen ganz oben werden zuerst geladen/initialisiert und sind deshalb auch überall nutzbar */
 let usersScript = [
   {
@@ -103,15 +102,14 @@ async function RESETandFILL(){
     
     await deleteAllUsers(); 
     await deleteAllTasks(); 
-    console.log('huhu');
 
 for (i=0;i<usersScript.length;i++){
-  await addUser(usersScript[i]);
+    await addUser(usersScript[i]);
     console.log(usersScript[i]);
 };
 
 for (i=0;i<tasksScript.length;i++){
-  await addTask(tasksScript[i]);
+    await addTask(tasksScript[i]);
     console.log(tasksScript[i]);
 };
 
@@ -159,12 +157,10 @@ function getUserAsObject(email) {
 // CHECK IF EMAIL OF USER IS IN ARRAY
 function checkifEMailexists(email) {
   let userfound = false;
-
   for (i=0;i<users.length;i++){
     console.log(users[i]['email'].toLowerCase());
     if (users[i]['email'].toLowerCase() == email.toLowerCase()) 
-    { userfound = true;
-      console.log('Email found');
+    { userfound = true; //Email found
       return userfound;
     }
   }
@@ -175,9 +171,8 @@ function checkifPasswordMatches(email,password) {
   let passwordmatches = false;
   for (i=0;i<users.length;i++){      
      if (users[i]['email'].toLowerCase() == email.toLowerCase() && users[i]['password'] == password)
-      {passwordmatches = true;
-        console.log('PW matches');
-        return passwordmatches; //If found once "true" is returned, else it stays "false"
+      {passwordmatches = true; //Password matches
+       return passwordmatches; //If found once "true" is returned, else it stays "false"
       }
   }  
 }
@@ -188,9 +183,7 @@ let passwordSet = false;
   for (i=0;i<users.length;i++){      
      if (users[i]['email'].toLowerCase() == email.toLowerCase())
       { users[i]['password'] = password;
-      console.log(users[i]['password'],password);
-        passwordSet = true;
-        console.log('PW set');
+        passwordSet = true; //Password is set
         //-> Im Live Array können wir gleich sehen, dass das Element inzugefügt wurde, es wird in der nächsten Zeile noch ins Backend übertragen
         await backend.setItem('users', JSON.stringify(users));
         return passwordSet; //If changed "true" is returned, else it stays "false"
@@ -248,13 +241,11 @@ async function delTask(index) {
     }
 }
 
-
 // DELETE ALL USERS FROM ARRAY
 async function deleteAllUsers() {
     await backend.deleteItem('users');
     //-> Wenn jetzt nach dem Deleten ein init() ausgeführt wird, dann sieht man, dass das Array leer ist
 }
-
 
 // DELETE ALL TASKS FROM ARRAY
 async function deleteAllTasks() {
@@ -264,17 +255,13 @@ async function deleteAllTasks() {
 
 /* [3.]  Für den Datenaustausch mit dem Server */
 
-
-
+/* [4.]  For Log-Out in the right corner */
 function showLogoutButton(){
   document.getElementById('logoutbtn').classList.remove('d-none');
 }
+/* [4.]  For Log-Out in the right corner */
 
-
-
-
-
-/* [4.] Funktion um weitere HTML-Dateien einzubinden (Code von w3c)*/
+/* [5.] Funktion um weitere HTML-Dateien einzubinden (Code von w3c)*/
 /* Code von w3c*/
 async function includeHTML() {
     let includeElements = document.querySelectorAll('[w3-include-html]'); //Alle Elemente mit Attribut '[w3-include-html]' werden ausgewählt
@@ -290,11 +277,11 @@ async function includeHTML() {
     }
     setUserpic();
 }
-/* [4.] Funktion um weitere HTML-Dateien einzubinden (Code von w3c)*/
+/* [5.] Funktion um weitere HTML-Dateien einzubinden (Code von w3c)*/
 
 
 
-/* [5.] Array zu String und wieder zurück */
+/* [6.] Array zu String und wieder zurück */
 /* Im localStorage kann nur Text gespeichert werden, ABER im Code kann nur ein Array sinnvoll genutzt werden */
 /* key ist der Name unter welchem der Array gespeichert werden soll (frei wählbarer Text) und array ist das Array selbst  */
 function setArray (key,array){
@@ -304,5 +291,5 @@ function setArray (key,array){
 function getArray (key){
   return JSON.parse(localStorage.getItem(key)); // JSON.parse() wandelt einen String in einen Array um
 }
-/* [5.] Array zu String und wieder zurück */
+/* [6.] Array zu String und wieder zurück */
 
