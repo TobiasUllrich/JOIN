@@ -1,3 +1,11 @@
+let guest = {
+    "name": "Guest",
+    "picture": "randomprofilepicture.webp",
+    "email": "Guest@nowhere.de",
+    "phone": "",
+    "password": "none123"
+}
+
 //Logo-Animation
 function loginAnimation() {
     document.getElementById('animatedlogo').classList.add('animate-logo');
@@ -55,7 +63,7 @@ function showResetPasswordForm() {
 
 //Login as Guest
 function loginAsGuest() {
-    setArray ('picOfActUser',['randomprofilepicture.webp']); //Save Random-Guest-Picture in local Storage
+    setArray ('arrayOfactUser',guest); //Save Guest-User-Object in local Storage
     window.location.href = 'summary.html';
 }
 
@@ -67,8 +75,7 @@ function tryLogin() {
     if (checkifEMailexists(email) && checkifPasswordMatches(email, password)) { 
         window.location.href = 'summary.html'; //Password & Email correct
         let actuser = getUserAsObject(email);
-        let actpic = actuser['picture'];
-        setArray ('picOfActUser',[actpic]); //Save User-Picture in local Storage
+        setArray ('arrayOfactUser',actuser); //Save User-Object in local Storage
     }
     else if (!checkifEMailexists(email)) 
     { animateMessage('E-Mail not found!'); //Email incorrect
@@ -145,13 +152,13 @@ async function resetPassword() {
 }
 
 //SET USER PIC FOR KANBAN-BOARD
-function setUserpic(){
-    let picturearray = [];
-    picturearray = getArray ('picOfActUser') //Get User-Picture from local Storage
-
-    //Ohne setTimeout versucht er src zu beschreiben bevor die Seite fertig geladen ist (Tipp: sr="" als Standard beim zu beschreibenden Element)
+function setactUser(){
+    let actUserArray = [];
+    actUserArray = getArray ('arrayOfactUser') //Get User-Object from local Storage
+    
+    //Ohne setTimeout versucht er src zu beschreiben bevor die Seite fertig geladen ist (Tipp: src="" als Standard beim zu beschreibenden Element)
     setTimeout(function () {
-        document.getElementById('footer-picture').src=`img/${picturearray[0]}`;         
+        document.getElementById('footer-picture').src=`img/${actUserArray['picture']}`;         
     }, 500);
 }
 

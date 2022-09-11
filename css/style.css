@@ -13,7 +13,6 @@ body {
   /* muss dem Body gegeben werden, ABER funktioniert nicht auf dem Handy -> Lösung: Alles in eine <div> was in <body> ist und diesem <div> das overflow-Attribut geben */
 }
 
-
 /*  HEADER  */
 .header-logo {
   margin: 50px;
@@ -70,7 +69,6 @@ width:60%;
 .header-summary{
   margin-top:50px;
 }
-
 
 /* FOOTER  */
 .footer {

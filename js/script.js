@@ -118,7 +118,6 @@ for (i=0;i<tasksScript.length;i++){
 
 
 /* [3.]  Für den Datenaustausch mit dem Server */
-
 // https://github.com/JunusErgin/smallest_backend_ever
 let users = [];
 let tasks = [];
@@ -252,7 +251,6 @@ async function deleteAllTasks() {
     await backendTWO.deleteItem('tasks');
     //-> Wenn jetzt nach dem Deleten ein init() ausgeführt wird, dann sieht man, dass das Array leer ist
 }
-
 /* [3.]  Für den Datenaustausch mit dem Server */
 
 /* [4.]  For Log-Out in the right corner */
@@ -275,11 +273,8 @@ async function includeHTML() {
             element.innerHTML = 'Page not found';
         }
     }
-    setUserpic();
 }
 /* [5.] Funktion um weitere HTML-Dateien einzubinden (Code von w3c)*/
-
-
 
 /* [6.] Array zu String und wieder zurück */
 /* Im localStorage kann nur Text gespeichert werden, ABER im Code kann nur ein Array sinnvoll genutzt werden */
