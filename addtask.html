@@ -66,22 +66,22 @@
                                 <label>Category</label>
                                 <div class="dropdown">
                                     <input required type="text" id="myInput" class="hidden-input" id="hidden-input">
-                                    <button onclick="openCategory()" class="dropbtn" type="button">Select task
-                                        category <img src="./img/addtask/dropdown-Vector.png" alt=""></button>
-                                    <div id="categoryDropdown" class="dropdown-content">
+                                    <dt onclick="openCategory()" id="dropbtnCategory" class="dropbtn" >Select task
+                                        category <img src="./img/addtask/dropdown-Vector.png" alt=""></dt>
+                                    <dd id="categoryDropdown" class="dropdown-content">
                                         <p>New category</p>
                                         <p>Sales</p>
                                         <p>Backoffice</p>
-                                    </div>
+                                    </dd>
                                 </div>
                             </div>
                             <div>
                                 <label>Assigned to</label>
                                 <div class="dropdown">
                                     <input required type="text" id="myInput" class="hidden-input" id="hidden-input">
-                                    <button onclick="openAssign()" class="dropbtn" type="button">Select contacts to
-                                        assign<img src="./img/addtask/dropdown-Vector.png" alt=""></button>
-                                    <div id="assignDropdown" class="dropdown-content">
+                                    <div onclick="openAssign()" id="dropbtnAssign" class="dropbtn" type="button">Select contacts to
+                                        assign<img src="./img/addtask/dropdown-Vector.png" alt=""></div>
+                                    <div id="assignDropdown" class="dropdown-content ">
                                         <p>You</p>
                                         <p>Max Mustermann</p>
                                         <p>Invite new contact</p>

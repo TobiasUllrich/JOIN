@@ -45,8 +45,8 @@ function subtaskInputDelete() {
     document.getElementById('subtask-separator-line').classList.add('d-none');
 }
 
-function subtaskInputAdd(idOInput) {
-    let subtask = document.getElementById(`${idOInput}`).value;
+function subtaskInputAdd(idOfInput) {
+    let subtask = document.getElementById(`${idOfInput}`).value;
     if (subtask.length >= 1 ) {
         subtasks.push(subtask);
         showSubstasks();
@@ -72,6 +72,7 @@ function clearSubtasksArray(){
 toggle between hiding and showing the dropdown content */
 function openCategory() {
     document.getElementById("categoryDropdown").classList.toggle("show");
+    document.getElementById('dropbtnCategory').classList.toggle("dropdown-border-bottom");
   }
   
   // Close the dropdown if the user clicks outside of it
@@ -87,6 +88,7 @@ function openCategory() {
       }
     }
   }
+
 
   /* When the user clicks on the button, 
 toggle between hiding and showing the dropdown content */
