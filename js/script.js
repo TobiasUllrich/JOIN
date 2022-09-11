@@ -1,3 +1,4 @@
+
 /* [1.] Variablen ganz oben werden zuerst geladen/initialisiert und sind deshalb auch überall nutzbar */
 let usersScript = [
   {
@@ -5,21 +6,21 @@ let usersScript = [
     "picture": "tobias.jpg",
     "email": "ullrich.tobias@gmx.de",
     "phone":"888",
-    "password": "xxx"
+    "password": "xxxxx"
   },
   {
     "name": "Edip Bahcecioglu",
     "picture": "edip.jpg",
     "email": "edip-bahcecioglu@hotmail.de",
     "phone":"888",
-    "password": "xxx"
+    "password": "xxxxx"
   },
   {
     "name": "Eugen Oswald",
     "picture": "eugen.jpg",
     "email": "oswaldeugen95@gmail.com",
     "phone":"888",
-    "password": "xxx"
+    "password": "xxxxx"
   }
 ];
 
@@ -100,17 +101,17 @@ let tasksScript = [
 /* [2.] Leert die Datenbank-Arrays users & tasks und befüllt sie mit den Daten von usersScript und tasksScript*/
 async function RESETandFILL(){
     
-    deleteAllUsers(); 
-    deleteAllTasks(); 
+    await deleteAllUsers(); 
+    await deleteAllTasks(); 
     console.log('huhu');
 
 for (i=0;i<usersScript.length;i++){
-    addUser(usersScript[i]);
+  await addUser(usersScript[i]);
     console.log(usersScript[i]);
 };
 
 for (i=0;i<tasksScript.length;i++){
-    addTask(tasksScript[i]);
+  await addTask(tasksScript[i]);
     console.log(tasksScript[i]);
 };
 
@@ -143,6 +144,16 @@ async function init() {
     await downloadFromServerTWO(); /** INSERT FOR SECOND JSON-FILE */
     tasks = JSON.parse(backendTWO.getItem('tasks')) || [];
 
+}
+
+// GET PICTURE OF USER
+function getUserAsObject(email) {
+  for (i=0;i<users.length;i++){
+    if (users[i]['email'].toLowerCase() == email.toLowerCase()) 
+    { 
+      return users[i];
+    }
+  }
 }
 
 // CHECK IF EMAIL OF USER IS IN ARRAY
@@ -255,7 +266,9 @@ async function deleteAllTasks() {
 
 
 
-
+function showLogoutButton(){
+  document.getElementById('logoutbtn').classList.remove('d-none');
+}
 
 
 

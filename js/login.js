@@ -37,6 +37,9 @@ function showLoginForm() {
 
 //Login-Screen without animation
 function showLoginForm2() {
+            // NEW NEW
+            setArray ('picOfActUser',['randomprofilepicture.webp']);
+            // NEW NEW
     window.location.href = 'index2.html';
 }
 
@@ -52,8 +55,8 @@ function showPasswordForgottenForm() {
 
 //PasswordReset-Screen
 function showResetPasswordForm() {
-    let emailtochange = document.getElementById('forgotpassword-email').value;
-    window.location.href = `setpassword.html?msg=${emailtochange}`;
+    let emailtochangepw = document.getElementById('forgotpassword-email').value;
+    window.location.href = `setpassword.html?msg=${emailtochangepw}`;
 };
 
 //Login as Guest
@@ -69,7 +72,19 @@ function tryLogin() {
 
     //checkifEMailexists(email);
     //checkifPasswordMatches(email, password);
-    if (checkifEMailexists(email) && checkifPasswordMatches(email, password)) { window.location.href = 'summary.html'; console.log('DURCHLASSEN!'); }
+    if (checkifEMailexists(email) && checkifPasswordMatches(email, password)) { 
+        window.location.href = 'summary.html'; 
+        
+        // NEW NEW
+        let actuser = getUserAsObject(email);
+        let actpic = actuser['picture'];
+        console.log(actuser);
+        console.log(actpic);
+        setArray ('picOfActUser',[actpic]);
+        // NEW NEW
+        console.log('DURCHLASSEN!'); 
+
+    }
     else if (!checkifEMailexists(email)) { animateMessage('E-Mail not found!'); console.log('This E-Mail is not registered!'); }
     else { animateMessage('Wrong Password!'); console.log('The password you entered is incorrect!'); }
 }
@@ -110,8 +125,6 @@ function tryToSendEmail() {
 }
 
 
-
-
 async function resetPassword() {
     // Der Funktion URLSearchParams() muss ein String übergeben werden
     // The window.location.search property contains the query string portion (=search-part) of a specific query of the current url
@@ -140,6 +153,21 @@ async function resetPassword() {
         animateMessage('Unequal Passwords!');
     }
 }
+
+async function setUserpic(){
+    let ar = [];
+    console.log(ar);
+    console.log(getArray ('picOfActUser'));
+    ar = getArray ('picOfActUser')
+    console.log(ar);
+    console.log(`img/${ar[0]}`);
+    // document.getElementById('footer-picture').src=`img/${ar[0]}`;
+    // document.getElementById('footer-picture').src = 'img/Tobias.jpg';
+    setTimeout(function () {
+        document.getElementById('footer-picture').src=`img/${ar[0]}`;
+    }, 1000);
+}
+
 
 
 // Password benötigt mindestens einen Großbuchstaben, Kleinbuchstaben und eine Zahl
