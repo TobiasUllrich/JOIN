@@ -25,6 +25,48 @@ form{
     border-top: 3px solid #29abe2;
 }
 
+::placeholder{
+    color: #D1D1D1; 
+ }
+
+ .formular-inputdesign{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height:51px;
+    width:422px;
+    margin-bottom:50px;
+
+    border: 1px solid #D1D1D1;
+    border-radius:10px;  
+}
+
+.formular-inputdesign input{
+    border: none;
+    font-size:21px;
+    outline: none;
+    padding-left:15px;
+    height: 48px;
+    border-radius: 30px;
+    width:100%; 
+}
+
+.formular-inputdesign:hover{
+ cursor:pointer;
+}
+
+.formular-inputdesign input:hover{
+ cursor:pointer;
+}
+
+.formular-inputdesign img{
+    margin-right:15px; 
+}
+
+.d-none{
+    display:none;
+}
+
 /* LOGIN */
 .login-Container{
     display:flex;
@@ -80,43 +122,6 @@ padding-bottom:20px;
 margin-bottom:0;
 }
 
-.login-inputdesign{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height:51px;
-    width:422px;
-    margin-bottom:50px;
-
-    border: 1px solid #D1D1D1;
-    border-radius:10px;  
-}
-
-.login-inputdesign:hover{
- cursor:pointer;
-}
-.login-inputdesign input:hover{
- cursor:pointer;
-}
-
-.login-inputdesign input{
-    border: none;
-    font-size:21px;
-    outline: none;
-    padding-left:15px;
-    height: 48px;
-    border-radius: 30px;
-    width:100%; 
-}
-
-::placeholder{
-   color: #D1D1D1; 
-}
-
-.login-inputdesign img{
-    margin-right:15px; 
-}
-
 .login-rememberOrforgotPw{
     display:flex;
     justify-content: space-between;
@@ -124,6 +129,11 @@ margin-bottom:0;
     margin-top:0;
     margin-bottom:12.5px;
     width: calc(161px * 2 + 12.5px * 2);
+}
+
+.login-rememberOrforgotPw a{
+    color: #29ABE2 !important;
+    cursor:pointer;
 }
 
 .login-cbx input{
@@ -144,11 +154,6 @@ margin-bottom:0;
 .login-buttons{
     margin:12.5px;
     margin-bottom:0 !important;
-}
-
-.login-rememberOrforgotPw a{
-    color: #29ABE2 !important;
-    cursor:pointer;
 }
 
 .login-user{
@@ -267,39 +272,6 @@ to
     cursor:pointer;
 }
 
-.signup-inputdesign{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height:51px;
-    width:422px;
-    margin-bottom:50px;  
-
-    border: 1px solid #D1D1D1;
-    border-radius:10px;  
-}
-
-.signup-inputdesign:hover{
- cursor:pointer;
-}
-.signup-inputdesign input:hover{
- cursor:pointer;
-}
-
-.signup-inputdesign input{
-    border: none;
-    font-size:21px;
-    outline: none;
-    padding-left:15px;
-    height: 48px;
-    border-radius: 30px;
-    width:100%;
-}
-
-.signup-inputdesign img{
-    margin-right:15px; 
-}
-
 .signup-user{
     height: 51px;
     width: 145px;
@@ -347,39 +319,6 @@ to
     margin-right:25px; 
 }
 
-.resetpassword-inputdesign{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height:51px;
-    width:422px;
-    margin-bottom:50px; 
-
-    border: 1px solid #D1D1D1;
-    border-radius:10px;  
-}
-
-.resetpassword-inputdesign:hover{
- cursor:pointer;
-}
-.resetpassword-inputdesign input:hover{
- cursor:pointer;
-}
-
-.resetpassword-inputdesign input{
-    border: none;
-    font-size:21px;
-    outline: none;
-    padding-left:15px;
-    height: 48px;
-    border-radius: 30px;
-    width:100%; 
-}
-
-.resetpassword-inputdesign img{
-    margin-right:15px; 
-}
-
 .reset-user{
     height: 51px;
     width: 264px;
@@ -396,7 +335,6 @@ to
     background-color: #29ABE2;
     border: 1px solid #29ABE2; 
 }
-
 
 /* ResetPw-Animation */
 #reset-info{
@@ -472,39 +410,6 @@ to
     text-align:center;
 }
 
-.forgotpassword-inputdesign{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height:51px;
-    width:422px;
-    margin-bottom:50px; 
-
-    border: 1px solid #D1D1D1;
-    border-radius:10px;  
-}
-
-.forgotpassword-inputdesign:hover{
- cursor:pointer;
-}
-.forgotpassword-inputdesign input:hover{
- cursor:pointer;
-}
-
-.forgotpassword-inputdesign input{
-    border: none;
-    font-size:21px;
-    outline: none;
-    padding-left:15px;
-    height: 48px;
-    border-radius: 30px;
-    width:100%;
-}
-
-.forgotpassword-inputdesign img{
-    margin-right:15px; 
-}
-
 .forgotpassword-send{
     height: 51px;
     width: 264px;
@@ -521,11 +426,6 @@ to
 .forgotpassword-send:hover{
     background-color: #29ABE2;
     border: 1px solid #29ABE2;   
-}
-
-/* */
-.d-none{
-    display:none;
 }
 
 /* Wrong PW or EMail-Animation */
@@ -574,13 +474,11 @@ to
 }  
 /* Wrong PW or EMail-Animation */
 
-
 /* Keep white background-color for ALL input-fields when autocomplete is activated for a form (<form autocomplete="on">) */
 input:-webkit-autofill {
     -webkit-text-fill-color: black ; /* Textfarbe bleibt bei schwarz (könnte man auch rausnehmen) */
     -webkit-box-shadow: inset 0 0 0px 1000px white; /* Input-Feld behält den weißen Hintergrund, statt auf hellblau zu wechseln! */
 }
-
 
 /* INTERVALLE FÜRS HANDY */
 @media (min-width:301px) and (max-width:1400px) {
