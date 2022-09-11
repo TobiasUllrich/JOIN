@@ -114,21 +114,35 @@ body {
   align-items: center;
   justify-content: space-between;
   background: #ffffff;
-  border: 1px solid #d1d1d1;
-  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   color: black;
   font-weight: 400;
   font-size: 21px;
   width: 422px;
   height: 50px;
-  border: none;
   cursor: pointer;
+  border: 1px solid #d1d1d1;
 }
+
+
 
 .dropdown {
   position: relative;
   display: inline-block;
+}
+
+.dropdown-border-bottom-none {
+  border-top: 1px solid #d1d1d1 !important;
+  border-right: 1px solid #d1d1d1 !important;
+  border-left: 1px solid #d1d1d1 !important;
+  border-radius: 10px 10px 0px 0px !important;
+}
+
+.dropdown-boder-top-none {
+  border-right: 1px solid #d1d1d1 !important;
+  border-bottom: 1px solid #d1d1d1 !important;
+  border-left: 1px solid #d1d1d1 !important;
+  border-radius: 0px 0px 10px 10px !important;
 }
 
 .dropdown-content {
@@ -162,7 +176,7 @@ body {
   opacity: 0;
 }
 
-p{
+p {
   margin-bottom: 0px;
 }
 
@@ -353,7 +367,6 @@ input[type="radio"]:checked + .prio-label-urgent {
   height: 200px;
   overflow: auto;
   z-index: 10;
-  
 }
 
 .subtask-list-input {

@@ -19,7 +19,6 @@ function renderToDo() {
 
     for (let i = 0; i < todos.length; i++) {
         const taskTodo = todos[i];
-        // console.log(taskTodo);
         todoOutput.innerHTML += templateOfNewTaskToDo(taskTodo, i);
         updateTasksHeadlinesStatusTodo(i);
         renderAssignedNamesOfTask(i);
@@ -170,19 +169,21 @@ function updateStatusHeadlinesStatusDone(l) {
     }
 }
 
-function addTaskTEST() {
-    document.getElementById('main-add-task-container').classList.remove('d-none');
+function addTaskTEST() { // addTask existiert besreits in der main js, daher hier TEST
+    let addTaskContainer = document.getElementById('main-add-task-container');
+    removeDisplayNoneMainContainer(addTaskContainer);
 }
 
 function closeAddTaskContainer() {
-    document.getElementById('main-add-task-container').classList.add('d-none');
+    let addTaskContainer = document.getElementById('main-add-task-container');
+    addDisplayNoneMainContainer(addTaskContainer);
 }
 
 function openCurrentTaskBigBoxTodo(indexOfSoloTask) {
     let bigBoxContainer = document.getElementById('main-bigbox-solo-task-container');
-    document.getElementById('main-board-container').style.opacity = '0.6';
-    document.getElementById('main-board-container').style.pointerEvents = 'none';
-    bigBoxContainer.classList.remove('d-none');
+    addOpacityToMainBackground();
+    backgroundIsUnclickable();
+    removeDisplayNoneMainContainer(bigBoxContainer);
     bigBoxContainer.innerHTML = '';
 
     bigBoxContainer.innerHTML = templateBigBoxSoloTask(soloTasksTodo, indexOfSoloTask);
@@ -192,9 +193,9 @@ function openCurrentTaskBigBoxTodo(indexOfSoloTask) {
 
 function openCurrentTaskBigBoxProgress(indexOfSoloTask) {
     let bigBoxContainer = document.getElementById('main-bigbox-solo-task-container');
-    document.getElementById('main-board-container').style.opacity = '0.6';
-    document.getElementById('main-board-container').style.pointerEvents = 'none';
-    bigBoxContainer.classList.remove('d-none');
+    addOpacityToMainBackground();
+    backgroundIsUnclickable();
+    removeDisplayNoneMainContainer(bigBoxContainer);
     bigBoxContainer.innerHTML = '';
 
     bigBoxContainer.innerHTML = templateBigBoxSoloTask(soloTasksProgress, indexOfSoloTask);
@@ -204,9 +205,9 @@ function openCurrentTaskBigBoxProgress(indexOfSoloTask) {
 
 function openCurrentTaskBigBoxFeedback(indexOfSoloTask) {
     let bigBoxContainer = document.getElementById('main-bigbox-solo-task-container');
-    document.getElementById('main-board-container').style.opacity = '0.6';
-    document.getElementById('main-board-container').style.pointerEvents = 'none';
-    bigBoxContainer.classList.remove('d-none');
+    addOpacityToMainBackground();
+    backgroundIsUnclickable();
+    removeDisplayNoneMainContainer(bigBoxContainer);
     bigBoxContainer.innerHTML = '';
 
     bigBoxContainer.innerHTML = templateBigBoxSoloTask(soloTasksFeedback, indexOfSoloTask);
@@ -216,9 +217,9 @@ function openCurrentTaskBigBoxFeedback(indexOfSoloTask) {
 
 function openCurrentTaskBigBoxDone(indexOfSoloTask) {
     let bigBoxContainer = document.getElementById('main-bigbox-solo-task-container');
-    document.getElementById('main-board-container').style.opacity = '0.6';
-    document.getElementById('main-board-container').style.pointerEvents = 'none';
-    bigBoxContainer.classList.remove('d-none');
+    addOpacityToMainBackground();
+    backgroundIsUnclickable();
+    removeDisplayNoneMainContainer(bigBoxContainer);
     bigBoxContainer.innerHTML = '';
 
     bigBoxContainer.innerHTML = templateBigBoxSoloTask(soloTasksDone, indexOfSoloTask);
@@ -228,9 +229,9 @@ function openCurrentTaskBigBoxDone(indexOfSoloTask) {
 
 function closeSoloTaskBigBox() {
     let bigBoxContainer = document.getElementById('main-bigbox-solo-task-container');
-    bigBoxContainer.classList.add('d-none');
-    document.getElementById('main-board-container').style.opacity = '1.0';
-    document.getElementById('main-board-container').style.pointerEvents = 'all';
+    addDisplayNoneMainContainer(bigBoxContainer);
+    setOpacityBackgroundToNormal();
+    removeUnclickableBackground();
 }
 
 function checkHeadlineColorBigBox() {
@@ -301,3 +302,36 @@ function RemoveEditContainerColors(){
     editContainer.style.background = '#2a3647';
     editPencil.style.filter = 'filter: brightness(0) invert(1);';
 }
+
+function addOpacityToMainBackground(){
+    document.getElementById('main-board-container').style.opacity = '0.6';
+}
+
+function backgroundIsUnclickable(){
+    document.getElementById('main-board-container').style.pointerEvents = 'none';
+}
+
+function setOpacityBackgroundToNormal(){
+    document.getElementById('main-board-container').style.opacity = '1.0';
+}
+
+function removeUnclickableBackground(){
+    document.getElementById('main-board-container').style.pointerEvents = 'all';
+}
+
+function removeDisplayNoneMainContainer(bigBoxContainer){
+    bigBoxContainer.classList.remove('d-none');
+}
+
+function addDisplayNoneMainContainer(bigBoxContainer){
+    bigBoxContainer.classList.add('d-none');
+}
+
+/* CODE TODO LEFT
+    - Search Funktion
+    - Edit Task Function
+    - Add Task Funktion
+    - Drag und Drop Function
+    - Assigned To Render / mini Task and Big Task 
+*/
+
