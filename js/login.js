@@ -37,9 +37,6 @@ function showLoginForm() {
 
 //Login-Screen without animation
 function showLoginForm2() {
-            // NEW NEW
-            setArray ('picOfActUser',['randomprofilepicture.webp']);
-            // NEW NEW
     window.location.href = 'index2.html';
 }
 
@@ -61,6 +58,7 @@ function showResetPasswordForm() {
 
 //Login as Guest
 function loginAsGuest() {
+    setArray ('picOfActUser',['randomprofilepicture.webp']);
     console.log('Now logged in as Guest');
     window.location.href = 'summary.html';
 }
@@ -78,8 +76,6 @@ function tryLogin() {
         // NEW NEW
         let actuser = getUserAsObject(email);
         let actpic = actuser['picture'];
-        console.log(actuser);
-        console.log(actpic);
         setArray ('picOfActUser',[actpic]);
         // NEW NEW
         console.log('DURCHLASSEN!'); 
@@ -156,16 +152,18 @@ async function resetPassword() {
 
 async function setUserpic(){
     let ar = [];
-    console.log(ar);
-    console.log(getArray ('picOfActUser'));
+    // console.log(ar);
+    // console.log(getArray ('picOfActUser'));
     ar = getArray ('picOfActUser')
-    console.log(ar);
-    console.log(`img/${ar[0]}`);
+    // console.log(ar);
+    // console.log(`img/${ar[0]}`);
     // document.getElementById('footer-picture').src=`img/${ar[0]}`;
     // document.getElementById('footer-picture').src = 'img/Tobias.jpg';
+
+    //Ohne setTimeout versucht er src zu beschreiben bevor die Seite fertig geladen ist (Tipp: sr="" als Standard beim zu beschreibenden Element)
     setTimeout(function () {
-        document.getElementById('footer-picture').src=`img/${ar[0]}`;
-    }, 1000);
+        document.getElementById('footer-picture').src=`img/${ar[0]}`;         
+    }, 500);
 }
 
 

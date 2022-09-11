@@ -288,6 +288,7 @@ async function includeHTML() {
             element.innerHTML = 'Page not found';
         }
     }
+    setUserpic();
 }
 /* [4.] Funktion um weitere HTML-Dateien einzubinden (Code von w3c)*/
 
