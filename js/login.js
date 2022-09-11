@@ -151,10 +151,10 @@ async function resetPassword() {
 }
 
 async function setUserpic(){
-    let ar = [];
+    let picturearray = [];
     // console.log(ar);
     // console.log(getArray ('picOfActUser'));
-    ar = getArray ('picOfActUser')
+    picturearray = getArray ('picOfActUser')
     // console.log(ar);
     // console.log(`img/${ar[0]}`);
     // document.getElementById('footer-picture').src=`img/${ar[0]}`;
@@ -162,7 +162,7 @@ async function setUserpic(){
 
     //Ohne setTimeout versucht er src zu beschreiben bevor die Seite fertig geladen ist (Tipp: sr="" als Standard beim zu beschreibenden Element)
     setTimeout(function () {
-        document.getElementById('footer-picture').src=`img/${ar[0]}`;         
+        document.getElementById('footer-picture').src=`img/${picturearray[0]}`;         
     }, 500);
 }
 
