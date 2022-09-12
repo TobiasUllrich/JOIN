@@ -1,3 +1,6 @@
+const monthNames = ["January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"
+];
 
 let tasksinBoard = 0;
 let tasksinProgress = 0;
@@ -19,27 +22,32 @@ for (i=0;i<tasks.length;i++){
   { tasksawaitingFeedback++; };
   if (tasks[i]['priority'] == 'Urgent') 
   { tasksUrgent++; 
-   if (tasks[i]['dueDate']>nextDeadlineofUrgentTasks) {nextDeadlineofUrgentTasks=tasks[i]['dueDate'];};
+   if (transformDate(tasks[i]['dueDate'])>nextDeadlineofUrgentTasks) {nextDeadlineofUrgentTasks=transformDate(tasks[i]['dueDate']);};
   };
   if (tasks[i]['status'] == 'To do') 
   { taskstoDo++; };
   if (tasks[i]['status'] == 'Done') 
   { tasksDone++; };
 
-  console.log(tasks[i]['dueDate']);
 }
+
+let datum = nextDeadlineofUrgentTasks;
+let tag = datum.getDate(nextDeadlineofUrgentTasks);
+let monat = datum.getMonth(nextDeadlineofUrgentTasks);
+let jahr = datum.getFullYear(nextDeadlineofUrgentTasks);
+let datumSS = monthNames[Number(monat)] + ' '+ Number(tag) +', ' + jahr;
+console.log(monthNames[Number(monat)] + ' '+ Number(tag) +', ' + jahr);
+
 
 document.getElementById('numberTasksBoard').innerHTML=`${tasksinBoard}`;
 document.getElementById('numberTasksinProgress').innerHTML=`${tasksinProgress}`;
 document.getElementById('numberTasksawaitingFeedback').innerHTML=`${tasksawaitingFeedback}`;
 document.getElementById('numberTasksUrgent').innerHTML=`${tasksUrgent}`;
-// document.getElementById('urgentdate').innerHTML=`${}`;
+document.getElementById('urgentdate').innerHTML=`${datumSS}`;
 
 document.getElementById('numberTasksTodo').innerHTML=`${taskstoDo}`;
 document.getElementById('numberTasksDone').innerHTML=`${tasksDone}`;
-// console.log(tasksinBoard,tasksinProgress,tasksawaitingFeedback);
-// console.log(tasksUrgent,nextDeadlineofUrgentTasks);
-// console.log(taskstoDo,tasksDone);
+
 
 // {
 //   "title": "Kündigung der Mitarbeiterin XXX",
@@ -52,6 +60,17 @@ document.getElementById('numberTasksDone').innerHTML=`${tasksDone}`;
 //   "subTasks": ['Putzen','Spülen','Saubermachen'] 
 // },
 
+}
+
+function transformDate(datetotransform){
+  let datum = tasks[i]['dueDate'];
+  let ersterstrich = datum.indexOf('-');
+  let zweiterstrich = datum.lastIndexOf('-'); 
+  let tag = datum.slice(0,ersterstrich);
+  let monat = datum.slice(ersterstrich+1,zweiterstrich)-1;
+  let jahr = datum.slice(zweiterstrich+1,datum.length);
+  let datumZusGesetzt = new Date(jahr, monat, tag);
+  return datumZusGesetzt;
 }
 
 
