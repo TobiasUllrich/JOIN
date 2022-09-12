@@ -74,7 +74,7 @@
         </div>
         
         <div class="main-tasks-container">
-            <div class="main-solo-task-container">
+            <div class="main-solo-task-container" ondrop="moveTo('To do')" ondragover="allowDrop(event)">
                 <div class="main-task-headline">
                     <div class="headline-task"><h3>To do</h3></div>
                     <div class="add-image"><img onclick="addTaskBoard()" src="./img/board/plus-button.png"></div>
@@ -84,7 +84,7 @@
                 </div>
             </div>
             
-            <div class="main-solo-task-container">
+            <div class="main-solo-task-container" ondrop="moveTo('In progress')" ondragover="allowDrop(event)">
                 <div class="main-task-headline">
                     <div class="headline-task"><h3>In progress</h3></div>
                     <div class="add-image"><img onclick="addTaskBoard()" src="./img/board/plus-button.png"></div>
