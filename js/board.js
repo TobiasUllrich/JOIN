@@ -380,6 +380,10 @@ function addDisplayNoneMainContainer(bigBoxContainer) {
     bigBoxContainer.classList.add('d-none');
 }
 
+function dragHighlight(i){
+    document.getElementById(`todo-task${i}`).classList.add('rotation');
+}
+
 /* CODE TODO LEFT
     - Search Funktion
     - Edit Task Function

@@ -1,7 +1,7 @@
 // ##############BOARD TEMPLATES START################# //
 function templateOfNewTaskToDo(taskTodo, i) {
     return `
-    <div onclick="openCurrentTaskBigBoxTodo(${i})" ondragstart="startDragging(${taskTodo['id']})" class="main-task-container" draggable="true">
+    <div id="todo-task${i}" onclick="openCurrentTaskBigBoxTodo(${i})" ondragstart="startDragging(${taskTodo['id']}); dragHighlight(${i})" class="main-task-container" draggable="true">
         <div class="headline-category">
             <div id="headline-solo-task-todo${i}" class="headline-solo-task"><h3 id="headline-task-todo${i}">${taskTodo.category}</h3></div>
         </div>

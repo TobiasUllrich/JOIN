@@ -4,6 +4,10 @@ body {
     background: #F6F7F8;
 }
 
+.rotation{
+    transform: rotate(8deg);
+}
+
 .border-dotted{
     border: 3px dotted black;
 }
@@ -484,4 +488,13 @@ body {
     position: absolute;
     left: 40%;
     top: 15%;
+}
+
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(359deg);
+    }
 }
