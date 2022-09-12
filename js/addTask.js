@@ -10,14 +10,19 @@ function loadAddTastk() {
 
 function loadCategory() {
   let categoryContainer = document.getElementById('categoryContainer');
-  let allCategorys = document.getElementById('allCategorys');
   categoryContainer.innerHTML = '';
   categoryContainer.innerHTML = loadCategoryHTML();
+  loadCategorys()
+}
+
+function loadCategorys(){
+  let allCategorys = document.getElementById('allCategorys');
   allCategorys.innerHTML = '';
   for (let i = 0; i < categorys.length; i++) {
-    allCategorys.innerHTML += allCategorysHTML(`${i}`);
+    allCategorys.innerHTML += allCategorysHTML(`${categorys[i]}`);
   }
 }
+
 
 
   function urgency() {
@@ -41,13 +46,20 @@ function loadCategory() {
     document.getElementById('urgentIcon').style = "";
     document.getElementById(`${idOfPicture}`).style = 'filter: brightness(0%) saturate(0%) contrast(1000%) invert(100%);';
   }
-  function subtaskInputStar() {
+
+/**
+ * Is activated via the input or Img and changes the subtaskStart Img to Delete and Add Img 
+ */
+  function subtaskInputStart() {
     document.getElementById('subtaskStart').classList.add('d-none');
     document.getElementById('subtaskDelete').classList.remove('d-none');
     document.getElementById('subtaskAdd').classList.remove('d-none');
     document.getElementById('subtask-separator-line').classList.remove('d-none');
   }
 
+  /**
+   * 
+   */
   function subtaskInputDelete() {
     document.getElementById('subtaskInput').value = '';
     document.getElementById('subtaskStart').classList.remove('d-none');
@@ -140,22 +152,49 @@ function loadCategory() {
     }
   }
 
+  function currentCategory(idOfCategory){
+    let categoryContainer = document.getElementById('categoryContainer');
+    categoryContainer.innerHTML = '';
+    categoryContainer.innerHTML = currentCategoryHTML(`${idOfCategory}`);
+  }
+
   //****************HTML*****************HTML*************HTML****************HTML */ 
 
 
+  function newCategoryInputHTML() {
+    return /*html*/`
+          <div class="input-group">
+            <input id="newCategoryInput" type="text" class="form-control" placeholder="New category name">
+              <button onclick="loadCategory()" id="subtaskDelete" class="" type="button">
+                <img src="./img/addtask/x-vector.png" alt=""></button>
+              <div id="subtask-separator-line" class="subtask-separator-line"></div>
+              <button onclick="pushNewCategory()" id="subtaskAdd" class="subtasks-right-butten" type="button">
+              <img class="ok-vector" src="./img/addtask/ok-vector.png" alt=""></button>
+          </div>
+    `;
+  }
+
   function loadCategoryHTML() {
     return /*html*/`
-  <dt onclick="openCategory()" id="dropbtnCategory" class="dropbtn">Select task category <img src="./img/addtask/dropdown-Vector.png" alt=""></dt>
+    <dt onclick="openCategory()" id="dropbtnCategory" class="dropbtn">Select task category <img src="./img/addtask/dropdown-Vector.png" alt=""></dt>
     <dd id="categoryDropdown" class="dropdown-content">
-    <p onclick="addNewCategory()">New category</p>
-    <div id="allCategorys">
+      <p onclick="addNewCategory()">New category</p>
+      <div id="allCategorys">
+      </div>
+    </dd>`;
+  }
+
+  function currentCategoryHTML(idOfCategory){
+    return /*html*/` 
+    <div class="input-group">
+      <p> ${idOfCategory} </p>
     </div>
-  </dd>`;
+    `;
   }
 
   function allCategorysHTML(i) {
     return /*html*/`
-    <p> ${i} </p>
+    <p onclick="currentCategory(${i})"> ${i} </p>
     `;
   }
 
@@ -171,15 +210,4 @@ function loadCategory() {
   }
 
 
-  function newCategoryInputHTML() {
-    return /*html*/`
-          <div class="input-group">
-            <input id="newCategoryInput" type="text" class="form-control" placeholder="New category name">
-              <button onclick="loadCategory()" id="subtaskDelete" class="" type="button">
-                <img src="./img/addtask/x-vector.png" alt=""></button>
-              <div id="subtask-separator-line" class="subtask-separator-line"></div>
-              <button onclick="pushNewCategory()" id="subtaskAdd" class="subtasks-right-butten" type="button">
-              <img class="ok-vector" src="./img/addtask/ok-vector.png" alt=""></button>
-          </div>
-    `;
-  }
+ 
