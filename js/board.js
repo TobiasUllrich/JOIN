@@ -3,6 +3,15 @@ let soloTasksTodo = [];
 let soloTasksProgress = [];
 let soloTasksFeedback = [];
 let soloTasksDone = [];
+let currentDraggingElement;
+// let responseUsersJSON = {};
+
+/* async function loadUsersJSON(){
+    let usersJSON = await fetch('smallest_backend_ever/database.json');
+    responseUsersJSON = await usersJSON.json();
+    console.log(responseUsersJSON);
+    renderBoard();
+} */
 
 function renderBoard() {
     renderToDo();
@@ -71,10 +80,12 @@ function filterImportentTasks() {
 
 function renderAssignedNamesOfTask(i) { // NOCH NICHT FERTIG ___ MUSS NOCH GESCHRIEBEN WERDEN
     let renderOutputContainer = document.getElementById(`solo-worker-todo${i}`);
+    console.log(users[i]);
 
     renderOutputContainer.innerHTML = '';
-    console.log(users[i]);
     renderOutputContainer.innerHTML += `<div class="worker-name-start-letters d-center"></div>`
+    // ${users[soloTasksTodo[i].assignedTo[i]].name.charAt(0)};
+    // ${users[soloTasksTodo[i].assignedTo[i]].surname.charAt(0)}; ## DAS IST DER CODE DER IN ZEILE 76 IN DIE DIV´S MUSS JEDOCH IST USERS UNDEFINED
 }
 
 function updateTasksHeadlinesStatusTodo(i) {
@@ -93,7 +104,7 @@ function updateTasksHeadlinesStatusTodo(i) {
                 if (headlineTodoText == 'Media') {
                     headlineTaskTodoContainer.style.background = '#FFC701';
                 } else {
-                    if (headlineProgressText == 'Marketing') {
+                    if (headlineTodoText == 'Marketing') {
                         headlineTaskTodoContainer.style.background = '#0038FF';
                     }
                 }
@@ -283,11 +294,36 @@ function checkPriorityBackgroundColor() {
     }
 }
 
+function startDragging(id) {
+    currentDraggingElement = id;
+    console.log(currentDraggingElement);
+}
+
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function moveTo(newStatus){
+    if (newStatus == 'To do'){
+        tasksScript[currentDraggingElement].status = newStatus;
+    }
+    if (newStatus == 'In progress'){
+        tasksScript[currentDraggingElement].status = newStatus;
+    }
+    if (newStatus == 'Awaiting feedback'){
+        tasksScript[currentDraggingElement].status = newStatus;
+    }
+    if (newStatus == 'Done'){
+        tasksScript[currentDraggingElement].status = newStatus;
+    }
+    renderBoard();
+}
+
 function doNotClose(event) {
     event.stopPropagation();
 }
 
-function changeEditContainerColors(){
+function changeEditContainerColors() {
     let editContainer = document.getElementById('edit-button');
     let editPencil = document.getElementById('edit-pencil');
 
@@ -295,7 +331,7 @@ function changeEditContainerColors(){
     makeImgWhite(editPencil);
 }
 
-function RemoveEditContainerColors(){
+function RemoveEditContainerColors() {
     let editContainer = document.getElementById('edit-button');
     let editPencil = document.getElementById('edit-pencil');
 
@@ -303,52 +339,52 @@ function RemoveEditContainerColors(){
     makeImageColorDefault(editPencil);
 }
 
-function makeContainerBlue(container){
+function makeContainerBlue(container) {
     container.style.background = '#29ABE2';
 }
 
-function removeContainerColorBlue(container){
+function removeContainerColorBlue(container) {
     container.style.background = '#2a3647';
 }
 
-function makeImgWhite(image){
+function makeImgWhite(image) {
     image.style.filter = 'filter: brightness(0) invert(1)';
 }
 
-function makeImageColorDefault(image){
+function makeImageColorDefault(image) {
     image.style.filter = 'filter: brightness(0) invert(1)';
 }
 
-function addOpacityToMainBackground(){
+function addOpacityToMainBackground() {
     document.getElementById('main-board-container').style.opacity = '0.6';
 }
 
-function backgroundIsUnclickable(){
+function backgroundIsUnclickable() {
     document.getElementById('main-board-container').style.pointerEvents = 'none';
 }
 
-function setOpacityBackgroundToNormal(){
+function setOpacityBackgroundToNormal() {
     document.getElementById('main-board-container').style.opacity = '1.0';
 }
 
-function removeUnclickableBackground(){
+function removeUnclickableBackground() {
     document.getElementById('main-board-container').style.pointerEvents = 'all';
 }
 
-function removeDisplayNoneMainContainer(bigBoxContainer){
+function removeDisplayNoneMainContainer(bigBoxContainer) {
     bigBoxContainer.classList.remove('d-none');
 }
 
-function addDisplayNoneMainContainer(bigBoxContainer){
+function addDisplayNoneMainContainer(bigBoxContainer) {
     bigBoxContainer.classList.add('d-none');
 }
 
 /* CODE TODO LEFT
     - Search Funktion
     - Edit Task Function
-    - Add Task Funktion
+    - Add Task Funktion --> Warten auf Eugen sein Code
     - Drag und Drop Function
-    - Assigned To Render / mini Task and Big Task 
+    - Assigned To Render / mini Task and Big Task --> Users akt. undefined
     - Unscrollable Board - sticky Boardheadline 
 */
 

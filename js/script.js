@@ -25,6 +25,7 @@ let usersScript = [
 
 let tasksScript = [    
   {
+    "id": 0,
     "title": "Lasst uns starten :)",
     "category": "Design",  // Design, Marketing, Sales, Backoffice, Media usw. gerne weitere Vorschläge bzw. Ergänzungen
     "description": "BlaBlaBla",
@@ -35,6 +36,7 @@ let tasksScript = [
     "subTasks": ['Putzen','Spülen','Saubermachen'] 
   },
   {
+    "id": 1,
     "title": "Lagebesprechung Preiserhöhungen",
     "category": "Sales",  // Design, Marketing, Sales, Backoffice, Media usw. gerne weitere Vorschläge bzw. Ergänzungen
     "description": "Hier wird ein unnötiger Beschreibungstext stehen, der von dem User festgelegt wird",
@@ -45,6 +47,7 @@ let tasksScript = [
     "subTasks": ['Putzen','Spülen','Saubermachen'] 
   },
   {
+    "id": 2,
     "title": "Planung der Weihnachtsfeier",
     "category": "Backoffice",  // Design, Marketing, Sales, Backoffice, Media usw. gerne weitere Vorschläge bzw. Ergänzungen
     "description": "Hier wird ein unnötiger Beschreibungstext stehen, der von dem User festgelegt wird",
@@ -55,6 +58,7 @@ let tasksScript = [
     "subTasks": ['Putzen','Spülen','Saubermachen'] 
   },
   {
+    "id": 3,
     "title": "Kündigung der Mitarbeiterin XXX",
     "category": "Media",  // Design, Marketing, Sales, Backoffice, Media usw. gerne weitere Vorschläge bzw. Ergänzungen
     "description": "Hier wird ein unnötiger Beschreibungstext stehen, der von dem User festgelegt wird",
@@ -65,6 +69,7 @@ let tasksScript = [
     "subTasks": ['Putzen','Spülen','Saubermachen'] 
   },
   {
+    "id": 4,
     "title": "Einführung neues Softwaresystem ERBY",
     "category": "Marketing",  // Design, Marketing, Sales, Backoffice, Media usw. gerne weitere Vorschläge bzw. Ergänzungen
     "description": "Hier wird ein unnötiger Beschreibungstext stehen, der von dem User festgelegt wird",
@@ -75,6 +80,7 @@ let tasksScript = [
     "subTasks": ['Putzen','Spülen','Saubermachen'] 
   },
   {
+    "id": 5,
     "title": "Einführungsschulung betriebseigenes Canbanboard",
     "category": "Design",  // Design, Marketing, Sales, Backoffice, Media usw. gerne weitere Vorschläge bzw. Ergänzungen
     "description": "Hier wird ein unnötiger Beschreibungstext stehen, der von dem User festgelegt wird",
@@ -85,6 +91,7 @@ let tasksScript = [
     "subTasks": ['Putzen','Spülen','Saubermachen'] 
   },
   {
+    "id": 6,
     "title": "Call popentcial clients",
     "category": "Sales",  // Design, Marketing, Sales, Backoffice, Media usw. gerne weitere Vorschläge bzw. Ergänzungen
     "description": "Make the product presentation to prospective buyers",
