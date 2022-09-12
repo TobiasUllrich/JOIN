@@ -79,8 +79,9 @@ function filterImportentTasks() {
 }
 
 function renderAssignedNamesOfTask(i) { // NOCH NICHT FERTIG ___ MUSS NOCH GESCHRIEBEN WERDEN
+    console.log(i);
     let renderOutputContainer = document.getElementById(`solo-worker-todo${i}`);
-    console.log(users[i]);
+    console.log('Ladestatus users', users[i]);
 
     renderOutputContainer.innerHTML = '';
     renderOutputContainer.innerHTML += `<div class="worker-name-start-letters d-center"></div>`
@@ -383,7 +384,7 @@ function addDisplayNoneMainContainer(bigBoxContainer) {
     - Search Funktion
     - Edit Task Function
     - Add Task Funktion --> Warten auf Eugen sein Code
-    - Drag und Drop Function
+    - Drag und Drop Function --> Funktion finish / Style nedded and save after move
     - Assigned To Render / mini Task and Big Task --> Users akt. undefined
     - Unscrollable Board - sticky Boardheadline 
 */

@@ -4,6 +4,10 @@ body {
     background: #F6F7F8;
 }
 
+.border-dotted{
+    border: 3px dotted black;
+}
+
 .d-none {
     display: none;
 }

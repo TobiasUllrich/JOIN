@@ -74,7 +74,7 @@
         </div>
         
         <div class="main-tasks-container">
-            <div class="main-solo-task-container" ondrop="moveTo('To do')" ondragover="allowDrop(event)">
+            <div class="main-solo-task-container" id="main-todo" ondrop="moveTo('To do')" ondragover="allowDrop(event)">
                 <div class="main-task-headline">
                     <div class="headline-task"><h3>To do</h3></div>
                     <div class="add-image"><img onclick="addTaskBoard()" src="./img/board/plus-button.png"></div>
@@ -84,7 +84,7 @@
                 </div>
             </div>
             
-            <div class="main-solo-task-container" ondrop="moveTo('In progress')" ondragover="allowDrop(event)">
+            <div class="main-solo-task-container" id="main-progress" ondrop="moveTo('In progress')" ondragover="allowDrop(event)">
                 <div class="main-task-headline">
                     <div class="headline-task"><h3>In progress</h3></div>
                     <div class="add-image"><img onclick="addTaskBoard()" src="./img/board/plus-button.png"></div>
@@ -92,7 +92,7 @@
                 <div id="category-progress" class="in-progress-output"></div>
             </div>
 
-            <div class="main-solo-task-container" ondrop="moveTo('Awaiting feedback')" ondragover="allowDrop(event)">
+            <div class="main-solo-task-container" id="main-feedback" ondrop="moveTo('Awaiting feedback')" ondragover="allowDrop(event)">
                 <div class="main-task-headline">
                     <div class="headline-task"><h3>Awaiting feedback</h3></div>
                     <div class="add-image"><img onclick="addTaskBoard()" src="./img/board/plus-button.png"></div>
@@ -100,7 +100,7 @@
                 <div id="category-feedback" class="awaiting-feedback-output"></div>
             </div>
 
-            <div class="main-solo-task-container" ondrop="moveTo('Done')" ondragover="allowDrop(event)">
+            <div class="main-solo-task-container" id="done" ondrop="moveTo('Done')" ondragover="allowDrop(event)">
                 <div class="main-task-headline">
                     <div class="headline-task"><h3>Done</h3></div>
                     <div class="add-image"><img onclick="addTaskBoard()" src="./img/board/plus-button.png"></div>
