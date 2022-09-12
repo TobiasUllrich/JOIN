@@ -296,7 +296,7 @@ function checkPriorityBackgroundColor() {
 
 function startDragging(id) {
     currentDraggingElement = id;
-    console.log(id);
+    console.log(currentDraggingElement);
 }
 
 function allowDrop(ev) {
@@ -304,7 +304,18 @@ function allowDrop(ev) {
 }
 
 function moveTo(newStatus){
-    soloTasksTodo[currentDraggingElement].status = newStatus;
+    if (newStatus == 'To do'){
+        tasksScript[currentDraggingElement].status = newStatus;
+    }
+    if (newStatus == 'In progress'){
+        tasksScript[currentDraggingElement].status = newStatus;
+    }
+    if (newStatus == 'Awaiting feedback'){
+        tasksScript[currentDraggingElement].status = newStatus;
+    }
+    if (newStatus == 'Done'){
+        tasksScript[currentDraggingElement].status = newStatus;
+    }
     renderBoard();
 }
 

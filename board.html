@@ -92,7 +92,7 @@
                 <div id="category-progress" class="in-progress-output"></div>
             </div>
 
-            <div class="main-solo-task-container">
+            <div class="main-solo-task-container" ondrop="moveTo('Awaiting feedback')" ondragover="allowDrop(event)">
                 <div class="main-task-headline">
                     <div class="headline-task"><h3>Awaiting feedback</h3></div>
                     <div class="add-image"><img onclick="addTaskBoard()" src="./img/board/plus-button.png"></div>
@@ -100,7 +100,7 @@
                 <div id="category-feedback" class="awaiting-feedback-output"></div>
             </div>
 
-            <div class="main-solo-task-container">
+            <div class="main-solo-task-container" ondrop="moveTo('Done')" ondragover="allowDrop(event)">
                 <div class="main-task-headline">
                     <div class="headline-task"><h3>Done</h3></div>
                     <div class="add-image"><img onclick="addTaskBoard()" src="./img/board/plus-button.png"></div>

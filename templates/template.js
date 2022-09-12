@@ -1,7 +1,7 @@
 // ##############BOARD TEMPLATES START################# //
 function templateOfNewTaskToDo(taskTodo, i) {
     return `
-    <div onclick="openCurrentTaskBigBoxTodo(${i})" ondragstart="startDragging(${i})" class="main-task-container" draggable="true">
+    <div onclick="openCurrentTaskBigBoxTodo(${i})" ondragstart="startDragging(${taskTodo['id']})" class="main-task-container" draggable="true">
         <div class="headline-category">
             <div id="headline-solo-task-todo${i}" class="headline-solo-task"><h3 id="headline-task-todo${i}">${taskTodo.category}</h3></div>
         </div>
@@ -26,7 +26,7 @@ function templateOfNewTaskToDo(taskTodo, i) {
 
 function templateOfTaskInProgress(taskProgress, j) {
     return `
-    <div onclick="openCurrentTaskBigBoxProgress(${j})" class="main-task-container" draggable="true">
+    <div onclick="openCurrentTaskBigBoxProgress(${j})" ondragstart="startDragging(${taskProgress['id']})" class="main-task-container" draggable="true">
         <div class="headline-category">
             <div id="headline-solo-task-progress${j}" class="headline-solo-task"><h3 id="headline-task-progress${j}">${taskProgress.category}</h3></div>
         </div>
@@ -52,7 +52,7 @@ function templateOfTaskInProgress(taskProgress, j) {
 
 function templateOfTaskFeedback(taskFeedback, k) {
     return `
-    <div onclick="openCurrentTaskBigBoxFeedback(${k})" class="main-task-container" draggable="true">
+    <div onclick="openCurrentTaskBigBoxFeedback(${k})" ondragstart="startDragging(${taskFeedback['id']})" class="main-task-container" draggable="true">
         <div class="headline-category">
             <div id="headline-solo-task-feedback${k}" class="headline-solo-task"><h3 id="headline-task-feedback${k}">${taskFeedback.category}</h3></div>
         </div>
@@ -79,7 +79,7 @@ function templateOfTaskFeedback(taskFeedback, k) {
 
 function templateOfTaskDone(taskDone, l) {
     return `
-    <div onclick="openCurrentTaskBigBoxDone(${l})" class="main-task-container" draggable="true">
+    <div onclick="openCurrentTaskBigBoxDone(${l})" ondragstart="startDragging(${taskDone['id']})" class="main-task-container" draggable="true">
         <div class="headline-category">
             <div id="headline-solo-task-done${l}" class="headline-solo-task"><h3 id="headline-task-done${l}">${taskDone.category}</h3></div>
         </div>
