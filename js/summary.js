@@ -10,8 +10,6 @@ let tasksDone = 0;
 async function renderSummary(){
 await init();
 
-// Alle Buttons müssen zu Summary führen -> Link setzen
-
   tasksinBoard = tasks.length;
 
 for (i=0;i<tasks.length;i++){
@@ -27,12 +25,21 @@ for (i=0;i<tasks.length;i++){
   { taskstoDo++; };
   if (tasks[i]['status'] == 'Done') 
   { tasksDone++; };
+
+  console.log(tasks[i]['dueDate']);
 }
 
+document.getElementById('numberTasksBoard').innerHTML=`${tasksinBoard}`;
+document.getElementById('numberTasksinProgress').innerHTML=`${tasksinProgress}`;
+document.getElementById('numberTasksawaitingFeedback').innerHTML=`${tasksawaitingFeedback}`;
+document.getElementById('numberTasksUrgent').innerHTML=`${tasksUrgent}`;
+// document.getElementById('urgentdate').innerHTML=`${}`;
 
-console.log(tasksinBoard,tasksinProgress,tasksawaitingFeedback);
-console.log(tasksUrgent,nextDeadlineofUrgentTasks);
-console.log(taskstoDo,tasksDone);
+document.getElementById('numberTasksTodo').innerHTML=`${taskstoDo}`;
+document.getElementById('numberTasksDone').innerHTML=`${tasksDone}`;
+// console.log(tasksinBoard,tasksinProgress,tasksawaitingFeedback);
+// console.log(tasksUrgent,nextDeadlineofUrgentTasks);
+// console.log(taskstoDo,tasksDone);
 
 // {
 //   "title": "Kündigung der Mitarbeiterin XXX",
@@ -45,7 +52,12 @@ console.log(taskstoDo,tasksDone);
 //   "subTasks": ['Putzen','Spülen','Saubermachen'] 
 // },
 
+}
 
+
+//Go to Board
+function showBoard() {
+  window.location.href = 'board.html';
 }
 
 function addBackground(idOfElementToChange,idOfPicture){
