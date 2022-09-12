@@ -143,7 +143,7 @@ async function init() {
 
 }
 
-// GET PICTURE OF USER
+// GET SINGLE USER AS OBJECT
 function getUserAsObject(email) {
   for (i=0;i<users.length;i++){
     if (users[i]['email'].toLowerCase() == email.toLowerCase()) 

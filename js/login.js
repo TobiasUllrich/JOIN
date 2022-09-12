@@ -159,7 +159,7 @@ function setactUser(){
     //Ohne setTimeout versucht er src zu beschreiben bevor die Seite fertig geladen ist (Tipp: src="" als Standard beim zu beschreibenden Element)
     setTimeout(function () {
         document.getElementById('footer-picture').src=`img/${actUserArray['picture']}`;         
-    }, 500);
+    }, 1000);
 }
 
 // Password benötigt mindestens einen Großbuchstaben, Kleinbuchstaben und eine Zahl
