@@ -82,6 +82,7 @@
                 <div id="category-todo" class="category-todo">
                     <!--TEMPLATE // VORERST ZUM DESIGN HIER-->
                 </div>
+                <div id="empty-space-todo" class="empty-space d-none"></div>
             </div>
             
             <div class="main-solo-task-container" id="main-progress" ondrop="moveTo('In progress')" ondragover="allowDrop(event)">
@@ -90,6 +91,7 @@
                     <div class="add-image"><img onclick="addTaskBoard()" src="./img/board/plus-button.png"></div>
                 </div>
                 <div id="category-progress" class="in-progress-output"></div>
+                <div id="empty-space-progress" class="empty-space d-none"></div>
             </div>
 
             <div class="main-solo-task-container" id="main-feedback" ondrop="moveTo('Awaiting feedback')" ondragover="allowDrop(event)">
@@ -98,6 +100,7 @@
                     <div class="add-image"><img onclick="addTaskBoard()" src="./img/board/plus-button.png"></div>
                 </div>
                 <div id="category-feedback" class="awaiting-feedback-output"></div>
+                <div id="empty-space-feedback" class="empty-space d-none"></div>
             </div>
 
             <div class="main-solo-task-container" id="done" ondrop="moveTo('Done')" ondragover="allowDrop(event)">
@@ -106,6 +109,7 @@
                     <div class="add-image"><img onclick="addTaskBoard()" src="./img/board/plus-button.png"></div>
                 </div>
                 <div id="category-done" class="done-output"></div>
+                <div id="empty-space-done" class="empty-space d-none"></div>
             </div>
         </div>
 

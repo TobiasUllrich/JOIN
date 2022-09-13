@@ -79,9 +79,7 @@ function filterImportentTasks() {
 }
 
 function renderAssignedNamesOfTask(i) { // NOCH NICHT FERTIG ___ MUSS NOCH GESCHRIEBEN WERDEN
-    console.log(i);
     let renderOutputContainer = document.getElementById(`solo-worker-todo${i}`);
-    console.log('Ladestatus users', users[i]);
 
     renderOutputContainer.innerHTML = '';
     renderOutputContainer.innerHTML += `<div class="worker-name-start-letters d-center"></div>`
@@ -297,7 +295,6 @@ function checkPriorityBackgroundColor() {
 
 function startDragging(id) {
     currentDraggingElement = id;
-    console.log(currentDraggingElement);
 }
 
 function allowDrop(ev) {
@@ -380,8 +377,22 @@ function addDisplayNoneMainContainer(bigBoxContainer) {
     bigBoxContainer.classList.add('d-none');
 }
 
-function dragHighlight(i){
-    document.getElementById(`todo-task${i}`).classList.add('rotation');
+function dragHighlight(status, index){
+    document.getElementById(`${status}-task${index}`).classList.add('rotation');
+}
+
+function showEmptyPlaces(otherStatusOne, otherStatusTwo, otherStatusThree){
+    console.log(otherStatusOne, otherStatusTwo, otherStatusThree);
+    document.getElementById(`empty-space-${otherStatusOne}`).classList.remove('d-none');
+    document.getElementById(`empty-space-${otherStatusTwo}`).classList.remove('d-none');
+    document.getElementById(`empty-space-${otherStatusThree}`).classList.remove('d-none');
+}
+
+function hideEmptyPlaces(otherStatusOne, otherStatusTwo, otherStatusThree){
+    console.log('In der Function drin');
+    document.getElementById(`empty-space-${otherStatusOne}`).classList.add('d-none');
+    document.getElementById(`empty-space-${otherStatusTwo}`).classList.add('d-none');
+    document.getElementById(`empty-space-${otherStatusThree}`).classList.add('d-none');
 }
 
 /* CODE TODO LEFT
