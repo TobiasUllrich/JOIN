@@ -382,14 +382,12 @@ function dragHighlight(status, index){
 }
 
 function showEmptyPlaces(otherStatusOne, otherStatusTwo, otherStatusThree){
-    console.log(otherStatusOne, otherStatusTwo, otherStatusThree);
     document.getElementById(`empty-space-${otherStatusOne}`).classList.remove('d-none');
     document.getElementById(`empty-space-${otherStatusTwo}`).classList.remove('d-none');
     document.getElementById(`empty-space-${otherStatusThree}`).classList.remove('d-none');
 }
 
 function hideEmptyPlaces(otherStatusOne, otherStatusTwo, otherStatusThree){
-    console.log('In der Function drin');
     document.getElementById(`empty-space-${otherStatusOne}`).classList.add('d-none');
     document.getElementById(`empty-space-${otherStatusTwo}`).classList.add('d-none');
     document.getElementById(`empty-space-${otherStatusThree}`).classList.add('d-none');
