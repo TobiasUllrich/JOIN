@@ -156,28 +156,28 @@ function templateBigBoxSoloTask(soloTasks, indexOfSoloTask){
 
 // SEARCH TASK TEMPLATE 
 
-function templateOfSearchTask(task, index) {
+function templateOfSearchTask(taskSearch, index) {
     return `
-    <div id="search-task${index}" onclick="openCurrentTaskBigBoxDone(${index})" ondragstart="startDragging(${task['id']}); dragHighlight(['done'], ${index}); showEmptyPlaces(['todo'], ['progress'], ['feedback'])"; ondragend="hideEmptyPlaces(['todo'], ['progress'], ['feedback'])"; class="main-task-container" draggable="true">
+    <div id="search-task${index}" onclick="openCurrentTaskBigBox(${index}, ['${taskSearch.status.toLowerCase()}'])"; class="main-task-container">
         <div class="headline-category">
-            <div id="headline-solo-task-search${index}" class="headline-solo-task"><h3 id="headline-task-search${index}">${task.category}</h3></div>
+            <div id="headline-solo-task-search${index}" class="headline-solo-task"><h3 id="headline-task-search${index}">${taskSearch.category}</h3></div>
         </div>
         <div class="task-title">
-            <span id="task-title">${task.title}</span>
+            <span id="task-title">${taskSearch.title}</span>
         </div>
         <div class="task-description">
-            <span title="${task.description}">${task.description}</span>
+            <span title="${taskSearch.description}">${taskSearch.description}</span>
         </div>
         <div class="workers-prio">
             <div class="main-workers">
                 <div id="solo-worker" class="solo-worker">
                     <!--TEMPLATE RENDERN VON ARBEIERN-->
-                    <div class="worker-name-start-letters d-center">EB</div>
-                    <div class="worker-name-start-letters d-center">EB</div>
+                    <div class="worker-name-start-letters d-center"></div>
+
                 </div>
             </div>
         <div id="prio-img-search" class="prio-img">
-            <img id="prio-img-search${index}" src="./img/board/prio-${task.priority}.png">
+            <img id="prio-img-search${index}" src="./img/board/prio-${taskSearch.priority}.png">
         </div>
     </div>
 </div>`
