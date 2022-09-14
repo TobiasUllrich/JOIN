@@ -1,6 +1,6 @@
 let subtasks = [];
 let categorys = ['Sales', 'Backoffice'];
-let categoryColors = ['#fc71ff', '#1fd7c1 '];
+let categoryColors = ['8aa4ff','ff0000','2ad300','ff8a00','e200be','0038ff'];
 let assign = [];
 
 
@@ -19,7 +19,7 @@ function loadCategorys() {
   let allCategorys = document.getElementById('allCategorys');
   allCategorys.innerHTML = '';
   for (let i = 0; i < categorys.length; i++) {
-    allCategorys.innerHTML += allCategorysHTML(`${categorys[i]}`);
+    allCategorys.innerHTML += allCategoryHTML(`${i}`);
   }
 }
 
@@ -99,22 +99,6 @@ function openCategory() {
   document.getElementById('categoryDropdown').classList.toggle('dropdown-border-top-none');
 }
 
-// Close the dropdown if the user clicks outside of it
-window.onclick = function (event) {
-  if (!event.target.matches('.dropbtn')) {
-    let dropdowns = document.getElementsByClassName('dropdown-content');
-    let i;
-    for (i = 0; i < dropdowns.length; i++) {
-      let openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-        document.getElementById('dropbtnCategory').classList.remove('dropdown-border-bottom-none');
-        document.getElementById('categoryDropdown').classList.remove('dropdown-border-top-none');
-      }
-    }
-  }
-}
-
 
 /* When the user clicks on the button, 
 toggle between hiding and showing the dropdown content */
@@ -124,28 +108,21 @@ function openAssign() {
   document.getElementById('assignDropdown').classList.toggle('dropdown-border-top-none');
 }
 
-// Close the dropdown if the user clicks outside of it
-window.onclick = function (event) {
-  if (!event.target.matches('.dropbtn')) {
-    let dropdowns = document.getElementsByClassName('dropdown-content');
-    let i;
-    for (i = 0; i < dropdowns.length; i++) {
-      let openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-        document.getElementById('dropbtnAssign').classList.remove('dropdown-border-bottom-none');
-        document.getElementById('assignDropdown').classList.remove('dropdown-border-top-none');
-      }
-    }
-  }
-}
-
 
 
 function addNewCategory() {
   let categoryContainer = document.getElementById('categoryContainer');
   categoryContainer.innerHTML = '';
   categoryContainer.innerHTML = newCategoryInputHTML();
+  categoryColorPicker();
+}
+
+
+function categoryColorPicker(){
+  document.getElementById('category-color-picker').innerHTML = '';
+  for (let i = 0; i < categoryColors.length; i++) {
+    document.getElementById('category-color-picker').innerHTML += categoryColorPickerHTML(`${i}`);
+  }
 }
 
 
@@ -172,24 +149,28 @@ function newCategoryInputHTML() {
   return /*html*/`
           <div class="input-group">
             <input id="newCategoryInput" type="text" class="form-control" placeholder="New category name">
-              <button onclick="loadCategory()" id="subtaskDelete" class="" type="button">
-                <img src="./img/addtask/x-vector.png" alt=""></button>
-              <div id="subtask-separator-line" class="subtask-separator-line"></div>
-              <button onclick="pushNewCategory()" id="subtaskAdd" class="subtasks-right-butten" type="button">
-              <img class="ok-vector" src="./img/addtask/ok-vector.png" alt=""></button>
-              <div class=""></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
+            <button onclick="loadCategory()" id="subtaskDelete" class="" type="button">
+            <img src="./img/addtask/x-vector.png" alt=""></button>
+            <div id="subtask-separator-line" class="subtask-separator-line"></div>
+            <button onclick="pushNewCategory()" id="subtaskAdd" class="subtasks-right-butten" type="button">
+            <img class="ok-vector" src="./img/addtask/ok-vector.png" alt=""></button>
+            <div class=""></div>
           </div>
+          <div id="category-color-picker" class="category-color-picker">
+            </div>
     `;
+}
+
+function categoryColorPickerHTML(i){
+  return /*html*/`
+              <input class="input-radio" type="radio" name="color" id="color-${i}" value="color-${i}" />
+              <label for="color-${i}" class="add-task-color-picker"><span class="color-${i}"></span></label> 
+  `
 }
 
 function loadCategoryHTML() {
   return /*html*/`
-    <div onclick="openCategory()" id="dropbtnCategory" class="dropbtn">Select task category <img src="./img/addtask/dropdown-Vector.png" alt=""></div>
+    <div onclick="openCategory()" id="dropbtnCategory" class="dropbtn-category">Select task category <img src="./img/addtask/dropdown-Vector.png" alt=""></div>
     <div id="categoryDropdown" class="dropdown-content">
       <p onclick="addNewCategory()">New category</p>
       <div id="allCategorys">
@@ -199,15 +180,17 @@ function loadCategoryHTML() {
 
 function currentCategoryHTML(idOfCategory) {
   return /*html*/` 
-    <div class="input-group">
-      <p> ${idOfCategory} </p>
-    </div>
+    <div onclick="${idOfCategory[i]}()" id="dropbtnCategory" class="dropbtn-category">${idOfCategory[i]}</div>
     `;
 }
 
-function allCategorysHTML(i) {
+function allCategoryHTML(i){
   return /*html*/`
-    <p onclick="currentCategory(${i})"> ${i} </p>
+  <div onclick="currentCategory(${categorys[i]})"  class="currentCategory">
+    <p> ${categorys[i]}</p>
+    <div style="background-color:#${categoryColors[i]}" class="categoryColor">
+    </div>
+  </div>
     `;
 }
 
