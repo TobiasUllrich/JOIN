@@ -26,6 +26,13 @@ tasksinBoard = tasks.length;
 nextUrgentTaskDate = transformDate2(nextDeadlineofUrgentTasks);
 
   fillSummarywithInfos(tasksinBoard,tasksinProgress,tasksawaitingFeedback,tasksUrgent,nextUrgentTaskDate,taskstoDo,tasksDone);
+  greetUser();
+}
+
+function greetUser(){
+  let actUserArray = [];
+  actUserArray = getArray ('arrayOfactUser') //Get User-Object from local Storage
+  document.getElementById('actuser').innerHTML = actUserArray['name'];
 }
 
 //Fills the HTML-Elements of summary.html with calculated values

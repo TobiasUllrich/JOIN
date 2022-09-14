@@ -14,12 +14,14 @@ body {
 /* SUMMARY */
 .summary-container{
     display:flex;
+    flex-direction:column;
     justify-content: center;
     background-color:#F5F5F5; 
     height: calc(100vh - 80px);
     width: calc(100vw - 232px);  /* Be sure to put spaces around the '-' sign in the calculation */ 
     margin-top:80px;   /* Because of the fixed Menu on the top */
     margin-left:232px;  /* Because of the fixed Menu on the left */  
+    padding-left: 75px;
 }
 
 .summary-headline{
@@ -156,6 +158,7 @@ margin:50px;
     align-items:center;
     font-size:16px;
     padding-right:35px; 
+    border-right: 2px solid #D1D1D1;
 }
 
 .summary-priority-urgent span{
@@ -172,13 +175,18 @@ font-size:47px;
     display:flex;
     flex-direction:column;
     align-items:center;
-    border-left: 2px solid #D1D1D1;
     font-size:16px;
     padding-left:35px; 
 }
 
 .summary-priority-urgentdeadline span{
     font-size:21px;
+}
+
+.summary-welcome {
+    display: flex;
+    flex-direction: column;
+    padding-right: 75px;
 }
 
 .summary-welcome span{
@@ -294,37 +302,16 @@ margin-left:20px;
     top: 18px;
     opacity:1;
 }
+   
+#numberTasksBoard, #numberTasksinProgress, #numberTasksawaitingFeedback, #numberTasksUrgent, #numberTasksTodo, #numberTasksDone{
+    font-weight:600;
+}
+   
+#actuser, #urgentdate{
+    font-weight:700; 
+}
+   
 
-   
-   #numberTasksBoard{
-    font-weight:600;
-   }
-   #numberTasksinProgress{
-    font-weight:600;
-   }
-   #numberTasksawaitingFeedback{
-    font-weight:600;
-   }
-   
-   #numberTasksUrgent{
-    font-weight:600;
-   }
-   
-   #numberTasksTodo{
-    font-weight:600;
-   }
-   
-   #numberTasksDone{
-    font-weight:600;
-   }
-   
-   #actuser{
-       font-weight:700; 
-   }
-   
-   #urgentdate{
-       font-weight:700; 
-   }
 
 
 
@@ -335,7 +322,10 @@ margin-left:20px;
 
 
 /* INTERVALLE FÜRS HANDY */
-@media (min-width:301px) and (max-width:1400px) {
+@media (min-width:800px) and (max-width:1200px) {
+
+
+    
 }
 
 @media (min-width:400px) and (max-width:800px) {
