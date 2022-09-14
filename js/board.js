@@ -13,7 +13,8 @@ let currentDraggingElement;
     renderBoard();
 } */
 
-function renderBoard() {
+async function renderBoard() {
+    await init();
     renderToDo();
     renderProgress();
     renderFeedback();
@@ -83,49 +84,60 @@ function searchTask() {
 
     for (let m = 0; m < tasksScript.length; m++) {
         const taskSearch = tasksScript[m];
-        console.log(m);
-        if (taskSearch.title.toLowerCase().includes(userSearch)) {
-            if (taskSearch.status == 'To do') {
-                console.log(taskSearch.status);
-                document.getElementById('category-todo').innerHTML = '';
-                document.getElementById('category-todo').innerHTML = templateOfSearchTask(taskSearch, m);
-                document.getElementById('category-progress').innerHTML = '';
-                document.getElementById('category-feedback').innerHTML = '';
-                document.getElementById('category-done').innerHTML = '';
-                updateTasksHeadlinesStatus(m, ['search']);
+        checkTermsOfSearch(userSearch, m, taskSearch);
+    }
+}
+
+function checkTermsOfSearch(userSearch, m, taskSearch){
+    if (taskSearch.title.toLowerCase().includes(userSearch)) {
+        if (taskSearch.status == 'To do') {
+            searchInToDoContainer(taskSearch, m);
+        } else {
+            if (taskSearch.status == 'In progress') {
+                seachInProgressContainer(taskSearch, m);
             } else {
-                if (taskSearch.status == 'In progress') {
-                    console.log(taskSearch.status);
-                    document.getElementById('category-progress').innerHTML = '';
-                    document.getElementById('category-progress').innerHTML = templateOfSearchTask(taskSearch, m);
-                    document.getElementById('category-todo').innerHTML = '';
-                    document.getElementById('category-feedback').innerHTML = '';
-                    document.getElementById('category-done').innerHTML = '';
-                    updateTasksHeadlinesStatus(m, ['search']);
+                if (taskSearch.status == 'Awaiting feedback') {
+                    seachInFeedbackContainer(taskSearch, m);
                 } else {
-                    if (taskSearch.status == ' Awaiting feedback') {
-                        console.log(taskSearch.status);
-                        document.getElementById('category-feedback').innerHTML = '';
-                        document.getElementById('category-feedback').innerHTML = templateOfSearchTask(taskSearch, m);
-                        document.getElementById('category-todo').innerHTML = '';
-                        document.getElementById('category-progress').innerHTML = '';
-                        document.getElementById('category-done').innerHTML = '';
-                        updateTasksHeadlinesStatus(m, ['search']);
-                    } else {
-                        if (taskSearch.status == 'Done') {
-                            console.log(taskSearch.status);
-                            document.getElementById('category-done').innerHTML = '';
-                            document.getElementById('category-done').innerHTML = templateOfSearchTask(taskSearch, m);
-                            document.getElementById('category-todo').innerHTML = '';
-                            document.getElementById('category-progress').innerHTML = '';
-                            document.getElementById('category-feedback').innerHTML = '';
-                            updateTasksHeadlinesStatus(m, ['search']);
-                        }
+                    if (taskSearch.status == 'Done') {
+                        searchInDoneContainer(taskSearch, m);
                     }
                 }
             }
         }
     }
+}
+
+function searchInToDoContainer(taskSearch, m){
+    console.log(taskSearch, 'Index ist, ', m);
+    document.getElementById('category-todo').innerHTML = '';
+    document.getElementById('category-todo').innerHTML = templateOfSearchTask(taskSearch, m);
+    hideOtherTasks('progress', 'feedback', 'done');
+    updateTasksHeadlinesStatus(m, ['search']);
+}
+
+function seachInProgressContainer(taskSearch, m){
+    console.log(taskSearch, 'Index ist, ', m);
+    document.getElementById('category-progress').innerHTML = '';
+    document.getElementById('category-progress').innerHTML = templateOfSearchTask(taskSearch, m);
+    hideOtherTasks('todo', 'feedback', 'done');
+    updateTasksHeadlinesStatus(m, ['search']);
+}
+
+function seachInFeedbackContainer(taskSearch, m){
+    console.log(taskSearch, 'Index ist, ', m);
+    document.getElementById('category-feedback').innerHTML = '';
+    document.getElementById('category-feedback').innerHTML = templateOfSearchTask(taskSearch, m);
+    hideOtherTasks('todo', 'progress', 'done');
+    updateTasksHeadlinesStatus(m, ['search']);
+}
+
+function searchInDoneContainer(taskSearch, m){
+    console.log(taskSearch, 'Index ist, ', m);
+    document.getElementById('category-done').innerHTML = '';
+    document.getElementById('category-done').innerHTML = templateOfSearchTask(taskSearch, m);
+    hideOtherTasks('todo', 'progress', 'feedback');
+    updateTasksHeadlinesStatus(m, ['search']);
 }
 
 function checkEmptyField() {
@@ -135,9 +147,14 @@ function checkEmptyField() {
     }
 }
 
+function hideOtherTasks(statusOne, statusTwo, statusThree){
+    document.getElementById(`category-${statusOne}`).innerHTML = '';
+    document.getElementById(`category-${statusTwo}`).innerHTML = '';
+    document.getElementById(`category-${statusThree}`).innerHTML = '';
+}
+
 function renderAssignedNamesOfTask(i) { // NOCH NICHT FERTIG ___ MUSS NOCH GESCHRIEBEN WERDEN
     let renderOutputContainer = document.getElementById(`solo-worker-todo${i}`);
-    console.log(users[i]);
     renderOutputContainer.innerHTML = '';
     renderOutputContainer.innerHTML += `<div class="worker-name-start-letters d-center"></div>`
     // ${users[soloTasksTodo[i].assignedTo[i]].name.charAt(0)};
@@ -201,43 +218,6 @@ function openCurrentTaskBigBox(indexOfSoloTask, statusTask) {
             }
         }
     }
-    checkPriorityBackgroundColor();
-    checkHeadlineColorBigBox();
-}
-
-
-function openCurrentTaskBigBoxProgress(indexOfSoloTask) {
-    let bigBoxContainer = document.getElementById('main-bigbox-solo-task-container');
-    addOpacityToMainBackground();
-    backgroundIsUnclickable();
-    removeDisplayNoneMainContainer(bigBoxContainer);
-    bigBoxContainer.innerHTML = '';
-
-    bigBoxContainer.innerHTML = templateBigBoxSoloTask(soloTasksProgress, indexOfSoloTask);
-    checkPriorityBackgroundColor();
-    checkHeadlineColorBigBox();
-}
-
-function openCurrentTaskBigBoxFeedback(indexOfSoloTask) {
-    let bigBoxContainer = document.getElementById('main-bigbox-solo-task-container');
-    addOpacityToMainBackground();
-    backgroundIsUnclickable();
-    removeDisplayNoneMainContainer(bigBoxContainer);
-    bigBoxContainer.innerHTML = '';
-
-    bigBoxContainer.innerHTML = templateBigBoxSoloTask(soloTasksFeedback, indexOfSoloTask);
-    checkPriorityBackgroundColor();
-    checkHeadlineColorBigBox();
-}
-
-function openCurrentTaskBigBoxDone(indexOfSoloTask) {
-    let bigBoxContainer = document.getElementById('main-bigbox-solo-task-container');
-    addOpacityToMainBackground();
-    backgroundIsUnclickable();
-    removeDisplayNoneMainContainer(bigBoxContainer);
-    bigBoxContainer.innerHTML = '';
-
-    bigBoxContainer.innerHTML = templateBigBoxSoloTask(soloTasksDone, indexOfSoloTask);
     checkPriorityBackgroundColor();
     checkHeadlineColorBigBox();
 }
