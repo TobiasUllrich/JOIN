@@ -78,9 +78,66 @@ function filterImportentTasks() {
     soloTasksDone = tasksScript.filter(status => status.status == 'Done'); // All tasks done
 }
 
+function searchTask() {
+    let userSearch = document.getElementById('user-search').value.toLowerCase();
+
+    for (let m = 0; m < tasksScript.length; m++) {
+        const taskSearch = tasksScript[m];
+        console.log(m);
+        if (taskSearch.title.toLowerCase().includes(userSearch)) {
+            if (taskSearch.status == 'To do') {
+                console.log(taskSearch.status);
+                document.getElementById('category-todo').innerHTML = '';
+                document.getElementById('category-todo').innerHTML = templateOfSearchTask(taskSearch, m);
+                document.getElementById('category-progress').innerHTML = '';
+                document.getElementById('category-feedback').innerHTML = '';
+                document.getElementById('category-done').innerHTML = '';
+                updateTasksHeadlinesStatus(m, ['search']);
+            } else {
+                if (taskSearch.status == 'In progress') {
+                    console.log(taskSearch.status);
+                    document.getElementById('category-progress').innerHTML = '';
+                    document.getElementById('category-progress').innerHTML = templateOfSearchTask(taskSearch, m);
+                    document.getElementById('category-todo').innerHTML = '';
+                    document.getElementById('category-feedback').innerHTML = '';
+                    document.getElementById('category-done').innerHTML = '';
+                    updateTasksHeadlinesStatus(m, ['search']);
+                } else {
+                    if (taskSearch.status == ' Awaiting feedback') {
+                        console.log(taskSearch.status);
+                        document.getElementById('category-feedback').innerHTML = '';
+                        document.getElementById('category-feedback').innerHTML = templateOfSearchTask(taskSearch, m);
+                        document.getElementById('category-todo').innerHTML = '';
+                        document.getElementById('category-progress').innerHTML = '';
+                        document.getElementById('category-done').innerHTML = '';
+                        updateTasksHeadlinesStatus(m, ['search']);
+                    } else {
+                        if (taskSearch.status == 'Done') {
+                            console.log(taskSearch.status);
+                            document.getElementById('category-done').innerHTML = '';
+                            document.getElementById('category-done').innerHTML = templateOfSearchTask(taskSearch, m);
+                            document.getElementById('category-todo').innerHTML = '';
+                            document.getElementById('category-progress').innerHTML = '';
+                            document.getElementById('category-feedback').innerHTML = '';
+                            updateTasksHeadlinesStatus(m, ['search']);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+function checkEmptyField() {
+    let userSearch = document.getElementById('user-search').value.toLowerCase();
+    if (userSearch.length <= 0) {
+        renderBoard();
+    }
+}
+
 function renderAssignedNamesOfTask(i) { // NOCH NICHT FERTIG ___ MUSS NOCH GESCHRIEBEN WERDEN
     let renderOutputContainer = document.getElementById(`solo-worker-todo${i}`);
-
+    console.log(users[i]);
     renderOutputContainer.innerHTML = '';
     renderOutputContainer.innerHTML += `<div class="worker-name-start-letters d-center"></div>`
     // ${users[soloTasksTodo[i].assignedTo[i]].name.charAt(0)};
@@ -122,17 +179,32 @@ function closeAddTaskContainer() {
     addDisplayNoneMainContainer(addTaskContainer);
 }
 
-function openCurrentTaskBigBoxTodo(indexOfSoloTask) {
+function openCurrentTaskBigBox(indexOfSoloTask, statusTask) {
     let bigBoxContainer = document.getElementById('main-bigbox-solo-task-container');
     addOpacityToMainBackground();
     backgroundIsUnclickable();
     removeDisplayNoneMainContainer(bigBoxContainer);
     bigBoxContainer.innerHTML = '';
 
-    bigBoxContainer.innerHTML = templateBigBoxSoloTask(soloTasksTodo, indexOfSoloTask);
+    if (statusTask == 'to do') {
+        bigBoxContainer.innerHTML = templateBigBoxSoloTask(soloTasksTodo, indexOfSoloTask);
+    } else {
+        if (statusTask == 'progress') {
+            bigBoxContainer.innerHTML = templateBigBoxSoloTask(soloTasksProgress, indexOfSoloTask);
+        } else {
+            if(statusTask == 'feedback'){
+                bigBoxContainer.innerHTML = templateBigBoxSoloTask(soloTasksFeedback, indexOfSoloTask);
+            } else {
+                if(statusTask == 'done'){
+                    bigBoxContainer.innerHTML = templateBigBoxSoloTask(soloTasksDone, indexOfSoloTask);
+                }
+            }
+        }
+    }
     checkPriorityBackgroundColor();
     checkHeadlineColorBigBox();
 }
+
 
 function openCurrentTaskBigBoxProgress(indexOfSoloTask) {
     let bigBoxContainer = document.getElementById('main-bigbox-solo-task-container');
@@ -226,17 +298,17 @@ function allowDrop(ev) {
     ev.preventDefault();
 }
 
-function moveTo(newStatus){
-    if (newStatus == 'To do'){
+function moveTo(newStatus) {
+    if (newStatus == 'To do') {
         tasksScript[currentDraggingElement].status = newStatus;
     }
-    if (newStatus == 'In progress'){
+    if (newStatus == 'In progress') {
         tasksScript[currentDraggingElement].status = newStatus;
     }
-    if (newStatus == 'Awaiting feedback'){
+    if (newStatus == 'Awaiting feedback') {
         tasksScript[currentDraggingElement].status = newStatus;
     }
-    if (newStatus == 'Done'){
+    if (newStatus == 'Done') {
         tasksScript[currentDraggingElement].status = newStatus;
     }
     renderBoard();
@@ -302,17 +374,17 @@ function addDisplayNoneMainContainer(bigBoxContainer) {
     bigBoxContainer.classList.add('d-none');
 }
 
-function dragHighlight(status, index){
+function dragHighlight(status, index) {
     document.getElementById(`${status}-task${index}`).classList.add('rotation');
 }
 
-function showEmptyPlaces(otherStatusOne, otherStatusTwo, otherStatusThree){
+function showEmptyPlaces(otherStatusOne, otherStatusTwo, otherStatusThree) {
     document.getElementById(`empty-space-${otherStatusOne}`).classList.remove('d-none');
     document.getElementById(`empty-space-${otherStatusTwo}`).classList.remove('d-none');
     document.getElementById(`empty-space-${otherStatusThree}`).classList.remove('d-none');
 }
 
-function hideEmptyPlaces(otherStatusOne, otherStatusTwo, otherStatusThree){
+function hideEmptyPlaces(otherStatusOne, otherStatusTwo, otherStatusThree) {
     document.getElementById(`empty-space-${otherStatusOne}`).classList.add('d-none');
     document.getElementById(`empty-space-${otherStatusTwo}`).classList.add('d-none');
     document.getElementById(`empty-space-${otherStatusThree}`).classList.add('d-none');

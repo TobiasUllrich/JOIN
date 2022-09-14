@@ -67,13 +67,13 @@
                     <h2>Board</h2>
                 </div>
                 <div class="navbar">
-                    <div class="search-task"><input placeholder="Find Task"><div onclick="searchTask()" class="search-btn"><img class="search-img" src="./img/board/search.png"></div></div>
+                    <div class="search-task"><input onkeydown="checkEmptyField()" id="user-search" placeholder="Find Task"><div onclick="searchTask()" class="search-btn"><img class="search-img" src="./img/board/search.png"></div></div>
                     <div class="add-task"><button onclick="addTaskBoard()" class="add-task-button">Add task<img class="add-img-straight" src="./img/board/plus1.png"><img class="add-img-up" src="./img/board/plus2.png"></button></div>
                 </div>
             </div>
         </div>
         
-        <div class="main-tasks-container">
+        <div id="main-task-container" class="main-tasks-container">
             <div class="main-solo-task-container" id="main-todo" ondrop="moveTo('To do')" ondragover="allowDrop(event)">
                 <div class="main-task-headline">
                     <div class="headline-task"><h3>To do</h3></div>
