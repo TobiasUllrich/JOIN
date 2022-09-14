@@ -63,7 +63,7 @@ let tasksScript = [
     "category": "Sales",  // Design, Marketing, Sales, Backoffice, Media usw. gerne weitere Vorschläge bzw. Ergänzungen
     "categorycolor": "#091931",
     "description": "Hier wird ein unnötiger Beschreibungstext stehen, der von dem User festgelegt wird",
-    "dueDate": "30-10-2010",
+    "dueDate": "30-10-2015",
     "priority": "Urgent",       // Urgent, Medium, Low
     "status": "To do",     // To do, In progress, Awaiting feedback, Done
     "assignedTo": ['ullrich.tobias@gmx.de','edip-bahcecioglu@hotmail.de','oswaldeugen95@gmail.com'],   // Email of users Array (ist eindeutig)
@@ -111,7 +111,7 @@ let tasksScript = [
     "category": "Design",  // Design, Marketing, Sales, Backoffice, Media usw. gerne weitere Vorschläge bzw. Ergänzungen
     "categorycolor": "#091931",
     "description": "Hier wird ein unnötiger Beschreibungstext stehen, der von dem User festgelegt wird",
-    "dueDate": "30-10-2010",
+    "dueDate": "11-09-2022",
     "priority": "Urgent",       // Urgent, Medium, Low
     "status": "Awaiting feedback",     // To do, In progress, Awaiting feedback, Done
     "assignedTo": ['ullrich.tobias@gmx.de','edip-bahcecioglu@hotmail.de','oswaldeugen95@gmail.com'],   // Email of users Array (ist eindeutig)
@@ -147,6 +147,8 @@ for (i=0;i<tasksScript.length;i++){
     await addTask(tasksScript[i]);
     console.log(tasksScript[i]);
 };
+
+await init();
 
 }
 /* [2.] Leert die Datenbank-Arrays users & tasks und befüllt sie mit den Daten von usersScript und tasksScript*/
