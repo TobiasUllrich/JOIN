@@ -9,6 +9,11 @@ body {
     transition: all 225ms ease-in-out;
 }
 
+.reset-rotation{
+    transform: rotate(0deg);
+    transition: all 225ms ease-in-out;
+}
+
 .border-dotted {
     border: 3px dotted rgba(201, 202, 202, 0.3);
 }
