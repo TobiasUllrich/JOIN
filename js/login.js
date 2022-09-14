@@ -67,6 +67,17 @@ function loginAsGuest() {
     window.location.href = 'summary.html';
 }
 
+//Go to Help-Section
+function showHelpPage() {
+    window.location.href = 'help.html';
+}
+
+//Go to LegalNotice-Section
+function showLegalNoticePage() {
+    window.location.href = 'legalnotice.html';
+}
+
+
 //Try to Login
 function tryLogin() {
     let email = document.getElementById('login-email').value;

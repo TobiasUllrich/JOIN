@@ -26,8 +26,9 @@
     
     <!-- Fonts downloaden in entsprechenden Ordner legen und über Extra-CSS-Datei einbinden (https://google-webfonts-helper.herokuapp.com/) -->
     <link rel="stylesheet" type='text/css' media='screen' href="css/fonts.css">
-    <link rel="stylesheet" type='text/css' media='screen' href="css/style.css">
-    <link rel="stylesheet" type='text/css' media='screen' href="css/summary.css">
+    <link rel="stylesheet" type='text/css' media='screen' href="/css/style.css">
+    <link rel="stylesheet" type='text/css' media='screen' href="/css/help.css">
+
 
     <!-- JavaScript Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
@@ -50,8 +51,7 @@
 
 <!--Sobald der body-Bereich geladen wurde, wird das Java-Script ausgeführt-->
 
-<body onload="includeHTML();setactUser();renderSummary();">
-
+<body onload="includeHTML();init();">
 
 
     <!-- Header einbinden -->
@@ -59,64 +59,15 @@
     <!-- Header einbinden -->
 
 
-    <div class="summary-container">
-        
-
-        <div class="summary-headline">
-            <h1>Summary</h1>
-            <span>Everything in a nutshell!</span>
-        </div>
-
-        <div class="summary-infoboxes">
-
-        <div class="summary-numberbox">
-        <div class="summary-overview-tasks">
-            <div onclick="showBoard();" class="summary-overview-tasksboard"><span id="numberTasksBoard"></span>Tasks in <br> Board</div>
-            <div onclick="showBoard();" class="summary-overview-tasksprogress"><span id="numberTasksinProgress"></span>Tasks in Progress</div>
-            <div onclick="showBoard();" class="summary-overview-tasksawaitingfeedback"><span id="numberTasksawaitingFeedback"></span>Awaiting Feedback</div>
-        </div>
-
-        <div class="summary-priority">
-            <div class="summary-priority-box" onclick="showBoard();">
-              <div class="summary-priority-urgent">
-                <img class ="urgent-icon" src="img/urgent-icon.png" alt="">
-                <div class="summary-priority-urgent-flex"><span id="numberTasksUrgent"></span><div>Urgent</div></div>
-              </div>
-              <div class="summary-priority-urgentdeadline">
-                <span id="urgentdate"></span><div>Upcoming deadline</div>
-              </div>
-            </div>
-        </div>
-
-        <div class="summary-overview-tasks2">
-            
-            <div class="summary-overview-taskstodo" onclick="showBoard();" onmouseover="addBackground('todo-icon','tdi');" onmouseout="removeBackground('todo-icon','tdi');">
-              <div id="todo-icon" class="todo-icon"><img id="tdi" src="img/todo2-icon.png" alt=""></div>
-              <div class="summary-overview-taskstodo2"><span id="numberTasksTodo"></span>To-do</div>
-            </div>
-            <div class="summary-overview-tasksdone" onclick="showBoard();" onmouseover="addBackground('done-icon','td');" onmouseout="removeBackground('done-icon','td');">
-              <div id="done-icon" class="done-icon"><img id="td" src="img/done2-icon.png" alt=""></div>    
-              <div class="summary-overview-tasksdone2"><span id="numberTasksDone"></span>Done</div>
-            </div>
-
-        </div>
-      </div>
-
-      <div class="summary-welcome">
-          <h1 id="greettime">Good morning,</h1>
-          <span id="actuser">Tobias Ullrich</span>
-      </div>
-
-      </div>
-
-
-    
-    </div>
+    <!-- MAIN -->
+    <h1>LEGAL NOTICE</h1>
+    <!-- MAIN -->
 
 
     <!-- Footer einbinden -->
     <div w3-include-html="templates/footer.html"></div>
     <!-- Footer einbinden -->
+
 
 </body>
 

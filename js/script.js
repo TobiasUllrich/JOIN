@@ -292,11 +292,17 @@ async function deleteAllTasks() {
 
 /* [4.]  For Log-Out in the right corner */
 function showLogoutButton(){
-  document.getElementById('logoutbtn').classList.remove('d-none');
+  document.getElementById('logout').classList.remove('d-none');
 }
 /* [4.]  For Log-Out in the right corner */
 
-/* [5.] Funktion um weitere HTML-Dateien einzubinden (Code von w3c)*/
+/* [5.]  For Log-Out in the right corner */
+function hideLogoutButton(){
+  document.getElementById('logout').classList.add('d-none');
+}
+/* [5.]  For Log-Out in the right corner */
+
+/* [6.] Funktion um weitere HTML-Dateien einzubinden (Code von w3c)*/
 /* Code von w3c*/
 async function includeHTML() {
     let includeElements = document.querySelectorAll('[w3-include-html]'); //Alle Elemente mit Attribut '[w3-include-html]' werden ausgewählt
@@ -311,9 +317,9 @@ async function includeHTML() {
         }
     }
 }
-/* [5.] Funktion um weitere HTML-Dateien einzubinden (Code von w3c)*/
+/* [6.] Funktion um weitere HTML-Dateien einzubinden (Code von w3c)*/
 
-/* [6.] Array zu String und wieder zurück */
+/* [7.] Array zu String und wieder zurück */
 /* Im localStorage kann nur Text gespeichert werden, ABER im Code kann nur ein Array sinnvoll genutzt werden */
 /* key ist der Name unter welchem der Array gespeichert werden soll (frei wählbarer Text) und array ist das Array selbst  */
 function setArray (key,array){
@@ -323,5 +329,15 @@ function setArray (key,array){
 function getArray (key){
   return JSON.parse(localStorage.getItem(key)); // JSON.parse() wandelt einen String in einen Array um
 }
-/* [6.] Array zu String und wieder zurück */
+/* [7.] Array zu String und wieder zurück */
 
+/* [8.] Click-Events */
+/* Funktionen nicht mehr den Elementen bei onclick="" zuweisen, sondern hier über die ID */
+window.onclick = function(event) {
+  //console.log(event.target); // Hier kann man sich das Element ausgeben lassen
+
+   if(event.target.id != 'footer-picture'){
+    hideLogoutButton();  
+  } 
+}
+/* [8.] Click-Events */

@@ -2,12 +2,16 @@
     <div class="footer-headline">
         <h1>Kanban Project Management Tool</h1>
     </div>
-    
+    <img class="footer-logo" src="img/JOIN-Logo.png" alt="">
+
     <div class="footer-icons">
-      <img src="img/help-icon.png" alt="">
+      <img onclick="showHelpPage();" id="footer-help" src="img/help-icon.png" alt="">
       <img onclick="showLogoutButton();" id="footer-picture" class="footer-user" src="" alt="">
     </div>
-
-    <div id="logoutbtn" onclick="showLoginForm2();" class="footer-logout d-none">Log out</div>
-
+    
+    <div id="logout" class="footer-logout d-none">
+    <div onclick="showHelpPage();" class="footer-help">Help</div>
+    <div onclick="showLegalNoticePage();" class="footer-legnotice">Legal notice</div>
+    <div onclick="showLoginForm2();" >Log out</div>
+    </div>
 </div>

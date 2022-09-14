@@ -422,7 +422,12 @@ margin-left:20px;
 
 }
 
-@media (min-width:215px) and (max-width:300px) {
+@media (min-width:300px) and (max-width:900px) {
+    .summary-container{
+        margin-left:0;
+        width: 100%;
+        padding-left:0; 
+    }
 }
 
 @media (min-width:299px) and (max-width:0px) {   /* Ab hier leer lassen */

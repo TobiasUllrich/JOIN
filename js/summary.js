@@ -11,6 +11,7 @@ let nextUrgentTaskDate;
 let taskstoDo = 0;
 let tasksDone = 0;
 
+//Renders the Summary-Page onload
 async function renderSummary(){
 
   await init();
@@ -29,10 +30,29 @@ nextUrgentTaskDate = transformDate2(nextDeadlineofUrgentTasks);
   greetUser();
 }
 
+//Greets the actual logged-in user
 function greetUser(){
+  let greetText = sayGoodmorningEveningorNight();
+  document.getElementById('greettime').innerHTML = `${greetText}`;
+
   let actUserArray = [];
   actUserArray = getArray ('arrayOfactUser') //Get User-Object from local Storage
   document.getElementById('actuser').innerHTML = actUserArray['name'];
+}
+
+//Gives back a Greet according to the actual time
+function sayGoodmorningEveningorNight(){
+  let currentdate = new Date(); 
+  let currenthour = currentdate.getHours();
+
+  if      (currenthour< 5){text = 'Good night,';}
+  else if (currenthour<11){text = 'Good morning,';} 
+  else if (currenthour<13){text = 'Lunchtime,';}
+  else if (currenthour<17){text = 'Good afternoon,';} 
+  else if (currenthour<23){text = 'Good evening,';}
+  else                    {text = 'Good night,';} 
+
+  return text;
 }
 
 //Fills the HTML-Elements of summary.html with calculated values
