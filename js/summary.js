@@ -7,61 +7,49 @@ let tasksinProgress = 0;
 let tasksawaitingFeedback = 0;
 let tasksUrgent = 0;
 let nextDeadlineofUrgentTasks=0;
+let nextUrgentTaskDate;
 let taskstoDo = 0;
 let tasksDone = 0;
 
 async function renderSummary(){
-await init();
 
-  tasksinBoard = tasks.length;
+  await init();
 
 for (i=0;i<tasks.length;i++){
-  if (tasks[i]['status'] == 'In progress') 
-  { tasksinProgress++; };
-  if (tasks[i]['status'] == 'Awaiting feedback') 
-  { tasksawaitingFeedback++; };
-  if (tasks[i]['priority'] == 'Urgent') 
-  { tasksUrgent++; 
-   if (transformDate(tasks[i]['dueDate'])>nextDeadlineofUrgentTasks) {nextDeadlineofUrgentTasks=transformDate(tasks[i]['dueDate']);};
-  };
-  if (tasks[i]['status'] == 'To do') 
-  { taskstoDo++; };
-  if (tasks[i]['status'] == 'Done') 
-  { tasksDone++; };
+  if (tasks[i]['status'] == 'In progress') {tasksinProgress++; };
+  if (tasks[i]['status'] == 'Awaiting feedback') {tasksawaitingFeedback++; };
+  if (tasks[i]['priority'] == 'Urgent') {tasksUrgent++; if (transformDate(tasks[i]['dueDate'])>nextDeadlineofUrgentTasks) {nextDeadlineofUrgentTasks=transformDate(tasks[i]['dueDate']);};};
+  if (tasks[i]['status'] == 'To do') {taskstoDo++; };
+  if (tasks[i]['status'] == 'Done') {tasksDone++; };
+}
+tasksinBoard = tasks.length;
+nextUrgentTaskDate = transformDate2(nextDeadlineofUrgentTasks);
 
+  fillSummarywithInfos(tasksinBoard,tasksinProgress,tasksawaitingFeedback,tasksUrgent,nextUrgentTaskDate,taskstoDo,tasksDone);
 }
 
-let datum = nextDeadlineofUrgentTasks;
-let tag = datum.getDate(nextDeadlineofUrgentTasks);
-let monat = datum.getMonth(nextDeadlineofUrgentTasks);
-let jahr = datum.getFullYear(nextDeadlineofUrgentTasks);
-let datumSS = monthNames[Number(monat)] + ' '+ Number(tag) +', ' + jahr;
-console.log(monthNames[Number(monat)] + ' '+ Number(tag) +', ' + jahr);
-
-
-document.getElementById('numberTasksBoard').innerHTML=`${tasksinBoard}`;
-document.getElementById('numberTasksinProgress').innerHTML=`${tasksinProgress}`;
-document.getElementById('numberTasksawaitingFeedback').innerHTML=`${tasksawaitingFeedback}`;
-document.getElementById('numberTasksUrgent').innerHTML=`${tasksUrgent}`;
-document.getElementById('urgentdate').innerHTML=`${datumSS}`;
-
-document.getElementById('numberTasksTodo').innerHTML=`${taskstoDo}`;
-document.getElementById('numberTasksDone').innerHTML=`${tasksDone}`;
-
-
-// {
-//   "title": "Kündigung der Mitarbeiterin XXX",
-//   "category": "Media",  // Design, Marketing, Sales, Backoffice, Media usw. gerne weitere Vorschläge bzw. Ergänzungen
-//   "description": "Hier wird ein unnötiger Beschreibungstext stehen, der von dem User festgelegt wird",
-//   "dueDate": "30-10-2010",
-//   "priority": "Medium",       // Urgent, Medium, Low
-//   "status": "Awaiting feedback",     // To do, In progress, Awaiting feedback, Done
-//   "assignedTo": [0,1,2],   // Index of users Array (ist eindeutig)
-//   "subTasks": ['Putzen','Spülen','Saubermachen'] 
-// },
-
+//Fills the HTML-Elements of summary.html with calculated values
+function fillSummarywithInfos(tasksinBoard,tasksinProgress,tasksawaitingFeedback,tasksUrgent,nextUrgentTaskDate,taskstoDo,tasksDone){
+  document.getElementById('numberTasksBoard').innerHTML=`${tasksinBoard}`;
+  document.getElementById('numberTasksinProgress').innerHTML=`${tasksinProgress}`;
+  document.getElementById('numberTasksawaitingFeedback').innerHTML=`${tasksawaitingFeedback}`;
+  document.getElementById('numberTasksUrgent').innerHTML=`${tasksUrgent}`;
+  document.getElementById('urgentdate').innerHTML=`${nextUrgentTaskDate}`;
+  document.getElementById('numberTasksTodo').innerHTML=`${taskstoDo}`;
+  document.getElementById('numberTasksDone').innerHTML=`${tasksDone}`;
 }
 
+//Receives a date-variable and converts it into a string with specific format (August 5, 2022)
+function transformDate2(datetotransform){
+  let datum = datetotransform;
+  let tag = datum.getDate(datetotransform);
+  let monat = datum.getMonth(datetotransform);
+  let jahr = datum.getFullYear(datetotransform);
+  let wishedformat = monthNames[Number(monat)] + ' '+ Number(tag) +', ' + jahr;
+  return wishedformat;
+}
+
+//Receives a string in the format "30-10-2010" and converts it into a date-variable
 function transformDate(datetotransform){
   let datum = tasks[i]['dueDate'];
   let ersterstrich = datum.indexOf('-');
@@ -73,17 +61,18 @@ function transformDate(datetotransform){
   return datumZusGesetzt;
 }
 
-
 //Go to Board
 function showBoard() {
   window.location.href = 'board.html';
 }
 
+//Invert Font-color & Background-Color
 function addBackground(idOfElementToChange,idOfPicture){
    document.getElementById(idOfElementToChange).style='background-color: #FFFFFF;';
    document.getElementById(`${idOfPicture}`).style='filter: invert(100%);';
 }
 
+//Invert Font-color & Background-Color
 function removeBackground(idOfElementToChange,idOfPicture){
   document.getElementById(idOfElementToChange).style='background-color: #091931;';
   document.getElementById(`${idOfPicture}`).style='filter: invert(0%);';

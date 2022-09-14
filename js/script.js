@@ -20,6 +20,27 @@ let usersScript = [
     "email": "oswaldeugen95@gmail.com",
     "phone":"888",
     "password": "xxxxx"
+  },
+  {
+    "name": "Rick Cabanossi",
+    "picture": "rick.jpg",
+    "email": "rickyC@gmail.com",
+    "phone":"12345678910",
+    "password": "rIckydicLous"
+  },
+  {
+    "name": "Mama Mia",
+    "picture": "mami.jpg",
+    "email": "MandM@web.de",
+    "phone":"12776644",
+    "password": "mama123"
+  },
+  {
+    "name": "Kate Rina",
+    "picture": "kate.jpg",
+    "email": "kateRollin@xxx.com",
+    "phone":"333444555",
+    "password": "cheeseee"
   }
 ];
 
