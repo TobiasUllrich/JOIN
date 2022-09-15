@@ -1,7 +1,7 @@
 let subtasks = [];
 let categorys = ['Sales', 'Backoffice'];
 let categoryColors = ['8aa4ff', 'ff0000', '2ad300', 'ff8a00', 'e200be', '0038ff'];
-let UsedColors = ['fc71ff', '1fd7c1 '] 
+let usedColors = ['fc71ff', '1fd7c1 '] 
 let assign = [];
 
 
@@ -13,7 +13,15 @@ function loadCategory() {
   let categoryContainer = document.getElementById('categoryContainer');
   categoryContainer.innerHTML = '';
   categoryContainer.innerHTML = loadCategoryHTML();
-  loadCategorys()
+  clearInputValueCategory();
+  loadCategorys();
+}
+
+function clearInputValueCategory(){
+  let categoryValue = document.getElementById('categoryInput');
+  let colorValue = document.getElementById('colorInput');
+  categoryValue.value = '';
+  colorValue.value = '';
 }
 
 function loadCategorys() {
@@ -112,6 +120,7 @@ function openAssign() {
 
 
 function addNewCategory() {
+  clearInputValueCategory();
   let categoryContainer = document.getElementById('categoryContainer');
   categoryContainer.innerHTML = '';
   categoryContainer.innerHTML = newCategoryInputHTML();
@@ -134,7 +143,7 @@ function pushNewCategory() {
   errorMessage.innerHTML = '';
   if (category.length >= 1) {
     if (getSelectedValue != null) {
-      UsedColors.push(document.querySelector('input[ name = "color" ]:checked').value);
+      usedColors.push(document.querySelector('input[ name = "color" ]:checked').value);
       categorys.push(category);
       loadCategory();
     } else {
@@ -146,9 +155,18 @@ function pushNewCategory() {
   }
 }
 
+/**
+ * categoryNumber is a Number
+ */
 function currentCategory(categoryNumber) {
-  openCategory();
   let categoryContainer = document.getElementById('dropbtnCategory');
+  let categoryValue = document.getElementById('categoryInput');
+  let colorValue = document.getElementById('colorInput');
+  openCategory();
+  categoryValue.value = '';
+  categoryValue.value = (`${categorys[categoryNumber]}`);
+  colorValue.value = '';
+  colorValue.value = (`${usedColors[categoryNumber]}`);
   categoryContainer.innerHTML = '';
   categoryContainer.innerHTML = currentCategoryHTML(`${categoryNumber}`);
 }
@@ -201,7 +219,7 @@ function currentCategoryHTML(i) {
   return /*html*/` 
     <div onclick="openCategory()"  class="active-category">
     <p> ${categorys[i]}</p>
-    <div style="background-color:#${UsedColors[i]}" class="categoryColor">
+    <div style="background-color:#${usedColors[i]}" class="categoryColor">
     </div>
   </div>
     `;
@@ -211,7 +229,7 @@ function allCategoryHTML(i) {
   return /*html*/`
   <div onclick="currentCategory(${i})"  class="current-category">
     <p> ${categorys[i]}</p>
-    <div style="background-color:#${UsedColors[i]}" class="categoryColor">
+    <div style="background-color:#${usedColors[i]}" class="categoryColor">
     </div>
   </div>
     `;

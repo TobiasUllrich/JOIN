@@ -104,6 +104,10 @@ body {
 
 /* Category & Assigned to */
 
+#categoryContainer{
+  padding-top: 0px !important;
+}
+
 .dropbtn-category {
   display: flex;
   align-items: center;
@@ -204,9 +208,11 @@ body {
 }
 
 .hidden-input {
-  visibility: hidden;
+  opacity: 0;
   height: 1px !important;
-  padding-bottom: -1px !important;
+  margin: 0px !important;
+  padding: 0px !important;
+  cursor: context-menu;
 }
 
 p {
