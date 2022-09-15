@@ -1,6 +1,7 @@
 let subtasks = [];
 let categorys = ['Sales', 'Backoffice'];
-let categoryColors = ['8aa4ff','ff0000','2ad300','ff8a00','e200be','0038ff'];
+let categoryColors = ['8aa4ff', 'ff0000', '2ad300', 'ff8a00', 'e200be', '0038ff'];
+let UsedColors = ['fc71ff', '1fd7c1 '] 
 let assign = [];
 
 
@@ -118,7 +119,7 @@ function addNewCategory() {
 }
 
 
-function categoryColorPicker(){
+function categoryColorPicker() {
   document.getElementById('category-color-picker').innerHTML = '';
   for (let i = 0; i < categoryColors.length; i++) {
     document.getElementById('category-color-picker').innerHTML += categoryColorPickerHTML(`${i}`);
@@ -128,18 +129,28 @@ function categoryColorPicker(){
 
 function pushNewCategory() {
   let category = document.getElementById('newCategoryInput').value;
+  let getSelectedValue = document.querySelector('input[ name = "color" ]:checked');
+  let errorMessage = document.getElementById('errorMessage');
+  errorMessage.innerHTML = '';
   if (category.length >= 1) {
-    categorys.push(category);
-    loadCategory()
+    if (getSelectedValue != null) {
+      UsedColors.push(document.querySelector('input[ name = "color" ]:checked').value);
+      categorys.push(category);
+      loadCategory();
+    } else {
+      errorMessage.innerHTML = errorMessageHTML();
+    }
+
   } else {
-    loadCategory();
+    errorMessage.innerHTML = errorMessageHTML();
   }
 }
 
-function currentCategory(idOfCategory) {
-  let categoryContainer = document.getElementById('categoryContainer');
+function currentCategory(categoryNumber) {
+  openCategory();
+  let categoryContainer = document.getElementById('dropbtnCategory');
   categoryContainer.innerHTML = '';
-  categoryContainer.innerHTML = currentCategoryHTML(`${idOfCategory}`);
+  categoryContainer.innerHTML = currentCategoryHTML(`${categoryNumber}`);
 }
 
 //****************HTML*****************HTML*************HTML****************HTML */ 
@@ -157,14 +168,22 @@ function newCategoryInputHTML() {
             <div class=""></div>
           </div>
           <div id="category-color-picker" class="category-color-picker">
-            </div>
+          </div>
+          <div id="errorMessage">
+          </div>
     `;
 }
 
-function categoryColorPickerHTML(i){
+function errorMessageHTML(){
   return /*html*/`
-              <input class="input-radio" type="radio" name="color" id="color-${i}" value="color-${i}" />
-              <label for="color-${i}" class="add-task-color-picker"><span class="color-${i}"></span></label> 
+  <p> Add a category and a color! </p>
+`
+}
+
+function categoryColorPickerHTML(i) {
+  return /*html*/`
+              <input class="input-radio" type="radio" name="color" id="${categoryColors[i]}" value="${categoryColors[i]}" />
+              <label for="${categoryColors[i]}" class="add-task-color-picker"><span class="color-${i}"></span></label> 
   `
 }
 
@@ -178,17 +197,21 @@ function loadCategoryHTML() {
     </div>`;
 }
 
-function currentCategoryHTML(idOfCategory) {
+function currentCategoryHTML(i) {
   return /*html*/` 
-    <div onclick="${idOfCategory[i]}()" id="dropbtnCategory" class="dropbtn-category">${idOfCategory[i]}</div>
+    <div onclick="openCategory()"  class="active-category">
+    <p> ${categorys[i]}</p>
+    <div style="background-color:#${UsedColors[i]}" class="categoryColor">
+    </div>
+  </div>
     `;
 }
 
-function allCategoryHTML(i){
+function allCategoryHTML(i) {
   return /*html*/`
-  <div onclick="currentCategory(${categorys[i]})"  class="currentCategory">
+  <div onclick="currentCategory(${i})"  class="current-category">
     <p> ${categorys[i]}</p>
-    <div style="background-color:#${categoryColors[i]}" class="categoryColor">
+    <div style="background-color:#${UsedColors[i]}" class="categoryColor">
     </div>
   </div>
     `;
