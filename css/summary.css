@@ -43,6 +43,10 @@ margin:50px;
     padding-left:35px; 
 }
 
+.mobile-headline{
+    display:none;
+}
+
 .summary-infoboxes{
         display: flex;
         align-items: center;
@@ -190,10 +194,6 @@ font-size:47px;
     padding-right: 75px;
 }
 
-.summary-welcome span{
-margin-left:20px;
-}
-
 .summary-welcome h1{
     font-size:47px;
     font-weight:500;
@@ -203,6 +203,10 @@ margin-left:20px;
     font-size:64px;
     color: #29ABE2;
     margin-left:0;
+}
+
+#mobile-tool-title{
+    font-size:16px;
 }
 
 .summary-overview-tasks2{
@@ -235,7 +239,6 @@ margin-left:20px;
     transform: scale(1.05);
     transition: all 225ms ease-in-out;
 }
-
 
 .summary-overview-tasksdone{
     display:flex;
@@ -512,11 +515,18 @@ margin-left:20px;
     }
 }
 @media (min-width:300px) and (max-width:900px) {
-    .summary-container{
-        margin-left:0;
-        margin-top:0;
+    .summary-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: 0;
+        margin-top: 0;
         width: 100%;
-        padding-left:0; 
+        padding-left: 0;
+    }
+
+    .summary-welcome{
+        display:none;
     }
 
     .summary-welcome-for-mobile {
@@ -525,10 +535,47 @@ margin-left:20px;
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        top: 38%;
-        left: 23%;
+        text-align: center;
+        /* top: calc(50vh - 80px);
+        left: calc(50vw - 130px); */
     }
 
+    .summary-welcome-for-mobile h1{
+        font-size:47px;
+        font-weight:500;    
+    }
+    
+    .summary-welcome-for-mobile span{
+        font-size:64px;
+        color: #29ABE2;
+        margin-left:0;   
+    }
+
+    .summary-headline{
+        display:none;
+    }
+
+    .mobile-headline {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            margin: 50px;
+    }
+    .mobile-headline h1{
+        font-size:61px;
+        font-weight:700;
+         
+    }
+    .mobile-headline span{
+        font-size:27px;
+        border-left: none;
+        padding-left:0; 
+    }
+    .blueline{
+        width:117px;
+        border-bottom: 3px solid #29ABE2; 
+    }
 }
 
 @media (min-width:299px) and (max-width:0px) {   /* Ab hier leer lassen */

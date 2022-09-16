@@ -28,14 +28,26 @@ nextUrgentTaskDate = transformDate2(nextDeadlineofUrgentTasks);
 
   fillSummarywithInfos(tasksinBoard,tasksinProgress,tasksawaitingFeedback,tasksUrgent,nextUrgentTaskDate,taskstoDo,tasksDone);
   greetUser();
-  if (innerWidth<901)
-  {document.getElementById('summary-welcome').classList.add('d-none');}
+  if (innerWidth < 901)
+  {document.getElementById('summary-welcome').classList.add('d-none');
+   document.getElementById('mobile-tool-title').innerHTML='Kanban Project Management Tool';
+  }
 
 }
 
 //Renders Mobile-Greeting
 function renderSummary2(){
   greetUser();
+
+  
+  setTimeout(function () {
+    let breite = document.getElementById('welcome-mobile').clientWidth;
+    let hoehe = document.getElementById('welcome-mobile').clientHeight;
+    document.getElementById('welcome-mobile').style.top = `calc(50vh - (${hoehe}px / 2))`;
+    document.getElementById('welcome-mobile').style.left = `calc(50vw - (${breite}px / 2))`;  
+  }, 1000);
+
+
 }
 
 //Greets the actual logged-in user
