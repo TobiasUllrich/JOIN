@@ -26,7 +26,7 @@ function templateOfNewTaskToDo(taskTodo, i) {
 
 function templateOfTaskInProgress(taskProgress, j) {
     return `
-    <div id="progress-task${j}" onclick="openCurrentTaskBigBox(${j}, ['progress'])" ondragstart="startDragging(${taskProgress['id']}); dragHighlight(['progress'], ${j}); showEmptyPlaces(['todo'], ['feedback'], ['done'])"; ondragend="hideEmptyPlaces(['todo'], ['feedback'], ['done'])"; class="main-task-container" draggable="true">
+    <div id="progress-task${j}" onclick="openCurrentTaskBigBox(${j}, ['in progress'])" ondragstart="startDragging(${taskProgress['id']}); dragHighlight(['progress'], ${j}); showEmptyPlaces(['todo'], ['feedback'], ['done'])"; ondragend="hideEmptyPlaces(['todo'], ['feedback'], ['done'])"; class="main-task-container" draggable="true">
         <div class="headline-category">
             <div id="headline-solo-task-progress${j}" class="headline-solo-task"><h3 id="headline-task-progress${j}">${taskProgress.category}</h3></div>
         </div>
@@ -52,7 +52,7 @@ function templateOfTaskInProgress(taskProgress, j) {
 
 function templateOfTaskFeedback(taskFeedback, k) {
     return `
-    <div id="feedback-task${k}" onclick="openCurrentTaskBigBox(${k}, ['feedback'])" ondragstart="startDragging(${taskFeedback['id']}); dragHighlight(['feedback'], ${k}); showEmptyPlaces(['todo'], ['progress'], ['done'])"; ondragend="hideEmptyPlaces(['todo'], ['progress'], ['done'])"; class="main-task-container" draggable="true">
+    <div id="feedback-task${k}" onclick="openCurrentTaskBigBox(${k}, ['awaiting feedback'])" ondragstart="startDragging(${taskFeedback['id']}); dragHighlight(['feedback'], ${k}); showEmptyPlaces(['todo'], ['progress'], ['done'])"; ondragend="hideEmptyPlaces(['todo'], ['progress'], ['done'])"; class="main-task-container" draggable="true">
         <div class="headline-category">
             <div id="headline-solo-task-feedback${k}" class="headline-solo-task"><h3 id="headline-task-feedback${k}">${taskFeedback.category}</h3></div>
         </div>
@@ -158,7 +158,7 @@ function templateBigBoxSoloTask(soloTasks, indexOfSoloTask){
 
 function templateOfSearchTask(taskSearch, index) {
     return `
-    <div id="search-task${index}" onclick="openCurrentTaskBigBox(${index}, ['${taskSearch.status.toLowerCase()}'])"; class="main-task-container">
+    <div id="search-task${index}" onclick="openCurrentTaskBigBoxOnSearch(${index}, ['${taskSearch.status.toLowerCase()}'])"; class="main-task-container">
         <div class="headline-category">
             <div id="headline-solo-task-search${index}" class="headline-solo-task"><h3 id="headline-task-search${index}">${taskSearch.category}</h3></div>
         </div>

@@ -79,84 +79,10 @@ function filterImportentTasks() {
     soloTasksDone = tasksScript.filter(status => status.status == 'Done'); // All tasks done
 }
 
-function searchTask() {
-    let userSearch = document.getElementById('user-search').value.toLowerCase();
-
-    for (let m = 0; m < tasksScript.length; m++) {
-        const taskSearch = tasksScript[m];
-        checkTermsOfSearch(userSearch, m, taskSearch);
-    }
-}
-
-function checkTermsOfSearch(userSearch, m, taskSearch){
-    if (taskSearch.title.toLowerCase().includes(userSearch)) {
-        if (taskSearch.status == 'To do') {
-            searchInToDoContainer(taskSearch, m);
-        } else {
-            if (taskSearch.status == 'In progress') {
-                seachInProgressContainer(taskSearch, m);
-            } else {
-                if (taskSearch.status == 'Awaiting feedback') {
-                    seachInFeedbackContainer(taskSearch, m);
-                } else {
-                    if (taskSearch.status == 'Done') {
-                        searchInDoneContainer(taskSearch, m);
-                    }
-                }
-            }
-        }
-    }
-}
-
-function searchInToDoContainer(taskSearch, m){
-    console.log(taskSearch, 'Index ist, ', m);
-    document.getElementById('category-todo').innerHTML = '';
-    document.getElementById('category-todo').innerHTML = templateOfSearchTask(taskSearch, m);
-    hideOtherTasks('progress', 'feedback', 'done');
-    updateTasksHeadlinesStatus(m, ['search']);
-}
-
-function seachInProgressContainer(taskSearch, m){
-    console.log(taskSearch, 'Index ist, ', m);
-    document.getElementById('category-progress').innerHTML = '';
-    document.getElementById('category-progress').innerHTML = templateOfSearchTask(taskSearch, m);
-    hideOtherTasks('todo', 'feedback', 'done');
-    updateTasksHeadlinesStatus(m, ['search']);
-}
-
-function seachInFeedbackContainer(taskSearch, m){
-    console.log(taskSearch, 'Index ist, ', m);
-    document.getElementById('category-feedback').innerHTML = '';
-    document.getElementById('category-feedback').innerHTML = templateOfSearchTask(taskSearch, m);
-    hideOtherTasks('todo', 'progress', 'done');
-    updateTasksHeadlinesStatus(m, ['search']);
-}
-
-function searchInDoneContainer(taskSearch, m){
-    console.log(taskSearch, 'Index ist, ', m);
-    document.getElementById('category-done').innerHTML = '';
-    document.getElementById('category-done').innerHTML = templateOfSearchTask(taskSearch, m);
-    hideOtherTasks('todo', 'progress', 'feedback');
-    updateTasksHeadlinesStatus(m, ['search']);
-}
-
-function checkEmptyField() {
-    let userSearch = document.getElementById('user-search').value.toLowerCase();
-    if (userSearch.length <= 0) {
-        renderBoard();
-    }
-}
-
-function hideOtherTasks(statusOne, statusTwo, statusThree){
-    document.getElementById(`category-${statusOne}`).innerHTML = '';
-    document.getElementById(`category-${statusTwo}`).innerHTML = '';
-    document.getElementById(`category-${statusThree}`).innerHTML = '';
-}
-
 function renderAssignedNamesOfTask(i) { // NOCH NICHT FERTIG ___ MUSS NOCH GESCHRIEBEN WERDEN
     let renderOutputContainer = document.getElementById(`solo-worker-todo${i}`);
     renderOutputContainer.innerHTML = '';
-    renderOutputContainer.innerHTML += `<div class="worker-name-start-letters d-center"></div>`
+    renderOutputContainer.innerHTML += `<div class="worker-name-start-letters d-center"> </div>`
     // ${users[soloTasksTodo[i].assignedTo[i]].name.charAt(0)};
     // ${users[soloTasksTodo[i].assignedTo[i]].surname.charAt(0)}; ## DAS IST DER CODE DER IN ZEILE 76 IN DIE DIV´S MUSS JEDOCH IST USERS UNDEFINED
 }
@@ -206,14 +132,40 @@ function openCurrentTaskBigBox(indexOfSoloTask, statusTask) {
     if (statusTask == 'to do') {
         bigBoxContainer.innerHTML = templateBigBoxSoloTask(soloTasksTodo, indexOfSoloTask);
     } else {
-        if (statusTask == 'progress') {
+        if (statusTask == 'in progress') {
             bigBoxContainer.innerHTML = templateBigBoxSoloTask(soloTasksProgress, indexOfSoloTask);
         } else {
-            if(statusTask == 'feedback'){
+            if (statusTask == 'awaiting feedback') {
                 bigBoxContainer.innerHTML = templateBigBoxSoloTask(soloTasksFeedback, indexOfSoloTask);
             } else {
-                if(statusTask == 'done'){
+                if (statusTask == 'done') {
                     bigBoxContainer.innerHTML = templateBigBoxSoloTask(soloTasksDone, indexOfSoloTask);
+                }
+            }
+        }
+    }
+    checkPriorityBackgroundColor();
+    checkHeadlineColorBigBox();
+}
+
+function openCurrentTaskBigBoxOnSearch(indexOfSoloTask, statusTask) {
+    let bigBoxContainer = document.getElementById('main-bigbox-solo-task-container');
+    addOpacityToMainBackground();
+    backgroundIsUnclickable();
+    removeDisplayNoneMainContainer(bigBoxContainer);
+    bigBoxContainer.innerHTML = '';
+
+    if (statusTask == 'to do') {
+        bigBoxContainer.innerHTML = templateBigBoxSoloTask(tasksScript, indexOfSoloTask);
+    } else {
+        if (statusTask == 'in progress') {
+            bigBoxContainer.innerHTML = templateBigBoxSoloTask(tasksScript, indexOfSoloTask);
+        } else {
+            if (statusTask == 'awaiting feedback') {
+                bigBoxContainer.innerHTML = templateBigBoxSoloTask(tasksScript, indexOfSoloTask);
+            } else {
+                if (statusTask == 'done') {
+                    bigBoxContainer.innerHTML = templateBigBoxSoloTask(tasksScript, indexOfSoloTask);
                 }
             }
         }
@@ -268,6 +220,88 @@ function checkPriorityBackgroundColor() {
     if (prioBackgroundColor.innerHTML == 'Medium') {
         prioBackgroundColor.style.background = '#ffc85f';
     }
+}
+
+
+
+function searchTask() {
+    let userSearch = document.getElementById('user-search').value.toLowerCase();
+
+    for (let m = 0; m < tasksScript.length; m++) {
+        const taskSearch = tasksScript[m];
+        checkTermsOfSearch(userSearch, m, taskSearch);
+    }
+}
+
+function enterEventSearchTask(){
+    if (event.key === "Enter") {
+        document.getElementById('search-task-btn').click();
+    }
+}
+
+function checkTermsOfSearch(userSearch, m, taskSearch) {
+    if (taskSearch.title.toLowerCase().includes(userSearch)) {
+        if (taskSearch.status == 'To do') {
+            searchInToDoContainer(taskSearch, m);
+        } else {
+            if (taskSearch.status == 'In progress') {
+                seachInProgressContainer(taskSearch, m);
+            } else {
+                if (taskSearch.status == 'Awaiting feedback') {
+                    seachInFeedbackContainer(taskSearch, m);
+                } else {
+                    if (taskSearch.status == 'Done') {
+                        searchInDoneContainer(taskSearch, m);
+                    }
+                }
+            }
+        }
+    }
+}
+
+function searchInToDoContainer(taskSearch, m) {
+    console.log(taskSearch, 'Index ist, ', m);
+    document.getElementById('category-todo').innerHTML = '';
+    document.getElementById('category-todo').innerHTML = templateOfSearchTask(taskSearch, m);
+    hideOtherTasks('progress', 'feedback', 'done');
+    updateTasksHeadlinesStatus(m, ['search']);
+}
+
+function seachInProgressContainer(taskSearch, m) {
+    console.log(taskSearch, 'Index ist, ', m);
+    document.getElementById('category-progress').innerHTML = '';
+    document.getElementById('category-progress').innerHTML = templateOfSearchTask(taskSearch, m);
+    hideOtherTasks('todo', 'feedback', 'done');
+    updateTasksHeadlinesStatus(m, ['search']);
+}
+
+function seachInFeedbackContainer(taskSearch, m) {
+    console.log(taskSearch, 'Index ist, ', m);
+    document.getElementById('category-feedback').innerHTML = '';
+    document.getElementById('category-feedback').innerHTML = templateOfSearchTask(taskSearch, m);
+    hideOtherTasks('todo', 'progress', 'done');
+    updateTasksHeadlinesStatus(m, ['search']);
+}
+
+function searchInDoneContainer(taskSearch, m) {
+    console.log(taskSearch, 'Index ist, ', m);
+    document.getElementById('category-done').innerHTML = '';
+    document.getElementById('category-done').innerHTML = templateOfSearchTask(taskSearch, m);
+    hideOtherTasks('todo', 'progress', 'feedback');
+    updateTasksHeadlinesStatus(m, ['search']);
+}
+
+function checkEmptyField() {
+    let userSearch = document.getElementById('user-search').value.toLowerCase();
+    if (userSearch.length <= 0) {
+        renderBoard();
+    }
+}
+
+function hideOtherTasks(statusOne, statusTwo, statusThree) {
+    document.getElementById(`category-${statusOne}`).innerHTML = '';
+    document.getElementById(`category-${statusTwo}`).innerHTML = '';
+    document.getElementById(`category-${statusThree}`).innerHTML = '';
 }
 
 function startDragging(id) {
@@ -371,10 +405,10 @@ function hideEmptyPlaces(otherStatusOne, otherStatusTwo, otherStatusThree) {
 }
 
 /* CODE TODO LEFT
-    - Search Funktion
+    - Search Funktion ### FINISH
     - Edit Task Function
     - Add Task Funktion --> Warten auf Eugen sein Code
-    - Drag und Drop Function --> Funktion finish / Style nedded and save after move
+    - Drag und Drop Function --> ### FINISH
     - Assigned To Render / mini Task and Big Task --> Users akt. undefined
     - Unscrollable Board - sticky Boardheadline 
 */
