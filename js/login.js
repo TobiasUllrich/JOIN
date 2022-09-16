@@ -168,17 +168,6 @@ async function resetPassword() {
     }
 }
 
-//SET USER PIC FOR KANBAN-BOARD
-function setactUser(){
-    let actUserArray = [];
-    actUserArray = getArray ('arrayOfactUser') //Get User-Object from local Storage
-    
-    //Ohne setTimeout versucht er src zu beschreiben bevor die Seite fertig geladen ist (Tipp: src="" als Standard beim zu beschreibenden Element)
-    setTimeout(function () {
-        document.getElementById('footer-picture').src=`img/${actUserArray['picture']}`;         
-    }, 1000);
-}
-
 // Password benötigt mindestens einen Großbuchstaben, Kleinbuchstaben und eine Zahl
 // Liefert true -> Test bestanden; Liefert false -> Test nicht bestanden!
 function checkPasswordSyntax(str) { // at least one number, one lowercase and one uppercase letter
