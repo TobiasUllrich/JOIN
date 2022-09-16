@@ -67,7 +67,7 @@
                     <h2>Board</h2>
                 </div>
                 <div class="navbar">
-                    <div class="search-task"><input onkeydown="checkEmptyField()" id="user-search" placeholder="Find Task"><div onclick="searchTask()" class="search-btn"><img class="search-img" src="./img/board/search.png"></div></div>
+                    <div class="search-task"><input onkeydown="checkEmptyField(); enterEventSearchTask()" id="user-search" placeholder="Find Task"><div id="search-task-btn" onclick="searchTask()" class="search-btn"><img class="search-img" src="./img/board/search.png"></div></div>
                     <div class="add-task"><button onclick="addTaskBoard()" class="add-task-button">Add task<img class="add-img-straight" src="./img/board/plus1.png"><img class="add-img-up" src="./img/board/plus2.png"></button></div>
                 </div>
             </div>
