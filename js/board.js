@@ -206,14 +206,40 @@ function openCurrentTaskBigBox(indexOfSoloTask, statusTask) {
     if (statusTask == 'to do') {
         bigBoxContainer.innerHTML = templateBigBoxSoloTask(soloTasksTodo, indexOfSoloTask);
     } else {
-        if (statusTask == 'progress') {
+        if (statusTask == 'in progress') {
             bigBoxContainer.innerHTML = templateBigBoxSoloTask(soloTasksProgress, indexOfSoloTask);
         } else {
-            if(statusTask == 'feedback'){
+            if(statusTask == 'awaiting feedback'){
                 bigBoxContainer.innerHTML = templateBigBoxSoloTask(soloTasksFeedback, indexOfSoloTask);
             } else {
                 if(statusTask == 'done'){
                     bigBoxContainer.innerHTML = templateBigBoxSoloTask(soloTasksDone, indexOfSoloTask);
+                }
+            }
+        }
+    }
+    checkPriorityBackgroundColor();
+    checkHeadlineColorBigBox();
+}
+
+function openCurrentTaskBigBoxOnSearch(indexOfSoloTask, statusTask) {
+    let bigBoxContainer = document.getElementById('main-bigbox-solo-task-container');
+    addOpacityToMainBackground();
+    backgroundIsUnclickable();
+    removeDisplayNoneMainContainer(bigBoxContainer);
+    bigBoxContainer.innerHTML = '';
+
+    if (statusTask == 'to do') {
+        bigBoxContainer.innerHTML = templateBigBoxSoloTask(tasksScript, indexOfSoloTask);
+    } else {
+        if (statusTask == 'in progress') {
+            bigBoxContainer.innerHTML = templateBigBoxSoloTask(tasksScript, indexOfSoloTask);
+        } else {
+            if(statusTask == 'awaiting feedback'){
+                bigBoxContainer.innerHTML = templateBigBoxSoloTask(tasksScript, indexOfSoloTask);
+            } else {
+                if(statusTask == 'done'){
+                    bigBoxContainer.innerHTML = templateBigBoxSoloTask(tasksScript, indexOfSoloTask);
                 }
             }
         }
