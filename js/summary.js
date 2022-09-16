@@ -28,6 +28,14 @@ nextUrgentTaskDate = transformDate2(nextDeadlineofUrgentTasks);
 
   fillSummarywithInfos(tasksinBoard,tasksinProgress,tasksawaitingFeedback,tasksUrgent,nextUrgentTaskDate,taskstoDo,tasksDone);
   greetUser();
+  if (innerWidth<901)
+  {document.getElementById('summary-welcome').classList.add('d-none');}
+
+}
+
+//Renders Mobile-Greeting
+function renderSummary2(){
+  greetUser();
 }
 
 //Greets the actual logged-in user

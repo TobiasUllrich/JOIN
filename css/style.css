@@ -232,10 +232,16 @@ width:60%;
 }
 .footer-help{
   display:flex;
+  width:100%;
 }
 
 .footer-legnotice{
   display:flex;
+  width:100%;
+}
+
+.footer-logout2{
+  width:100%;
 }
 
 .footer-logout {

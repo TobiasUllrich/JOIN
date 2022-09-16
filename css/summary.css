@@ -518,6 +518,17 @@ margin-left:20px;
         width: 100%;
         padding-left:0; 
     }
+
+    .summary-welcome-for-mobile {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        top: 38%;
+        left: 23%;
+    }
+
 }
 
 @media (min-width:299px) and (max-width:0px) {   /* Ab hier leer lassen */
