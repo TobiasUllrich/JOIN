@@ -36,18 +36,25 @@ nextUrgentTaskDate = transformDate2(nextDeadlineofUrgentTasks);
 }
 
 //Renders Mobile-Greeting
-function renderSummary2(){
+function renderSummary2(){  
   greetUser();
+  centerGreetings();
+  showGreetings();
+}
 
-  
+//Centers greetings in the middle of the Page
+function centerGreetings(){
+  let breite = document.getElementById('welcome-mobile').clientWidth;
+  let hoehe = document.getElementById('welcome-mobile').clientHeight;
+  document.getElementById('welcome-mobile').style.top = `calc(50vh - (${hoehe}px / 2))`;
+  document.getElementById('welcome-mobile').style.left = `calc(50vw - (${breite}px / 2))`; 
+}
+
+//Shows greetings after they were loaded, so we wait for 1 Second to make them the foreground
+function showGreetings(){
   setTimeout(function () {
-    let breite = document.getElementById('welcome-mobile').clientWidth;
-    let hoehe = document.getElementById('welcome-mobile').clientHeight;
-    document.getElementById('welcome-mobile').style.top = `calc(50vh - (${hoehe}px / 2))`;
-    document.getElementById('welcome-mobile').style.left = `calc(50vw - (${breite}px / 2))`;  
+    document.getElementById('summary-container-for-mobile').classList.remove('foreground'); 
   }, 1000);
-
-
 }
 
 //Greets the actual logged-in user
