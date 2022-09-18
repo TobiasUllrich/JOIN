@@ -9,7 +9,7 @@ body {
     transition: all 225ms ease-in-out;
 }
 
-.reset-rotation{
+.reset-rotation {
     transform: rotate(0deg);
     transition: all 225ms ease-in-out;
 }
@@ -39,7 +39,7 @@ body {
 
 .main-headline-container {
     width: 90%;
-    height: 40vh;
+    height: 30vh;
     left: 267px;
     top: 57px;
     background: #F6F7F8;
@@ -182,9 +182,14 @@ body {
     padding: 0px;
     gap: 26px;
     width: 90%;
-    height: 65vh;
+    height: 57vh;
     justify-content: space-between;
     margin-top: -130px;
+    overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+    display: none;
 }
 
 .main-solo-task-container {
@@ -206,6 +211,22 @@ body {
     width: 100%;
     height: 30px;
     cursor: pointer;
+    position: sticky;
+    top: 0;
+}
+
+.headline-tasks{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 135px;
+}
+
+.headline-task{
+    width: 310px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .headline-task h3 {
@@ -485,12 +506,6 @@ body {
 }
 
 .big-box-tasks-container-full-size {
-    /*width: calc(100vw - 232px);
-    height: calc(100vh - 80px);
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;*/
     position: absolute;
     left: 40%;
     top: 15%;

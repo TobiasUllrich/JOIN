@@ -15,11 +15,12 @@ let currentDraggingElement;
 
 async function renderBoard() {
     await init();
+    await filterTasks();
     renderToDo();
     renderProgress();
     renderFeedback();
     renderDone();
-    filterImportentTasks();
+
 }
 
 function renderToDo() {
@@ -71,7 +72,7 @@ function renderDone() {
     }
 }
 
-function filterImportentTasks() {
+function filterTasks() {
     importantTasks = tasksScript.filter(priority => priority.priority == 'Urgent'); // All important Tasks
     soloTasksTodo = tasksScript.filter(status => status.status == 'To do'); // All tasks todo
     soloTasksProgress = tasksScript.filter(status => status.status == 'In progress'); // All tasks in progress
@@ -81,8 +82,11 @@ function filterImportentTasks() {
 
 function renderAssignedNamesOfTask(i) { // NOCH NICHT FERTIG ___ MUSS NOCH GESCHRIEBEN WERDEN
     let renderOutputContainer = document.getElementById(`solo-worker-todo${i}`);
+
+
+
     renderOutputContainer.innerHTML = '';
-    renderOutputContainer.innerHTML += `<div class="worker-name-start-letters d-center"> </div>`
+    renderOutputContainer.innerHTML += `<div class="worker-name-start-letters d-center"></div>`
     // ${users[soloTasksTodo[i].assignedTo[i]].name.charAt(0)};
     // ${users[soloTasksTodo[i].assignedTo[i]].surname.charAt(0)}; ## DAS IST DER CODE DER IN ZEILE 76 IN DIE DIV´S MUSS JEDOCH IST USERS UNDEFINED
 }
@@ -233,7 +237,7 @@ function searchTask() {
     }
 }
 
-function enterEventSearchTask(){
+function enterEventSearchTask() {
     if (event.key === "Enter") {
         document.getElementById('search-task-btn').click();
     }
@@ -260,7 +264,6 @@ function checkTermsOfSearch(userSearch, m, taskSearch) {
 }
 
 function searchInToDoContainer(taskSearch, m) {
-    console.log(taskSearch, 'Index ist, ', m);
     document.getElementById('category-todo').innerHTML = '';
     document.getElementById('category-todo').innerHTML = templateOfSearchTask(taskSearch, m);
     hideOtherTasks('progress', 'feedback', 'done');
@@ -268,7 +271,6 @@ function searchInToDoContainer(taskSearch, m) {
 }
 
 function seachInProgressContainer(taskSearch, m) {
-    console.log(taskSearch, 'Index ist, ', m);
     document.getElementById('category-progress').innerHTML = '';
     document.getElementById('category-progress').innerHTML = templateOfSearchTask(taskSearch, m);
     hideOtherTasks('todo', 'feedback', 'done');
@@ -276,7 +278,6 @@ function seachInProgressContainer(taskSearch, m) {
 }
 
 function seachInFeedbackContainer(taskSearch, m) {
-    console.log(taskSearch, 'Index ist, ', m);
     document.getElementById('category-feedback').innerHTML = '';
     document.getElementById('category-feedback').innerHTML = templateOfSearchTask(taskSearch, m);
     hideOtherTasks('todo', 'progress', 'done');
@@ -284,7 +285,6 @@ function seachInFeedbackContainer(taskSearch, m) {
 }
 
 function searchInDoneContainer(taskSearch, m) {
-    console.log(taskSearch, 'Index ist, ', m);
     document.getElementById('category-done').innerHTML = '';
     document.getElementById('category-done').innerHTML = templateOfSearchTask(taskSearch, m);
     hideOtherTasks('todo', 'progress', 'feedback');
@@ -293,7 +293,7 @@ function searchInDoneContainer(taskSearch, m) {
 
 function checkEmptyField() {
     let userSearch = document.getElementById('user-search').value.toLowerCase();
-    if (userSearch.length <= 0) {
+    if (userSearch.length <= 1) {
         renderBoard();
     }
 }
@@ -405,11 +405,11 @@ function hideEmptyPlaces(otherStatusOne, otherStatusTwo, otherStatusThree) {
 }
 
 /* CODE TODO LEFT
-    - Search Funktion ### FINISH
     - Edit Task Function
-    - Add Task Funktion --> Warten auf Eugen sein Code
+    - Assigned To Render / mini Task and Big Task
+    - Unscrollable Board - sticky Boardheadline ### FINISH
+    - Search Funktion ### FINISH
     - Drag und Drop Function --> ### FINISH
-    - Assigned To Render / mini Task and Big Task --> Users akt. undefined
-    - Unscrollable Board - sticky Boardheadline 
+    - Add Task Funktion --> Warten auf Eugen sein Code
 */
 
