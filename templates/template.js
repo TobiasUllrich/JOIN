@@ -106,7 +106,7 @@ function templateOfTaskDone(taskDone, l) {
 
 // BREAK SOLO TASK TEMPLATE
 
-function templateBigBoxSoloTask(soloTasks, indexOfSoloTask){
+function templateBigBoxSoloTask(soloTasks, indexOfSoloTask) {
     return `
     <div id="big-box-solo-task" class="main-big-box-task-container">
         <div onclick="closeSoloTaskBigBox(${indexOfSoloTask})" class="close-big-box-task"><img src="./img/board/close.png"></div>
@@ -148,7 +148,7 @@ function templateBigBoxSoloTask(soloTasks, indexOfSoloTask){
                 </table>
             </div>
         </div>
-        <div id="edit-button" onmouseover="changeEditContainerColors()" onmouseleave="RemoveEditContainerColors()" class="edit-button d-center"><img id="edit-pencil" src="./img/board/pencil.png"></div>
+        <div onclick="editCurrentTask(${soloTasks[indexOfSoloTask].id})" id="edit-button${indexOfSoloTask}" onmouseover="changeEditContainerColors(${indexOfSoloTask})" onmouseleave="RemoveEditContainerColors(${indexOfSoloTask})" class="edit-button d-center"><img id="edit-pencil${indexOfSoloTask}" src="./img/board/pencil.png"></div>
     </div>`
 }
 
@@ -184,3 +184,49 @@ function templateOfSearchTask(taskSearch, index) {
 }
 
 // ##############BOARD TEMPLATES END################# //
+
+function templateEditCurrentTask(currentTask) {
+    return `
+    <div id="main-edit-container" class="main-edit-container">
+        <div class="edit-headline">
+            <h3>Title</h3>
+            <input placeholder="${currentTask.title}">
+        </div>
+
+        <div class="edit-description">
+            <h3>Description</h3>
+            <textarea placeholder="${currentTask.description}"></textarea>
+        </div>
+
+        <div class="edit-date">
+            <h3>Due date</h3>
+            <input type="date" placeholder="${currentTask.dueDate}">
+        </div>
+
+        <div class="edit-prio">
+            <h3>Prio</h3>
+            <div class="edit-prio-subcontainer">
+                <div class="edit-prioclass"><span>URGENT</span><img src="./img/board/urgent-addtask.png"></div>
+                <div class="edit-prioclass"><span>MEDIUM</span><img src="./img/board/medium-addtask.png"></div>
+                <div class="edit-prioclass"><span>LOW</span><img src="./img/board/low-addtask.png"></div>
+            </div>
+        </div>
+
+        <div class="edit-assignedTo">
+            <h3>Assigned to</h3>
+            <select>
+                <option>Worker 1</option>
+                <option>Worker 2</option>
+                <option>Worker 3</option>
+                <option>Worker 4</option>
+                <option>Worker 5</option>
+            </select>
+        </div>
+
+        <div class="change-edit-button">
+            <div>Ok</div><img src="./img/check_white.png">
+        </div>
+
+        <div class="close-edit-container"><img onclick="closeEditContainer()" src="./img/board/close.png">
+    </div>`
+}

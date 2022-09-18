@@ -83,8 +83,6 @@ function filterTasks() {
 function renderAssignedNamesOfTask(i) { // NOCH NICHT FERTIG ___ MUSS NOCH GESCHRIEBEN WERDEN
     let renderOutputContainer = document.getElementById(`solo-worker-todo${i}`);
 
-
-
     renderOutputContainer.innerHTML = '';
     renderOutputContainer.innerHTML += `<div class="worker-name-start-letters d-center"></div>`
     // ${users[soloTasksTodo[i].assignedTo[i]].name.charAt(0)};
@@ -150,6 +148,17 @@ function openCurrentTaskBigBox(indexOfSoloTask, statusTask) {
     }
     checkPriorityBackgroundColor();
     checkHeadlineColorBigBox();
+}
+
+function editCurrentTask(idOfCurrentTask){
+    console.log(idOfCurrentTask);
+    let currentTask = tasksScript[idOfCurrentTask];
+    console.log(currentTask);
+
+    let bigBoxContainer = document.getElementById('big-box-solo-task');
+    bigBoxContainer.innerHTML = '';
+
+    bigBoxContainer.innerHTML = templateEditCurrentTask(currentTask);
 }
 
 function openCurrentTaskBigBoxOnSearch(indexOfSoloTask, statusTask) {
@@ -332,17 +341,17 @@ function doNotClose(event) {
     event.stopPropagation();
 }
 
-function changeEditContainerColors() {
-    let editContainer = document.getElementById('edit-button');
-    let editPencil = document.getElementById('edit-pencil');
+function changeEditContainerColors(indexOfSoloTask) {
+    let editContainer = document.getElementById(`edit-button${indexOfSoloTask}`);
+    let editPencil = document.getElementById(`edit-pencil${indexOfSoloTask}`);
 
     makeContainerBlue(editContainer);
     makeImgWhite(editPencil);
 }
 
-function RemoveEditContainerColors() {
-    let editContainer = document.getElementById('edit-button');
-    let editPencil = document.getElementById('edit-pencil');
+function RemoveEditContainerColors(indexOfSoloTask) {
+    let editContainer = document.getElementById(`edit-button${indexOfSoloTask}`);
+    let editPencil = document.getElementById(`edit-pencil${indexOfSoloTask}`);
 
     removeContainerColorBlue(editContainer);
     makeImageColorDefault(editPencil);
@@ -404,6 +413,11 @@ function hideEmptyPlaces(otherStatusOne, otherStatusTwo, otherStatusThree) {
     document.getElementById(`empty-space-${otherStatusThree}`).classList.add('d-none');
 }
 
+function closeEditContainer(){
+    document.getElementById('main-edit-container').classList.add('d-none');
+    closeSoloTaskBigBox();
+}
+
 /* CODE TODO LEFT
     - Edit Task Function
     - Assigned To Render / mini Task and Big Task
@@ -412,4 +426,3 @@ function hideEmptyPlaces(otherStatusOne, otherStatusTwo, otherStatusThree) {
     - Drag und Drop Function --> ### FINISH
     - Add Task Funktion --> Warten auf Eugen sein Code
 */
-

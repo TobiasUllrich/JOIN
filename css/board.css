@@ -519,6 +519,123 @@ body {
     border: 2px dotted black;
 }
 
+.main-edit-container{
+    height: 100%;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.main-edit-container h3{
+    font-size: 20px;
+}
+
+.main-edit-container input{
+    width: 100%;
+    height: 45px;
+    border-radius: 8px;
+    outline: none;
+    border: 1px solid lightgrey;
+    margin-bottom: 12px;
+}
+
+.edit-prio-subcontainer{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.edit-headline input::placeholder{
+    padding-left: 12px;
+    color: black;
+    font-size: 20px;
+}
+
+.edit-description textarea{
+    height: 120px;
+    width: 100%;
+    border-radius: 8px;
+    border-color: lightgray;
+}
+
+.edit-description textarea::placeholder{
+    padding-left: 12px;
+    padding-right: 12px;
+    color: black;
+    font-size: 20px;
+    height: 100%;
+    width: 80%;
+}
+
+.edit-date input{
+    padding-left: 12px;
+    padding-right: 12px;
+    cursor: pointer;
+}
+
+.edit-prio{
+    margin-bottom: 12px;
+}
+
+.edit-prioclass{
+    margin-right: 12px;
+    border: 1px solid lightgray;
+    padding: 8px;
+    border-radius: 8px;
+    width: 125px;
+    color: black;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    cursor: pointer;
+}
+
+.edit-prioclass img{
+    height: 20px;
+    width: 20px;
+    object-fit: contain;
+}
+
+.close-edit-container{
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    cursor: pointer;
+}
+
+.change-edit-button{
+    position: absolute;
+    bottom: 25px;
+    right: 25px;
+    border: 1px solid lightgray;
+    border-radius: 8px;
+    padding: 8px;
+    width: 70px;
+    height: 50px;
+    background: #2a3647;
+    display: flex;
+    color: white;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: all 225ms ease-in-out;
+}
+
+.change-edit-button div{
+    font-weight: bold;
+}
+
+.change-edit-button:hover{
+    background: #0190E0 !important;
+}
+
+.change-edit-button img{
+    object-fit: cover;
+    height: 17px;
+    width: 17px;
+}
+
+
+
 @keyframes rotation {
     from {
         transform: rotate(0deg);
