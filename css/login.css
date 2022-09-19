@@ -585,7 +585,7 @@ input:-webkit-autofill {
         align-items: center;
         background-color: #F5F5F5;
         height: 100vh;
-}
+    }
 
     .login-notajoinuser {
         position: absolute;
