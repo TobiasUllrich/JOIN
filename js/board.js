@@ -421,24 +421,62 @@ function closeEditContainer(){
 function changePrioTo(idOfcurrentTask, newPrio){
     if(newPrio == 'urgent'){
         console.log(newPrio);
-        document.getElementById('urgent-prio').classList.add('urgent-prio');
-        document.getElementById('urgent-img').style.filter = 'brightness(0) invert(1)';
-        document.getElementById('medium-prio').classList.remove('medium-prio');
-        document.getElementById('low-prio').classList.remove('low-prio');
+        changePrioToUrgent();
     }
     if(newPrio == 'medium'){
         console.log(newPrio);
-        document.getElementById('medium-prio').classList.add('medium-prio');
-        document.getElementById('medium-img').style.filter = 'brightness(0) invert(1)';
-        document.getElementById('urgent-prio').classList.remove('urgent-prio');
-        document.getElementById('low-prio').classList.remove('low-prio');
+        changePrioToMedium();
     }
     if(newPrio == 'low'){
         console.log(newPrio);
-        document.getElementById('low-prio').classList.add('low-prio');
-        document.getElementById('low-img').style.filter = 'brightness(0) invert(1)';
-        document.getElementById('urgent-prio').classList.remove('urgent-prio');
-        document.getElementById('medium-prio').classList.remove('medium-prio');
+        changePrioToLow();
+    }
+}
+
+function changePrioToUrgent(){
+    highlightClickedPrioContainer('urgent');
+    removePossibleClickedPrioBefore('medium', 'low');
+    removeImgFilter('medium');
+    removeImgFilter('low');
+}
+
+function changePrioToMedium(){
+    highlightClickedPrioContainer('medium');
+    removePossibleClickedPrioBefore('urgent', 'low');
+    removeImgFilter('urgent');
+    removeImgFilter('low');
+}
+
+function changePrioToLow(){
+    highlightClickedPrioContainer('low');
+    removePossibleClickedPrioBefore('urgent', 'medium');
+    removeImgFilter('urgent');
+    removeImgFilter('medium');
+}
+
+function removePossibleClickedPrioBefore(otherPrioOne, otherPrioTwo){
+    document.getElementById(`${otherPrioOne}-prio`).classList.remove(`${otherPrioOne}-prio`);
+    document.getElementById(`${otherPrioTwo}-prio`).classList.remove(`${otherPrioTwo}-prio`);
+}
+
+function removeImgFilter(imgPrio){
+    document.getElementById(`${imgPrio}-img`).style.filter = '';
+}
+
+function highlightClickedPrioContainer(prio){
+    document.getElementById(`${prio}-prio`).classList.add(`${prio}-prio`);
+    document.getElementById(`${prio}-img`).style.filter = 'brightness(0) invert(1)';
+}
+
+function renderAssignedTo(){
+    let outputContainer = document.getElementById('edit-possible-worker');
+
+    outputContainer.innerHTML = '';
+
+    for(let o = 0; o < users.length; o++){
+        const singleUserName = users[o].name;
+        outputContainer.innerHTML += `
+        <option>${singleUserName}</option>`
     }
 }
 
