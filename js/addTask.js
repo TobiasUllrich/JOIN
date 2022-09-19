@@ -1,12 +1,13 @@
 let subtasks = [];
 let categorys = ['Sales', 'Backoffice'];
 let categoryColors = ['8aa4ff', 'ff0000', '2ad300', 'ff8a00', 'e200be', '0038ff'];
-let usedColors = ['fc71ff', '1fd7c1 '] 
+let usedColors = ['fc71ff', '1fd7c1 ']
 let assign = [];
 
 
 function loadAddTastk() {
   loadCategory();
+  loadAssigned();
 }
 
 function loadCategory() {
@@ -17,7 +18,14 @@ function loadCategory() {
   loadCategorys();
 }
 
-function clearInputValueCategory(){
+function loadAssigned() {
+  let assignedContainer = document.getElementById('assignedContainer');
+  assignedContainer.innerHTML = '';
+  assignedContainer.innerHTML = loadAssignedHTML();
+
+}
+
+function clearInputValueCategory() {
   let categoryValue = document.getElementById('categoryInput');
   let colorValue = document.getElementById('colorInput');
   categoryValue.value = '';
@@ -192,7 +200,7 @@ function newCategoryInputHTML() {
     `;
 }
 
-function errorMessageHTML(){
+function errorMessageHTML() {
   return /*html*/`
   <p> Add a category and a color! </p>
 `
@@ -217,7 +225,7 @@ function loadCategoryHTML() {
 
 function currentCategoryHTML(i) {
   return /*html*/` 
-    <div onclick="openCategory()"  class="active-category">
+    <div   class="active-category">
     <p> ${categorys[i]}</p>
     <div style="background-color:#${usedColors[i]}" class="categoryColor">
     </div>
@@ -244,6 +252,22 @@ function subtaskListHTML(i) {
             ${subtask}
           </label>
         </div>`;
+}
+
+function loadAssignedHTML() {
+  return /*html*/`
+  <div onclick="openAssign()" id="dropbtnAssign" class="dropbtn-assign" type="button">Select contacts to assign<img src="./img/addtask/dropdown-Vector.png" alt=""></div>
+  <div id="assignDropdown" class="dropdown-content">
+        <span class="d-flex menu-option"><label class="assign-label">
+               You</label> <input required class="assign-input" type="checkbox"></span>
+        <span class="d-flex menu-option"><label class="assign-label">
+                Max Mustermann</label> <input class="assign-input"  type="checkbox"></span>
+        <span class="d-flex menu-option"><label class="assign-label">
+                Fanz Musterhaus</label> <input class="assign-input" type="checkbox"></span>
+        <div onclick="switchToSearchInput()"class="switchToSearch-btn-assign" type="button">Select contacts to assign<img class="black-icon" src="./img/addtask/newContactIcon.png" alt=""></div>
+  </div>
+  
+  `;
 }
 
 
