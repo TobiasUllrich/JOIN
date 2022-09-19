@@ -418,6 +418,9 @@ function closeEditContainer(){
     closeSoloTaskBigBox();
 }
 
+function changePrioTo(idOfcurrentTask, newPrio){
+}
+
 /* CODE TODO LEFT
     - Edit Task Function
     - Assigned To Render / mini Task and Big Task
