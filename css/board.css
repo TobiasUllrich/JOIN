@@ -540,7 +540,7 @@ body {
 
 .edit-prio-subcontainer {
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -577,7 +577,6 @@ body {
 }
 
 .edit-prioclass {
-    margin-right: 12px;
     border: 1px solid lightgray;
     padding: 8px;
     border-radius: 8px;

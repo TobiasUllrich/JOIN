@@ -187,7 +187,7 @@ function templateOfSearchTask(taskSearch, index) {
 
 function templateEditCurrentTask(currentTask) {
     return `
-    <div id="main-edit-container" class="main-edit-container">
+    <div onclick="renderAssignedTo()" id="main-edit-container" class="main-edit-container">
         <div class="edit-headline">
             <h3>Title</h3>
             <input placeholder="${currentTask.title}">
@@ -214,13 +214,7 @@ function templateEditCurrentTask(currentTask) {
 
         <div class="edit-assignedTo">
             <h3>Assigned to</h3>
-            <select>
-                <option>Worker 1</option>
-                <option>Worker 2</option>
-                <option>Worker 3</option>
-                <option>Worker 4</option>
-                <option>Worker 5</option>
-            </select>
+            <select id="edit-possible-worker"></select>
         </div>
 
         <div class="change-edit-button">
