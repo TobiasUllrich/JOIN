@@ -168,6 +168,12 @@ async function resetPassword() {
     }
 }
 
+//Animation for Mobile (900px or less)
+function mobileAnimation(){
+    
+}
+
+
 // Password benötigt mindestens einen Großbuchstaben, Kleinbuchstaben und eine Zahl
 // Liefert true -> Test bestanden; Liefert false -> Test nicht bestanden!
 function checkPasswordSyntax(str) { // at least one number, one lowercase and one uppercase letter

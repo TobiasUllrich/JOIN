@@ -8,6 +8,8 @@ body {
     overflow-x: hidden;     /* Standard: Was auf der X-Achse aus dem Body/Tag rausläuft wird nicht mehr gezeigt */
                            /* muss dem Body gegeben werden, ABER funktioniert nicht auf dem Handy -> Lösung: Alles in eine <div> was in <body> ist und diesem <div> das overflow-Attribut geben */           
     overflow-y: hidden;
+    background-color: #F5F5F5;
+
     display:flex;
     flex-direction:column;    
     }
@@ -28,6 +30,14 @@ form{
 ::placeholder{
     color: #D1D1D1; 
  }
+
+ .center-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
 
  .formular-inputdesign{
     display: flex;
@@ -68,13 +78,20 @@ form{
 }
 
 /* LOGIN */
-.login-Container{
+.login-container{
     display:flex;
     justify-content: center;
     align-items:center;
     background-color:#F5F5F5; 
+}
+
+.login-container2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
     width:100vw;
-    height:100vh;
 }
 
 .login-Box{
@@ -243,6 +260,14 @@ to
 /* Login-Animation */
 
 /* SIGN UP */
+.signup-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #F5F5F5;
+        height: 100vh;
+}
+
 .signup-Box{
     position:absolute;
     display:flex;
@@ -457,10 +482,15 @@ to
     height:100vh;
 }
 
+.logo-for-mobile{
+    display:none;
+}
+
 .animate-Wrong{
     animation: wrongButton 325ms ease-in-out;
     animation-fill-mode:forwards;
 }
+
 
 @keyframes wrongButton {
 from
@@ -481,13 +511,94 @@ input:-webkit-autofill {
 }
 
 /* INTERVALLE FÜRS HANDY */
-@media (min-width:301px) and (max-width:1400px) {
+@media (min-width:751px) and (max-width:900px) {
+    .center-container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100vw;
+    }
+
+    .login-container{
+        display:flex;
+        flex-direction: column;
+        align-items:flex-start;
+        justify-content:center;
+    }
+    .signup-container{
+        display:flex;
+        justify-content: center;
+        align-items:center;
+    }
+
+    .login-notajoinuser {
+        position: absolute;
+        right: calc(50vw - 140px);
+        top: calc(50vh + 257px + 61px + 50px);
+    }
+
+    .logo-for-mobile{
+        display:flex;
+        width:101px;
+        height:122px;
+    }
+
+    #animatedlogo{
+        display:none;
+    }
+    #animatedlogo2{
+        display:none;
+    }
+
+/* .mobile-box{
+    display:flex !important;
+    background-color: #091931;
+} */
+
+
 }
 
-@media (min-width:400px) and (max-width:800px) {
-}
+@media (min-width:300px) and (max-width:750px) {
+    .center-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width:100vw;
+        height:100vh;
+    }
 
-@media (min-width:215px) and (max-width:300px) {
+    .login-container{
+        display:flex;
+        flex-direction: column;
+        align-items:flex-start;
+        justify-content:center;
+    }
+    
+    .signup-container{
+        display:flex;
+        justify-content: center;
+        align-items:center;
+    }
+
+    .login-notajoinuser {
+        position: absolute;
+        right: calc(50vw - 140px);
+        top: calc(50vh + 257px + 61px + 50px);
+    }
+
+    .logo-for-mobile{
+        display:flex;
+        width:101px;
+        height:122px;
+    }
+    #animatedlogo{
+        display:none;
+    }
+    #animatedlogo2{
+        display:none;
+    }
 }
 
 @media (min-width:299px) and (max-width:0px) {   /* Ab hier leer lassen */
