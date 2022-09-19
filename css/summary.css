@@ -180,7 +180,7 @@ font-size:47px;
 .summary-priority-urgentdeadline{
     display:flex;
     flex-direction:column;
-    align-items:center;
+    align-items:flex-start;
     font-size:16px;
     padding-left:35px; 
 }
@@ -578,8 +578,8 @@ font-size:47px;
             flex-direction: column;
             justify-content: center;
             align-items: flex-start;
-            margin-top: 50px;
-            margin-bottom: 50px;
+            margin-top: 30px;
+            margin-bottom: 30px;
     }
     .mobile-headline h1{
         font-size:61px;
@@ -594,6 +594,7 @@ font-size:47px;
     .blueline{
         width:117px;
         border-bottom: 3px solid #29ABE2; 
+        padding-top:20px;
     }
    .summary-numberbox{
         margin: 0;
@@ -601,7 +602,6 @@ font-size:47px;
         justify-content: center;
         align-items: center;
    }
-
 }
 
 @media (min-width:451px) and (max-width:700px) {   /* Ab hier leer lassen */
@@ -656,7 +656,7 @@ font-size:47px;
     }
     
     .summary-welcome-for-mobile span{
-        font-size:64px;
+        font-size:47px;
         color: #29ABE2;
         margin-left:0;   
     }
@@ -670,8 +670,8 @@ font-size:47px;
             flex-direction: column;
             justify-content: center;
             align-items: flex-start;
-            margin-top: 50px;
-            margin-bottom: 50px;
+            margin-top: 30px;
+            margin-bottom: 30px;
     }
     .mobile-headline h1{
         font-size:47px;
@@ -686,6 +686,7 @@ font-size:47px;
     .blueline{
         width:117px;
         border-bottom: 3px solid #29ABE2; 
+        padding-top:20px;
     }
    .summary-numberbox{
         margin: 0;
@@ -702,7 +703,7 @@ font-size:47px;
         width: 110px;
         height: 110px;
         background: #FFFFFF;
-        border-radius: 30px;
+        border-radius: 20px;
         text-align: center;
     }
     .summary-overview-tasksprogress {
@@ -713,7 +714,7 @@ font-size:47px;
         width: 110px;
         height: 110px;
         background: #FFFFFF;
-        border-radius: 30px;
+        border-radius: 20px;
         text-align: center;
         margin-right: 20px;
         margin-left: 20px;
@@ -726,7 +727,7 @@ font-size:47px;
         width: 110px;
         height: 110px;
         background: #FFFFFF;
-        border-radius: 30px;
+        border-radius: 20px;
         text-align: center;
     }
 
@@ -736,7 +737,7 @@ font-size:47px;
         justify-content: center;
         align-items:center;
         background: #FFFFFF;
-        border-radius:30px;
+        border-radius:20px;
         width:370px;
         height:110px;
         margin-top:20px;
@@ -757,7 +758,7 @@ font-size:47px;
     justify-content: center;
     align-items:center;
     background: #FFFFFF;
-    border-radius:30px;
+    border-radius:20px;
     height: 110px;
     width: 175px;
     margin-right:10px;
@@ -768,7 +769,7 @@ font-size:47px;
     justify-content: center;
     align-items:center;
     background: #FFFFFF;
-    border-radius:30px;
+    border-radius:20px;
     height: 110px;
     width: 175px;
     margin-left:10px;
@@ -876,12 +877,12 @@ font-size:47px;
     }
 
     .summary-welcome-for-mobile h1{
-        font-size:47px;
+        font-size:32px;
         font-weight:500;    
     }
     
     .summary-welcome-for-mobile span{
-        font-size:64px;
+        font-size:32px;
         color: #29ABE2;
         margin-left:0;   
     }
@@ -895,8 +896,8 @@ font-size:47px;
             flex-direction: column;
             justify-content: center;
             align-items: flex-start;
-            margin-top: 50px;
-            margin-bottom: 50px;
+            margin-top: 30px;
+            margin-bottom: 30px;
     }
     .mobile-headline h1{
         font-size:47px;
@@ -911,6 +912,7 @@ font-size:47px;
     .blueline{
         width:117px;
         border-bottom: 3px solid #29ABE2; 
+        padding-top:20px;
     }
    .summary-numberbox{
         margin: 0;
@@ -923,22 +925,22 @@ font-size:47px;
         display: flex;
         flex-direction: column;
         align-items: center;
-        font-size: 14px;
+        font-size: 10px;
         width: 80px;
         height: 80px;
         background: #FFFFFF;
-        border-radius: 30px;
+        border-radius: 20px;
         text-align: center;
     }
     .summary-overview-tasksprogress {
         display: flex;
         flex-direction: column;
         align-items: center;
-        font-size: 14px;
+        font-size: 10px;
         width: 80px;
         height: 80px;
         background: #FFFFFF;
-        border-radius: 30px;
+        border-radius: 20px;
         text-align: center;
         margin-right: 20px;
         margin-left: 20px;
@@ -947,11 +949,11 @@ font-size:47px;
         display: flex;
         flex-direction: column;
         align-items: center;
-        font-size: 14px;
+        font-size: 10px;
         width: 80px;
         height: 80px;
         background: #FFFFFF;
-        border-radius: 30px;
+        border-radius: 20px;
         text-align: center;
     }
 
@@ -961,17 +963,28 @@ font-size:47px;
         justify-content: center;
         align-items:center;
         background: #FFFFFF;
-        border-radius:30px;
+        border-radius:20px;
         width:280px;
-        height:110px;
+        height:80px;
         margin-top:20px;
         margin-bottom:20px;   
     }
     .summary-priority-urgent {
-        font-size: 14px;
+        font-size: 10px;
+        padding-right:15px;
+    }
+    .summary-priority-urgent span{
+        font-size: 32px;
+    }
+    .summary-priority-urgent-flex{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        padding-left:5px;
     }
     .summary-priority-urgentdeadline {
-        font-size: 14px;
+        font-size: 10px;
+        padding-left:15px;
     }
     .summary-priority-urgentdeadline span {
         font-size: 16px;
@@ -982,8 +995,8 @@ font-size:47px;
     justify-content: center;
     align-items:center;
     background: #FFFFFF;
-    border-radius:30px;
-    height: 110px;
+    border-radius:20px;
+    height: 80px;
     width: 130px;
     margin-right:10px;
 }
@@ -993,58 +1006,58 @@ font-size:47px;
     justify-content: center;
     align-items:center;
     background: #FFFFFF;
-    border-radius:30px;
-    height: 110px;
+    border-radius:20px;
+    height: 80px;
     width: 130px;
     margin-left:10px;
 }
 
 .summary-overview-tasks span {
-    font-size: 47px;
+    font-size: 32px;
 }
 .summary-overview-taskstodo2 {
-    font-size: 14px;
+    font-size: 10px;
 }
 .summary-overview-tasksdone2 {
-    font-size: 14px;
+    font-size: 10px;
 }
 .summary-overview-tasks2 span {
-    font-size: 47px;
+    font-size: 32px;
 }
 
 #numberTasksBoard, #numberTasksinProgress, #numberTasksawaitingFeedback, #numberTasksUrgent, #numberTasksTodo, #numberTasksDone {
     font-weight: 600;
-    height: 60px;
+    height: 40px;
 }
 
 .urgent-icon {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     border-radius: 100%;
 }
 .todo-icon {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     border-radius: 100%;
     background-color: #091931;
 }
 .done-icon {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     border-radius: 100%;
     background-color: #091931;
 }
 .todo-icon img {
     position: relative;
-    left: 14px;
-    top: 6px;
+    left: 9px;
+    top: 2px;
     opacity: 1;
     height: 17px;
 }
 .done-icon img {
     position: relative;
-    left: 12px;
-    top: 7px;
+    left: 7px;
+    top: 2px;
     opacity: 1;
     width: 17px;
 }    
