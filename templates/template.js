@@ -148,7 +148,7 @@ function templateBigBoxSoloTask(soloTasks, indexOfSoloTask) {
                 </table>
             </div>
         </div>
-        <div onclick="editCurrentTask(${soloTasks[indexOfSoloTask].id})" id="edit-button${indexOfSoloTask}" onmouseover="changeEditContainerColors(${indexOfSoloTask})" onmouseleave="RemoveEditContainerColors(${indexOfSoloTask})" class="edit-button d-center"><img id="edit-pencil${indexOfSoloTask}" src="./img/board/pencil.png"></div>
+        <div onclick="editCurrentTask(${soloTasks[indexOfSoloTask].id}); renderAssignedTo();" id="edit-button${indexOfSoloTask}" onmouseover="changeEditContainerColors(${indexOfSoloTask})" onmouseleave="RemoveEditContainerColors(${indexOfSoloTask})" class="edit-button d-center"><img id="edit-pencil${indexOfSoloTask}" src="./img/board/pencil.png"></div>
     </div>`
 }
 
@@ -187,10 +187,10 @@ function templateOfSearchTask(taskSearch, index) {
 
 function templateEditCurrentTask(currentTask) {
     return `
-    <div onclick="renderAssignedTo()" id="main-edit-container" class="main-edit-container">
+    <div id="main-edit-container" class="main-edit-container">
         <div class="edit-headline">
             <h3>Title</h3>
-            <input placeholder="${currentTask.title}">
+            <input class="edit-container-inputstyle" placeholder="${currentTask.title}">
         </div>
 
         <div class="edit-description">
@@ -200,7 +200,7 @@ function templateEditCurrentTask(currentTask) {
 
         <div class="edit-date">
             <h3>Due date</h3>
-            <input type="date" placeholder="${currentTask.dueDate}">
+            <input class="edit-container-inputstyle" type="date" placeholder="${currentTask.dueDate}">
         </div>
 
         <div class="edit-prio">
@@ -214,7 +214,18 @@ function templateEditCurrentTask(currentTask) {
 
         <div class="edit-assignedTo">
             <h3>Assigned to</h3>
-            <select id="edit-possible-worker"></select>
+            <div id="edit-assignedTo-subcontainer" class="edit-assignedTo-subcontainer">
+                <div onclick="showCompleteContainer()">Select contacts to assign<img id="dropdown-img" src="./img/board/dropdown.png"></div>
+                <div id="edit-workers" class="edit-workers d-none">
+                    <div class="solo-contact"><label>You</label><input required type="checkbox"></div>
+                    <div class="solo-contact"><label>Test1</label><input required type="checkbox"></div>
+                    <div class="solo-contact"><label>Test2</label><input required type="checkbox"></div>
+                </div>
+            </div>
+            
+
+
+
         </div>
 
         <div class="change-edit-button">
