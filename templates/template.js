@@ -206,9 +206,9 @@ function templateEditCurrentTask(currentTask) {
         <div class="edit-prio">
             <h3>Prio</h3>
             <div class="edit-prio-subcontainer">
-                <div onclick="changePrioTo(${currentTask.id}, ['urgent'])" class="edit-prioclass"><span>Urgent</span><img src="./img/board/urgent-addtask.png"></div>
-                <div onclick="changePrioTo(${currentTask.id}, ['medium'])" class="edit-prioclass"><span>Medium</span><img src="./img/board/medium-addtask.png"></div>
-                <div onclick="changePrioTo(${currentTask.id}, ['low'])" class="edit-prioclass"><span>Low</span><img src="./img/board/low-addtask.png"></div>
+                <div id="urgent-prio" onclick="changePrioTo(${currentTask.id}, ['urgent'])" class="edit-prioclass"><span>Urgent</span><img id="urgent-img" src="./img/board/urgent-addtask.png"></div>
+                <div id="medium-prio" onclick="changePrioTo(${currentTask.id}, ['medium'])" class="edit-prioclass"><span>Medium</span><img id="medium-img" src="./img/board/medium-addtask.png"></div>
+                <div id="low-prio" onclick="changePrioTo(${currentTask.id}, ['low'])" class="edit-prioclass"><span>Low</span><img id="low-img" src="./img/board/low-addtask.png"></div>
             </div>
         </div>
 

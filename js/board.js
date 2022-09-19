@@ -419,6 +419,27 @@ function closeEditContainer(){
 }
 
 function changePrioTo(idOfcurrentTask, newPrio){
+    if(newPrio == 'urgent'){
+        console.log(newPrio);
+        document.getElementById('urgent-prio').classList.add('urgent-prio');
+        document.getElementById('urgent-img').style.filter = 'brightness(0) invert(1)';
+        document.getElementById('medium-prio').classList.remove('medium-prio');
+        document.getElementById('low-prio').classList.remove('low-prio');
+    }
+    if(newPrio == 'medium'){
+        console.log(newPrio);
+        document.getElementById('medium-prio').classList.add('medium-prio');
+        document.getElementById('medium-img').style.filter = 'brightness(0) invert(1)';
+        document.getElementById('urgent-prio').classList.remove('urgent-prio');
+        document.getElementById('low-prio').classList.remove('low-prio');
+    }
+    if(newPrio == 'low'){
+        console.log(newPrio);
+        document.getElementById('low-prio').classList.add('low-prio');
+        document.getElementById('low-img').style.filter = 'brightness(0) invert(1)';
+        document.getElementById('urgent-prio').classList.remove('urgent-prio');
+        document.getElementById('medium-prio').classList.remove('medium-prio');
+    }
 }
 
 /* CODE TODO LEFT

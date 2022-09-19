@@ -215,7 +215,7 @@ body {
     top: 0;
 }
 
-.headline-tasks{
+.headline-tasks {
     width: 90%;
     display: flex;
     justify-content: space-between;
@@ -223,7 +223,7 @@ body {
     padding-bottom: 135px;
 }
 
-.headline-task{
+.headline-task {
     width: 310px;
     display: flex;
     justify-content: space-between;
@@ -519,17 +519,17 @@ body {
     border: 2px dotted black;
 }
 
-.main-edit-container{
+.main-edit-container {
     height: 100%;
     padding-left: 50px;
     padding-right: 50px;
 }
 
-.main-edit-container h3{
+.main-edit-container h3 {
     font-size: 20px;
 }
 
-.main-edit-container input{
+.main-edit-container input {
     width: 100%;
     height: 45px;
     border-radius: 8px;
@@ -538,26 +538,26 @@ body {
     margin-bottom: 12px;
 }
 
-.edit-prio-subcontainer{
+.edit-prio-subcontainer {
     display: flex;
     justify-content: flex-start;
     align-items: center;
 }
 
-.edit-headline input::placeholder{
+.edit-headline input::placeholder {
     padding-left: 12px;
     color: black;
     font-size: 20px;
 }
 
-.edit-description textarea{
+.edit-description textarea {
     height: 120px;
     width: 100%;
     border-radius: 8px;
     border-color: lightgray;
 }
 
-.edit-description textarea::placeholder{
+.edit-description textarea::placeholder {
     padding-left: 12px;
     padding-right: 12px;
     color: black;
@@ -566,17 +566,17 @@ body {
     width: 80%;
 }
 
-.edit-date input{
+.edit-date input {
     padding-left: 12px;
     padding-right: 12px;
     cursor: pointer;
 }
 
-.edit-prio{
+.edit-prio {
     margin-bottom: 12px;
 }
 
-.edit-prioclass{
+.edit-prioclass {
     margin-right: 12px;
     border: 1px solid lightgray;
     padding: 8px;
@@ -589,20 +589,25 @@ body {
     cursor: pointer;
 }
 
-.edit-prioclass img{
+.edit-prioclass:hover{
+    cursor: pointer;
+    box-shadow: 0px 2px 0px 0px rgb(0, 0, 0, 0.2);
+}
+
+.edit-prioclass img {
     height: 20px;
     width: 20px;
     object-fit: contain;
 }
 
-.close-edit-container{
+.close-edit-container {
     position: absolute;
     top: 25px;
     right: 25px;
     cursor: pointer;
 }
 
-.change-edit-button{
+.change-edit-button {
     position: absolute;
     bottom: 25px;
     right: 25px;
@@ -620,20 +625,43 @@ body {
     transition: all 225ms ease-in-out;
 }
 
-.change-edit-button div{
+.change-edit-button div {
     font-weight: bold;
 }
 
-.change-edit-button:hover{
+.change-edit-button:hover {
     background: #0190E0 !important;
 }
 
-.change-edit-button img{
+.change-edit-button img {
     object-fit: cover;
     height: 17px;
     width: 17px;
 }
 
+.urgent-prio {
+    background: #ff3d00;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0px 2px 0px 0px rgb(0, 0, 0, 0.2);
+    transition: all 225ms ease-in-out;
+}
+
+.medium-prio {
+    background: #ffa800;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0px 2px 0px 0px rgb(0, 0, 0, 0.2);
+    transition: all 225ms ease-in-out;
+}
+
+.low-prio {
+    background: #7ae229;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0px 2px 0px 0px rgb(0, 0, 0, 0.2);
+    transition: all 225ms ease-in-out;
+}
 
 
 @keyframes rotation {
