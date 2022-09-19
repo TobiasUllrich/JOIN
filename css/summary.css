@@ -34,12 +34,13 @@ margin:50px;
 .summary-headline h1{
     font-size:61px;
     font-weight:700;
-    padding-right:35px; 
+    padding-right:35px;
+    border-right: 3px solid #29ABE2; 
 }
 
 .summary-headline span{
     font-size:27px;
-    border-left: 3px solid #29ABE2;
+    
     padding-left:35px; 
 }
 
@@ -213,8 +214,6 @@ font-size:47px;
     display:flex;
     justify-content: flex-start;
     align-items:center;
-    width:580px;
-    height:150px;  
 }
 
 .summary-overview-tasks2 span{
@@ -517,13 +516,18 @@ font-size:47px;
 @media (min-width:300px) and (max-width:900px) {
     .summary-container {
         display: flex;
-        justify-content: center;
-        align-items: flex-start;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
         margin-left: 0;
         margin-top: 0;
         width: 100%;
+        height: calc(100vh - 160px);
         padding-left: 0;
+        position: relative;
+        top: 80px;
     }
+
     .summary-container-for-mobile {
             position: absolute;
             display: flex;
@@ -576,7 +580,8 @@ font-size:47px;
             flex-direction: column;
             justify-content: center;
             align-items: flex-start;
-            margin: 50px;
+            margin-top: 50px;
+            margin-bottom: 50px;
     }
     .mobile-headline h1{
         font-size:61px;
@@ -592,6 +597,53 @@ font-size:47px;
         width:117px;
         border-bottom: 3px solid #29ABE2; 
     }
+   .summary-numberbox{
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+   }
+
+
+
+
+ 
+    .summary-overview-tasksboard {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 21px;
+        width: 170px;
+        height: 170px;
+        background: #FFFFFF;
+        border-radius: 30px;
+        text-align: center;
+    }
+    .summary-overview-tasksprogress {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 21px;
+        width: 170px;
+        height: 170px;
+        background: #FFFFFF;
+        border-radius: 30px;
+        text-align: center;
+        margin-right: 20px;
+        margin-left: 20px;
+    }
+    .summary-overview-tasksawaitingfeedback {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 21px;
+        width: 170px;
+        height: 170px;
+        background: #FFFFFF;
+        border-radius: 30px;
+        text-align: center;
+    }
+
 }
 
 @media (min-width:299px) and (max-width:0px) {   /* Ab hier leer lassen */
