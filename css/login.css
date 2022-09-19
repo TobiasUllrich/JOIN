@@ -82,7 +82,8 @@ form{
     display:flex;
     justify-content: center;
     align-items:center;
-    background-color:#F5F5F5; 
+    background-color:#F5F5F5;
+    height: 100vh; 
 }
 
 .login-container2 {
@@ -482,9 +483,6 @@ to
     height:100vh;
 }
 
-.logo-for-mobile{
-    display:none;
-}
 
 .animate-Wrong{
     animation: wrongButton 325ms ease-in-out;
@@ -511,7 +509,7 @@ input:-webkit-autofill {
 }
 
 /* INTERVALLE FÜRS HANDY */
-@media (min-width:751px) and (max-width:900px) {
+@media (min-width:753px) and (max-width:926px) {
     .center-container{
             display: flex;
             justify-content: center;
@@ -523,13 +521,17 @@ input:-webkit-autofill {
     .login-container{
         display:flex;
         flex-direction: column;
-        align-items:flex-start;
+        align-items:center;
         justify-content:center;
+        background-color: #F5F5F5;
+        height: 100vh; 
     }
     .signup-container{
-        display:flex;
-        justify-content: center;
-        align-items:center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #F5F5F5;
+            height: 100vh;
     }
 
     .login-notajoinuser {
@@ -540,26 +542,25 @@ input:-webkit-autofill {
 
     .logo-for-mobile{
         display:flex;
+        position:absolute;
+        z-index:11;   
+        left:50px;
+        top:25px;
         width:101px;
-        height:122px;
+        height:122px;     
     }
 
-    #animatedlogo{
-        display:none;
+    .forgotpassword-Box{
+        width: calc(100vw - 100px);
     }
-    #animatedlogo2{
-        display:none;
+    .resetpassword-Box{
+        width: calc(100vw - 100px) !important;
     }
-
-/* .mobile-box{
-    display:flex !important;
-    background-color: #091931;
-} */
-
 
 }
 
-@media (min-width:300px) and (max-width:750px) {
+@media (min-width:300px) and (max-width:752px) {
+    
     .center-container{
         display: flex;
         flex-direction: column;
@@ -572,15 +573,19 @@ input:-webkit-autofill {
     .login-container{
         display:flex;
         flex-direction: column;
-        align-items:flex-start;
+        align-items:center;
         justify-content:center;
+        background-color: #F5F5F5;
+        height: 100vh; 
     }
     
     .signup-container{
-        display:flex;
+        display: flex;
         justify-content: center;
-        align-items:center;
-    }
+        align-items: center;
+        background-color: #F5F5F5;
+        height: 100vh;
+}
 
     .login-notajoinuser {
         position: absolute;
@@ -590,14 +595,27 @@ input:-webkit-autofill {
 
     .logo-for-mobile{
         display:flex;
+        position:absolute;
+        z-index:11;   
+        left:50px;
+        top:25px;
         width:101px;
         height:122px;
     }
-    #animatedlogo{
-        display:none;
+
+    .forgotpassword-Box{
+        width: calc(100vw - 100px);
     }
-    #animatedlogo2{
-        display:none;
+    .resetpassword-Box {
+    width: calc(100vw - 100px) !important;
+    }
+
+    .login-Box{
+        width: calc(100vw - 100px);
+    }
+
+    .signup-Box{
+        width: calc(100vw - 100px);
     }
 }
 
