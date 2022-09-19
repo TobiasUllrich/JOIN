@@ -151,9 +151,7 @@ function openCurrentTaskBigBox(indexOfSoloTask, statusTask) {
 }
 
 function editCurrentTask(idOfCurrentTask){
-    console.log(idOfCurrentTask);
     let currentTask = tasksScript[idOfCurrentTask];
-    console.log(currentTask);
 
     let bigBoxContainer = document.getElementById('big-box-solo-task');
     bigBoxContainer.innerHTML = '';
@@ -420,15 +418,12 @@ function closeEditContainer(){
 
 function changePrioTo(idOfcurrentTask, newPrio){
     if(newPrio == 'urgent'){
-        console.log(newPrio);
         changePrioToUrgent();
     }
     if(newPrio == 'medium'){
-        console.log(newPrio);
         changePrioToMedium();
     }
     if(newPrio == 'low'){
-        console.log(newPrio);
         changePrioToLow();
     }
 }
@@ -468,19 +463,24 @@ function highlightClickedPrioContainer(prio){
     document.getElementById(`${prio}-img`).style.filter = 'brightness(0) invert(1)';
 }
 
+function showCompleteContainer(){
+    document.getElementById('edit-assignedTo-subcontainer').classList.toggle('edit-assign-full-size');
+    document.getElementById('edit-assignedTo-subcontainer').classList.toggle('edit-assign-colum');
+    document.getElementById('edit-workers').classList.toggle('d-none');
+    document.getElementById('dropdown-img').classList.toggle('edit-assign-img-rotate');
+}
+
 function renderAssignedTo(){
-    let outputContainer = document.getElementById('edit-possible-worker');
-
-    outputContainer.innerHTML = '';
-
+    /*let outputContainer = document.getElementById('edit-possible-worker');
+    // outputContainer.innerHTML = ''
     for(let o = 0; o < users.length; o++){
         const singleUserName = users[o].name;
         outputContainer.innerHTML += `
-        <option>${singleUserName}</option>`
-    }
+        <label value="${singleUserName[o]}">${singleUserName}</label>`
+    }*/
 }
 
-/* CODE TODO LEFT
+/* CODE TODO LEFTs
     - Edit Task Function
     - Assigned To Render / mini Task and Big Task
     - Unscrollable Board - sticky Boardheadline ### FINISH
