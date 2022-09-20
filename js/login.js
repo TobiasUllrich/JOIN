@@ -8,7 +8,18 @@ let guest = {
 
 //Logo-Animation
 function loginAnimation() {
-    document.getElementById('animatedlogo').classList.add('animate-logo');
+    
+
+    let breite = document.getElementById('center-container').clientWidth;
+    if (breite < 901) 
+    {document.getElementById('animatedlogo').classList.add('d-none');
+     document.getElementById('animatedlogo2').classList.remove('d-none');
+     document.getElementById('mobilelogo').classList.add('animate-mobile');
+     document.getElementById('mobilelogo').classList.add('d-none');
+    }
+    else
+    {document.getElementById('animatedlogo').classList.add('animate-logo');}
+
 }
 
 //Reset-PW-Animation

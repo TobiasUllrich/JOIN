@@ -508,6 +508,11 @@ input:-webkit-autofill {
     -webkit-box-shadow: inset 0 0 0px 1000px white; /* Input-Feld behält den weißen Hintergrund, statt auf hellblau zu wechseln! */
 }
 
+/* MOBILE */
+.mobilelogo{
+display:none;
+}
+
 /* INTERVALLE FÜRS HANDY */
 @media (min-width:753px) and (max-width:926px) {
     .center-container{
@@ -617,6 +622,45 @@ input:-webkit-autofill {
     .signup-Box{
         width: calc(100vw - 100px);
     }
+
+    /* MOBILE */
+   .mobilelogo{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    position:absolute;
+    width:100vw;
+    height:100vh;
+    background-color: #091931;
+    z-index:11;
+    opacity:1;
+   }
+
+   .animate-mobile{
+    animation: mobilelogoanimation 500ms ease-in-out;
+    animation-fill-mode:forwards;
+   }
+
+
+  @keyframes mobilelogoanimation {
+  from
+  { 
+    opacity: 1;
+    z-index:11;
+    display:flex;
+  }  
+  to 
+  {
+    opacity: 0;
+    z-index:0;
+    display:none;
+  }
+  }  
+/* MOBILE */
+
+
+
 }
 
 @media (min-width:299px) and (max-width:0px) {   /* Ab hier leer lassen */
