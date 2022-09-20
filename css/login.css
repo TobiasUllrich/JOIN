@@ -1102,6 +1102,8 @@ display:none;
         font-size: 34px;
         text-align:center;
         padding-bottom:20px;
+        margin-right:15px;
+        margin-left:15px;
     }
     .forgotpassword-Box span {
         margin-left: 25px;
@@ -1120,6 +1122,8 @@ display:none;
         font-size: 34px;
         text-align: center;
         padding-bottom:20px;
+        margin-right:15px;
+        margin-left:15px;
     }
     .reset-user {
         height: 51px;
