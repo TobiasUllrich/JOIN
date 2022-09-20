@@ -342,7 +342,8 @@ to
     margin-top:0; 
     margin-bottom:25px; 
     margin-left:25px; 
-    margin-right:25px; 
+    margin-right:25px;
+    text-align: center; 
 }
 
 .reset-user{
@@ -547,7 +548,7 @@ display:none;
     .login-notajoinuser {
         position: absolute;
         right: calc(50vw - 140px);
-        top: calc(50vh + 257px + 61px + 50px);
+        top: calc(50vh + 257px + 61px + 30px);
     }
     .logo-for-mobile{
         display:flex;
@@ -672,6 +673,7 @@ display:none;
     .signup-user {
         width: 180px;
         font-size: 16px;
+        margin-right:0;
     }
     .backbutton {
         left: 35px;
@@ -692,6 +694,7 @@ display:none;
     .forgotpassword-send {
         width: 180px;
         font-size: 16px;
+        margin-right:0;
     }
 
     /* SUCCESS */
@@ -705,11 +708,12 @@ display:none;
         height: 51px;
         width: 180px;
         font-size: 16px;
+        margin-right:0;
     }
 
 }
 
-@media (min-width:300px) and (max-width:752px) {
+@media (min-width:429px) and (max-width:752px) {
     
     .center-container{
         display: flex;
@@ -744,7 +748,7 @@ display:none;
     .login-notajoinuser {
         position: absolute;
         right: calc(50vw - 140px);
-        top: calc(50vh + 257px + 61px + 50px);
+        top: calc(50vh + 257px + 61px + 30px);
     }
 
     .logo-for-mobile{
@@ -874,6 +878,7 @@ display:none;
 .signup-user {
     width: 180px;
     font-size: 16px;
+    margin-right:0;
 }
 .backbutton {
     left: 35px;
@@ -894,6 +899,7 @@ display:none;
     .forgotpassword-send {
         width: 180px;
         font-size: 16px;
+        margin-right:0;
     }
 
     /* SUCCESS */
@@ -907,9 +913,223 @@ display:none;
         height: 51px;
         width: 180px;
         font-size: 16px;
+        margin-right:0;
     }
 
 }
 
-@media (min-width:299px) and (max-width:0px) {   /* Ab hier leer lassen */
+@media (min-width:300px) and (max-width:428px) {  
+ 
+    .center-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width:100vw;
+        height:100vh;
+    }
+
+    .login-container{
+        display:flex;
+        flex-direction: column;
+        align-items:center;
+        justify-content:center;
+        background-color: #F5F5F5;
+        height: 100vh; 
+    }
+    
+    .signup-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #F5F5F5;
+        height: 100vh;
+    }
+    .dummy{
+        width:88px;
+        height:35px;
+        border-top: 3px solid #29abe2;
+    }
+
+    .logo-for-mobile{
+        display:flex;
+        position:absolute;
+        z-index:11;   
+        left:50px;
+        top:25px;
+        width:101px;
+        height:122px;
+    }
+
+    .forgotpassword-Box {
+        /* width: 372px; */
+        width: calc(100vw - 56px);
+        height: 592px;
+    }
+    .resetpassword-Box {
+        /* width: 372px; */
+        height: 592px;
+        width: calc(100vw - 56px) !important;
+    }
+    .moving-logo-later {
+        width: 64px;
+        height: 78px;
+    }
+    .login-Box{
+        height:573px;
+        /* width:372px; */
+        width: calc(100vw - 56px);
+    }
+    .form-style{
+       width: calc(100% - 56px);
+    }
+    .formular-inputdesign {
+        width: auto;
+        height: 41px;
+        margin-bottom: 56px;
+    }
+    .formular-inputdesign input{
+        height: 39px;
+        font-size:12px;
+    }
+    .signup-Box{
+        width: calc(100vw - 56px);
+    }
+
+    /* MOBILE-LOGO ANIMATION */
+   .mobilelogo{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    position:absolute;
+    width:100vw;
+    height:100vh;
+    background-color: #091931;
+    z-index:11;
+    opacity:1;
+   }
+   .animate-mobile{
+    animation: mobilelogoanimation 1000ms ease-in-out;
+    animation-fill-mode:forwards;
+   }
+
+
+  @keyframes mobilelogoanimation {
+  from
+  { 
+    opacity: 1;
+    z-index:11;
+    display:flex;
+  }  
+  to 
+  {
+    opacity: 0;
+    z-index:0;
+    display:none;
+  }
+  }  
+ /* MOBILE-LOGO ANIMATION */
+
+    /* LOGIN */
+    .login-rememberOrforgotPw {
+        flex-direction: column-reverse;
+        margin:0;
+        width: auto;
+    }
+    .login-notajoinuser {
+        position: absolute;
+        right: calc(50vw - 111.44px);
+        top: calc(50vh + 257px + 61px + 30px);
+    }
+    .login-notajoinuser span {
+        font-size: 16px;
+        margin-right: 5px;
+    }
+    .login-signupbtn {
+        height: 41px;
+        width: 81px;
+    }
+    .login-buttons {
+        display: flex;
+        flex-direction: column;
+        margin:0;
+    }
+    .login-user {
+        font-size: 16px;
+        margin:0px;
+        margin-top:20px;
+        margin-bottom:20px;
+    }
+    .login-guest {
+        font-size: 16px;
+        margin:0px;
+    }
+    .login-signupbtn {
+        font-size: 16px;
+    }
+    .login-Box h1 {
+        font-size: 47px;
+    }
+    .login-cbx {
+        margin-top: 20px;
+    }
+    .adj{
+        margin-bottom: 20px !important;
+    }
+    form{
+        width:327px;
+    }
+
+   /* SIGNUP */
+   .signup-Box h1 {
+    font-size: 47px;
+   }
+   .signup-user {
+    width: 180px;
+    font-size: 16px;
+    margin-right:0;
+   }
+   .backbutton {
+    left: 35px;
+    top: 22px;
+    width: 16px;
+    height: 15.56px;
+   }
+
+    /* FORGOT PW */
+    .forgotpassword-Box h1 {
+        font-size: 34px;
+        text-align:center;
+        padding-bottom:20px;
+    }
+    .forgotpassword-Box span {
+        margin-left: 25px;
+        margin-right: 25px;
+    }
+    .forgotpassword-send {
+        width: 180px;
+        font-size: 16px;
+        margin-right:0;
+    }
+
+    /* SUCCESS */
+
+    /* RESET PASSWORD */
+    .resetpassword-Box h1 {
+        font-size: 34px;
+        text-align: center;
+        padding-bottom:20px;
+    }
+    .reset-user {
+        height: 51px;
+        width: 180px;
+        font-size: 16px;
+        margin-right:0;
+    }    
+    
+
+}
+
+@media (min-width:0px) and (max-width:299px) {   /* Ab hier leer lassen */
 }
