@@ -217,9 +217,9 @@ function templateEditCurrentTask(currentTask) {
             <div id="edit-assignedTo-subcontainer" class="edit-assignedTo-subcontainer">
                 <div onclick="showCompleteContainer()">Select contacts to assign<img id="dropdown-img" src="./img/board/dropdown.png"></div>
                 <div id="edit-workers" class="edit-workers d-none">
-                    <div class="solo-contact"><label>You</label><input required type="checkbox"></div>
-                    <div class="solo-contact"><label>Test1</label><input required type="checkbox"></div>
-                    <div class="solo-contact"><label>Test2</label><input required type="checkbox"></div>
+                    <div onclick="submitCheckbox('1')" class="solo-contact"><label>You</label><input id="checkbox-1" required type="checkbox"></div>
+                    <div onclick="submitCheckbox('2')"  class="solo-contact"><label>Test1</label><input id="checkbox-2" required type="checkbox"></div>
+                    <div onclick="submitCheckbox('3')" class="solo-contact"><label>Test2</label><input id="checkbox-3" required type="checkbox"></div>
                 </div>
             </div>
             

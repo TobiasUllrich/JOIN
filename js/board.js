@@ -470,6 +470,10 @@ function showCompleteContainer(){
     document.getElementById('dropdown-img').classList.toggle('edit-assign-img-rotate');
 }
 
+function submitCheckbox(idOfCheckbox){
+    document.getElementById(`checkbox-${idOfCheckbox}`).click();
+}
+
 function renderAssignedTo(){
     /*let outputContainer = document.getElementById('edit-possible-worker');
     // outputContainer.innerHTML = ''
