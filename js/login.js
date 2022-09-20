@@ -5,21 +5,30 @@ let guest = {
     "phone": "",
     "password": "none123"
 }
+//Make Arrow black if MOBILE-VERSION
+function setArrow(arrowelement,containerforwidth){
+    let breite = document.getElementById(`${containerforwidth}`).clientWidth;
+
+    if (breite < 901) // Mobile
+    {document.getElementById(`${arrowelement}`).src=`img/black-arrow.png`;
+    }
+    else // Desktop
+    {document.getElementById(`${arrowelement}`).src=`img/backarrow-icon.png`;}
+  }
+
 
 //Logo-Animation
 function loginAnimation() {
-    
-
     let breite = document.getElementById('center-container').clientWidth;
-    if (breite < 901) 
+
+    if (breite < 901) // Mobile
     {document.getElementById('animatedlogo').classList.add('d-none');
      document.getElementById('animatedlogo2').classList.remove('d-none');
      document.getElementById('mobilelogo').classList.add('animate-mobile');
      document.getElementById('mobilelogo').classList.add('d-none');
     }
-    else
+    else // Desktop
     {document.getElementById('animatedlogo').classList.add('animate-logo');}
-
 }
 
 //Reset-PW-Animation

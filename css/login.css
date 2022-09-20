@@ -22,7 +22,7 @@ form{
 }
 
 .dummy{
-    width:160px;
+    width:150px;
     height:35px;
     border-top: 3px solid #29abe2;
 }
@@ -513,6 +513,8 @@ input:-webkit-autofill {
 display:none;
 }
 
+
+
 /* INTERVALLE FÜRS HANDY */
 @media (min-width:753px) and (max-width:926px) {
     .center-container{
@@ -522,7 +524,6 @@ display:none;
             height: 100vh;
             width: 100vw;
     }
-
     .login-container{
         display:flex;
         flex-direction: column;
@@ -538,13 +539,16 @@ display:none;
             background-color: #F5F5F5;
             height: 100vh;
     }
-
+    .dummy{
+        width:88px;
+        height:35px;
+        border-top: 3px solid #29abe2;
+    }
     .login-notajoinuser {
         position: absolute;
         right: calc(50vw - 140px);
         top: calc(50vh + 257px + 61px + 50px);
     }
-
     .logo-for-mobile{
         display:flex;
         position:absolute;
@@ -554,12 +558,153 @@ display:none;
         width:101px;
         height:122px;     
     }
-
-    .forgotpassword-Box{
-        width: calc(100vw - 100px);
+    .forgotpassword-Box {
+        width: 372px;
+        /* width: calc(100vw - 100px); */
+        height: 502px;
     }
-    .resetpassword-Box{
-        width: calc(100vw - 100px) !important;
+    .resetpassword-Box {
+        width: 372px;
+        height: 525px;
+        /* width: calc(100vw - 100px) !important; */
+    }
+    .moving-logo-later {
+        width: 64px;
+        height: 78px;
+    }
+    .login-Box{
+        height:573px;
+        width:372px;
+    }
+    .form-style{
+       width: calc(100% - 50px);
+    }
+    .formular-inputdesign {
+        width: auto;
+        height: 41px;
+        margin-bottom: 50px;
+    }
+    .formular-inputdesign input{
+        height: 39px;
+    }
+
+    /* MOBILE-LOGO ANIMATION */
+    .mobilelogo{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+    
+        position:absolute;
+        width:100vw;
+        height:100vh;
+        background-color: #091931;
+        z-index:11;
+        opacity:1;
+       }
+    
+       .animate-mobile{
+        animation: mobilelogoanimation 1000ms ease-in-out;
+        animation-fill-mode:forwards;
+       }
+    
+    
+      @keyframes mobilelogoanimation {
+      from
+      { 
+        opacity: 1;
+        z-index:11;
+        display:flex;
+      }  
+      to 
+      {
+        opacity: 0;
+        z-index:0;
+        display:none;
+      }
+      }  
+     /* MOBILE-LOGO ANIMATION */
+
+    /* LOGIN */
+    .login-rememberOrforgotPw {
+        flex-direction: column-reverse;
+        width:100%;
+        margin:0;
+    }
+    .login-buttons {
+        display: flex;
+        flex-direction: column;
+        margin:0;
+    }
+    .login-user {
+        font-size: 16px;
+        margin:0px;
+        margin-top:20px;
+        margin-bottom:20px;
+    }
+    .login-guest {
+        font-size: 16px;
+        margin:0px;
+    }
+    .login-signupbtn {
+        font-size: 16px;
+    }
+    .login-Box h1 {
+        font-size: 47px;
+    }
+    .login-cbx {
+        margin-top: 20px;
+    }
+    .adj{
+        margin-bottom: 20px !important;
+    }
+    form{
+        width:327px;
+    }
+
+    /* SIGNUP */
+    .signup-Box h1 {
+        font-size: 47px;
+    }
+    .signup-Box {
+        height: 501px;
+        width: 372px;
+    }
+    .signup-user {
+        width: 180px;
+        font-size: 16px;
+    }
+    .backbutton {
+        left: 35px;
+        top: 22px;
+        width: 16px;
+        height: 15.56px;
+    }
+
+    /* FORGOT PW */
+    .forgotpassword-Box h1 {
+        font-size: 40px;
+        text-align:center;
+    }
+    .forgotpassword-Box span {
+        margin-left: 25px;
+        margin-right: 25px;
+    }
+    .forgotpassword-send {
+        width: 180px;
+        font-size: 16px;
+    }
+
+    /* SUCCESS */
+
+    /* RESET PASSWORD */
+    .resetpassword-Box h1 {
+        font-size: 40px;
+        text-align: center;
+    }
+    .reset-user {
+        height: 51px;
+        width: 180px;
+        font-size: 16px;
     }
 
 }
@@ -591,7 +736,11 @@ display:none;
         background-color: #F5F5F5;
         height: 100vh;
     }
-
+    .dummy{
+        width:88px;
+        height:35px;
+        border-top: 3px solid #29abe2;
+    }
     .login-notajoinuser {
         position: absolute;
         right: calc(50vw - 140px);
@@ -608,22 +757,41 @@ display:none;
         height:122px;
     }
 
-    .forgotpassword-Box{
-        width: calc(100vw - 100px);
+    .forgotpassword-Box {
+        width: 372px;
+        /* width: calc(100vw - 100px); */
+        height: 502px;
     }
     .resetpassword-Box {
-    width: calc(100vw - 100px) !important;
+        width: 372px;
+        height: 525px;
+        /* width: calc(100vw - 100px) !important; */
     }
-
+    .moving-logo-later {
+        width: 64px;
+        height: 78px;
+    }
     .login-Box{
-        width: calc(100vw - 100px);
+        height:573px;
+        width:372px;
+        /* width: calc(100vw - 100px); */
     }
-
+    .form-style{
+       width: calc(100% - 50px);
+    }
+    .formular-inputdesign {
+        width: auto;
+        height: 41px;
+        margin-bottom: 50px;
+    }
+    .formular-inputdesign input{
+        height: 39px;
+    }
     .signup-Box{
         width: calc(100vw - 100px);
     }
 
-    /* MOBILE */
+    /* MOBILE-LOGO ANIMATION */
    .mobilelogo{
     display:flex;
     justify-content:center;
@@ -636,9 +804,8 @@ display:none;
     z-index:11;
     opacity:1;
    }
-
    .animate-mobile{
-    animation: mobilelogoanimation 500ms ease-in-out;
+    animation: mobilelogoanimation 1000ms ease-in-out;
     animation-fill-mode:forwards;
    }
 
@@ -657,9 +824,90 @@ display:none;
     display:none;
   }
   }  
-/* MOBILE */
+ /* MOBILE-LOGO ANIMATION */
 
+    /* LOGIN */
+    .login-rememberOrforgotPw {
+        flex-direction: column-reverse;
+        width:100%;
+        margin:0;
+    }
+    .login-buttons {
+        display: flex;
+        flex-direction: column;
+        margin:0;
+    }
+    .login-user {
+        font-size: 16px;
+        margin:0px;
+        margin-top:20px;
+        margin-bottom:20px;
+    }
+    .login-guest {
+        font-size: 16px;
+        margin:0px;
+    }
+    .login-signupbtn {
+        font-size: 16px;
+    }
+    .login-Box h1 {
+        font-size: 47px;
+    }
+    .login-cbx {
+        margin-top: 20px;
+    }
+    .adj{
+        margin-bottom: 20px !important;
+    }
+    form{
+        width:327px;
+    }
 
+   /* SIGNUP */
+   .signup-Box h1 {
+    font-size: 47px;
+}
+.signup-Box {
+    height: 501px;
+    width: 372px;
+}
+.signup-user {
+    width: 180px;
+    font-size: 16px;
+}
+.backbutton {
+    left: 35px;
+    top: 22px;
+    width: 16px;
+    height: 15.56px;
+}
+
+    /* FORGOT PW */
+    .forgotpassword-Box h1 {
+        font-size: 40px;
+        text-align:center;
+    }
+    .forgotpassword-Box span {
+        margin-left: 25px;
+        margin-right: 25px;
+    }
+    .forgotpassword-send {
+        width: 180px;
+        font-size: 16px;
+    }
+
+    /* SUCCESS */
+
+    /* RESET PASSWORD */
+    .resetpassword-Box h1 {
+        font-size: 40px;
+        text-align: center;
+    }
+    .reset-user {
+        height: 51px;
+        width: 180px;
+        font-size: 16px;
+    }
 
 }
 

@@ -55,7 +55,7 @@
 
 <!--Sobald der body-Bereich geladen wurde, wird das Java-Script ausgeführt-->
 
-<body onload="init();">
+<body onload="init();setArrow('backfromsignup','signup-container');">
 
     
 
@@ -69,7 +69,7 @@
 
 
 
-    <div class="signup-container">
+    <div id="signup-container" class="signup-container">
         <!-- SignUp Seite -->
         <div id="signup-Box" class="signup-Box">
             <h1>Sign up</h1>
@@ -80,7 +80,7 @@
             <div class="formular-inputdesign"><input required type="password" minlength="5" id="signup-password" placeholder="Password" type="text"><img src="img/password-icon.png"></div>
             <div class="login-buttons"><button class="signup-user">Sign up</button></div>
             </form>
-            <img id="backfromsignup" onclick="showLoginForm2();" class="backbutton" src="img/backarrow-icon.png">
+            <img id="backfromsignup" onclick="showLoginForm2();" class="backbutton" src="">
         </div> 
     </div>
 
