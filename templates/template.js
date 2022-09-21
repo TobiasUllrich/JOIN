@@ -221,7 +221,7 @@ function templateEditCurrentTask(currentTask, idOfCurrentTask) {
             </div>
         </div>
 
-        <div onsubmit="submitChanges(${idOfCurrentTask})" class="change-edit-button">
+        <div onclick="submitChanges(${idOfCurrentTask})" class="change-edit-button">
             <div>Ok</div><img src="./img/check_white.png">
         </div>
 

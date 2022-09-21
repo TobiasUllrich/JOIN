@@ -502,6 +502,7 @@ function submitChanges(idOfCurrentTask){
     let newDescription = document.getElementById('edit-description').value;
     let newDate = document.getElementById('edit-date').value;  // Wird falschherum dargestellt d.h. 2022-09-03
     let newPrio = editNewPrio;
+    console.log(newTitle, newDescription, newDate, newPrio);
     updateTaskArray(idOfCurrentTask, newTitle, newDescription, newDate, newPrio);
 }
 
@@ -518,6 +519,11 @@ function updateTaskArray(taskId, title, description, date, prio){
 function showAlert(){
     console.log('in der Funktion drin');
     document.getElementById('succes-alert').classList.remove('d-none');
+    setTimeout(hideAlert, 3000);
+}
+
+function hideAlert(){
+    document.getElementById('succes-alert').classList.add('d-none');
 }
 
 /* CODE TODO LEFTs
