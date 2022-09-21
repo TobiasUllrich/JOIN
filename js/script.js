@@ -54,7 +54,7 @@ let tasksScript = [
     "dueDate": "30-10-2010",
     "priority": "Medium",       // Urgent, Medium, Low
     "status": "To do",     // To do, In progress, Awaiting feedback, Done
-    "assignedTo": [0, 1, 2],  // Email of users Array (ist eindeutig)
+    "assignedTo": ['ullrich.tobias@gmx.de','edip-bahcecioglu@hotmail.de','oswaldeugen95@gmail.com'],  // Email of users Array (ist eindeutig)
     "subTasks": ['Putzen','Spülen','Saubermachen'] 
   },
   {

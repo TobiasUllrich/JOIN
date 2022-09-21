@@ -536,6 +536,7 @@ body {
     outline: none;
     border: 1px solid lightgrey;
     margin-bottom: 12px;
+    caret-color: transparent;
 }
 
 .edit-prio-subcontainer {
@@ -548,6 +549,7 @@ body {
     padding-left: 12px;
     color: black;
     font-size: 20px;
+    caret-color: transparent;
 }
 
 .edit-description textarea {
@@ -555,6 +557,8 @@ body {
     width: 100%;
     border-radius: 8px;
     border-color: lightgray;
+    caret-color: transparent;
+    outline: none;
 }
 
 .edit-description textarea::placeholder {
@@ -687,6 +691,7 @@ body {
     cursor: pointer;
     font-size: 20px;
     color: black;
+    overflow-y: scroll;
 }
 
 .edit-assignedTo-subcontainer div:first-child{
@@ -731,6 +736,23 @@ body {
     flex-direction: column !important;
 }
 
+.placeholder-grey{
+    color: black;
+}
+
+.succes-alert{
+    background: green;
+    color: white;
+    height: 50px;
+    width: 275px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 95px;
+    border-radius: 12px;
+    padding: 8px;
+}
 
 
 @keyframes rotation {

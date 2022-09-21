@@ -4,6 +4,7 @@ let soloTasksProgress = [];
 let soloTasksFeedback = [];
 let soloTasksDone = [];
 let currentDraggingElement;
+let editNewPrio;
 // let responseUsersJSON = {};
 
 /* async function loadUsersJSON(){
@@ -114,7 +115,7 @@ function updateTasksHeadlinesStatus(indexOfTask, status) {
     }
 }
 
-function addTaskBoard() { // addTask existiert besreits in der main js, daher hier TEST
+function addTaskBoard() {
     let addTaskContainer = document.getElementById('main-add-task-container');
     removeDisplayNoneMainContainer(addTaskContainer);
 }
@@ -156,7 +157,7 @@ function editCurrentTask(idOfCurrentTask){
     let bigBoxContainer = document.getElementById('big-box-solo-task');
     bigBoxContainer.innerHTML = '';
 
-    bigBoxContainer.innerHTML = templateEditCurrentTask(currentTask);
+    bigBoxContainer.innerHTML = templateEditCurrentTask(currentTask, idOfCurrentTask);
 }
 
 function openCurrentTaskBigBoxOnSearch(indexOfSoloTask, statusTask) {
@@ -419,12 +420,15 @@ function closeEditContainer(){
 function changePrioTo(idOfcurrentTask, newPrio){
     if(newPrio == 'urgent'){
         changePrioToUrgent();
+        editNewPrio = 'urgent'
     }
     if(newPrio == 'medium'){
         changePrioToMedium();
+        editNewPrio = 'medium'
     }
     if(newPrio == 'low'){
         changePrioToLow();
+        editNewPrio = 'low'
     }
 }
 
@@ -474,14 +478,46 @@ function submitCheckbox(idOfCheckbox){
     document.getElementById(`checkbox-${idOfCheckbox}`).click();
 }
 
-function renderAssignedTo(){
-    /*let outputContainer = document.getElementById('edit-possible-worker');
+function renderAssignedToEditTask(){
+    let outputContainer = document.getElementById('edit-workers');
     // outputContainer.innerHTML = ''
     for(let o = 0; o < users.length; o++){
         const singleUserName = users[o].name;
-        outputContainer.innerHTML += `
-        <label value="${singleUserName[o]}">${singleUserName}</label>`
-    }*/
+        outputContainer.innerHTML += templateShowAllWorkers(o, singleUserName);
+    }
+}
+
+function clearPlaceholder(inputfield, newPlaceholder, oldPlaceholder){
+    let currentPlaceholder = document.getElementById(`edit-${inputfield}`).placeholder;
+    if(currentPlaceholder == oldPlaceholder){
+        document.getElementById(`edit-${inputfield}`).placeholder = `${newPlaceholder}`;
+    }
+    if(currentPlaceholder == newPlaceholder){
+        document.getElementById(`edit-${inputfield}`).placeholder = `${oldPlaceholder}`;
+    }
+}
+
+function submitChanges(idOfCurrentTask){
+    let newTitle = document.getElementById('edit-title').value;
+    let newDescription = document.getElementById('edit-description').value;
+    let newDate = document.getElementById('edit-date').value;  // Wird falschherum dargestellt d.h. 2022-09-03
+    let newPrio = editNewPrio;
+    updateTaskArray(idOfCurrentTask, newTitle, newDescription, newDate, newPrio);
+}
+
+function updateTaskArray(taskId, title, description, date, prio){
+    console.log('in der Funktion drin 1');
+    tasksScript[taskId].title = title;
+    tasksScript[taskId].description = description;
+    tasksScript[taskId].dueDate = date;
+    tasksScript[taskId].priority = prio;
+    closeEditContainer();
+    showAlert();
+}
+
+function showAlert(){
+    console.log('in der Funktion drin');
+    document.getElementById('succes-alert').classList.remove('d-none');
 }
 
 /* CODE TODO LEFTs

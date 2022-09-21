@@ -26,8 +26,8 @@
 
     <!-- Fonts downloaden in entsprechenden Ordner legen und über Extra-CSS-Datei einbinden (https://google-webfonts-helper.herokuapp.com/) -->
     <link rel="stylesheet" type='text/css' media='screen' href="css/fonts.css">
-    <link rel="stylesheet" type='text/css' media='screen' href="css/style.css"> 
-    <link rel="stylesheet" type='text/css' media='screen' href="css/board.css"> 
+    <link rel="stylesheet" type='text/css' media='screen' href="css/style.css">
+    <link rel="stylesheet" type='text/css' media='screen' href="css/board.css">
 
     <!-- JavaScript Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
@@ -39,7 +39,7 @@
     <script src="js/script.js"></script> <!-- Statt <script> ... </script> -->
     <script src="js/board.js"></script> <!-- Statt <script> ... </script> -->
     <script src="js/summary.js"></script> <!-- Statt <script> ... </script> -->
-    <script src="js/addtask.js"></script> <!-- Statt <script> ... </script> -->    
+    <script src="js/addtask.js"></script> <!-- Statt <script> ... </script> -->
     <script src="templates/template.js"></script>
     <script src="js/contacts.js"></script> <!-- Statt <script> ... </script> -->
     <script src="js/help.js"></script> <!-- Statt <script> ... </script> -->
@@ -67,20 +67,38 @@
                     <h2>Board</h2>
                 </div>
                 <div class="navbar">
-                    <div class="search-task"><input onkeydown="checkEmptyField(); enterEventSearchTask()" id="user-search" placeholder="Find Task"><div id="search-task-btn" onclick="searchTask()" class="search-btn"><img class="search-img" src="./img/board/search.png"></div></div>
-                    <div class="add-task"><button onclick="addTaskBoard()" class="add-task-button">Add task<img class="add-img-straight" src="./img/board/plus1.png"><img class="add-img-up" src="./img/board/plus2.png"></button></div>
+                    <div class="search-task"><input onkeydown="checkEmptyField(); enterEventSearchTask()"
+                            id="user-search" placeholder="Find Task">
+                        <div id="search-task-btn" onclick="searchTask()" class="search-btn"><img class="search-img"
+                                src="./img/board/search.png"></div>
+                    </div>
+                    <div class="add-task"><button onclick="addTaskBoard()" class="add-task-button">Add task<img
+                                class="add-img-straight" src="./img/board/plus1.png"><img class="add-img-up"
+                                src="./img/board/plus2.png"></button></div>
                 </div>
             </div>
         </div>
 
         <div class="headline-tasks">
 
-            <div class="headline-task"><h3>To do</h3><div class="add-image"><img onclick="addTaskBoard()" src="./img/board/plus-button.png"></div></div>
-            <div class="headline-task"><h3>In progress</h3><div class="add-image"><img onclick="addTaskBoard()" src="./img/board/plus-button.png"></div></div>
-            <div class="headline-task"><h3>Awaiting feedback</h3><div class="add-image"><img onclick="addTaskBoard()" src="./img/board/plus-button.png"></div></div>
-            <div class="headline-task"><h3>Done</h3><div class="add-image"><img onclick="addTaskBoard()" src="./img/board/plus-button.png"></div></div>
+            <div class="headline-task">
+                <h3>To do</h3>
+                <div class="add-image"><img onclick="addTaskBoard()" src="./img/board/plus-button.png"></div>
+            </div>
+            <div class="headline-task">
+                <h3>In progress</h3>
+                <div class="add-image"><img onclick="addTaskBoard()" src="./img/board/plus-button.png"></div>
+            </div>
+            <div class="headline-task">
+                <h3>Awaiting feedback</h3>
+                <div class="add-image"><img onclick="addTaskBoard()" src="./img/board/plus-button.png"></div>
+            </div>
+            <div class="headline-task">
+                <h3>Done</h3>
+                <div class="add-image"><img onclick="addTaskBoard()" src="./img/board/plus-button.png"></div>
+            </div>
         </div>
-        
+
         <div id="main-task-container" class="main-tasks-container">
             <div class="main-solo-task-container" id="main-todo" ondrop="moveTo('To do')" ondragover="allowDrop(event)">
                 <div id="category-todo" class="category-todo">
@@ -88,13 +106,15 @@
                 </div>
                 <div id="empty-space-todo" class="empty-space d-none"></div>
             </div>
-            
-            <div class="main-solo-task-container" id="main-progress" ondrop="moveTo('In progress')" ondragover="allowDrop(event)">
+
+            <div class="main-solo-task-container" id="main-progress" ondrop="moveTo('In progress')"
+                ondragover="allowDrop(event)">
                 <div id="category-progress" class="in-progress-output"></div>
                 <div id="empty-space-progress" class="empty-space d-none"></div>
             </div>
 
-            <div class="main-solo-task-container" id="main-feedback" ondrop="moveTo('Awaiting feedback')" ondragover="allowDrop(event)">
+            <div class="main-solo-task-container" id="main-feedback" ondrop="moveTo('Awaiting feedback')"
+                ondragover="allowDrop(event)">
                 <div id="category-feedback" class="awaiting-feedback-output"></div>
                 <div id="empty-space-feedback" class="empty-space d-none"></div>
             </div>
@@ -111,6 +131,8 @@
                 <span>HIER KOMMT EUGENS ADD TEMPLATE REIN</span>
             </div>
         </div>
+
+        <div id="succes-alert" class="succes-alert d-none">Aufgabe erflogreich abgeändert</div>
     </div>
 
     <div id="main-bigbox-solo-task-container" class="big-box-tasks-container-full-size d-none"></div>

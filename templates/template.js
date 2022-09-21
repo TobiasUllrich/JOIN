@@ -148,7 +148,7 @@ function templateBigBoxSoloTask(soloTasks, indexOfSoloTask) {
                 </table>
             </div>
         </div>
-        <div onclick="editCurrentTask(${soloTasks[indexOfSoloTask].id}); renderAssignedTo();" id="edit-button${indexOfSoloTask}" onmouseover="changeEditContainerColors(${indexOfSoloTask})" onmouseleave="RemoveEditContainerColors(${indexOfSoloTask})" class="edit-button d-center"><img id="edit-pencil${indexOfSoloTask}" src="./img/board/pencil.png"></div>
+        <div onclick="editCurrentTask(${soloTasks[indexOfSoloTask].id}); renderAssignedToEditTask();" id="edit-button${indexOfSoloTask}" onmouseover="changeEditContainerColors(${indexOfSoloTask})" onmouseleave="RemoveEditContainerColors(${indexOfSoloTask})" class="edit-button d-center"><img id="edit-pencil${indexOfSoloTask}" src="./img/board/pencil.png"></div>
     </div>`
 }
 
@@ -185,22 +185,22 @@ function templateOfSearchTask(taskSearch, index) {
 
 // ##############BOARD TEMPLATES END################# //
 
-function templateEditCurrentTask(currentTask) {
+function templateEditCurrentTask(currentTask, idOfCurrentTask) {
     return `
     <div id="main-edit-container" class="main-edit-container">
         <div class="edit-headline">
             <h3>Title</h3>
-            <input class="edit-container-inputstyle" placeholder="${currentTask.title}">
+            <input required id="edit-title" onclick="clearPlaceholder('title', 'Enter a title', '${currentTask.title}')" class="edit-container-inputstyle" placeholder="${currentTask.title}">
         </div>
 
         <div class="edit-description">
             <h3>Description</h3>
-            <textarea placeholder="${currentTask.description}"></textarea>
+            <textarea required id="edit-description" onclick="clearPlaceholder('description', 'Enter a description', '${currentTask.description}')" placeholder="${currentTask.description}"></textarea>
         </div>
 
         <div class="edit-date">
             <h3>Due date</h3>
-            <input class="edit-container-inputstyle" type="date" placeholder="${currentTask.dueDate}">
+            <input required id="edit-date" class="edit-container-inputstyle" type="date" placeholder="${currentTask.dueDate.replaceAll('-', '.')}">
         </div>
 
         <div class="edit-prio">
@@ -217,21 +217,19 @@ function templateEditCurrentTask(currentTask) {
             <div id="edit-assignedTo-subcontainer" class="edit-assignedTo-subcontainer">
                 <div onclick="showCompleteContainer()">Select contacts to assign<img id="dropdown-img" src="./img/board/dropdown.png"></div>
                 <div id="edit-workers" class="edit-workers d-none">
-                    <div onclick="submitCheckbox('1')" class="solo-contact"><label>You</label><input id="checkbox-1" required type="checkbox"></div>
-                    <div onclick="submitCheckbox('2')"  class="solo-contact"><label>Test1</label><input id="checkbox-2" required type="checkbox"></div>
-                    <div onclick="submitCheckbox('3')" class="solo-contact"><label>Test2</label><input id="checkbox-3" required type="checkbox"></div>
                 </div>
             </div>
-            
-
-
-
         </div>
 
-        <div class="change-edit-button">
+        <div onsubmit="submitChanges(${idOfCurrentTask})" class="change-edit-button">
             <div>Ok</div><img src="./img/check_white.png">
         </div>
 
         <div class="close-edit-container"><img onclick="closeEditContainer()" src="./img/board/close.png">
     </div>`
+}
+
+function templateShowAllWorkers(indexOfUsers, userName){
+    return `
+    <div onclick="submitCheckbox(${indexOfUsers})" class="solo-contact"><label>${userName}</label><input id="checkbox-${indexOfUsers}" required type="checkbox"></div>`
 }
