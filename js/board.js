@@ -5,6 +5,7 @@ let soloTasksFeedback = [];
 let soloTasksDone = [];
 let currentDraggingElement;
 let editNewPrio;
+let assignedPeople = [];
 // let responseUsersJSON = {};
 
 /* async function loadUsersJSON(){
@@ -418,17 +419,17 @@ function closeEditContainer(){
 }
 
 function changePrioTo(idOfcurrentTask, newPrio){
-    if(newPrio == 'urgent'){
+    if(newPrio == 'Urgent'){
         changePrioToUrgent();
-        editNewPrio = 'urgent'
+        editNewPrio = 'Urgent'
     }
-    if(newPrio == 'medium'){
+    if(newPrio == 'Medium'){
         changePrioToMedium();
-        editNewPrio = 'medium'
+        editNewPrio = 'Medium'
     }
-    if(newPrio == 'low'){
+    if(newPrio == 'Low'){
         changePrioToLow();
-        editNewPrio = 'low'
+        editNewPrio = 'Low'
     }
 }
 

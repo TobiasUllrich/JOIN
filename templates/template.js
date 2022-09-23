@@ -187,49 +187,52 @@ function templateOfSearchTask(taskSearch, index) {
 
 function templateEditCurrentTask(currentTask, idOfCurrentTask) {
     return `
-    <div id="main-edit-container" class="main-edit-container">
-        <div class="edit-headline">
-            <h3>Title</h3>
-            <input required id="edit-title" onclick="clearPlaceholder('title', 'Enter a title', '${currentTask.title}')" class="edit-container-inputstyle" placeholder="${currentTask.title}">
-        </div>
-
-        <div class="edit-description">
-            <h3>Description</h3>
-            <textarea required id="edit-description" onclick="clearPlaceholder('description', 'Enter a description', '${currentTask.description}')" placeholder="${currentTask.description}"></textarea>
-        </div>
-
-        <div class="edit-date">
-            <h3>Due date</h3>
-            <input required id="edit-date" class="edit-container-inputstyle" type="date" placeholder="${currentTask.dueDate.replaceAll('-', '.')}">
-        </div>
-
-        <div class="edit-prio">
-            <h3>Prio</h3>
-            <div class="edit-prio-subcontainer">
-                <div id="urgent-prio" onclick="changePrioTo(${currentTask.id}, ['urgent'])" class="edit-prioclass"><span>Urgent</span><img id="urgent-img" src="./img/board/urgent-addtask.png"></div>
-                <div id="medium-prio" onclick="changePrioTo(${currentTask.id}, ['medium'])" class="edit-prioclass"><span>Medium</span><img id="medium-img" src="./img/board/medium-addtask.png"></div>
-                <div id="low-prio" onclick="changePrioTo(${currentTask.id}, ['low'])" class="edit-prioclass"><span>Low</span><img id="low-img" src="./img/board/low-addtask.png"></div>
+    <form onsubmit="submitChanges(${idOfCurrentTask}); return false">
+        <div id="main-edit-container" class="main-edit-container">
+            <div class="edit-headline">
+                <h3>Title</h3>
+                <input required type="text" id="edit-title" onclick="clearPlaceholder('title', 'Enter a title', '${currentTask.title}')" class="edit-container-inputstyle" placeholder="${currentTask.title}">
             </div>
-        </div>
 
-        <div class="edit-assignedTo">
-            <h3>Assigned to</h3>
-            <div id="edit-assignedTo-subcontainer" class="edit-assignedTo-subcontainer">
-                <div onclick="showCompleteContainer()">Select contacts to assign<img id="dropdown-img" src="./img/board/dropdown.png"></div>
-                <div id="edit-workers" class="edit-workers d-none">
+            <div class="edit-description">
+                <h3>Description</h3>
+                <textarea required type="text" id="edit-description" onclick="clearPlaceholder('description', 'Enter a description', '${currentTask.description}')" placeholder="${currentTask.description}"></textarea>
+            </div>
+
+            <div class="edit-date">
+                <h3>Due date</h3>
+                <input required id="edit-date" type="date" class="edit-container-inputstyle" placeholder="${currentTask.dueDate.replaceAll('-', '.')}">
+            </div>
+
+            <div class="edit-prio">
+                <h3>Prio</h3>
+                <div class="edit-prio-subcontainer">
+                    <div required id="urgent-prio" onclick="changePrioTo(${currentTask.id}, ['Urgent'])" class="edit-prioclass"><span>Urgent</span><img id="urgent-img" src="./img/board/urgent-addtask.png"></div>
+                    <div required id="medium-prio" onclick="changePrioTo(${currentTask.id}, ['Medium'])" class="edit-prioclass"><span>Medium</span><img id="medium-img" src="./img/board/medium-addtask.png"></div>
+                    <div required id="low-prio" onclick="changePrioTo(${currentTask.id}, ['Low'])" class="edit-prioclass"><span>Low</span><img id="low-img" src="./img/board/low-addtask.png"></div>
                 </div>
             </div>
-        </div>
 
-        <div onclick="submitChanges(${idOfCurrentTask})" class="change-edit-button">
-            <div>Ok</div><img src="./img/check_white.png">
-        </div>
+            <div class="edit-assignedTo">
+                <h3>Assigned to</h3>
+                <div id="edit-assignedTo-subcontainer" class="edit-assignedTo-subcontainer">
+                    <div onclick="showCompleteContainer()">Select contacts to assign<img id="dropdown-img" src="./img/board/dropdown.png"></div>
+                    <div id="edit-workers" class="edit-workers d-none">
+                        <div onclick="submitCheckbox('-1')" class="solo-contact"><label>You</label><input id="checkbox--1" type="checkbox"></div>
+                    </div>
+                </div>
+            </div>
 
-        <div class="close-edit-container"><img onclick="closeEditContainer()" src="./img/board/close.png">
-    </div>`
+            <div class="change-edit-button">
+                <button><div>Ok</div><img src="./img/check_white.png"></button>
+            </div>
+
+            <div class="close-edit-container"><img onclick="closeEditContainer()" src="./img/board/close.png">
+        </div>
+    </form>`
 }
 
 function templateShowAllWorkers(indexOfUsers, userName){
     return `
-    <div onclick="submitCheckbox(${indexOfUsers})" class="solo-contact"><label>${userName}</label><input id="checkbox-${indexOfUsers}" required type="checkbox"></div>`
+    <div onclick="submitCheckbox(${indexOfUsers})" class="solo-contact"><label>${userName}</label><input id="checkbox-${indexOfUsers}" type="checkbox"></div>`
 }

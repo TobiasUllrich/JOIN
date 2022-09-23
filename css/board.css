@@ -611,7 +611,7 @@ body {
     cursor: pointer;
 }
 
-.change-edit-button {
+.change-edit-button button {
     position: absolute;
     bottom: 25px;
     right: 25px;
@@ -633,7 +633,7 @@ body {
     font-weight: bold;
 }
 
-.change-edit-button:hover {
+.change-edit-button button:hover {
     background: #0190E0 !important;
 }
 
