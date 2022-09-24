@@ -207,9 +207,21 @@ function templateEditCurrentTask(currentTask, idOfCurrentTask) {
             <div class="edit-prio">
                 <h3>Prio</h3>
                 <div class="edit-prio-subcontainer">
-                    <div required id="urgent-prio" onclick="changePrioTo(${currentTask.id}, ['Urgent'])" class="edit-prioclass"><span>Urgent</span><img id="urgent-img" src="./img/board/urgent-addtask.png"></div>
-                    <div required id="medium-prio" onclick="changePrioTo(${currentTask.id}, ['Medium'])" class="edit-prioclass"><span>Medium</span><img id="medium-img" src="./img/board/medium-addtask.png"></div>
-                    <div required id="low-prio" onclick="changePrioTo(${currentTask.id}, ['Low'])" class="edit-prioclass"><span>Low</span><img id="low-img" src="./img/board/low-addtask.png"></div>
+
+                    <div id="prio-urgent-container" class="edit-prioclass">
+                        <input required type="radio" id="change-prio-urgent" name="prioclass" value="Urgent">
+                        <label for="change-prio-urgent" id="urgent-prio" onclick="changePrioTo(${currentTask.id}, ['Urgent'])" class="prio-label-urgent" for="urgent">Urgent<img id="urgent-img" src="./img/board/urgent-addtask.png"></label>
+                    </diV>
+    
+                    <div id="prio-medium-container" class="edit-prioclass">
+                        <input required type="radio" id="change-prio-medium" name="prioclass" value="Medium">
+                        <label for="change-prio-medium" id="medium-prio" onclick="changePrioTo(${currentTask.id}, ['Medium'])" class="prio-label-medium" for="medium">Medium<img id="medium-img" src="./img/board/medium-addtask.png"></label>
+                    </diV>
+    
+                    <div id="prio-low-container" class="edit-prioclass">
+                        <input required type="radio" id="change-prio-low" name="prioclass" value="Low">
+                        <label for="change-prio-low" id="low-prio" onclick="changePrioTo(${currentTask.id}, ['Low'])" class="prio-label-low" for="low">Low<img id="low-img" src="./img/board/low-addtask.png"></label>
+                    </div>
                 </div>
             </div>
 
@@ -224,7 +236,7 @@ function templateEditCurrentTask(currentTask, idOfCurrentTask) {
             </div>
 
             <div class="change-edit-button">
-                <button><div>Ok</div><img src="./img/check_white.png"></button>
+                <button type="submit"><div>Ok</div><img src="./img/check_white.png"></button>
             </div>
 
             <div class="close-edit-container"><img onclick="closeEditContainer()" src="./img/board/close.png">
@@ -232,7 +244,7 @@ function templateEditCurrentTask(currentTask, idOfCurrentTask) {
     </form>`
 }
 
-function templateShowAllWorkers(indexOfUsers, userName){
+function templateShowAllWorkers(indexOfUsers, userName) {
     return `
     <div onclick="submitCheckbox(${indexOfUsers})" class="solo-contact"><label>${userName}</label><input id="checkbox-${indexOfUsers}" type="checkbox"></div>`
 }

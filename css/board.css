@@ -537,6 +537,10 @@ body {
     border: 1px solid lightgrey;
     margin-bottom: 12px;
     caret-color: transparent;
+    padding-left: 12px;
+    padding-right: 12px;
+    cursor: pointer;
+    color: black;
 }
 
 .edit-prio-subcontainer {
@@ -546,8 +550,7 @@ body {
 }
 
 .edit-headline input::placeholder {
-    padding-left: 12px;
-    color: black;
+    color: gray;
     font-size: 20px;
     caret-color: transparent;
 }
@@ -559,21 +562,16 @@ body {
     border-color: lightgray;
     caret-color: transparent;
     outline: none;
-}
-
-.edit-description textarea::placeholder {
     padding-left: 12px;
     padding-right: 12px;
     color: black;
+}
+
+.edit-description textarea::placeholder {
+    color: grey;
     font-size: 20px;
     height: 100%;
     width: 80%;
-}
-
-.edit-date input {
-    padding-left: 12px;
-    padding-right: 12px;
-    cursor: pointer;
 }
 
 .edit-prio {
@@ -590,6 +588,7 @@ body {
     justify-content: space-evenly;
     align-items: center;
     cursor: pointer;
+    position: relative;
 }
 
 .edit-prioclass:hover{
@@ -602,6 +601,22 @@ body {
     height: 20px;
     width: 20px;
     object-fit: contain;
+    margin-left: 8px;
+}
+
+.edit-prioclass label{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.edit-prioclass input{
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    z-index: -1;
+    position: absolute;
 }
 
 .close-edit-container {
@@ -648,6 +663,7 @@ body {
     color: white;
     font-weight: bold;
     transition: all 225ms ease-in-out;
+    box-shadow: 0px 5px 7px 0px rgb(0 0 0 / 40%);
 }
 
 .medium-prio {
@@ -655,6 +671,7 @@ body {
     color: white;
     font-weight: bold;
     transition: all 225ms ease-in-out;
+    box-shadow: 0px 5px 7px 0px rgb(0 0 0 / 40%);
 }
 
 .low-prio {
@@ -662,6 +679,7 @@ body {
     color: white;
     font-weight: bold;
     transition: all 225ms ease-in-out;
+    box-shadow: 0px 5px 7px 0px rgb(0 0 0 / 40%);
 }
 
 .edit-assignedTo select{
@@ -753,6 +771,12 @@ body {
     border-radius: 12px;
     padding: 8px;
     transition: all 500ms ease-in-out;
+}
+
+.test-img{
+    background: url(img/board/prio-Low.png);
+    outline: none;
+    caret-color: transparent;
 }
 
 

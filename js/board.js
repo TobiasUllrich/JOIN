@@ -6,14 +6,6 @@ let soloTasksDone = [];
 let currentDraggingElement;
 let editNewPrio;
 let assignedPeople = [];
-// let responseUsersJSON = {};
-
-/* async function loadUsersJSON(){
-    let usersJSON = await fetch('smallest_backend_ever/database.json');
-    responseUsersJSON = await usersJSON.json();
-    console.log(responseUsersJSON);
-    renderBoard();
-} */
 
 async function renderBoard() {
     await init();
@@ -455,8 +447,8 @@ function changePrioToLow(){
 }
 
 function removePossibleClickedPrioBefore(otherPrioOne, otherPrioTwo){
-    document.getElementById(`${otherPrioOne}-prio`).classList.remove(`${otherPrioOne}-prio`);
-    document.getElementById(`${otherPrioTwo}-prio`).classList.remove(`${otherPrioTwo}-prio`);
+    document.getElementById(`prio-${otherPrioOne}-container`).classList.remove(`${otherPrioOne}-prio`);
+    document.getElementById(`prio-${otherPrioTwo}-container`).classList.remove(`${otherPrioTwo}-prio`);
 }
 
 function removeImgFilter(imgPrio){
@@ -464,7 +456,8 @@ function removeImgFilter(imgPrio){
 }
 
 function highlightClickedPrioContainer(prio){
-    document.getElementById(`${prio}-prio`).classList.add(`${prio}-prio`);
+    document.getElementById(`prio-${prio}-container`).classList.add(`${prio}-prio`);
+    document.getElementById(`prio-${prio}`)
     document.getElementById(`${prio}-img`).style.filter = 'brightness(0) invert(1)';
 }
 
@@ -508,7 +501,6 @@ function submitChanges(idOfCurrentTask){
 }
 
 function updateTaskArray(taskId, title, description, date, prio){
-    console.log('in der Funktion drin 1');
     tasksScript[taskId].title = title;
     tasksScript[taskId].description = description;
     tasksScript[taskId].dueDate = date;
@@ -518,7 +510,6 @@ function updateTaskArray(taskId, title, description, date, prio){
 }
 
 function showAlert(){
-    console.log('in der Funktion drin');
     document.getElementById('succes-alert').classList.remove('d-none');
     setTimeout(hideAlert, 3000);
 }
