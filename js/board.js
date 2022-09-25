@@ -6,7 +6,6 @@ let soloTasksDone = [];
 let currentDraggingElement;
 let editNewPrio;
 let assignedPeople = [];
-let checkedOneCheckbox; 
 let selectedWorkers = [];
 
 async function renderBoard() {
@@ -483,10 +482,8 @@ function submitCheckbox(idOfCheckbox) {
 
     if(clickedCheckbox.checked == false){
         clickedCheckbox.checked = true;
-        console.log(clickedCheckbox.checked);
     } else {
         clickedCheckbox.checked = false;
-        console.log(clickedCheckbox.checked);
     }
     checkValidatorCheckboxes();
 }
@@ -495,12 +492,14 @@ function checkValidatorCheckboxes(){
     let checkboxAssignedTo = document.getElementById('checkCheckboxes');
     let checkboxes = document.querySelectorAll('input[type="checkbox"]');
     let checkedOne = Array.prototype.slice.call(checkboxes).some(x => x.checked);
-    checkedOneCheckbox = checkedOne;
-    if(checkedOneCheckbox == true){
-        checkboxAssignedTo.removeAttribute('required');
+    
+    if(checkedOne == false){
+        checkboxAssignedTo.required = true;
+        console.log(checkedOne);
     }
-    if(checkedOneCheckbox == false){
-        checkboxAssignedTo.setAttribute('requried');
+    if(checkedOne == true){
+        checkboxAssignedTo.required = false;
+        console.log(checkedOne);
     }
 }
 
