@@ -230,7 +230,7 @@ function templateEditCurrentTask(currentTask, idOfCurrentTask) {
                 <div id="edit-assignedTo-subcontainer" class="edit-assignedTo-subcontainer">
                     <div onclick="showCompleteContainer()">Select contacts to assign<img id="dropdown-img" src="./img/board/dropdown.png"><input required class="checkCheckboxes" id="checkCheckboxes"></div>
                     <div id="edit-workers" class="edit-workers d-none">
-                        <div onclick="submitCheckbox('-1')" class="solo-contact"><label>You</label><input onclick="submitCheckbox('-1')" value="user-1" name="users" id="checkbox--1" type="checkbox"></div>
+                        <div onclick="submitCheckbox('-1')" class="solo-contact"><label>You</label><input name="users" id="checkbox--1" type="checkbox"></div>
                     </div>
                 </div>
             </div>   
@@ -246,5 +246,5 @@ function templateEditCurrentTask(currentTask, idOfCurrentTask) {
 
 function templateShowAllWorkers(indexOfUsers, userName) {
     return `
-    <div onclick="submitCheckbox(${indexOfUsers})" class="solo-contact"><label>${userName}</label><input onclick="submitCheckbox(${indexOfUsers})" value="user${indexOfUsers}" name="users" id="checkbox-${indexOfUsers}" type="checkbox"></div>`
+    <div onclick="submitCheckbox(${indexOfUsers})" class="solo-contact"><label>${userName}</label><input name="users" id="checkbox-${indexOfUsers}" type="checkbox"></div>`
 }

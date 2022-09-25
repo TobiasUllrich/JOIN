@@ -7,6 +7,7 @@ let currentDraggingElement;
 let editNewPrio;
 let assignedPeople = [];
 let checkedOneCheckbox; 
+let selectedWorkers = [];
 
 async function renderBoard() {
     await init();
@@ -478,15 +479,23 @@ function submitChanges(idOfCurrentTask) {
 }
 
 function submitCheckbox(idOfCheckbox) {
-    document.getElementById(`checkbox-${idOfCheckbox}`).click();
-    let checkboxes = document.querySelectorAll('input[type="checkbox"]');
-    let checkedOne = Array.prototype.slice.call(checkboxes).some(x => x.checked);
-    checkedOneCheckbox = checkedOne;
+    let clickedCheckbox = document.getElementById(`checkbox-${idOfCheckbox}`);
+
+    if(clickedCheckbox.checked == false){
+        clickedCheckbox.checked = true;
+        console.log(clickedCheckbox.checked);
+    } else {
+        clickedCheckbox.checked = false;
+        console.log(clickedCheckbox.checked);
+    }
     checkValidatorCheckboxes();
 }
 
 function checkValidatorCheckboxes(){
     let checkboxAssignedTo = document.getElementById('checkCheckboxes');
+    let checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    let checkedOne = Array.prototype.slice.call(checkboxes).some(x => x.checked);
+    checkedOneCheckbox = checkedOne;
     if(checkedOneCheckbox == true){
         checkboxAssignedTo.removeAttribute('required');
     }
@@ -531,11 +540,3 @@ function showAlert() {
 function hideAlert() {
     document.getElementById('succes-alert').classList.add('d-none');
 }
-/* CODE TODO LEFTs
-    - Edit Task Function
-    - Assigned To Render / mini Task and Big Task
-    - Unscrollable Board - sticky Boardheadline ### FINISH
-    - Search Funktion ### FINISH
-    - Drag und Drop Function --> ### FINISH
-    - Add Task Funktion --> Warten auf Eugen sein Code
-*/
