@@ -719,6 +719,7 @@ body {
     align-items: center;
     padding-left: 12px;
     padding-right: 12px;
+    position: relative;
 }
 
 .solo-contact{
@@ -777,6 +778,16 @@ body {
     background: url(img/board/prio-Low.png);
     outline: none;
     caret-color: transparent;
+}
+
+.checkCheckboxes{
+    height: 0px;
+    width: 0px;
+    opacity: 0;
+    position: absolute;
+    left: 50%;
+    bottom: 0px;
+    z-index: -1;
 }
 
 

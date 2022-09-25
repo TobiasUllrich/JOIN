@@ -6,6 +6,7 @@ let soloTasksDone = [];
 let currentDraggingElement;
 let editNewPrio;
 let assignedPeople = [];
+let checkedOneCheckbox; 
 
 async function renderBoard() {
     await init();
@@ -144,7 +145,7 @@ function openCurrentTaskBigBox(indexOfSoloTask, statusTask) {
     checkHeadlineColorBigBox();
 }
 
-function editCurrentTask(idOfCurrentTask){
+function editCurrentTask(idOfCurrentTask) {
     let currentTask = tasksScript[idOfCurrentTask];
 
     let bigBoxContainer = document.getElementById('big-box-solo-task');
@@ -405,102 +406,115 @@ function hideEmptyPlaces(otherStatusOne, otherStatusTwo, otherStatusThree) {
     document.getElementById(`empty-space-${otherStatusThree}`).classList.add('d-none');
 }
 
-function closeEditContainer(){
+function closeEditContainer() {
     document.getElementById('main-edit-container').classList.add('d-none');
     closeSoloTaskBigBox();
 }
 
-function changePrioTo(idOfcurrentTask, newPrio){
-    if(newPrio == 'Urgent'){
+function changePrioTo(idOfcurrentTask, newPrio) {
+    if (newPrio == 'Urgent') {
         changePrioToUrgent();
         editNewPrio = 'Urgent'
     }
-    if(newPrio == 'Medium'){
+    if (newPrio == 'Medium') {
         changePrioToMedium();
         editNewPrio = 'Medium'
     }
-    if(newPrio == 'Low'){
+    if (newPrio == 'Low') {
         changePrioToLow();
         editNewPrio = 'Low'
     }
 }
 
-function changePrioToUrgent(){
+function changePrioToUrgent() {
     highlightClickedPrioContainer('urgent');
     removePossibleClickedPrioBefore('medium', 'low');
     removeImgFilter('medium');
     removeImgFilter('low');
 }
 
-function changePrioToMedium(){
+function changePrioToMedium() {
     highlightClickedPrioContainer('medium');
     removePossibleClickedPrioBefore('urgent', 'low');
     removeImgFilter('urgent');
     removeImgFilter('low');
 }
 
-function changePrioToLow(){
+function changePrioToLow() {
     highlightClickedPrioContainer('low');
     removePossibleClickedPrioBefore('urgent', 'medium');
     removeImgFilter('urgent');
     removeImgFilter('medium');
 }
 
-function removePossibleClickedPrioBefore(otherPrioOne, otherPrioTwo){
+function removePossibleClickedPrioBefore(otherPrioOne, otherPrioTwo) {
     document.getElementById(`prio-${otherPrioOne}-container`).classList.remove(`${otherPrioOne}-prio`);
     document.getElementById(`prio-${otherPrioTwo}-container`).classList.remove(`${otherPrioTwo}-prio`);
 }
 
-function removeImgFilter(imgPrio){
+function removeImgFilter(imgPrio) {
     document.getElementById(`${imgPrio}-img`).style.filter = '';
 }
 
-function highlightClickedPrioContainer(prio){
+function highlightClickedPrioContainer(prio) {
     document.getElementById(`prio-${prio}-container`).classList.add(`${prio}-prio`);
     document.getElementById(`prio-${prio}`)
     document.getElementById(`${prio}-img`).style.filter = 'brightness(0) invert(1)';
 }
 
-function showCompleteContainer(){
+function showCompleteContainer() {
     document.getElementById('edit-assignedTo-subcontainer').classList.toggle('edit-assign-full-size');
     document.getElementById('edit-assignedTo-subcontainer').classList.toggle('edit-assign-colum');
     document.getElementById('edit-workers').classList.toggle('d-none');
     document.getElementById('dropdown-img').classList.toggle('edit-assign-img-rotate');
 }
 
-function submitCheckbox(idOfCheckbox){
-    document.getElementById(`checkbox-${idOfCheckbox}`).click();
+function submitChanges(idOfCurrentTask) {
+    let newTitle = document.getElementById('edit-title').value;
+    let newDescription = document.getElementById('edit-description').value;
+    let newDate = document.getElementById('edit-date').value;  // Wird falschherum dargestellt d.h. 2022-09-03
+    let newPrio = editNewPrio;
+    updateTaskArray(idOfCurrentTask, newTitle, newDescription, newDate, newPrio);
 }
 
-function renderAssignedToEditTask(){
+function submitCheckbox(idOfCheckbox) {
+    document.getElementById(`checkbox-${idOfCheckbox}`).click();
+    let checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    let checkedOne = Array.prototype.slice.call(checkboxes).some(x => x.checked);
+    checkedOneCheckbox = checkedOne;
+    checkValidatorCheckboxes();
+}
+
+function checkValidatorCheckboxes(){
+    let checkboxAssignedTo = document.getElementById('checkCheckboxes');
+    if(checkedOneCheckbox == true){
+        checkboxAssignedTo.removeAttribute('required');
+    }
+    if(checkedOneCheckbox == false){
+        checkboxAssignedTo.setAttribute('requried');
+    }
+}
+
+function renderAssignedToEditTask() {
     let outputContainer = document.getElementById('edit-workers');
     // outputContainer.innerHTML = ''
-    for(let o = 0; o < users.length; o++){
+    for (let o = 0; o < users.length; o++) {
         const singleUserName = users[o].name;
         outputContainer.innerHTML += templateShowAllWorkers(o, singleUserName);
     }
 }
 
-function clearPlaceholder(inputfield, newPlaceholder, oldPlaceholder){
+function clearPlaceholder(inputfield, newPlaceholder, oldPlaceholder) {
     let currentPlaceholder = document.getElementById(`edit-${inputfield}`).placeholder;
-    if(currentPlaceholder == oldPlaceholder){
+    if (currentPlaceholder == oldPlaceholder) {
         document.getElementById(`edit-${inputfield}`).placeholder = `${newPlaceholder}`;
     }
-    if(currentPlaceholder == newPlaceholder){
+    if (currentPlaceholder == newPlaceholder) {
         document.getElementById(`edit-${inputfield}`).placeholder = `${oldPlaceholder}`;
     }
 }
 
-function submitChanges(idOfCurrentTask){
-    let newTitle = document.getElementById('edit-title').value;
-    let newDescription = document.getElementById('edit-description').value;
-    let newDate = document.getElementById('edit-date').value;  // Wird falschherum dargestellt d.h. 2022-09-03
-    let newPrio = editNewPrio;
-    console.log(newTitle, newDescription, newDate, newPrio);
-    updateTaskArray(idOfCurrentTask, newTitle, newDescription, newDate, newPrio);
-}
-
-function updateTaskArray(taskId, title, description, date, prio){
+function updateTaskArray(taskId, title, description, date, prio) {
     tasksScript[taskId].title = title;
     tasksScript[taskId].description = description;
     tasksScript[taskId].dueDate = date;
@@ -509,15 +523,14 @@ function updateTaskArray(taskId, title, description, date, prio){
     showAlert();
 }
 
-function showAlert(){
+function showAlert() {
     document.getElementById('succes-alert').classList.remove('d-none');
     setTimeout(hideAlert, 3000);
 }
 
-function hideAlert(){
+function hideAlert() {
     document.getElementById('succes-alert').classList.add('d-none');
 }
-
 /* CODE TODO LEFTs
     - Edit Task Function
     - Assigned To Render / mini Task and Big Task
