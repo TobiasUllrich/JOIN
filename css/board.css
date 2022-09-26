@@ -28,6 +28,10 @@ body {
     align-items: center;
 }
 
+.c-pointer{
+    cursor: pointer;
+}
+
 .main-board-container {
     padding-left: 232px;
     padding-top: 80px;
@@ -59,7 +63,6 @@ body {
     display: flex;
     align-items: flex-start;
     padding: 0px;
-    gap: 30px;
     width: 467px;
     height: 51px;
 }
@@ -69,7 +72,6 @@ body {
     flex-direction: column;
     align-items: flex-start;
     padding: 0px;
-    gap: 1px;
     width: 176px;
     height: 73px;
 }
@@ -77,17 +79,14 @@ body {
 .headline h2 {
     font-weight: 700;
     font-size: 61px;
-    line-height: 120%;
     color: #000000;
 }
 
 .search-task input {
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     padding: 0px;
-    gap: 10px;
     width: 226px;
     height: 31px;
     border: none;
@@ -98,18 +97,15 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0px;
-    gap: 13px;
+    padding: 0px;   
     width: 100px;
     height: 19px;
     font-weight: 400;
     font-size: 16px;
-    line-height: 120%;
 }
 
 .search-task {
     display: flex;
-    flex-direction: row;
     align-items: center;
     padding: 13px 21px;
     gap: 10px;
@@ -128,13 +124,11 @@ body {
 .search-img {
     border-left: 2px solid lightgrey;
     padding-left: 6px;
-    cursor: pointer;
 }
 
 .add-task-button {
     box-sizing: border-box;
     display: flex;
-    flex-direction: row;
     align-items: center;
     padding: 18px 10px;
     gap: 10px;
@@ -145,7 +139,6 @@ body {
     border-radius: 10px;
     font-weight: 700;
     font-size: 21px;
-    line-height: 120%;
     color: #FFFFFF;
     position: relative;
     transition: all 225ms ease-in-out;
@@ -180,7 +173,6 @@ body {
     display: flex;
     align-items: center;
     padding: 0px;
-    gap: 26px;
     width: 90%;
     height: 57vh;
     justify-content: space-between;
@@ -202,19 +194,6 @@ body {
     height: 100%;
 }
 
-.main-task-headline {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0px;
-    width: 100%;
-    height: 30px;
-    cursor: pointer;
-    position: sticky;
-    top: 0;
-}
-
 .headline-tasks {
     width: 90%;
     display: flex;
@@ -224,7 +203,7 @@ body {
 }
 
 .headline-task {
-    width: 310px;
+    width: 310px; /*war 310*/ 
     display: flex;
     justify-content: space-between;
 }
@@ -232,16 +211,11 @@ body {
 .headline-task h3 {
     font-weight: 700;
     font-size: 21px;
-    line-height: 120%;
     color: #2A3647;
 }
 
 .add-image {
     box-sizing: border-box;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
     padding: 3px;
     gap: 10px;
     width: 30px;
@@ -261,13 +235,11 @@ body {
     align-items: flex-start;
     justify-content: space-evenly;
     padding: 18px 19px;
-    gap: 10px;
     width: 250px;
     height: 239px;
     background: #FFFFFF;
     box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
     border-radius: 30px;
-    cursor: pointer;
     margin-top: 20px;
 }
 
@@ -284,14 +256,12 @@ body {
 .headline-solo-task h3 {
     font-weight: 400;
     font-size: 16px;
-    line-height: 120%;
     color: #FFFFFF;
 }
 
 .task-title span {
     font-weight: 700;
     font-size: 16px;
-    line-height: 120%;
     color: #2A3647;
 }
 
@@ -306,7 +276,6 @@ body {
 .task-description span {
     font-weight: 400;
     font-size: 16px;
-    line-height: 120%;
     color: #A8A8A8;
 }
 
@@ -340,9 +309,6 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .add-task-subcontainer {
@@ -352,9 +318,6 @@ body {
     border-radius: 30px;
     z-index: 3;
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     color: white;
 }
 
@@ -362,7 +325,6 @@ body {
     position: absolute;
     top: 25px;
     right: 25px;
-    cursor: pointer;
 }
 
 .close-add-task img {
@@ -397,7 +359,6 @@ body {
 .big-box-task-headline h4 {
     font-weight: 400;
     font-size: 27px;
-    line-height: 120%;
     color: #FFFFFF;
 }
 
@@ -415,14 +376,12 @@ body {
 .big-box-task-title h2 {
     font-weight: 700;
     font-size: 49px;
-    line-height: 120%;
     color: #2A3647;
 }
 
 .big-box-task-description span {
     font-weight: 400;
     font-size: 21px;
-    line-height: 120%;
 }
 
 .big-box-task-date {
@@ -435,7 +394,6 @@ body {
 .big-box-task-date table tr td:first-child {
     font-weight: 700;
     font-size: 21px;
-    line-height: 120%;
     color: #000000;
     width: 105px;
     height: 25px;
@@ -446,7 +404,6 @@ body {
     height: 25px;
     font-weight: 400;
     font-size: 21px;
-    line-height: 120%;
     color: #000000;
 }
 
@@ -460,7 +417,6 @@ body {
 .big-box-task-prio table tr td:first-child {
     font-weight: 700;
     font-size: 21px;
-    line-height: 120%;
     color: #000000;
     width: 82px;
     height: 25px;
@@ -482,7 +438,6 @@ body {
 .assigned-to-headline h4 {
     font-weight: 700;
     font-size: 21px;
-    line-height: 120%;
     color: #000000;
 }
 
@@ -490,14 +445,12 @@ body {
     position: absolute;
     top: 25px;
     right: 25px;
-    cursor: pointer;
 }
 
 .edit-button {
     position: absolute;
     bottom: 25px;
     right: 25px;
-    cursor: pointer;
     height: 57px;
     width: 57px;
     background: #2a3647;
@@ -539,7 +492,6 @@ body {
     caret-color: transparent;
     padding-left: 12px;
     padding-right: 12px;
-    cursor: pointer;
     color: black;
 }
 
@@ -587,7 +539,6 @@ body {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    cursor: pointer;
     position: relative;
 }
 
@@ -604,13 +555,6 @@ body {
     margin-left: 8px;
 }
 
-.edit-prioclass label{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-}
-
 .edit-prioclass input{
     height: 100%;
     width: 100%;
@@ -623,7 +567,6 @@ body {
     position: absolute;
     top: 25px;
     right: 25px;
-    cursor: pointer;
 }
 
 .change-edit-button button {
@@ -640,7 +583,6 @@ body {
     color: white;
     justify-content: space-between;
     align-items: center;
-    cursor: pointer;
     transition: all 225ms ease-in-out;
 }
 
@@ -706,7 +648,6 @@ body {
     align-items: center;
     padding-left: 12px;
     padding-right: 12px;
-    cursor: pointer;
     font-size: 20px;
     color: black;
     overflow-y: scroll;
@@ -764,20 +705,11 @@ body {
     color: white;
     height: 50px;
     width: 275px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     position: absolute;
     top: 95px;
     border-radius: 12px;
     padding: 8px;
     transition: all 500ms ease-in-out;
-}
-
-.test-img{
-    background: url(img/board/prio-Low.png);
-    outline: none;
-    caret-color: transparent;
 }
 
 .checkCheckboxes{

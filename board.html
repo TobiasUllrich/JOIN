@@ -69,7 +69,7 @@
                 <div class="navbar">
                     <div class="search-task"><input onkeydown="checkEmptyField(); enterEventSearchTask()"
                             id="user-search" placeholder="Find Task">
-                        <div id="search-task-btn" onclick="searchTask()" class="search-btn"><img class="search-img"
+                        <div id="search-task-btn" onclick="searchTask()" class="search-btn"><img class="search-img c-pointer"
                                 src="./img/board/search.png"></div>
                     </div>
                     <div class="add-task"><button onclick="addTaskBoard()" class="add-task-button">Add task<img
@@ -83,23 +83,23 @@
 
             <div class="headline-task">
                 <h3>To do</h3>
-                <div class="add-image"><img onclick="addTaskBoard()" src="./img/board/plus-button.png"></div>
+                <div class="add-image d-center"><img onclick="addTaskBoard()" src="./img/board/plus-button.png"></div>
             </div>
             <div class="headline-task">
                 <h3>In progress</h3>
-                <div class="add-image"><img onclick="addTaskBoard()" src="./img/board/plus-button.png"></div>
+                <div class="add-image d-center"><img onclick="addTaskBoard()" src="./img/board/plus-button.png"></div>
             </div>
             <div class="headline-task">
                 <h3>Awaiting feedback</h3>
-                <div class="add-image"><img onclick="addTaskBoard()" src="./img/board/plus-button.png"></div>
+                <div class="add-image d-center"><img onclick="addTaskBoard()" src="./img/board/plus-button.png"></div>
             </div>
             <div class="headline-task">
                 <h3>Done</h3>
-                <div class="add-image"><img onclick="addTaskBoard()" src="./img/board/plus-button.png"></div>
+                <div class="add-image d-center"><img onclick="addTaskBoard()" src="./img/board/plus-button.png"></div>
             </div>
         </div>
 
-        <div id="main-task-container" class="main-tasks-container">
+        <div id="main-task-container" class="main-tasks-container c-pointer">
             <div class="main-solo-task-container" id="main-todo" ondrop="moveTo('To do')" ondragover="allowDrop(event)">
                 <div id="category-todo" class="category-todo">
                     <!--TEMPLATE // VORERST ZUM DESIGN HIER-->
@@ -125,14 +125,14 @@
             </div>
         </div>
 
-        <div onclick="closeAddTaskContainer()" id="main-add-task-container" class="main-add-task-container d-none">
-            <div onclick="doNotClose(event)" class="add-task-subcontainer">
-                <div onclick="closeAddTaskContainer()" class="close-add-task"><img src="./img/board/close.png"></div>
+        <div onclick="closeAddTaskContainer()" id="main-add-task-container" class="main-add-task-container d-none d-center">
+            <div onclick="doNotClose(event)" class="add-task-subcontainer d-center">
+                <div onclick="closeAddTaskContainer()" class="close-add-task c-pointer"><img src="./img/board/close.png"></div>
                 <span>HIER KOMMT EUGENS ADD TEMPLATE REIN</span>
             </div>
         </div>
 
-        <div id="succes-alert" class="succes-alert d-none">Aufgabe erflogreich geändert</div>
+        <div id="succes-alert" class="succes-alert d-none d-center">Aufgabe erflogreich geändert</div>
     </div>
 
     <div id="main-bigbox-solo-task-container" class="big-box-tasks-container-full-size d-none"></div>

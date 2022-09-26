@@ -26,7 +26,6 @@ function renderToDo() {
     for (let i = 0; i < todos.length; i++) {
         const taskTodo = todos[i];
         todoOutput.innerHTML += templateOfNewTaskToDo(taskTodo, i);
-        updateTasksHeadlinesStatus(i, ['todo']);
         renderAssignedNamesOfTask(i);
     }
 }
@@ -39,7 +38,6 @@ function renderProgress() {
     for (let j = 0; j < progress.length; j++) {
         const taskProgress = progress[j];
         inProgressOutput.innerHTML += templateOfTaskInProgress(taskProgress, j);
-        updateTasksHeadlinesStatus(j, ['progress']);
     }
 }
 
@@ -51,7 +49,6 @@ function renderFeedback() {
     for (let k = 0; k < feedback.length; k++) {
         const taskFeedback = feedback[k];
         feedbackOutput.innerHTML += templateOfTaskFeedback(taskFeedback, k);
-        updateTasksHeadlinesStatus(k, ['feedback']);
     }
 }
 
@@ -63,7 +60,6 @@ function renderDone() {
     for (let l = 0; l < doneTasks.length; l++) {
         const taskDone = doneTasks[l];
         doneOutput.innerHTML += templateOfTaskDone(taskDone, l);
-        updateTasksHeadlinesStatus(l, ['done']);
     }
 }
 
@@ -77,36 +73,19 @@ function filterTasks() {
 
 function renderAssignedNamesOfTask(i) { // NOCH NICHT FERTIG ___ MUSS NOCH GESCHRIEBEN WERDEN
     let renderOutputContainer = document.getElementById(`solo-worker-todo${i}`);
-
     renderOutputContainer.innerHTML = '';
+
+    for(let x = 0; x < soloTasksTodo[i].assignedTo.length; x++){
+        const assUser = soloTasksTodo[i].assignedTo[x];
+        // console.log(assUser);
+        if(users[0].email.includes(assUser)){
+            console.log('User existiert');
+        }
+    }
+
     renderOutputContainer.innerHTML += `<div class="worker-name-start-letters d-center"></div>`
     // ${users[soloTasksTodo[i].assignedTo[i]].name.charAt(0)};
     // ${users[soloTasksTodo[i].assignedTo[i]].surname.charAt(0)}; ## DAS IST DER CODE DER IN ZEILE 76 IN DIE DIV´S MUSS JEDOCH IST USERS UNDEFINED
-}
-
-function updateTasksHeadlinesStatus(indexOfTask, status) {
-    let headlineTaskContainer = document.getElementById(`headline-solo-task-${status}${indexOfTask}`); // IndexOfTask & taskStatus
-    let headlineText = document.getElementById(`headline-task-${status}${indexOfTask}`).innerHTML; // 
-
-    if (headlineText == 'Design') {
-        headlineTaskContainer.style.background = '#FF7A00';
-    } else {
-        if (headlineText == 'Sales') {
-            headlineTaskContainer.style.background = '#FC71FF';
-        } else {
-            if (headlineText == 'Backoffice') {
-                headlineTaskContainer.style.background = '#1FD7C1';
-            } else {
-                if (headlineText == 'Media') {
-                    headlineTaskContainer.style.background = '#FFC701';
-                } else {
-                    if (headlineText == 'Marketing') {
-                        headlineTaskContainer.style.background = '#0038FF';
-                    }
-                }
-            }
-        }
-    }
 }
 
 function addTaskBoard() {
@@ -119,13 +98,18 @@ function closeAddTaskContainer() {
     addDisplayNoneMainContainer(addTaskContainer);
 }
 
-function openCurrentTaskBigBox(indexOfSoloTask, statusTask) {
+function openCurrentTaskBigBox(indexOfSoloTask, statusTask, categorycolor) {
     let bigBoxContainer = document.getElementById('main-bigbox-solo-task-container');
+    bigBoxContainer.innerHTML = '';
     addOpacityToMainBackground();
     backgroundIsUnclickable();
     removeDisplayNoneMainContainer(bigBoxContainer);
-    bigBoxContainer.innerHTML = '';
+    checkStatusOfTask(statusTask, bigBoxContainer, indexOfSoloTask);
+    checkPriorityBackgroundColor();
+    checkHeadlineColorBigBox(categorycolor);
+}
 
+function checkStatusOfTask(statusTask, bigBoxContainer, indexOfSoloTask) {
     if (statusTask == 'to do') {
         bigBoxContainer.innerHTML = templateBigBoxSoloTask(soloTasksTodo, indexOfSoloTask);
     } else {
@@ -141,8 +125,6 @@ function openCurrentTaskBigBox(indexOfSoloTask, statusTask) {
             }
         }
     }
-    checkPriorityBackgroundColor();
-    checkHeadlineColorBigBox();
 }
 
 function editCurrentTask(idOfCurrentTask) {
@@ -154,13 +136,18 @@ function editCurrentTask(idOfCurrentTask) {
     bigBoxContainer.innerHTML = templateEditCurrentTask(currentTask, idOfCurrentTask);
 }
 
-function openCurrentTaskBigBoxOnSearch(indexOfSoloTask, statusTask) {
+function openCurrentTaskBigBoxOnSearch(indexOfSoloTask, statusTask, categorycolor) {
     let bigBoxContainer = document.getElementById('main-bigbox-solo-task-container');
+    bigBoxContainer.innerHTML = '';
     addOpacityToMainBackground();
     backgroundIsUnclickable();
     removeDisplayNoneMainContainer(bigBoxContainer);
-    bigBoxContainer.innerHTML = '';
+    checkStatusOfTaskOnSearch(statusTask, bigBoxContainer, indexOfSoloTask);
+    checkPriorityBackgroundColor();
+    checkHeadlineColorBigBox(categorycolor);
+}
 
+function checkStatusOfTaskOnSearch(statusTask, bigBoxContainer, indexOfSoloTask) {
     if (statusTask == 'to do') {
         bigBoxContainer.innerHTML = templateBigBoxSoloTask(tasksScript, indexOfSoloTask);
     } else {
@@ -176,8 +163,6 @@ function openCurrentTaskBigBoxOnSearch(indexOfSoloTask, statusTask) {
             }
         }
     }
-    checkPriorityBackgroundColor();
-    checkHeadlineColorBigBox();
 }
 
 function closeSoloTaskBigBox() {
@@ -187,29 +172,9 @@ function closeSoloTaskBigBox() {
     removeUnclickableBackground();
 }
 
-function checkHeadlineColorBigBox() {
+function checkHeadlineColorBigBox(categorycolor) {
     let bigBoxHeadlineContainer = document.getElementById('big-box-task-headline');
-    let bigBoxHeadlineText = document.getElementById('big-box-headline').innerHTML;
-
-    if (bigBoxHeadlineText == 'Design') {
-        bigBoxHeadlineContainer.style.background = '#FF7A00';
-    } else {
-        if (bigBoxHeadlineText == 'Sales') {
-            bigBoxHeadlineContainer.style.background = '#FC71FF';
-        } else {
-            if (bigBoxHeadlineText == 'Backoffice') {
-                bigBoxHeadlineContainer.style.background = '#1FD7C1';
-            } else {
-                if (bigBoxHeadlineText == 'Media') {
-                    bigBoxHeadlineContainer.style.background = '#FFC701';
-                } else {
-                    if (bigBoxHeadlineText == 'Marketing') {
-                        bigBoxHeadlineContainer.style.background = '#0038FF';
-                    }
-                }
-            }
-        }
-    }
+    bigBoxHeadlineContainer.style = `background:${categorycolor}`;
 }
 
 function checkPriorityBackgroundColor() {
@@ -218,11 +183,9 @@ function checkPriorityBackgroundColor() {
     if (prioBackgroundColor.innerHTML == 'Urgent') {
         prioBackgroundColor.style.background = '#ff5520';
     }
-
     if (prioBackgroundColor.innerHTML == 'Low') {
         prioBackgroundColor.style.background = '#7ae229';
     }
-
     if (prioBackgroundColor.innerHTML == 'Medium') {
         prioBackgroundColor.style.background = '#ffc85f';
     }
@@ -269,28 +232,24 @@ function searchInToDoContainer(taskSearch, m) {
     document.getElementById('category-todo').innerHTML = '';
     document.getElementById('category-todo').innerHTML = templateOfSearchTask(taskSearch, m);
     hideOtherTasks('progress', 'feedback', 'done');
-    updateTasksHeadlinesStatus(m, ['search']);
 }
 
 function seachInProgressContainer(taskSearch, m) {
     document.getElementById('category-progress').innerHTML = '';
     document.getElementById('category-progress').innerHTML = templateOfSearchTask(taskSearch, m);
     hideOtherTasks('todo', 'feedback', 'done');
-    updateTasksHeadlinesStatus(m, ['search']);
 }
 
 function seachInFeedbackContainer(taskSearch, m) {
     document.getElementById('category-feedback').innerHTML = '';
     document.getElementById('category-feedback').innerHTML = templateOfSearchTask(taskSearch, m);
     hideOtherTasks('todo', 'progress', 'done');
-    updateTasksHeadlinesStatus(m, ['search']);
 }
 
 function searchInDoneContainer(taskSearch, m) {
     document.getElementById('category-done').innerHTML = '';
     document.getElementById('category-done').innerHTML = templateOfSearchTask(taskSearch, m);
     hideOtherTasks('todo', 'progress', 'feedback');
-    updateTasksHeadlinesStatus(m, ['search']);
 }
 
 function checkEmptyField() {
@@ -411,7 +370,7 @@ function closeEditContainer() {
     closeSoloTaskBigBox();
 }
 
-function changePrioTo(idOfcurrentTask, newPrio) {
+function changePrioTo(newPrio) {
     if (newPrio == 'Urgent') {
         changePrioToUrgent();
         editNewPrio = 'Urgent'
@@ -480,28 +439,39 @@ function submitChanges(idOfCurrentTask) {
 function submitCheckbox(idOfCheckbox) {
     let clickedCheckbox = document.getElementById(`checkbox-${idOfCheckbox}`);
 
-    if(clickedCheckbox.checked == false){
+    if (clickedCheckbox.checked == false) {
         clickedCheckbox.checked = true;
-        selectedWorkers.push(users[idOfCheckbox]);
-        console.log(selectedWorkers);
+        checkIfWorkerIsPushable(idOfCheckbox);
     } else {
+        checkIfWorkerIsRemoveable(idOfCheckbox);
         clickedCheckbox.checked = false;
-        selectedWorkers.splice(idOfCheckbox, 1);
-        console.log(selectedWorkers);
     }
     checkValidatorCheckboxes();
- // ########################################################################################## BAUSTELLA
 }
 
-function checkValidatorCheckboxes(){
+function checkIfWorkerIsPushable(id) {
+    if (!selectedWorkers.includes(users[id])) {
+        selectedWorkers.push(users[id]);
+    }
+}
+
+function checkIfWorkerIsRemoveable(id) {
+    for (let p = 0; p < selectedWorkers.length; p++) {
+        if (selectedWorkers[p] === users[id]) {
+            selectedWorkers.splice(p, 1);
+        }
+    }
+}
+
+function checkValidatorCheckboxes() {
     let checkboxAssignedTo = document.getElementById('checkCheckboxes');
     let checkboxes = document.querySelectorAll('input[type="checkbox"]');
     let checkedOne = Array.prototype.slice.call(checkboxes).some(x => x.checked);
-    
-    if(checkedOne == false){
+
+    if (checkedOne == false) {
         checkboxAssignedTo.required = true;
     }
-    if(checkedOne == true){
+    if (checkedOne == true) {
         checkboxAssignedTo.required = false;
     }
 }
