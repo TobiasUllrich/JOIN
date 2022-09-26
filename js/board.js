@@ -482,10 +482,15 @@ function submitCheckbox(idOfCheckbox) {
 
     if(clickedCheckbox.checked == false){
         clickedCheckbox.checked = true;
+        selectedWorkers.push(users[idOfCheckbox]);
+        console.log(selectedWorkers);
     } else {
         clickedCheckbox.checked = false;
+        selectedWorkers.splice(idOfCheckbox, 1);
+        console.log(selectedWorkers);
     }
     checkValidatorCheckboxes();
+ // ########################################################################################## BAUSTELLA
 }
 
 function checkValidatorCheckboxes(){
@@ -495,11 +500,9 @@ function checkValidatorCheckboxes(){
     
     if(checkedOne == false){
         checkboxAssignedTo.required = true;
-        console.log(checkedOne);
     }
     if(checkedOne == true){
         checkboxAssignedTo.required = false;
-        console.log(checkedOne);
     }
 }
 
