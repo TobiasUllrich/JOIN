@@ -65,20 +65,26 @@
             <div class="headline-navbar">
                 <div class="headline">
                     <h2>Board</h2>
+                    <div class="search-task-phone d-none"><input onkeydown="checkEmptyField(); enterEventSearchTask()"
+                        id="user-search" placeholder="Find Task">
+                    <div id="search-task-btn" onclick="searchTask()" class="search-btn"><img class="search-img c-pointer" src="./img/board/search.png"></div>
+                </div>
                 </div>
                 <div class="navbar">
                     <div class="search-task"><input onkeydown="checkEmptyField(); enterEventSearchTask()"
                             id="user-search" placeholder="Find Task">
-                        <div id="search-task-btn" onclick="searchTask()" class="search-btn"><img class="search-img c-pointer"
-                                src="./img/board/search.png"></div>
+                        <div id="search-task-btn" onclick="searchTask()" class="search-btn"><img class="search-img c-pointer" src="./img/board/search.png"></div>
                     </div>
-                    <div class="add-task"><button onclick="addTaskBoard()" class="add-task-button">Add task<img
-                                class="add-img-straight" src="./img/board/plus1.png"><img class="add-img-up"
-                                src="./img/board/plus2.png"></button></div>
+                    <div class="add-task">
+                        <button onclick="addTaskBoard()" class="add-task-button d-center">
+                            <span>Add task</span><img src="./img/board/add.png">
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
-
+        
+        <!-- STICKY HEADLINES // ERSMAL D-NONE -->
         <div class="headline-tasks">
 
             <div class="headline-task">
@@ -99,28 +105,44 @@
             </div>
         </div>
 
+
+
         <div id="main-task-container" class="main-tasks-container c-pointer">
             <div class="main-solo-task-container" id="main-todo" ondrop="moveTo('To do')" ondragover="allowDrop(event)">
-                <div id="category-todo" class="category-todo">
+                <div class="headline-task-phone">
+                    <h3>To do</h3>
+                    <div class="add-image d-center"><img onclick="addTaskBoard()" src="./img/board/plus-button.png"></div>
+                </div>
+                <div id="category-todo" class="category-status-container">
                     <!--TEMPLATE // VORERST ZUM DESIGN HIER-->
                 </div>
                 <div id="empty-space-todo" class="empty-space d-none"></div>
             </div>
 
-            <div class="main-solo-task-container" id="main-progress" ondrop="moveTo('In progress')"
-                ondragover="allowDrop(event)">
-                <div id="category-progress" class="in-progress-output"></div>
+            <div class="main-solo-task-container" id="main-progress" ondrop="moveTo('In progress')" ondragover="allowDrop(event)">
+                <div class="headline-task-phone">
+                    <h3>In progress</h3>
+                    <div class="add-image d-center"><img onclick="addTaskBoard()" src="./img/board/plus-button.png"></div>
+                </div>
+                <div id="category-progress" class="category-status-container"></div>
                 <div id="empty-space-progress" class="empty-space d-none"></div>
             </div>
 
-            <div class="main-solo-task-container" id="main-feedback" ondrop="moveTo('Awaiting feedback')"
-                ondragover="allowDrop(event)">
-                <div id="category-feedback" class="awaiting-feedback-output"></div>
+            <div class="main-solo-task-container" id="main-feedback" ondrop="moveTo('Awaiting feedback')" ondragover="allowDrop(event)">
+                <div class="headline-task-phone">
+                    <h3>Awaiting Feedback</h3>
+                    <div class="add-image d-center"><img onclick="addTaskBoard()" src="./img/board/plus-button.png"></div>
+                </div>
+                <div id="category-feedback" class="category-status-container"></div>
                 <div id="empty-space-feedback" class="empty-space d-none"></div>
             </div>
 
             <div class="main-solo-task-container" id="done" ondrop="moveTo('Done')" ondragover="allowDrop(event)">
-                <div id="category-done" class="done-output"></div>
+                <div class="headline-task-phone">
+                    <h3>Done</h3>
+                    <div class="add-image d-center"><img onclick="addTaskBoard()" src="./img/board/plus-button.png"></div>
+                </div>
+                <div id="category-done" class="category-status-container"></div>
                 <div id="empty-space-done" class="empty-space d-none"></div>
             </div>
         </div>
