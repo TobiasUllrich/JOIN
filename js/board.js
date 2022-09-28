@@ -8,14 +8,17 @@ let editNewPrio;
 let assignedPeople = [];
 let selectedWorkers = [];
 
-async function renderBoard() {
+async function loadInit() {
     await init();
     await filterTasks();
+    renderBoard();
+}
+
+function renderBoard(){
     renderToDo();
     renderProgress();
     renderFeedback();
     renderDone();
-
 }
 
 function renderToDo() {
@@ -26,7 +29,7 @@ function renderToDo() {
     for (let i = 0; i < todos.length; i++) {
         const taskTodo = todos[i];
         todoOutput.innerHTML += templateOfNewTaskToDo(taskTodo, i);
-        renderAssignedNamesOfTask(i);
+        renderAssignedNamesOfTask(i, 'todo', soloTasksTodo);
     }
 }
 
@@ -38,6 +41,7 @@ function renderProgress() {
     for (let j = 0; j < progress.length; j++) {
         const taskProgress = progress[j];
         inProgressOutput.innerHTML += templateOfTaskInProgress(taskProgress, j);
+        renderAssignedNamesOfTask(j, 'progress', soloTasksProgress);
     }
 }
 
@@ -49,6 +53,7 @@ function renderFeedback() {
     for (let k = 0; k < feedback.length; k++) {
         const taskFeedback = feedback[k];
         feedbackOutput.innerHTML += templateOfTaskFeedback(taskFeedback, k);
+        renderAssignedNamesOfTask(k, 'feedback', soloTasksFeedback);
     }
 }
 
@@ -60,6 +65,20 @@ function renderDone() {
     for (let l = 0; l < doneTasks.length; l++) {
         const taskDone = doneTasks[l];
         doneOutput.innerHTML += templateOfTaskDone(taskDone, l);
+        renderAssignedNamesOfTask(l, 'done', soloTasksDone);
+    }
+}
+
+function renderAssignedNamesOfTask(index, status, soloStatusArray) { // NOCH NICHT FERTIG ___ MUSS NOCH GESCHRIEBEN WERDEN
+    let renderOutputContainer = document.getElementById(`solo-worker-${status}${index}`); // Index // status // soloTasksTodo
+    renderOutputContainer.innerHTML = '';
+
+    for(let x = 0; x < soloStatusArray[index].assignedTo.length; x++){
+        let assUser = soloStatusArray[index].assignedTo[x];
+        let object = getUserAsObject(assUser);
+        let objectName = object.name.charAt(0);
+        let objectSurname = object.surname.charAt(0);
+        renderOutputContainer.innerHTML += `<div class="worker-name-start-letters d-center">${objectName}${objectSurname}</div>`;
     }
 }
 
@@ -69,27 +88,6 @@ function filterTasks() {
     soloTasksProgress = tasksScript.filter(status => status.status == 'In progress'); // All tasks in progress
     soloTasksFeedback = tasksScript.filter(status => status.status == 'Awaiting feedback'); // All tasks feedback
     soloTasksDone = tasksScript.filter(status => status.status == 'Done'); // All tasks done
-}
-
-function renderAssignedNamesOfTask(i) { // NOCH NICHT FERTIG ___ MUSS NOCH GESCHRIEBEN WERDEN
-    let renderOutputContainer = document.getElementById(`solo-worker-todo${i}`);
-    renderOutputContainer.innerHTML = '';
-
-    for(let x = 0; x < soloTasksTodo[i].assignedTo.length; x++){
-        let assUser = soloTasksTodo[i].assignedTo[x];
-        console.log(soloTasksTodo[i].assignedTo.length);
-        let object = getUserAsObject(assUser);
-        console.log(object['name']);
-        console.log(object['surname']);
-        console.log(object['name'].slice(0,1));
-        console.log(object['surname'].slice(0,1));
-        console.log(getUserAsObject(assUser));
-        renderOutputContainer.innerHTML += `<div class="worker-name-start-letters d-center">${object['surname'].slice(0,1)}${object['name'].slice(0,1)}</div>`;
-    }
-
-    
-    // ${users[soloTasksTodo[i].assignedTo[i]].name.charAt(0)};
-    // ${users[soloTasksTodo[i].assignedTo[i]].surname.charAt(0)}; ## DAS IST DER CODE DER IN ZEILE 76 IN DIE DIV´S MUSS JEDOCH IST USERS UNDEFINED
 }
 
 function addTaskBoard() {

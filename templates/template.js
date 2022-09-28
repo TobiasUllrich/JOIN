@@ -38,7 +38,7 @@ function templateOfTaskInProgress(taskProgress, j) {
         </div>
         <div class="workers-prio">
             <div class="main-workers">
-                <div id="solo-worker" class="solo-worker">
+                <div id="solo-worker-progress${j}" class="solo-worker">
                     <!--TEMPLATE RENDERN VON ARBEIERN-->
                     <div class="worker-name-start-letters d-center">EB</div>
                 </div>
@@ -64,7 +64,7 @@ function templateOfTaskFeedback(taskFeedback, k) {
         </div>
         <div class="workers-prio">
             <div class="main-workers">
-                <div id="solo-worker" class="solo-worker">
+                <div id="solo-worker-feedback${k}" class="solo-worker">
                     <!--TEMPLATE RENDERN VON ARBEIERN-->
                     <div class="worker-name-start-letters d-center">EB</div>
                     <div class="worker-name-start-letters d-center">TU</div>
@@ -91,7 +91,7 @@ function templateOfTaskDone(taskDone, l) {
         </div>
         <div class="workers-prio">
             <div class="main-workers">
-                <div id="solo-worker" class="solo-worker">
+                <div id="solo-worker-done${l}" class="solo-worker">
                     <!--TEMPLATE RENDERN VON ARBEIERN-->
                     <div class="worker-name-start-letters d-center">EB</div>
                     <div class="worker-name-start-letters d-center">EB</div>

@@ -8,6 +8,7 @@ let assign = [];
 function loadAddTastk() {
   loadCategory();
   loadAssigned();
+  console.log('Test');
 }
 
 function loadCategory() {

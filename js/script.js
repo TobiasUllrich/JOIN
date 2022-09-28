@@ -2,6 +2,7 @@
 let usersScript = [
   {
     "name": "Tobias Ullrich",
+    "surname": "Ulrich",
     "picture": "tobias.jpg",
     "email": "ullrich.tobias@gmx.de",
     "phone":"888",
@@ -9,6 +10,7 @@ let usersScript = [
   },
   {
     "name": "Edip Bahcecioglu",
+    "surname": "Bahcecioglu",
     "picture": "edip.jpg",
     "email": "edip-bahcecioglu@hotmail.de",
     "phone":"888",
@@ -16,6 +18,7 @@ let usersScript = [
   },
   {
     "name": "Eugen Oswald",
+    "surname": "Oswald",
     "picture": "eugen.jpg",
     "email": "oswaldeugen95@gmail.com",
     "phone":"888",
@@ -23,6 +26,7 @@ let usersScript = [
   },
   {
     "name": "Rick Cabanossi",
+    "surname": "Cabanossi",
     "picture": "rick.jpg",
     "email": "rickyC@gmail.com",
     "phone":"12345678910",
@@ -30,6 +34,7 @@ let usersScript = [
   },
   {
     "name": "Mama Mia",
+    "surname": "Mia",
     "picture": "mami.jpg",
     "email": "MandM@web.de",
     "phone":"12776644",
@@ -37,6 +42,7 @@ let usersScript = [
   },
   {
     "name": "Kate Rina",
+    "surname": "Rina",
     "picture": "kate.jpg",
     "email": "kateRollin@xxx.com",
     "phone":"333444555",
@@ -54,8 +60,8 @@ let tasksScript = [
     "dueDate": "30-10-2010",
     "priority": "Medium",       // Urgent, Medium, Low
     "status": "To do",     // To do, In progress, Awaiting feedback, Done
-    "assignedTo": ['ullrich.tobias@gmx.de','edip-bahcecioglu@hotmail.de','oswaldeugen95@gmail.com'],  // Email of users Array (ist eindeutig)
-    "subTasks": ['Putzen','Spülen','Saubermachen'] 
+    "assignedTo": ['kateRollin@xxx.com','edip-bahcecioglu@hotmail.de','oswaldeugen95@gmail.com'],  // Email of users Array (ist eindeutig)
+    "subTasks": ['Putzen','Spülen','Saubermachen']
   },
   {
     "id": 1,
@@ -78,7 +84,7 @@ let tasksScript = [
     "dueDate": "30-10-2010",
     "priority": "Low",       // Urgent, Medium, Low
     "status": "Awaiting feedback",     // To do, In progress, Awaiting feedback, Done
-    "assignedTo": ['ullrich.tobias@gmx.de','edip-bahcecioglu@hotmail.de','oswaldeugen95@gmail.com'],   // Email of users Array (ist eindeutig)
+    "assignedTo": ['ullrich.tobias@gmx.de','edip-bahcecioglu@hotmail.de','MandM@web.de'],   // Email of users Array (ist eindeutig)
     "subTasks": ['Putzen','Spülen','Saubermachen'] 
   },
   {
@@ -90,7 +96,7 @@ let tasksScript = [
     "dueDate": "30-10-2010",
     "priority": "Medium",       // Urgent, Medium, Low
     "status": "Awaiting feedback",     // To do, In progress, Awaiting feedback, Done
-    "assignedTo": ['ullrich.tobias@gmx.de','edip-bahcecioglu@hotmail.de','oswaldeugen95@gmail.com'],   // Email of users Array (ist eindeutig)
+    "assignedTo": ['MandM@web.de','edip-bahcecioglu@hotmail.de','oswaldeugen95@gmail.com'],   // Email of users Array (ist eindeutig)
     "subTasks": ['Putzen','Spülen','Saubermachen'] 
   },
   {
@@ -102,7 +108,7 @@ let tasksScript = [
     "dueDate": "30-10-2010",
     "priority": "Medium",       // Urgent, Medium, Low
     "status": "Done",     // To do, In progress, Awaiting feedback, Done
-    "assignedTo": ['ullrich.tobias@gmx.de','edip-bahcecioglu@hotmail.de','oswaldeugen95@gmail.com'],   // Email of users Array (ist eindeutig)
+    "assignedTo": ['kateRollin@xxx.com','MandM@web.de','rickyC@gmail.com'],   // Email of users Array (ist eindeutig)
     "subTasks": ['Putzen','Spülen','Saubermachen'] 
   },
   {
@@ -114,7 +120,7 @@ let tasksScript = [
     "dueDate": "11-09-2022",
     "priority": "Urgent",       // Urgent, Medium, Low
     "status": "Awaiting feedback",     // To do, In progress, Awaiting feedback, Done
-    "assignedTo": ['ullrich.tobias@gmx.de','edip-bahcecioglu@hotmail.de','oswaldeugen95@gmail.com'],   // Email of users Array (ist eindeutig)
+    "assignedTo": ['ullrich.tobias@gmx.de','kateRollin@xxx.com','oswaldeugen95@gmail.com'],   // Email of users Array (ist eindeutig)
     "subTasks": ['Putzen','Spülen','Saubermachen'] 
   },
   {
@@ -126,7 +132,7 @@ let tasksScript = [
     "dueDate": "05-08-2022",
     "priority": "Urgent",       // Urgent, Medium, Low
     "status": "In progress",    // To do, In progress, Awaiting feedback, Done
-    "assignedTo": ['ullrich.tobias@gmx.de','edip-bahcecioglu@hotmail.de','oswaldeugen95@gmail.com'],   // Email of users Array (ist eindeutig)
+    "assignedTo": ['ullrich.tobias@gmx.de','edip-bahcecioglu@hotmail.de','rickyC@gmail.com'],   // Email of users Array (ist eindeutig)
     "subTasks": ['Putzen','Spülen','Saubermachen'] 
   }
   ];
