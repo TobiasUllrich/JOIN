@@ -133,24 +133,28 @@ let tasksScript = [
 /* [1.] Variablen ganz oben werden zuerst geladen/initialisiert und sind deshalb auch überall nutzbar */
 
 /* [2.] Leert die Datenbank-Arrays users & tasks und befüllt sie mit den Daten von usersScript und tasksScript*/
-async function RESETandFILL(){
-    
+async function RESET(){
     await deleteAllUsers(); 
     await deleteAllTasks(); 
-
+    await init();
+}
+async function FILL(){
+    
 for (i=0;i<usersScript.length;i++){
-    await addUser(usersScript[i]);
-    console.log(usersScript[i]);
+  await addUser(usersScript[i]);
+  console.log(usersScript[i]);
 };
 
 for (i=0;i<tasksScript.length;i++){
-    await addTask(tasksScript[i]);
-    console.log(tasksScript[i]);
+  await addTask(tasksScript[i]);
+  console.log(tasksScript[i]);
 };
 
 await init();
 
 }
+
+
 /* [2.] Leert die Datenbank-Arrays users & tasks und befüllt sie mit den Daten von usersScript und tasksScript*/
 
 
