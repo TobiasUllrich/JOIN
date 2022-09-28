@@ -248,3 +248,8 @@ function templateShowAllWorkers(indexOfUsers, userName) {
     return `
     <div onclick="submitCheckbox(${indexOfUsers})" class="solo-contact"><label>${userName}</label><input name="users" id="checkbox-${indexOfUsers}" type="checkbox"></div>`
 }
+
+function templateAssignedToOfSoloTask(firstName, lastName){
+    return `
+    <div class="worker-name-start-letters d-center">${firstName}${lastName}</div>`
+}

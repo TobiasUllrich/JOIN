@@ -78,7 +78,7 @@ function renderAssignedNamesOfTask(index, status, soloStatusArray) { // NOCH NIC
         let object = getUserAsObject(assUser);
         let objectName = object.name.charAt(0);
         let objectSurname = object.surname.charAt(0);
-        renderOutputContainer.innerHTML += `<div class="worker-name-start-letters d-center">${objectName}${objectSurname}</div>`;
+        renderOutputContainer.innerHTML += templateAssignedToOfSoloTask(objectName, objectSurname);
     }
 }
 
