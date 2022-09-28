@@ -76,14 +76,18 @@ function renderAssignedNamesOfTask(i) { // NOCH NICHT FERTIG ___ MUSS NOCH GESCH
     renderOutputContainer.innerHTML = '';
 
     for(let x = 0; x < soloTasksTodo[i].assignedTo.length; x++){
-        const assUser = soloTasksTodo[i].assignedTo[x];
-        // console.log(assUser);
-        if(users[0].email.includes(assUser)){
-            console.log('User existiert');
-        }
+        let assUser = soloTasksTodo[i].assignedTo[x];
+        console.log(soloTasksTodo[i].assignedTo.length);
+        let object = getUserAsObject(assUser);
+        console.log(object['name']);
+        console.log(object['surname']);
+        console.log(object['name'].slice(0,1));
+        console.log(object['surname'].slice(0,1));
+        console.log(getUserAsObject(assUser));
+        renderOutputContainer.innerHTML += `<div class="worker-name-start-letters d-center">${object['surname'].slice(0,1)}${object['name'].slice(0,1)}</div>`;
     }
 
-    renderOutputContainer.innerHTML += `<div class="worker-name-start-letters d-center"></div>`
+    
     // ${users[soloTasksTodo[i].assignedTo[i]].name.charAt(0)};
     // ${users[soloTasksTodo[i].assignedTo[i]].surname.charAt(0)}; ## DAS IST DER CODE DER IN ZEILE 76 IN DIE DIV´S MUSS JEDOCH IST USERS UNDEFINED
 }
