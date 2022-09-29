@@ -25,7 +25,9 @@ function loginAnimation() {
     {document.getElementById('animatedlogo').classList.add('d-none');
      document.getElementById('animatedlogo2').classList.remove('d-none');
      document.getElementById('mobilelogo').classList.add('animate-mobile');
-     document.getElementById('mobilelogo').classList.add('d-none');
+     setTimeout(function () {
+        document.getElementById('mobilelogo').classList.add('d-none');
+    }, 1000);
     }
     else // Desktop
     {document.getElementById('animatedlogo').classList.add('animate-logo');}

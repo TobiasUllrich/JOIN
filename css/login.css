@@ -918,7 +918,7 @@ display:none;
 
 }
 
-@media (min-width:300px) and (max-width:428px) {  
+@media (min-width:280px) and (max-width:428px) {  
  
     .center-container{
         display: flex;
@@ -1135,5 +1135,6 @@ display:none;
 
 }
 
-@media (min-width:0px) and (max-width:299px) {   /* Ab hier leer lassen */
-}
+@media (min-width: 0px) and (max-width: 279px) {
+    /* Ab hier leer lassen */
+  }

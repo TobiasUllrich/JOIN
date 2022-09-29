@@ -253,7 +253,7 @@ width:60%;
 
 }
 
-@media (min-width: 300px) and (max-width: 350px) {
+@media (min-width: 280px) and (max-width: 350px) {
   .header-logo {
     display:none;
   }
@@ -345,6 +345,6 @@ width:60%;
 }
 }
 
-@media (min-width: 0px) and (max-width: 299px) {
+@media (min-width: 0px) and (max-width: 279px) {
   /* Ab hier leer lassen */
 }

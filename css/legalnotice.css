@@ -147,7 +147,7 @@ margin-bottom:25px;
 
 }
 
-@media (min-width:300px) and (max-width:399px) {
+@media (min-width:280px) and (max-width:399px) {
     .legalnotice-container {
         display: flex;
         flex-direction: column;
@@ -194,5 +194,6 @@ margin-bottom:25px;
     }
 }
 
-@media (min-width:299px) and (max-width:0px) {   /* Ab hier leer lassen */
-}
+@media (min-width: 0px) and (max-width: 279px) {
+    /* Ab hier leer lassen */
+  }
