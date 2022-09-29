@@ -24,10 +24,11 @@ function loginAnimation() {
     if (breite < 901) // Mobile
     {document.getElementById('animatedlogo').classList.add('d-none');
      document.getElementById('animatedlogo2').classList.remove('d-none');
+
      document.getElementById('mobilelogo').classList.add('animate-mobile');
      setTimeout(function () {
-        document.getElementById('mobilelogo').classList.add('d-none');
-    }, 1000);
+     //document.getElementById('mobilelogo').classList.add('d-none');
+     }, 3000);
     }
     else // Desktop
     {document.getElementById('animatedlogo').classList.add('animate-logo');}

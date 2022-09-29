@@ -429,7 +429,7 @@ font-size:47px;
         padding-right:25px;
     }
     .summary-welcome h1 {
-        font-size: 32px;
+        font-size: 28px;
     }
     .summary-welcome span {
         font-size: 32px;
@@ -457,7 +457,7 @@ font-size:47px;
     }
 
 }
-@media (min-width:901px) and (max-width:950px) {
+@media (min-width:921px) and (max-width:950px) {
     .summary-overview-tasks span{
         font-size:50px;
     }
@@ -500,7 +500,7 @@ font-size:47px;
         padding-right:25px;
     }
     .summary-welcome h1 {
-        font-size: 32px;
+        font-size: 28px;
     }
     .summary-welcome span {
         font-size: 32px;
@@ -527,6 +527,78 @@ font-size:47px;
         height:52px;
     }
 }
+
+@media (min-width:901px) and (max-width:920px) {
+    .summary-overview-tasks span{
+        font-size:50px;
+    }
+    .summary-overview-tasks2 span{
+        font-size:50px;
+    } 
+    .summary-overview-tasksboard{
+        width:140px;
+        height:140px;
+        font-size:18px;
+    }  
+    .summary-overview-tasksprogress{
+        width:140px;
+        height:140px;
+        font-size:18px;
+    }  
+    .summary-overview-tasksawaitingfeedback{
+        width:140px;
+        height:140px;
+        font-size:18px;
+    }
+    .summary-overview-tasks2 {
+        width:calc(420px + 39px);
+    }
+    .summary-priority-box {
+        width:calc(420px + 39px);
+    }
+    .summary-container {
+        padding-left: calc(5px + 30px);
+        padding-right: 0;
+    }
+    .summary-headline {
+        margin-left:20px;
+       }
+       .summary-numberbox {
+        margin-left:20px;
+       }
+    .summary-welcome {
+        padding-left: 15px;
+        padding-right:25px;
+    }
+    .summary-welcome h1 {
+        font-size: 28px;
+    }
+    .summary-welcome span {
+        font-size: 32px;
+    }
+    .summary-priority-urgentdeadline {
+        align-items: flex-start;
+        padding-left: 30px;
+        font-size:21px;
+    }
+    .summary-priority-urgentdeadline span {
+        font-size:16px;
+    }
+    .summary-priority-urgent {
+        padding-right: 30px;
+    }
+    .summary-overview-taskstodo2 {
+        font-size: 18px;
+    }
+    .summary-overview-tasksdone2 {
+        font-size: 18px;
+    }
+    .urgent-icon{
+        width:52px;
+        height:52px;
+    }
+}
+
 @media (min-width:701px) and (max-width:900px) {
     .summary-container {
         display: flex;
@@ -570,6 +642,7 @@ font-size:47px;
         align-items: center;
         flex-direction: column;
         text-align: center;
+        top:-50px;
     }
 
     .summary-welcome-for-mobile h1{
@@ -662,6 +735,7 @@ font-size:47px;
         align-items: center;
         flex-direction: column;
         text-align: center;
+        top:-50px;
     }
 
     .summary-welcome-for-mobile h1{
@@ -843,7 +917,7 @@ font-size:47px;
 
 
 
-@media (min-width:280px) and (max-width:450px) {  
+@media (min-width:300px) and (max-width:450px) {  
 
   
     .summary-container {
@@ -888,6 +962,7 @@ font-size:47px;
         align-items: center;
         flex-direction: column;
         text-align: center;
+        top:-50px;
     }
 
     .summary-welcome-for-mobile h1{
@@ -1076,6 +1151,247 @@ font-size:47px;
     width: 17px;
 }    
     
+
+}
+
+@media (min-width:280px) and (max-width:299px) {  
+
+  
+    .summary-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        margin-left: 0;
+        margin-top: 0;
+        width: 100%;
+        height: calc(100vh - 160px);
+        padding-left: 0;
+        position: relative;
+        top: 80px;
+    }
+
+    .summary-container-for-mobile {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 0;
+            margin-top: 0;
+            top: 86px;
+            width: 100%;
+            height: calc(100vh - 160px);
+            padding-left: 0;
+            background-color: white;
+    }
+
+    .foreground{
+        z-index: 1;
+    }
+    .summary-welcome{
+        display:none;
+    }
+
+    .summary-welcome-for-mobile {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        top:-50px;
+    }
+
+    .summary-welcome-for-mobile h1{
+        font-size:32px;
+        font-weight:500;    
+    }
+    
+    .summary-welcome-for-mobile span{
+        font-size:32px;
+        color: #29ABE2;
+        margin-left:0;   
+    }
+
+    .summary-headline{
+        display:none;
+    }
+
+    .mobile-headline {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            margin-left: 10px; /**/
+            margin-right: 10px; /**/
+    }
+    .mobile-headline h1{
+        font-size:47px;
+        font-weight:700;
+         
+    }
+    .mobile-headline span{
+        font-size:21px;
+        border-left: none;
+        padding-left:0; 
+    }
+    .blueline{
+        width:117px;
+        border-bottom: 3px solid #29ABE2; 
+        padding-top:20px;
+    }
+   .summary-numberbox{
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+   }
+
+    .summary-overview-tasksboard {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 10px;
+        width: 80px;
+        height: 80px;
+        background: #FFFFFF;
+        border-radius: 20px;
+        text-align: center;
+    }
+    .summary-overview-tasksprogress {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 10px;
+        width: 80px;
+        height: 80px;
+        background: #FFFFFF;
+        border-radius: 20px;
+        text-align: center;
+        margin-right: 10px; /**/
+        margin-left: 10px; /**/
+    }
+    .summary-overview-tasksawaitingfeedback {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 10px;
+        width: 80px;
+        height: 80px;
+        background: #FFFFFF;
+        border-radius: 20px;
+        text-align: center;
+    }
+
+
+    .summary-priority-box{
+        display:flex;
+        justify-content: center;
+        align-items:center;
+        background: #FFFFFF;
+        border-radius:20px;
+        width:260px; /**/
+        height:80px;
+        margin-top:20px;
+        margin-bottom:20px;   
+    }
+    .summary-priority-urgent {
+        font-size: 10px;
+        padding-right:10px;
+    }
+    .summary-priority-urgent span{
+        font-size: 32px;
+    }
+    .summary-priority-urgent-flex{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        padding-left:5px;
+    }
+    .summary-priority-urgentdeadline {
+        font-size: 10px;
+        padding-left:10px;
+    }
+    .summary-priority-urgentdeadline span {
+        font-size: 16px;
+    }
+
+.summary-overview-taskstodo{
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    background: #FFFFFF;
+    border-radius:20px;
+    height: 80px;
+    width: 120px; /**/
+    margin-right:10px;
+}
+
+.summary-overview-tasksdone{
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    background: #FFFFFF;
+    border-radius:20px;
+    height: 80px;
+    width: 120px; /**/
+    margin-left:10px;
+}
+
+.summary-overview-tasks span {
+    font-size: 32px;
+}
+.summary-overview-taskstodo2 {
+    font-size: 10px;
+}
+.summary-overview-tasksdone2 {
+    font-size: 10px;
+}
+.summary-overview-tasks2 span {
+    font-size: 32px;
+}
+
+#numberTasksBoard, #numberTasksinProgress, #numberTasksawaitingFeedback, #numberTasksUrgent, #numberTasksTodo, #numberTasksDone {
+    font-weight: 600;
+    height: 40px;
+}
+
+.urgent-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+}
+.todo-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    background-color: #091931;
+}
+.done-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    background-color: #091931;
+}
+.todo-icon img {
+    position: relative;
+    left: 9px;
+    top: 2px;
+    opacity: 1;
+    height: 17px;
+}
+.done-icon img {
+    position: relative;
+    left: 7px;
+    top: 2px;
+    opacity: 1;
+    width: 17px;
+}    
+#mobile-tool-title{
+    font-size:15px;
+}    
 
 }
 

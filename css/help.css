@@ -159,6 +159,7 @@ body {
         padding-right: 50px;
         position: relative;
         top: 80px;
+        overflow-y:scroll;
     }
     .help-container h1{
         font-weight:700;
