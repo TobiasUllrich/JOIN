@@ -138,6 +138,33 @@ function editCurrentTask(idOfCurrentTask) {
     bigBoxContainer.innerHTML = templateEditCurrentTask(currentTask, idOfCurrentTask);
 }
 
+function showCurrentWorkersBigBox(indexOfTask, statusOfTask) {
+    if(statusOfTask == 'todo'){
+        renderCurrentWorkersBigBox(indexOfTask, soloTasksTodo);
+    }
+    if(statusOfTask == 'progress'){
+        renderCurrentWorkersBigBox(indexOfTask, soloTasksProgress);
+    }
+    if(statusOfTask == 'feedback'){
+        renderCurrentWorkersBigBox(indexOfTask, soloTasksFeedback);
+    }
+    if(statusOfTask == 'done'){
+        renderCurrentWorkersBigBox(indexOfTask, soloTasksDone);
+    }
+}
+
+function renderCurrentWorkersBigBox(indexOfTask, statusTasksArray){
+    let currentTaskWorkers = document.getElementById(`current-workers`);
+    currentTaskWorkers.innerHTML = '';
+    for(let x = 0; x < statusTasksArray[indexOfTask].assignedTo.length; x++){
+        let assUser = statusTasksArray[indexOfTask].assignedTo[x];
+        let object = getUserAsObject(assUser);
+        let objectName = object.name;
+        let objectSurname = object.surname;
+        currentTaskWorkers.innerHTML += templateCurrentWorkersOfTasksBigBox(objectName, objectSurname, objectName);
+    }
+}
+
 function openCurrentTaskBigBoxOnSearch(indexOfSoloTask, statusTask, categorycolor) {
     let bigBoxContainer = document.getElementById('main-bigbox-solo-task-container');
     bigBoxContainer.innerHTML = '';
@@ -192,8 +219,6 @@ function checkPriorityBackgroundColor() {
         prioBackgroundColor.style.background = '#ffc85f';
     }
 }
-
-
 
 function searchTask() {
     let userSearch = document.getElementById('user-search').value.toLowerCase();
@@ -478,7 +503,7 @@ function checkValidatorCheckboxes() {
     }
 }
 
-function renderAssignedToEditTask() {
+function showAllPossibleWorkers() {
     let outputContainer = document.getElementById('edit-workers');
     // outputContainer.innerHTML = ''
     for (let o = 0; o < users.length; o++) {
@@ -502,8 +527,21 @@ function updateTaskArray(taskId, title, description, date, prio) {
     tasksScript[taskId].description = description;
     tasksScript[taskId].dueDate = date;
     tasksScript[taskId].priority = prio;
+    renderNewWorkers(taskId);
     closeEditContainer();
     showAlert();
+}
+
+function renderNewWorkers(taskId){
+    tasksScript[taskId].assignedTo = [];
+    for(let w = 0; w < selectedWorkers.length; w++){
+        const selectedWorker = selectedWorkers[w].email;
+        console.log(selectedWorker);
+
+        tasksScript[taskId].assignedTo.push(selectedWorker);
+    }
+
+    renderBoard();
 }
 
 function showAlert() {

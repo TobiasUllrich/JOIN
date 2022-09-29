@@ -39,7 +39,6 @@ body {
     justify-content: space-evenly;
     flex-direction: column;
     align-items: center;
-    height: 100vh;
 }
 
 .main-headline-container {
@@ -720,6 +719,18 @@ body {
     padding-left: 12px;
     padding-right: 12px;
     position: relative;
+}
+
+.solo-worker-big-box{
+    display: flex;
+    align-items: center;
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+.edit-worker-fullname{
+    margin-left: 18px;
+    font-size: 20px;
 }
 
 .solo-contact {

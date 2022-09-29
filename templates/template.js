@@ -1,7 +1,7 @@
 // ##############BOARD TEMPLATES START################# //
 function templateOfNewTaskToDo(taskTodo, i) {
     return `
-    <div id="todo-task${i}" onclick="openCurrentTaskBigBox(${i}, ['to do'], '${taskTodo.categorycolor}')" ondragstart="startDragging(${taskTodo['id']}); dragHighlight(['todo'], ${i}); showEmptyPlaces(['progress'], ['feedback'], ['done'])"; ondragend="hideEmptyPlaces(['progress'], ['feedback'], ['done'])"; class="main-task-container"; draggable="true">
+    <div id="todo-task${i}" onclick="openCurrentTaskBigBox(${i}, ['to do'], '${taskTodo.categorycolor}'); showCurrentWorkersBigBox(${i}, 'todo');" ondragstart="startDragging(${taskTodo['id']}); dragHighlight(['todo'], ${i}); showEmptyPlaces(['progress'], ['feedback'], ['done'])"; ondragend="hideEmptyPlaces(['progress'], ['feedback'], ['done'])"; class="main-task-container"; draggable="true">
         <div class="headline-category">
             <div id="headline-solo-task-todo${i}" class="headline-solo-task" style="background:${taskTodo.categorycolor}"><h3 id="headline-task-todo${i}">${taskTodo.category}</h3></div>
         </div>
@@ -26,7 +26,7 @@ function templateOfNewTaskToDo(taskTodo, i) {
 
 function templateOfTaskInProgress(taskProgress, j) {
     return `
-    <div id="progress-task${j}" onclick="openCurrentTaskBigBox(${j}, ['in progress'], '${taskProgress.categorycolor}')" ondragstart="startDragging(${taskProgress['id']}); dragHighlight(['progress'], ${j}); showEmptyPlaces(['todo'], ['feedback'], ['done'])"; ondragend="hideEmptyPlaces(['todo'], ['feedback'], ['done'])"; class="main-task-container" draggable="true">
+    <div id="progress-task${j}" onclick="openCurrentTaskBigBox(${j}, ['in progress'], '${taskProgress.categorycolor}'); showCurrentWorkersBigBox(${j}, 'progress');" ondragstart="startDragging(${taskProgress['id']}); dragHighlight(['progress'], ${j}); showEmptyPlaces(['todo'], ['feedback'], ['done'])"; ondragend="hideEmptyPlaces(['todo'], ['feedback'], ['done'])"; class="main-task-container" draggable="true">
         <div class="headline-category">
             <div id="headline-solo-task-progress${j}" class="headline-solo-task" style="background:${taskProgress.categorycolor}"><h3 id="headline-task-progress${j}">${taskProgress.category}</h3></div>
         </div>
@@ -52,7 +52,7 @@ function templateOfTaskInProgress(taskProgress, j) {
 
 function templateOfTaskFeedback(taskFeedback, k) {
     return `
-    <div id="feedback-task${k}" onclick="openCurrentTaskBigBox(${k}, ['awaiting feedback'], '${taskFeedback.categorycolor}')" ondragstart="startDragging(${taskFeedback['id']}); dragHighlight(['feedback'], ${k}); showEmptyPlaces(['todo'], ['progress'], ['done'])"; ondragend="hideEmptyPlaces(['todo'], ['progress'], ['done'])"; class="main-task-container" draggable="true">
+    <div id="feedback-task${k}" onclick="openCurrentTaskBigBox(${k}, ['awaiting feedback'], '${taskFeedback.categorycolor}'); showCurrentWorkersBigBox(${k}, 'feedback');" ondragstart="startDragging(${taskFeedback['id']}); dragHighlight(['feedback'], ${k}); showEmptyPlaces(['todo'], ['progress'], ['done'])"; ondragend="hideEmptyPlaces(['todo'], ['progress'], ['done'])"; class="main-task-container" draggable="true">
         <div class="headline-category">
             <div id="headline-solo-task-feedback${k}" class="headline-solo-task" style="background:${taskFeedback.categorycolor}"><h3 id="headline-task-feedback${k}">${taskFeedback.category}</h3></div>
         </div>
@@ -79,7 +79,7 @@ function templateOfTaskFeedback(taskFeedback, k) {
 
 function templateOfTaskDone(taskDone, l) {
     return `
-    <div id="done-task${l}" onclick="openCurrentTaskBigBox(${l}, ['done'], '${taskDone.categorycolor}')" ondragstart="startDragging(${taskDone['id']}); dragHighlight(['done'], ${l}); showEmptyPlaces(['todo'], ['progress'], ['feedback'])"; ondragend="hideEmptyPlaces(['todo'], ['progress'], ['feedback'])"; class="main-task-container" draggable="true">
+    <div id="done-task${l}" onclick="openCurrentTaskBigBox(${l}, ['done'], '${taskDone.categorycolor}'); showCurrentWorkersBigBox(${l}, 'done');" ondragstart="startDragging(${taskDone['id']}); dragHighlight(['done'], ${l}); showEmptyPlaces(['todo'], ['progress'], ['feedback'])"; ondragend="hideEmptyPlaces(['todo'], ['progress'], ['feedback'])"; class="main-task-container" draggable="true">
         <div class="headline-category">
             <div id="headline-solo-task-done${l}" class="headline-solo-task" style="background:${taskDone.categorycolor}"><h3 id="headline-task-done${l}">${taskDone.category}</h3></div>
         </div>
@@ -139,16 +139,10 @@ function templateBigBoxSoloTask(soloTasks, indexOfSoloTask) {
             <div class="assigned-to-headline">
                 <h4>Assigned To:</h4>
             </div>
-            <div class="assigned-to-workers">
-                <table>
-                    <tr>
-                        <td>NAMENKÜRZEL</td>
-                        <td>VOLLSTÄNDIGER NAME</td>
-                    </tr>
-                </table>
+            <div id="current-workers" class="assigned-to-workers">
             </div>
         </div>
-        <div onclick="editCurrentTask(${soloTasks[indexOfSoloTask].id}); renderAssignedToEditTask();" id="edit-button${indexOfSoloTask}" onmouseover="changeEditContainerColors(${indexOfSoloTask})" onmouseleave="RemoveEditContainerColors(${indexOfSoloTask})" class="edit-button d-center c-pointer"><img id="edit-pencil${indexOfSoloTask}" src="./img/board/pencil.png"></div>
+        <div onclick="editCurrentTask(${soloTasks[indexOfSoloTask].id}); showAllPossibleWorkers();" id="edit-button${indexOfSoloTask}" onmouseover="changeEditContainerColors(${indexOfSoloTask})" onmouseleave="RemoveEditContainerColors(${indexOfSoloTask})" class="edit-button d-center c-pointer"><img id="edit-pencil${indexOfSoloTask}" src="./img/board/pencil.png"></div>
     </div>`
 }
 
@@ -227,6 +221,9 @@ function templateEditCurrentTask(currentTask, idOfCurrentTask) {
 
             <div class="edit-assignedTo">
                 <h3>Assigned to</h3>
+                <div id="big-box-workers-output" class="big-box-workers-output">
+
+                </div>
                 <div id="edit-assignedTo-subcontainer" class="edit-assignedTo-subcontainer c-pointer">
                     <div onclick="showCompleteContainer()">Select contacts to assign<img id="dropdown-img" src="./img/board/dropdown.png"><input required class="checkCheckboxes" id="checkCheckboxes"></div>
                     <div id="edit-workers" class="edit-workers d-none">
@@ -252,4 +249,9 @@ function templateShowAllWorkers(indexOfUsers, userName) {
 function templateAssignedToOfSoloTask(firstName, lastName){
     return `
     <div class="worker-name-start-letters d-center">${firstName}${lastName}</div>`
+}
+
+function templateCurrentWorkersOfTasksBigBox(firstName, lastName, fullName){
+    return `
+    <div class="solo-worker-big-box"><div class="worker-name-start-letters d-center">${firstName.charAt(0)}${lastName.charAt(0)}</div><div class="edit-worker-fullname">${fullName}</div>`
 }
