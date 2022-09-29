@@ -61,6 +61,7 @@ body {
         height: 24px;
         width: 24.66px;
         cursor:pointer;
+        
     }
 
 /* INTERVALLE FÜRS HANDY */
@@ -113,6 +114,8 @@ body {
         padding-right: 50px;
         position: relative;
         top: 80px;
+        overflow-y:scroll;
+        overflow-x:hidden;
     }
     .help-container h1{
         font-weight:700;
@@ -142,6 +145,13 @@ body {
         height: 24px;
         width: 24.66px;
         cursor:pointer;
+        
+    }
+
+    .hide-scrollbar {
+        background-color: #F5F5F5;
+        height: calc(100vh - 80px);
+        width: calc(100vw + 15px);
     }
 }
 
@@ -160,6 +170,7 @@ body {
         position: relative;
         top: 80px;
         overflow-y:scroll;
+        overflow-x:hidden;
     }
     .help-container h1{
         font-weight:700;
@@ -189,6 +200,7 @@ body {
         height: 24px;
         width: 24.66px;
         cursor:pointer;
+        
     }
 
     .hide-scrollbar {
@@ -196,7 +208,8 @@ body {
         height: calc(100vh - 80px);
         width: calc(100vw + 15px);
     }
-    }
+
+}
 
 
 @media (min-width: 0px) and (max-width: 279px) {
