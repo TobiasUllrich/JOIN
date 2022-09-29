@@ -20,6 +20,7 @@ body {
     height: calc(100vh - 80px);
     width: calc(100vw - 232px);  /* Be sure to put spaces around the '-' sign in the calculation */ 
     margin-top:80px;   /* Because of the fixed Menu on the top */
+    margin-bottom:80px;
     margin-left:232px;  /* Because of the fixed Menu on the left */  
     padding-left: 75px;
     padding-right: 75px;
@@ -78,6 +79,7 @@ margin-bottom:25px;
         height: calc(100vh - 80px);
         width: calc(100vw - 232px);  /* Be sure to put spaces around the '-' sign in the calculation */ 
         margin-top:80px;   /* Because of the fixed Menu on the top */
+        margin-bottom:80px;
         margin-left:232px;  /* Because of the fixed Menu on the left */  
         padding-left: 45px;
         padding-right: 75px;
@@ -93,6 +95,7 @@ margin-bottom:25px;
         height: calc(100vh - 80px);
         width: calc(100vw - 232px);  /* Be sure to put spaces around the '-' sign in the calculation */ 
         margin-top:80px;   /* Because of the fixed Menu on the top */
+        margin-bottom:80px;
         margin-left:232px;  /* Because of the fixed Menu on the left */  
         padding-left: 5px;
         padding-right: 75px;
@@ -107,13 +110,12 @@ margin-bottom:25px;
         justify-content: flex-start;
         align-items: flex-start;
         margin-left: 0;
-        margin-top: 0;
+        margin-top: 80px;
+        margin-bottom:80px;
         width: 100%;
         height: calc(100vh - 160px);
         padding-left: 0;
         padding-right: 50px;
-        position: relative;
-        top: 80px;
         overflow-y:scroll;
         overflow-x:hidden;
     }
@@ -163,13 +165,12 @@ margin-bottom:25px;
         justify-content: flex-start;
         align-items: flex-start;
         margin-left: 0;
-        margin-top: 0;
+        margin-top: 80px;
+        margin-bottom:80px;
         width: 100%;
         height: calc(100vh - 160px);
         padding-left: 0;
         padding-right: 50px;
-        position: relative;
-        top: 80px;
         overflow-y:scroll;
         overflow-x:hidden;
     }
