@@ -2,10 +2,11 @@ let subtasks = [];
 let categorys = ['Sales', 'Backoffice'];
 let categoryColors = ['8aa4ff', 'ff0000', '2ad300', 'ff8a00', 'e200be', '0038ff'];
 let usedColors = ['fc71ff', '1fd7c1 ']
-let assign = [];
+let assignUser = [];
 
 
-function loadAddTastk() {
+async function loadAddTastk() {
+  await init();
   loadCategory();
   loadAssigned();
 }
@@ -22,7 +23,6 @@ function loadAssigned() {
   let assignedContainer = document.getElementById('assignedContainer');
   assignedContainer.innerHTML = '';
   assignedContainer.innerHTML = loadAssignedHTML();
-
 }
 
 function clearInputValueCategory() {
@@ -127,12 +127,44 @@ function openAssign() {
 
 
 
+function submitCheckbox(idOfCheckbox) {
+  let clickedCheckbox = document.getElementById(`checkbox-${idOfCheckbox}`);
+
+  if (clickedCheckbox.checked == false) {
+      clickedCheckbox.checked = true;
+      checkIfWorkerIsPushable(idOfCheckbox);
+  } else {
+      checkIfWorkerIsRemoveable(idOfCheckbox);
+      clickedCheckbox.checked = false;
+  }
+  checkValidatorCheckboxes();
+}
+
+function checkValidatorCheckboxes() {
+  let checkboxAssignedTo = document.getElementById('assignedInput');
+  let checkboxes = document.querySelectorAll('input[type="checkbox"]');
+  let checkedOne = Array.prototype.slice.call(checkboxes).some(x => x.checked);
+
+  if (checkedOne == false) {
+      checkboxAssignedTo.required = true;
+  }
+  if (checkedOne == true) {
+      checkboxAssignedTo.required = false;
+  }
+}
+
 function addNewCategory() {
   clearInputValueCategory();
   let categoryContainer = document.getElementById('categoryContainer');
   categoryContainer.innerHTML = '';
   categoryContainer.innerHTML = newCategoryInputHTML();
   categoryColorPicker();
+}
+
+function switchToSearchInput(){
+  let assignedContainer = document.getElementById('assignedContainer');
+  assignedContainer.innerHTML = '';
+  assignedContainer.innerHTML = searchEmailInputHTML();
 }
 
 
@@ -164,7 +196,7 @@ function pushNewCategory() {
 }
 
 /**
- * categoryNumber is a Number
+ * @parma {number} categoryNumber 
  */
 function currentCategory(categoryNumber) {
   let categoryContainer = document.getElementById('dropbtnCategory');
@@ -179,95 +211,10 @@ function currentCategory(categoryNumber) {
   categoryContainer.innerHTML = currentCategoryHTML(`${categoryNumber}`);
 }
 
+
+function backToSelectContacts(){
+  loadAssigned();
+}
 //****************HTML*****************HTML*************HTML****************HTML */ 
-
-
-function newCategoryInputHTML() {
-  return /*html*/`
-          <div class="input-group">
-            <input id="newCategoryInput" type="text" class="form-control" placeholder="New category name">
-            <button onclick="loadCategory()" id="subtaskDelete" class="" type="button">
-            <img src="./img/addtask/x-vector.png" alt=""></button>
-            <div id="subtask-separator-line" class="subtask-separator-line"></div>
-            <button onclick="pushNewCategory()" id="subtaskAdd" class="subtasks-right-butten" type="button">
-            <img class="ok-vector" src="./img/addtask/ok-vector.png" alt=""></button>
-            <div class=""></div>
-          </div>
-          <div id="category-color-picker" class="category-color-picker">
-          </div>
-          <div id="errorMessage">
-          </div>
-    `;
-}
-
-function errorMessageHTML() {
-  return /*html*/`
-  <p> Add a category and a color! </p>
-`
-}
-
-function categoryColorPickerHTML(i) {
-  return /*html*/`
-              <input class="input-radio" type="radio" name="color" id="${categoryColors[i]}" value="${categoryColors[i]}" />
-              <label for="${categoryColors[i]}" class="add-task-color-picker"><span class="color-${i}"></span></label> 
-  `
-}
-
-function loadCategoryHTML() {
-  return /*html*/`
-    <div onclick="openCategory()" id="dropbtnCategory" class="dropbtn-category">Select task category <img src="./img/addtask/dropdown-Vector.png" alt=""></div>
-    <div id="categoryDropdown" class="dropdown-content">
-      <p onclick="addNewCategory()">New category</p>
-      <div id="allCategorys">
-      </div>
-    </div>`;
-}
-
-function currentCategoryHTML(i) {
-  return /*html*/` 
-    <div   class="active-category">
-    <p> ${categorys[i]}</p>
-    <div style="background-color:#${usedColors[i]}" class="categoryColor">
-    </div>
-  </div>
-    `;
-}
-
-function allCategoryHTML(i) {
-  return /*html*/`
-  <div onclick="currentCategory(${i})"  class="current-category">
-    <p> ${categorys[i]}</p>
-    <div style="background-color:#${usedColors[i]}" class="categoryColor">
-    </div>
-  </div>
-    `;
-}
-
-function subtaskListHTML(i) {
-  const subtask = subtasks[i];
-  return /*html*/`
-      <div class="subtask-list-form-check">
-        <input class="subtask-list-input" type="checkbox" value="" id="flexCheckDefault">
-          <label class="subtask-list-label" for="flexCheckDefault" id=${subtask}>
-            ${subtask}
-          </label>
-        </div>`;
-}
-
-function loadAssignedHTML() {
-  return /*html*/`
-  <div onclick="openAssign()" id="dropbtnAssign" class="dropbtn-assign" type="button">Select contacts to assign<img src="./img/addtask/dropdown-Vector.png" alt=""></div>
-  <div id="assignDropdown" class="dropdown-content">
-        <span class="d-flex menu-option"><label class="assign-label">
-               You</label> <input required class="assign-input" type="checkbox"></span>
-        <span class="d-flex menu-option"><label class="assign-label">
-                Max Mustermann</label> <input class="assign-input"  type="checkbox"></span>
-        <span class="d-flex menu-option"><label class="assign-label">
-                Fanz Musterhaus</label> <input class="assign-input" type="checkbox"></span>
-        <div onclick="switchToSearchInput()"class="switchToSearch-btn-assign" type="button">Select contacts to assign<img class="black-icon" src="./img/addtask/newContactIcon.png" alt=""></div>
-  </div>
-  
-  `;
-}
 
 

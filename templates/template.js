@@ -248,3 +248,119 @@ function templateShowAllWorkers(indexOfUsers, userName) {
     return `
     <div onclick="submitCheckbox(${indexOfUsers})" class="solo-contact"><label>${userName}</label><input name="users" id="checkbox-${indexOfUsers}" type="checkbox"></div>`
 }
+
+
+function newCategoryInputHTML() {
+    return /*html*/`
+            <div class="input-group">
+              <input id="newCategoryInput" type="text" class="form-control" placeholder="New category name">
+              <button onclick="loadCategory()" id="subtaskDelete" class="" type="button">
+              <img src="./img/addtask/x-vector.png" alt=""></button>
+              <div id="subtask-separator-line" class="subtask-separator-line"></div>
+              <button onclick="pushNewCategory()" id="subtaskAdd" class="subtasks-right-butten" type="button">
+              <img class="ok-vector" src="./img/addtask/ok-vector.png" alt=""></button>
+             
+            </div>
+            <div id="category-color-picker" class="category-color-picker">
+            </div>
+            <div id="errorMessage">
+            </div>
+      `;
+}
+
+function errorMessageHTML() {
+    return /*html*/`
+    <p> Add a category and a color! </p>
+  `
+}
+
+function categoryColorPickerHTML(i) {
+    return /*html*/`
+                <input class="input-radio" type="radio" name="color" id="${categoryColors[i]}" value="${categoryColors[i]}" />
+                <label for="${categoryColors[i]}" class="add-task-color-picker"><span class="color-${i}"></span></label> 
+    `
+}
+
+function loadCategoryHTML() {
+    return /*html*/`
+      <div onclick="openCategory()" id="dropbtnCategory" class="dropbtn-category">Select task category <img src="./img/addtask/dropdown-Vector.png" alt=""></div>
+      <div id="categoryDropdown" class="dropdown-content">
+        <p onclick="addNewCategory()">New category</p>
+        <div id="allCategorys">
+        </div>
+      </div>`;
+}
+
+function currentCategoryHTML(i) {
+    return /*html*/` 
+      <div   class="active-category">
+      <p> ${categorys[i]}</p>
+      <div style="background-color:#${usedColors[i]}" class="categoryColor">
+      </div>
+    </div>
+      `;
+}
+
+function allCategoryHTML(i) {
+    return /*html*/`
+    <div onclick="currentCategory(${i})"  class="current-category">
+      <p> ${categorys[i]}</p>
+      <div style="background-color:#${usedColors[i]}" class="categoryColor">
+      </div>
+    </div>
+      `;
+}
+
+function subtaskListHTML(i) {
+    const subtask = subtasks[i];
+    return /*html*/`
+        <div class="subtask-list-form-check">
+          <input class="subtask-list-input" type="checkbox" value="" id="flexCheckDefault">
+            <label class="subtask-list-label" for="flexCheckDefault" id=${subtask}>
+              ${subtask}
+            </label>
+          </div>`;
+}
+
+function loadAssignedHTML() {
+    return /*html*/`
+    <div onclick="openAssign()" id="dropbtnAssign" class="dropbtn-assign" type="button">Select contacts to assign<img src="./img/addtask/dropdown-Vector.png" alt=""><input required class="checkCheckboxes" id="assignedInput"></div>
+    <div id="assignDropdown" class="dropdown-content">
+        <!-- <span class="d-flex menu-option hover"><label class="assign-label" for="You">
+            You</label> <input required id="You" value="" class="assign-input" type="checkbox"></span>
+        <span class="d-flex menu-option hover"><label class="assign-label" for="Mustermann">
+            Max Mustermann</label> <input id="Mustermann" value="" class="assign-input"  type="checkbox"></span>
+        <span class="d-flex menu-option hover"><label class="assign-label" for="Musterhaus">
+            Fanz Musterhaus</label> <input id="Musterhaus" value="" class="assign-input" type="checkbox"></span>
+        <div onclick="switchToSearchInput()"class="switchToSearch-btn-assign hover" type="button">Select contacts to assign<img class="black-icon" src="./img/addtask/newContactIcon.png" alt=""></div>
+    </div> -->
+    <!-- 
+    <div onclick="showCompleteContainer()">Select contacts to assign<img id="dropdown-img" src="./img/board/dropdown.png"></div>
+        <div id="edit-workers" class="edit-workers d-none">
+                        <div onclick="submitCheckbox('-1')" class="solo-contact"><label>You</label><input name="users" id="checkbox--1" type="checkbox"></div>
+                    </div>
+                </div> -->
+    
+    `;
+}
+
+
+// 
+
+function searchEmailInputHTML() {
+    return /*html*/`
+    <div class="input-group">
+    
+      <input id="search-input" type="searc h" id="form1" class="form-control" placeholder="Contact eMail "/>
+      <button onclick="backToSelectContacts()" id="subtaskDelete" class="" type="button">
+      <img src="./img/addtask/x-vector.png" alt=""></button>
+      <div id="subtask-separator-line" class="subtask-separator-line"></div>
+      <button onclick="pushNewCategory()" id="subtaskAdd" class="subtasks-right-butten" type="button">
+      <img class="ok-vector" src="./img/addtask/ok-vector.png" alt=""></button>
+  
+    
+    
+    </button>
+  </div>
+    `;
+}
