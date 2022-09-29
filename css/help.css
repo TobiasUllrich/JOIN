@@ -21,6 +21,7 @@ body {
     height: calc(100vh - 80px);
     width: calc(100vw - 232px);  /* Be sure to put spaces around the '-' sign in the calculation */ 
     margin-top:80px;   /* Because of the fixed Menu on the top */
+    margin-bottom:80px;
     margin-left:232px;  /* Because of the fixed Menu on the left */  
     padding-left: 75px;
     padding-right: 75px;
@@ -43,9 +44,14 @@ body {
     margin-bottom:25px;      
     }
     
-    .subsection h2{
+    .whatisjoin{
         font-weight:700;
         font-size:27px;
+    }
+    .howtouseit{
+        font-weight:700;
+        font-size:27px;
+        margin-bottom:25px;
     }
     
     .subsection span{
@@ -61,6 +67,7 @@ body {
         height: 24px;
         width: 24.66px;
         cursor:pointer;
+        
     }
 
 /* INTERVALLE FÜRS HANDY */
@@ -77,6 +84,7 @@ body {
         height: calc(100vh - 80px);
         width: calc(100vw - 232px);  /* Be sure to put spaces around the '-' sign in the calculation */ 
         margin-top:80px;   /* Because of the fixed Menu on the top */
+        margin-bottom:80px;
         margin-left:232px;  /* Because of the fixed Menu on the left */  
         padding-left: 45px;
         padding-right: 75px;
@@ -92,6 +100,7 @@ body {
         height: calc(100vh - 80px);
         width: calc(100vw - 232px);  /* Be sure to put spaces around the '-' sign in the calculation */ 
         margin-top:80px;   /* Because of the fixed Menu on the top */
+        margin-bottom:80px;
         margin-left:232px;  /* Because of the fixed Menu on the left */  
         padding-left: 5px;
         padding-right: 75px;
@@ -106,13 +115,14 @@ body {
         justify-content: flex-start;
         align-items: flex-start;
         margin-left: 0;
-        margin-top: 0;
+        margin-top: 80px;
+        margin-bottom:80px;
         width: 100%;
         height: calc(100vh - 160px);
         padding-left: 0;
         padding-right: 50px;
-        position: relative;
-        top: 80px;
+        overflow-y:scroll;
+        overflow-x:hidden;
     }
     .help-container h1{
         font-weight:700;
@@ -134,6 +144,9 @@ body {
     border-left: none;
     padding-left:0; 
     }
+    .howtouseit{
+     display:none;
+    }
     .backbutton{
         display: flex;
         position:absolute;
@@ -141,24 +154,45 @@ body {
         top: calc(30px);
         height: 24px;
         width: 24.66px;
-        cursor:pointer;
+        cursor:pointer;   
+    }
+
+    .hide-scrollbar {
+        background-color: #F5F5F5;
+        height: calc(100vh - 80px);
+        width: calc(100vw + 15px);
+    }
+
+    .howtouseit-container{
+        display:flex;
+        flex-direction:column;
+    }
+    .howtouseit-container2{
+        width:100%;
+        display:flex;
+    }
+    .bulletpoint{
+        margin-right:40px;
+        font-weight:700;
+        font-size:27px;
     }
 }
 
-@media (min-width:300px) and (max-width:399px) {
+@media (min-width:280px) and (max-width:399px) {
     .help-container {
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
         align-items: flex-start;
         margin-left: 0;
-        margin-top: 0;
+        margin-top: 80px;
+        margin-bottom:80px;
         width: 100%;
         height: calc(100vh - 160px);
         padding-left: 0;
         padding-right: 50px;
-        position: relative;
-        top: 80px;
+        overflow-y:scroll;
+        overflow-x:hidden;
     }
     .help-container h1{
         font-weight:700;
@@ -187,12 +221,23 @@ body {
         top: calc(30px);
         height: 24px;
         width: 24.66px;
-        cursor:pointer;
+        cursor:pointer;  
     }
+    .howtouseit{
+     display:none;
+    }
+    .hide-scrollbar {
+        background-color: #F5F5F5;
+        height: calc(100vh - 80px);
+        width: calc(100vw + 15px);
+    }
+
 }
 
-@media (min-width:299px) and (max-width:0px) {   /* Ab hier leer lassen */
-}
+
+@media (min-width: 0px) and (max-width: 279px) {
+    /* Ab hier leer lassen */
+  }
 
 
 

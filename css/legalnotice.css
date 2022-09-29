@@ -20,6 +20,7 @@ body {
     height: calc(100vh - 80px);
     width: calc(100vw - 232px);  /* Be sure to put spaces around the '-' sign in the calculation */ 
     margin-top:80px;   /* Because of the fixed Menu on the top */
+    margin-bottom:80px;
     margin-left:232px;  /* Because of the fixed Menu on the left */  
     padding-left: 75px;
     padding-right: 75px;
@@ -61,6 +62,7 @@ margin-bottom:25px;
     height: 24px;
     width: 24.66px;
     cursor:pointer;
+    
 }
 
 /* INTERVALLE FÜRS HANDY */
@@ -77,6 +79,7 @@ margin-bottom:25px;
         height: calc(100vh - 80px);
         width: calc(100vw - 232px);  /* Be sure to put spaces around the '-' sign in the calculation */ 
         margin-top:80px;   /* Because of the fixed Menu on the top */
+        margin-bottom:80px;
         margin-left:232px;  /* Because of the fixed Menu on the left */  
         padding-left: 45px;
         padding-right: 75px;
@@ -92,6 +95,7 @@ margin-bottom:25px;
         height: calc(100vh - 80px);
         width: calc(100vw - 232px);  /* Be sure to put spaces around the '-' sign in the calculation */ 
         margin-top:80px;   /* Because of the fixed Menu on the top */
+        margin-bottom:80px;
         margin-left:232px;  /* Because of the fixed Menu on the left */  
         padding-left: 5px;
         padding-right: 75px;
@@ -106,13 +110,14 @@ margin-bottom:25px;
         justify-content: flex-start;
         align-items: flex-start;
         margin-left: 0;
-        margin-top: 0;
+        margin-top: 80px;
+        margin-bottom:80px;
         width: 100%;
         height: calc(100vh - 160px);
         padding-left: 0;
         padding-right: 50px;
-        position: relative;
-        top: 80px;
+        overflow-y:scroll;
+        overflow-x:hidden;
     }
     .legalnotice-container h1{
         font-weight:700;
@@ -143,24 +148,31 @@ margin-bottom:25px;
         height: 24px;
         width: 24.66px;
         cursor:pointer;
+        
+    }
+    .hide-scrollbar {
+        background-color: #F5F5F5;
+        height: calc(100vh - 80px);
+        width: calc(100vw + 15px);
     }
 
 }
 
-@media (min-width:300px) and (max-width:399px) {
+@media (min-width:280px) and (max-width:399px) {
     .legalnotice-container {
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
         align-items: flex-start;
         margin-left: 0;
-        margin-top: 0;
+        margin-top: 80px;
+        margin-bottom:80px;
         width: 100%;
         height: calc(100vh - 160px);
         padding-left: 0;
         padding-right: 50px;
-        position: relative;
-        top: 80px;
+        overflow-y:scroll;
+        overflow-x:hidden;
     }
     .legalnotice-container h1{
         font-weight:700;
@@ -191,8 +203,16 @@ margin-bottom:25px;
         height: 24px;
         width: 24.66px;
         cursor:pointer;
+        
     }
+    .hide-scrollbar {
+        background-color: #F5F5F5;
+        height: calc(100vh - 80px);
+        width: calc(100vw + 15px);
+    }
+ 
 }
 
-@media (min-width:299px) and (max-width:0px) {   /* Ab hier leer lassen */
-}
+@media (min-width: 0px) and (max-width: 279px) {
+    /* Ab hier leer lassen */
+  }

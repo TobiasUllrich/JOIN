@@ -30,8 +30,10 @@ nextUrgentTaskDate = transformDate2(nextDeadlineofUrgentTasks);
   greetUser();
   if (innerWidth < 901)
   {document.getElementById('summary-welcome').classList.add('d-none');
-   document.getElementById('mobile-tool-title').innerHTML='Kanban Project Management Tool';
+   document.getElementById('mobile-tool-title').innerHTML='Kanban Project Management Tool'; 
   }
+
+
 
 }
 
@@ -44,17 +46,18 @@ function renderSummary2(){
 
 //Centers greetings in the middle of the Page
 function centerGreetings(){
+  setTimeout(function () {
   let breite = document.getElementById('welcome-mobile').clientWidth;
   let hoehe = document.getElementById('welcome-mobile').clientHeight;
   document.getElementById('welcome-mobile').style.top = `calc(50vh - (${hoehe}px / 2))`;
   document.getElementById('welcome-mobile').style.left = `calc(50vw - (${breite}px / 2))`; 
+  }, 1000);
 }
 
 //Shows greetings after they were loaded, so we wait for 1 Second to make them the foreground
-function showGreetings(){
-  setTimeout(function () {
-    document.getElementById('summary-container-for-mobile').classList.remove('foreground'); 
-  }, 1000);
+function showGreetings(){ 
+    document.getElementById('summary-container-for-mobile').classList.remove('foreground');
+    
 }
 
 //Greets the actual logged-in user
@@ -96,6 +99,7 @@ function fillSummarywithInfos(tasksinBoard,tasksinProgress,tasksawaitingFeedback
 //Receives a date-variable and converts it into a string with specific format (August 5, 2022)
 function transformDate2(datetotransform){
   let datum = datetotransform;
+  //console.log(datum);
   let tag = datum.getDate(datetotransform);
   let monat = datum.getMonth(datetotransform);
   let jahr = datum.getFullYear(datetotransform);
@@ -105,7 +109,7 @@ function transformDate2(datetotransform){
 
 //Receives a string in the format "30-10-2010" and converts it into a date-variable
 function transformDate(datetotransform){
-  let datum = tasks[i]['dueDate'];
+  let datum = datetotransform;  //let datum = tasks[i]['dueDate'];
   let ersterstrich = datum.indexOf('-');
   let zweiterstrich = datum.lastIndexOf('-'); 
   let tag = datum.slice(0,ersterstrich);

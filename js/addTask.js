@@ -9,6 +9,7 @@ async function loadAddTastk() {
   await init();
   loadCategory();
   loadAssigned();
+  console.log('Test');
 }
 
 function loadCategory() {
