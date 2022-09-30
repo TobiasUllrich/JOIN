@@ -28,46 +28,60 @@ nextUrgentTaskDate = transformDate2(nextDeadlineofUrgentTasks);
 
   fillSummarywithInfos(tasksinBoard,tasksinProgress,tasksawaitingFeedback,tasksUrgent,nextUrgentTaskDate,taskstoDo,tasksDone);
   greetUser();
-  if (innerWidth < 901)
-  {document.getElementById('summary-welcome').classList.add('d-none');
-   document.getElementById('mobile-tool-title').innerHTML='Kanban Project Management Tool'; 
-  }
-
-
-
-}
-
-//Renders Mobile-Greeting
-function renderSummary2(){  
-  greetUser();
   centerGreetings();
   showGreetings();
+
+
 }
+
+
 
 //Centers greetings in the middle of the Page
 function centerGreetings(){
+  console.log(document.getElementById('greettime').innerHTML,' ',document.getElementById('actuser').innerHTML);
   setTimeout(function () {
-  let breite = document.getElementById('welcome-mobile').clientWidth;
-  let hoehe = document.getElementById('welcome-mobile').clientHeight;
-  document.getElementById('welcome-mobile').style.top = `calc(50vh - (${hoehe}px / 2))`;
-  document.getElementById('welcome-mobile').style.left = `calc(50vw - (${breite}px / 2))`; 
+    
+  let breite = document.getElementById('summary-container-for-mobile').clientWidth;
+  let hoehe = document.getElementById('summary-container-for-mobile').clientHeight;
+  document.getElementById('summary-container-for-mobile').style.top = `calc(50vh - (${hoehe}px / 2))`;
+  document.getElementById('summary-container-for-mobile').style.left = `calc(50vw - (${breite}px / 2))`; 
+  console.log(breite,hoehe);
   }, 1000);
+  console.log(document.getElementById('greettime').innerHTML,' ',document.getElementById('actuser').innerHTML);
 }
 
 //Shows greetings after they were loaded, so we wait for 1 Second to make them the foreground
 function showGreetings(){ 
-    document.getElementById('summary-container-for-mobile').classList.remove('foreground');
-    
+  console.log(document.getElementById('greettime').innerHTML,' ',document.getElementById('actuser').innerHTML);
+  if (innerWidth < 901)
+  {document.getElementById('summary-welcome').classList.add('d-none');
+   document.getElementById('mobile-tool-title').innerHTML='Kanban Project Management Tool'; 
+   
+   document.getElementById('summary-container-for-mobile').classList.add('mobile-greeting');
+
+   setTimeout(function () {
+   document.getElementById('summary-container-for-mobile').style.zIndex = -1;
+  }, 2000);
+  //  document.getElementById('welcome-mobile').classList.add('mobile-greeting');
+  //  document.getElementById('greettime').classList.add('mobile-greeting');
+  //  document.getElementById('actuser').classList.add('mobile-greeting');
+  }
+  console.log(document.getElementById('greettime').innerHTML,' ',document.getElementById('actuser').innerHTML);
+    //document.getElementById('summary-container-for-mobile').classList.remove('foreground');    
 }
 
 //Greets the actual logged-in user
 function greetUser(){
   let greetText = sayGoodmorningEveningorNight();
   document.getElementById('greettime').innerHTML = `${greetText}`;
-
+  document.getElementById('greettime-mobile').innerHTML = `${greetText}`;
   let actUserArray = [];
   actUserArray = getArray ('arrayOfactUser') //Get User-Object from local Storage
   document.getElementById('actuser').innerHTML = actUserArray['name'];
+  document.getElementById('actuser-mobile').innerHTML = actUserArray['name'];
+  console.log(greetText,' ',actUserArray['name']);
+  console.log(document.getElementById('greettime').innerHTML,' ',document.getElementById('actuser').innerHTML);
+ 
 }
 
 //Gives back a Greet according to the actual time

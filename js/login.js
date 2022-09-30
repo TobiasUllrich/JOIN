@@ -97,10 +97,7 @@ function showResetPasswordForm() {
 //Login as Guest
 function loginAsGuest() {
     setArray ('arrayOfactUser',guest); //Save Guest-User-Object in local Storage
-    if (innerWidth<901)
-    {window.location.href = 'summary2.html';} // For Mobile
-    else 
-    {window.location.href = 'summary.html';}; // Not Mobile
+    window.location.href = 'summary.html';
 }
 
 //Go to Help-Section
@@ -119,13 +116,10 @@ function tryLogin() {
     let email = document.getElementById('login-email').value;
     let password = document.getElementById('login-password').value;
 
-    if (checkifEMailexists(email) && checkifPasswordMatches(email, password)) { 
-        if (innerWidth<901)                        //Password & Email correct
-        {window.location.href = 'summary2.html';} // For Mobile
-        else 
-        {window.location.href = 'summary.html';}; // Not Mobile
+    if (checkifEMailexists(email) && checkifPasswordMatches(email, password)) {    
         let actuser = getUserAsObject(email);
         setArray ('arrayOfactUser',actuser); //Save User-Object in local Storage
+        window.location.href = 'summary.html';  //Password & Email correct
     }
     else if (!checkifEMailexists(email)) 
     { animateMessage('E-Mail not found!'); //Email incorrect
