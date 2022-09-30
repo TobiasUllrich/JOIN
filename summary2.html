@@ -50,7 +50,7 @@
 
 <!--Sobald der body-Bereich geladen wurde, wird das Java-Script ausgeführt-->
 
-<body onload="includeHTML();setactUser();renderSummary2();">
+<body onload="includeHTML();setactUser();renderSummary();">
 
 
 
@@ -58,13 +58,68 @@
     <div w3-include-html="templates/header.html"></div>
     <!-- Header einbinden -->
 
-    <div id="summary-container-for-mobile" class="summary-container-for-mobile foreground">
-    </div>
+    <div class="summary-container">
+        
 
-    <div id="welcome-mobile" class="summary-welcome-for-mobile">
-      <h1 id="greettime"></h1>
-      <span id="actuser"></span>
-   </div>
+        <div class="summary-headline">
+            <h1>Summary</h1>
+            <span>Everything in a nutshell!</span>
+        </div>
+
+      <div class="center-box"> <!--XXX-->
+
+        <div class="mobile-headline">
+          <span id="mobile-tool-title">Kanban Project Management Tool</span>
+          <h1>Summary</h1>
+          <span>Everything in a nutshell!</span>
+          <div class="blueline"></div>
+        </div>
+
+        <div class="summary-infoboxes">
+
+        <div class="summary-numberbox">
+        <div class="summary-overview-tasks">
+            <div onclick="showBoard();" class="summary-overview-tasksboard"><span id="numberTasksBoard"></span>Tasks in <br> Board</div>
+            <div onclick="showBoard();" class="summary-overview-tasksprogress"><span id="numberTasksinProgress"></span>Tasks in Progress</div>
+            <div onclick="showBoard();" class="summary-overview-tasksawaitingfeedback"><span id="numberTasksawaitingFeedback"></span>Awaiting Feedback</div>
+        </div>
+
+        <div class="summary-priority">
+            <div class="summary-priority-box" onclick="showBoard();">
+              <div class="summary-priority-urgent">
+                <img class ="urgent-icon" src="img/urgent-icon.png" alt="">
+                <div class="summary-priority-urgent-flex"><span id="numberTasksUrgent"></span><div>Urgent</div></div>
+              </div>
+              <div class="summary-priority-urgentdeadline">
+                <span id="urgentdate"></span><div>Upcoming deadline</div>
+              </div>
+            </div>
+        </div>
+
+        <div class="summary-overview-tasks2">
+            
+            <div class="summary-overview-taskstodo" onclick="showBoard();" onmouseover="addBackground('todo-icon','tdi');" onmouseout="removeBackground('todo-icon','tdi');">
+              <div id="todo-icon" class="todo-icon"><img id="tdi" src="img/todo2-icon.png" alt=""></div>
+              <div class="summary-overview-taskstodo2"><span id="numberTasksTodo"></span>To-do</div>
+            </div>
+            <div class="summary-overview-tasksdone" onclick="showBoard();" onmouseover="addBackground('done-icon','td');" onmouseout="removeBackground('done-icon','td');">
+              <div id="done-icon" class="done-icon"><img id="td" src="img/done2-icon.png" alt=""></div>    
+              <div class="summary-overview-tasksdone2"><span id="numberTasksDone"></span>Done</div>
+            </div>
+
+        </div>
+      </div>
+
+      <div id="summary-welcome" class="summary-welcome">
+          <h1 id="greettime"></h1>
+          <span id="actuser"></span>
+      </div>
+
+      </div>
+
+    </div> <!--XXX-->
+
+    </div>
 
 
 

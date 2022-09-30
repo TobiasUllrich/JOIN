@@ -31,7 +31,6 @@ nextUrgentTaskDate = transformDate2(nextDeadlineofUrgentTasks);
   centerGreetings();
   showGreetings();
 
-
 }
 
 

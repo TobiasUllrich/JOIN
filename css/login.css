@@ -704,12 +704,11 @@ to
         width:100vw;
         height:100vh;
         background-color: #091931;
-        z-index:11;
+        z-index:9;
         opacity:1;
        }
-    
        .animate-mobile{
-        animation: mobilebackgroundanimation 1000ms ease-in-out;
+        animation: mobilebackgroundanimation 3000ms ease-in-out;
         animation-fill-mode:forwards;
        }
     
@@ -717,8 +716,7 @@ to
       @keyframes mobilebackgroundanimation {
       from
       { 
-        opacity: 1;
-        z-index:11;
+        opacity: 1;  
         display:flex;
       }  
       to 
@@ -931,8 +929,8 @@ to
 {
     left:50px;
     top:25px;
-    width:101px;
-    height:122px;
+    width:64px;
+    height:78px;
     opacity:0;
 }
 }  
@@ -956,47 +954,46 @@ to
 {
     left:50px;
     top:25px;
-    width:101px;
-    height:122px;
+    width:64px;
+    height: 78px;
     
 }
 }  
 /* Login-Animation-Mobile */
 
     /* MOBILE-LOGO ANIMATION */
-   .mobilelogo{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    position:absolute;
-    width:100vw;
-    height:100vh;
-    background-color: #091931;
-    z-index:11;
-    opacity:1;
-   }
-   .animate-mobile{
-    animation: mobilebackgroundanimation 1000ms ease-in-out;
-    animation-fill-mode:forwards;
-   }
-
-
-  @keyframes mobilebackgroundanimation {
-  from
-  { 
-    opacity: 1;
-    z-index:11;
-    display:flex;
-  }  
-  to 
-  {
-    opacity: 0;
-    z-index:-1;
-    display:none;
-  }
-  }  
- /* MOBILE-LOGO ANIMATION */
+    .mobilelogo{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+    
+        position:absolute;
+        width:100vw;
+        height:100vh;
+        background-color: #091931;
+        z-index:9;
+        opacity:1;
+       }
+       .animate-mobile{
+        animation: mobilebackgroundanimation 3000ms ease-in-out;
+        animation-fill-mode:forwards;
+       }
+    
+    
+      @keyframes mobilebackgroundanimation {
+      from
+      { 
+        opacity: 1;  
+        display:flex;
+      }  
+      to 
+      {
+        opacity: 0;
+        z-index:-1;
+        display:none;
+      }
+      }  
+     /* MOBILE-LOGO ANIMATION */
 
     /* LOGIN */
     .login-rememberOrforgotPw {
@@ -1195,8 +1192,8 @@ to
 {
     left:50px;
     top:25px;
-    width:101px;
-    height:122px;
+    width:64px;
+    height:78px;
     opacity:0;
 }
 }  
@@ -1220,47 +1217,46 @@ to
 {
     left:50px;
     top:25px;
-    width:101px;
-    height:122px;
+    width:64px;
+    height:78px;
     
 }
 }  
 /* Login-Animation-Mobile */
 
     /* MOBILE-LOGO ANIMATION */
-   .mobilelogo{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    position:absolute;
-    width:100vw;
-    height:100vh;
-    background-color: #091931;
-    z-index:11;
-    opacity:1;
-   }
-   .animate-mobile{
-    animation: mobilebackgroundanimation 3000ms ease-in-out;
-    animation-fill-mode:forwards;
-   }
-
-
-  @keyframes mobilebackgroundanimation {
-  from
-  { 
-    opacity: 1;
-    z-index:11;
-    display:flex;
-  }  
-  to 
-  {
-    opacity: 0;
-    z-index:-1;
-    display:none;
-  }
-  }  
- /* MOBILE-LOGO ANIMATION */
+    .mobilelogo{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+    
+        position:absolute;
+        width:100vw;
+        height:100vh;
+        background-color: #091931;
+        z-index:9;
+        opacity:1;
+       }
+       .animate-mobile{
+        animation: mobilebackgroundanimation 3000ms ease-in-out;
+        animation-fill-mode:forwards;
+       }
+    
+    
+      @keyframes mobilebackgroundanimation {
+      from
+      { 
+        opacity: 1;  
+        display:flex;
+      }  
+      to 
+      {
+        opacity: 0;
+        z-index:-1;
+        display:none;
+      }
+      }  
+     /* MOBILE-LOGO ANIMATION */
 
     /* LOGIN */
     .login-rememberOrforgotPw {
@@ -1475,8 +1471,8 @@ to
 {
     left:50px;
     top:25px;
-    width:101px;
-    height:122px;
+    width:64px;
+    height:78px;
     opacity:0;
 }
 }  
@@ -1500,8 +1496,8 @@ to
 {
     left:50px;
     top:25px;
-    width:101px;
-    height:122px;
+    width:64px;
+    height:78px;
     
 }
 }  
@@ -1517,7 +1513,7 @@ to
     width:100vw;
     height:100vh;
     background-color: #091931;
-    z-index:11;
+    z-index:9;
     opacity:1;
    }
    .animate-mobile{
@@ -1529,8 +1525,7 @@ to
   @keyframes mobilebackgroundanimation {
   from
   { 
-    opacity: 1;
-    z-index:11;
+    opacity: 1;  
     display:flex;
   }  
   to 
