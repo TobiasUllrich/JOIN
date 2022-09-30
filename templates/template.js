@@ -341,6 +341,11 @@ function loadAssignedHTML() {
     `;
 }
 
+function userInAssigned(userName) {
+    return /*html*/`
+    <div class="solo-contact"><label>${userName}</label><input name="users" type="checkbox"></div>`
+}
+
 
 // 
 

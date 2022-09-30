@@ -239,7 +239,7 @@ let passwordSet = false;
 
 // ADD USER TO ARRAY
 async function addUser(object) {
-    users.push(object);
+     
     //-> Im Live Array können wir gleich sehen, dass das Element inzugefügt wurde, es wird in der nächsten Zeile noch ins Backend übertragen
     await backend.setItem('users', JSON.stringify(users));
 }

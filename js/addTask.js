@@ -2,14 +2,22 @@ let subtasks = [];
 let categorys = ['Sales', 'Backoffice'];
 let categoryColors = ['8aa4ff', 'ff0000', '2ad300', 'ff8a00', 'e200be', '0038ff'];
 let usedColors = ['fc71ff', '1fd7c1 ']
-let assignUser = [];
+let assignUsers = [];
 
 
 async function loadAddTastk() {
   await init();
   loadCategory();
   loadAssigned();
-  console.log('Test');
+  loadUser();
+}
+
+function loadUser(){
+  for (let i = 0; i < users.length; i++) {
+    const userFullname = users[i].name;
+    assignUsers.push(userFullname);
+    console.log(assignUsers);
+  }
 }
 
 function loadCategory() {
@@ -124,24 +132,47 @@ function openAssign() {
   document.getElementById('assignDropdown').classList.toggle('show');
   document.getElementById('dropbtnAssign').classList.toggle('dropdown-border-bottom-none');
   document.getElementById('assignDropdown').classList.toggle('dropdown-border-top-none');
+  renderAssingUser();
 }
 
+  function renderAssingUser(){
+    let assingUser = document.getElementById('assignDropdown');
+    for (let i = 0; i < assignUsers.length; i++) {
+      const userName = assignUsers[i];
+      assingUser.innerHTML += userInAssigned(userName)
+    };
+  }
 
 
-function submitCheckbox(idOfCheckbox) {
+
+function assingCheckbox(idOfCheckbox) {
   let clickedCheckbox = document.getElementById(`checkbox-${idOfCheckbox}`);
 
   if (clickedCheckbox.checked == false) {
       clickedCheckbox.checked = true;
-      checkIfWorkerIsPushable(idOfCheckbox);
+      checkIfWorkerPushable(idOfCheckbox);
   } else {
-      checkIfWorkerIsRemoveable(idOfCheckbox);
+      checkIfWorkerRemoveable(idOfCheckbox);
       clickedCheckbox.checked = false;
   }
-  checkValidatorCheckboxes();
+  checkValidatorCheckbox();
 }
 
-function checkValidatorCheckboxes() {
+function checkIfWorkerPushable(id) {
+  if (!selectedWorkers.includes(users[id])) {
+      selectedWorkers.push(users[id]);
+  }
+}
+
+function checkIfWorkerRemoveable(id) {
+  for (let p = 0; p < selectedWorkers.length; p++) {
+      if (selectedWorkers[p] === users[id]) {
+          selectedWorkers.splice(p, 1);
+      }
+  }
+}
+
+function checkValidatorCheckbox() {
   let checkboxAssignedTo = document.getElementById('assignedInput');
   let checkboxes = document.querySelectorAll('input[type="checkbox"]');
   let checkedOne = Array.prototype.slice.call(checkboxes).some(x => x.checked);
@@ -173,7 +204,7 @@ function categoryColorPicker() {
   document.getElementById('category-color-picker').innerHTML = '';
   for (let i = 0; i < categoryColors.length; i++) {
     document.getElementById('category-color-picker').innerHTML += categoryColorPickerHTML(`${i}`);
-  }
+  };
 }
 
 
@@ -216,6 +247,3 @@ function currentCategory(categoryNumber) {
 function backToSelectContacts(){
   loadAssigned();
 }
-//****************HTML*****************HTML*************HTML****************HTML */ 
-
-
