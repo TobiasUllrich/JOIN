@@ -131,11 +131,15 @@ function tryLogin() {
 
 //Try to Signup
 async function trySignup() {
-    let name = document.getElementById('signup-name').value;
+    let fullname = document.getElementById('signup-name').value;
+    let name=fullname.slice(0,fullname.indexOf(' '));
+    let surname=fullname.slice(fullname.indexOf(' ')+1,fullname.length);
     let email = document.getElementById('signup-email').value;
     let password = document.getElementById('signup-password').value;
+    console.log(name, ' ', surname);
     let object = {
         "name": name,
+        "surname": surname,
         "picture": "randomprofilepicture.webp",
         "email": email,
         "phone": "",

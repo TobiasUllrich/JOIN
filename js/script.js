@@ -308,7 +308,8 @@ function showLogoutButton(){
 
 /* [5.]  For Log-Out in the right corner */
 function hideLogoutButton(){
-  document.getElementById('logout').classList.add('d-none');
+  try{document.getElementById('logout').classList.add('d-none');}
+  catch(e){};
 }
 /* [5.]  For Log-Out in the right corner */
 

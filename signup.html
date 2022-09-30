@@ -75,7 +75,7 @@
             <h1>Sign up</h1>
             <div class="dummy"></div>      
             <form onsubmit="trySignup(); return false;" class="form-style">
-            <div class="formular-inputdesign"><input required type="text" minlength="5" id="signup-name" placeholder="Name" type="text"><img src="img/user-icon.png"></div>
+            <div class="formular-inputdesign"><input required type="text" minlength="5" pattern="^(\w\w+)\s(\w+)$" id="signup-name" placeholder="Name Surname" type="text"><img src="img/user-icon.png"></div>
             <div class="formular-inputdesign"><input required type="email" id="signup-email" placeholder="Email" type="text"><img src="img/email-icon.png"></div>
             <div class="formular-inputdesign"><input required type="password" minlength="5" id="signup-password" placeholder="Password" type="text"><img src="img/password-icon.png"></div>
             <div class="login-buttons"><button class="signup-user">Sign up</button></div>
