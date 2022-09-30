@@ -133,6 +133,24 @@ form{
     height:122px;
 }
 
+.moving-logo-first-mobile{
+    position:absolute;
+    z-index:10;   
+    left:calc(100vw - 50% - 101px); /* Um mittig zu positionieren muss zusätzlich die Hälfte der Breite des Bildes abgezogen werden */
+    top:calc(100vh - 50% - 122px); /* Um mittig zu positionieren muss zusätzlich die Hälfte der Höhe des Bildes abgezogen werden */
+    width:202px;
+    height: 244px;
+}
+
+.moving-logo-later-mobile{
+    position:absolute;
+    z-index:10;   
+    left:50px;
+    top:25px;
+    width:101px;
+    height:122px;
+}
+
 .login-Box h1{
 font-size:61px; 
 font-weight: bold;
@@ -238,7 +256,7 @@ margin-bottom:0;
 
 /* Login-Animation */
 .animate-logo{
-    animation: moveJOINLogo 325ms ease-in-out;
+    animation: moveJOINLogo 1000ms ease-in-out;
     animation-fill-mode:forwards;
 }
 
@@ -259,6 +277,30 @@ to
 }
 }  
 /* Login-Animation */
+
+/* Login-Animation-Mobile */
+.animate-logo-mobile{
+    animation: moveJOINLogoMobile 1000ms ease-in-out;
+    animation-fill-mode:forwards;
+}
+
+@keyframes moveJOINLogoMobile {
+from
+{ 
+    left:calc(100vw - 50% - 101px); /* Um mittig zu positionieren muss zusätzlich die Hälfte der Breite des Bildes abgezogen werden */
+    top:calc(100vh - 50% - 122px); /* Um mittig zu positionieren muss zusätzlich die Hälfte der Höhe des Bildes abgezogen werden */
+    width:202px;
+    height: 244px;
+}  
+to 
+{
+    left:50px;
+    top:25px;
+    width:101px;
+    height:122px;    
+}
+}  
+/* Login-Animation-Mobile */
 
 /* SIGN UP */
 .signup-container{
@@ -572,6 +614,18 @@ display:none;
     .moving-logo-later {
         width: 64px;
         height: 78px;
+        z-index:10;
+    }
+    .moving-logo-first{
+        z-index:10;   
+    }   
+    .moving-logo-later-mobile{
+        width: 64px;
+        height: 78px;
+        z-index:11;  
+    }
+    .moving-logo-first-mobile{
+        z-index:11;   
     }
     .login-Box{
         height:573px;
@@ -589,6 +643,57 @@ display:none;
         height: 39px;
     }
 
+/* Login-Animation */
+.animate-logo{
+    animation: moveJOINLogo 1000ms ease-in-out;
+    animation-fill-mode:forwards;
+}
+
+@keyframes moveJOINLogo {
+from
+{ 
+    left:calc(100vw - 50% - 101px); /* Um mittig zu positionieren muss zusätzlich die Hälfte der Breite des Bildes abgezogen werden */
+    top:calc(100vh - 50% - 122px); /* Um mittig zu positionieren muss zusätzlich die Hälfte der Höhe des Bildes abgezogen werden */
+    width:202px;
+    height: 244px;
+    opacity:1;
+}  
+to 
+{
+    left:50px;
+    top:25px;
+    width:101px;
+    height:122px;
+    opacity:0;
+}
+}  
+/* Login-Animation */
+
+/* Login-Animation-Mobile */
+.animate-logo-mobile{
+    animation: moveJOINLogoMobile 1000ms ease-in-out;
+    animation-fill-mode:forwards;
+}
+
+@keyframes moveJOINLogoMobile {
+from
+{ 
+    left:calc(100vw - 50% - 101px); /* Um mittig zu positionieren muss zusätzlich die Hälfte der Breite des Bildes abgezogen werden */
+    top:calc(100vh - 50% - 122px); /* Um mittig zu positionieren muss zusätzlich die Hälfte der Höhe des Bildes abgezogen werden */
+    width:202px;
+    height: 244px;
+}  
+to 
+{
+    left:50px;
+    top:25px;
+    width:101px;
+    height:122px;
+    
+}
+}  
+/* Login-Animation-Mobile */
+
     /* MOBILE-LOGO ANIMATION */
     .mobilelogo{
         display:flex;
@@ -604,12 +709,12 @@ display:none;
        }
     
        .animate-mobile{
-        animation: mobilelogoanimation 3000ms ease-in-out;
+        animation: mobilebackgroundanimation 1000ms ease-in-out;
         animation-fill-mode:forwards;
        }
     
     
-      @keyframes mobilelogoanimation {
+      @keyframes mobilebackgroundanimation {
       from
       { 
         opacity: 1;
@@ -774,6 +879,18 @@ display:none;
     .moving-logo-later {
         width: 64px;
         height: 78px;
+        z-index:10;
+    }
+    .moving-logo-first{
+        z-index:10;   
+    }   
+    .moving-logo-later-mobile{
+        width: 64px;
+        height: 78px;
+        z-index:11;  
+    }
+    .moving-logo-first-mobile{
+        z-index:11;   
     }
     .login-Box{
         height:573px;
@@ -795,6 +912,57 @@ display:none;
         width: calc(100vw - 100px);
     }
 
+/* Login-Animation */
+.animate-logo{
+    animation: moveJOINLogo 1000ms ease-in-out;
+    animation-fill-mode:forwards;
+}
+
+@keyframes moveJOINLogo {
+from
+{ 
+    left:calc(100vw - 50% - 101px); /* Um mittig zu positionieren muss zusätzlich die Hälfte der Breite des Bildes abgezogen werden */
+    top:calc(100vh - 50% - 122px); /* Um mittig zu positionieren muss zusätzlich die Hälfte der Höhe des Bildes abgezogen werden */
+    width:202px;
+    height: 244px;
+    opacity:1;
+}  
+to 
+{
+    left:50px;
+    top:25px;
+    width:101px;
+    height:122px;
+    opacity:0;
+}
+}  
+/* Login-Animation */
+
+/* Login-Animation-Mobile */
+.animate-logo-mobile{
+    animation: moveJOINLogoMobile 1000ms ease-in-out;
+    animation-fill-mode:forwards;
+}
+
+@keyframes moveJOINLogoMobile {
+from
+{ 
+    left:calc(100vw - 50% - 101px); /* Um mittig zu positionieren muss zusätzlich die Hälfte der Breite des Bildes abgezogen werden */
+    top:calc(100vh - 50% - 122px); /* Um mittig zu positionieren muss zusätzlich die Hälfte der Höhe des Bildes abgezogen werden */
+    width:202px;
+    height: 244px;
+}  
+to 
+{
+    left:50px;
+    top:25px;
+    width:101px;
+    height:122px;
+    
+}
+}  
+/* Login-Animation-Mobile */
+
     /* MOBILE-LOGO ANIMATION */
    .mobilelogo{
     display:flex;
@@ -809,12 +977,12 @@ display:none;
     opacity:1;
    }
    .animate-mobile{
-    animation: mobilelogoanimation 3000ms ease-in-out;
+    animation: mobilebackgroundanimation 1000ms ease-in-out;
     animation-fill-mode:forwards;
    }
 
 
-  @keyframes mobilelogoanimation {
+  @keyframes mobilebackgroundanimation {
   from
   { 
     opacity: 1;
@@ -974,6 +1142,18 @@ display:none;
     .moving-logo-later {
         width: 64px;
         height: 78px;
+        z-index:10;
+    }
+    .moving-logo-first{
+        z-index:10;   
+    }   
+    .moving-logo-later-mobile{
+        width: 64px;
+        height: 78px;
+        z-index:11;  
+    }
+    .moving-logo-first-mobile{
+        z-index:11;   
     }
     .login-Box{
         height:573px;
@@ -996,6 +1176,57 @@ display:none;
         width: calc(100vw - 56px);
     }
 
+/* Login-Animation */
+.animate-logo{
+    animation: moveJOINLogo 1000ms ease-in-out;
+    animation-fill-mode:forwards;
+}
+
+@keyframes moveJOINLogo {
+from
+{ 
+    left:calc(100vw - 50% - 101px); /* Um mittig zu positionieren muss zusätzlich die Hälfte der Breite des Bildes abgezogen werden */
+    top:calc(100vh - 50% - 122px); /* Um mittig zu positionieren muss zusätzlich die Hälfte der Höhe des Bildes abgezogen werden */
+    width:202px;
+    height: 244px;
+    opacity:1;
+}  
+to 
+{
+    left:50px;
+    top:25px;
+    width:101px;
+    height:122px;
+    opacity:0;
+}
+}  
+/* Login-Animation */
+
+/* Login-Animation-Mobile */
+.animate-logo-mobile{
+    animation: moveJOINLogoMobile 1000ms ease-in-out;
+    animation-fill-mode:forwards;
+}
+
+@keyframes moveJOINLogoMobile {
+from
+{ 
+    left:calc(100vw - 50% - 101px); /* Um mittig zu positionieren muss zusätzlich die Hälfte der Breite des Bildes abgezogen werden */
+    top:calc(100vh - 50% - 122px); /* Um mittig zu positionieren muss zusätzlich die Hälfte der Höhe des Bildes abgezogen werden */
+    width:202px;
+    height: 244px;
+}  
+to 
+{
+    left:50px;
+    top:25px;
+    width:101px;
+    height:122px;
+    
+}
+}  
+/* Login-Animation-Mobile */
+
     /* MOBILE-LOGO ANIMATION */
    .mobilelogo{
     display:flex;
@@ -1010,12 +1241,12 @@ display:none;
     opacity:1;
    }
    .animate-mobile{
-    animation: mobilelogoanimation 3000ms ease-in-out;
+    animation: mobilebackgroundanimation 3000ms ease-in-out;
     animation-fill-mode:forwards;
    }
 
 
-  @keyframes mobilelogoanimation {
+  @keyframes mobilebackgroundanimation {
   from
   { 
     opacity: 1;
@@ -1191,6 +1422,18 @@ display:none;
     .moving-logo-later {
         width: 64px;
         height: 78px;
+        z-index:10;
+    }
+    .moving-logo-first{
+        z-index:10;   
+    }   
+    .moving-logo-later-mobile{
+        width: 64px;
+        height: 78px;
+        z-index:11;  
+    }
+    .moving-logo-first-mobile{
+        z-index:11;   
     }
     .login-Box{
         height:573px;
@@ -1213,6 +1456,57 @@ display:none;
         width: calc(100vw - 56px);
     }
 
+/* Login-Animation */
+.animate-logo{
+    animation: moveJOINLogo 1000ms ease-in-out;
+    animation-fill-mode:forwards;
+}
+
+@keyframes moveJOINLogo {
+from
+{ 
+    left:calc(100vw - 50% - 101px); /* Um mittig zu positionieren muss zusätzlich die Hälfte der Breite des Bildes abgezogen werden */
+    top:calc(100vh - 50% - 122px); /* Um mittig zu positionieren muss zusätzlich die Hälfte der Höhe des Bildes abgezogen werden */
+    width:202px;
+    height: 244px;
+    opacity:1;
+}  
+to 
+{
+    left:50px;
+    top:25px;
+    width:101px;
+    height:122px;
+    opacity:0;
+}
+}  
+/* Login-Animation */
+
+/* Login-Animation-Mobile */
+.animate-logo-mobile{
+    animation: moveJOINLogoMobile 1000ms ease-in-out;
+    animation-fill-mode:forwards;
+}
+
+@keyframes moveJOINLogoMobile {
+from
+{ 
+    left:calc(100vw - 50% - 101px); /* Um mittig zu positionieren muss zusätzlich die Hälfte der Breite des Bildes abgezogen werden */
+    top:calc(100vh - 50% - 122px); /* Um mittig zu positionieren muss zusätzlich die Hälfte der Höhe des Bildes abgezogen werden */
+    width:202px;
+    height: 244px;
+}  
+to 
+{
+    left:50px;
+    top:25px;
+    width:101px;
+    height:122px;
+    
+}
+}  
+/* Login-Animation-Mobile */
+
     /* MOBILE-LOGO ANIMATION */
    .mobilelogo{
     display:flex;
@@ -1227,12 +1521,12 @@ display:none;
     opacity:1;
    }
    .animate-mobile{
-    animation: mobilelogoanimation 3000ms ease-in-out;
+    animation: mobilebackgroundanimation 3000ms ease-in-out;
     animation-fill-mode:forwards;
    }
 
 
-  @keyframes mobilelogoanimation {
+  @keyframes mobilebackgroundanimation {
   from
   { 
     opacity: 1;

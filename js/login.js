@@ -9,7 +9,7 @@ let guest = {
 function setArrow(arrowelement,containerforwidth){
     let breite = document.getElementById(`${containerforwidth}`).clientWidth;
 
-    if (breite < 901) // Mobile
+    if (breite < 927) // Mobile
     {document.getElementById(`${arrowelement}`).src=`img/black-arrow.png`;
     }
     else // Desktop
@@ -20,18 +20,28 @@ function setArrow(arrowelement,containerforwidth){
 //Logo-Animation
 function loginAnimation() {
     let breite = document.getElementById('center-container').clientWidth;
-
-    if (breite < 901) // Mobile
-    {document.getElementById('animatedlogo').classList.add('d-none');
-     document.getElementById('animatedlogo2').classList.remove('d-none');
-     
-     document.getElementById('mobilelogo').classList.add('animate-mobile');
-     setTimeout(function () {
-     //document.getElementById('mobilelogo').classList.add('d-none');
-     }, 3000);
+    if (breite < 927) // Mobile
+    {
+     document.getElementById('animatedlogo').classList.add('animate-logo-mobile');
+     document.getElementById('animatedlogo-mobile').classList.add('animate-logo'); 
+     document.getElementById('mobilelogo').classList.add('animate-mobile');   
     }
     else // Desktop
-    {document.getElementById('animatedlogo').classList.add('animate-logo');}
+    {document.getElementById('animatedlogo').classList.add('animate-logo');
+     document.getElementById('animatedlogo-mobile').classList.add('animate-logo');
+    }
+
+    // if (breite < 901) // Mobile
+    // {document.getElementById('animatedlogo').classList.add('d-none');
+    //  document.getElementById('animatedlogo2').classList.remove('d-none');
+     
+    //  document.getElementById('mobilelogo').classList.add('animate-mobile');
+    //  setTimeout(function () {
+    //  //document.getElementById('mobilelogo').classList.add('d-none');
+    //  }, 3000);
+    // }
+    // else // Desktop
+    // {document.getElementById('animatedlogo').classList.add('animate-logo');}
 }
 
 //Reset-PW-Animation
