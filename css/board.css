@@ -360,6 +360,17 @@ body {
     margin-left: -10px;
 }
 
+.worker-name-start-letters-edit {
+    padding: 10px 8px;
+    gap: 10px;
+    width: 45px;
+    height: 45px;
+    background: #0190E0;
+    border: 1px solid #FFFFFF;
+    border-radius: 58px;
+    color: white;
+}
+
 .main-add-task-container {
     height: 100vh;
     width: 100vw;
@@ -410,7 +421,6 @@ body {
     background-color: lightgray;
     width: 150px;
     height: 40px;
-    margin-bottom: 24px;
     border-radius: 8px;
 }
 
@@ -428,7 +438,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    margin-bottom: 12px;
 }
 
 .big-box-task-title h2 {

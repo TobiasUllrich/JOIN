@@ -373,5 +373,5 @@ function templateAssignedToOfSoloTask(firstName, lastName){
 
 function templateCurrentWorkersOfTasksBigBox(firstName, lastName, fullName){
     return `
-    <div class="solo-worker-big-box"><div class="worker-name-start-letters d-center">${firstName.charAt(0)}${lastName.charAt(0)}</div><div class="edit-worker-fullname">${fullName}</div>`
+    <div class="solo-worker-big-box"><div class="worker-name-start-letters-edit d-center">${firstName.charAt(0)}${lastName.charAt(0)}</div><div class="edit-worker-fullname">${fullName}</div>`
 }
