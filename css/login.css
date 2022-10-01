@@ -870,7 +870,7 @@ to
 
     .moving-logo-later {
         width: 44px;
-        height: 58px;
+        height: 53.625px;
         z-index:10;
     }
     .moving-logo-first{
@@ -878,7 +878,7 @@ to
     }   
     .moving-logo-later-mobile{
         width: 44px;
-        height: 58px;
+        height: 53.625px;
         z-index:11;  
     }
     .moving-logo-first-mobile{
@@ -923,7 +923,7 @@ to
     left:50px;
     top:25px;
     width:44px;
-    height:58px;
+    height:53.625px;
     opacity:0;
 }
 }  
@@ -948,7 +948,7 @@ to
     left:50px;
     top:25px;
     width:44px;
-    height: 58px;
+    height: 53.625px;
     
 }
 }  
@@ -1172,7 +1172,7 @@ to
 
     .moving-logo-later {
         width: 44px;
-        height: 58px;
+        height: 53.625px;
         z-index:10;
     }
     .moving-logo-first{
@@ -1180,7 +1180,7 @@ to
     }   
     .moving-logo-later-mobile{
         width: 44px;
-        height: 58px;
+        height: 53.625px;
         z-index:11;  
     }
     .moving-logo-first-mobile{
@@ -1225,7 +1225,7 @@ to
     left:50px;
     top:25px;
     width:44px;
-    height:58px;
+    height:53.625px;
     opacity:0;
 }
 }  
@@ -1250,7 +1250,7 @@ to
     left:50px;
     top:25px;
     width:44px;
-    height:58px;
+    height:53.625px;
     
 }
 }  
@@ -1491,7 +1491,7 @@ to
 
     .moving-logo-later {
         width: 44px;
-        height: 58px;
+        height: 53.625px;
         z-index:10;
     }
     .moving-logo-first{
@@ -1499,7 +1499,7 @@ to
     }   
     .moving-logo-later-mobile{
         width: 44px;
-        height: 58px;
+        height: 53.625px;
         z-index:11;  
     }
     .moving-logo-first-mobile{
@@ -1544,7 +1544,7 @@ to
     left:50px;
     top:25px;
     width:44px;
-    height:58px;
+    height:53.625px;
     opacity:0;
 }
 }  
@@ -1569,7 +1569,7 @@ to
     left:50px;
     top:25px;
     width:44px;
-    height:58px;    
+    height:53.625px;    
 }
 }  
 /* Login-Animation-Mobile */
@@ -1769,3 +1769,19 @@ to
 @media (min-width: 0px) and (max-width: 279px) {
     /* Ab hier leer lassen */
   }
+
+
+  @media (width:1024px) and (height:600px) {
+    .login-Box{
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+        background-color: #ffffff;
+        border-radius: 30px;
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+        height: 513px;
+        width: 652px;
+        background-color: green;
+    }
+}
