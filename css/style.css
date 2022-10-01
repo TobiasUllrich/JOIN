@@ -63,7 +63,8 @@ width:60%;
 }
 
 .header-legnotice{
-  margin-top:300px;
+  /* margin-top:300px; */
+  margin-top:42vh;
   display: flex;
   justify-content: center;
   align-items:center;
@@ -149,6 +150,7 @@ width:60%;
 .footer-legnotice{
   display:none;
 }
+
 
 /* INTERVALLE FÜRS HANDY */
 @media (min-width: 951px) and (max-width: 1100px) {
@@ -440,4 +442,18 @@ width:60%;
 
 @media (min-width: 0px) and (max-width: 279px) {
   /* Ab hier leer lassen */
+}
+
+  /* For NestHub */
+  @media (width:1024px) and (height:600px) {
+  .header-legnotice{
+    margin-top:12vh;
+  }
+}
+
+/* For NestHub Max */
+@media (width:1280px) and (height:800px) {
+  .header-legnotice{
+    margin-top:12vh;
+  }
 }

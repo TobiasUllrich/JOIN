@@ -23,6 +23,9 @@ body {
     margin-left:232px;  /* Because of the fixed Menu on the left */  
     padding-left: 75px;
 }
+.summary-container-for-mobile{
+    display:none;
+}
 
 .summary-headline{
 display:flex;
@@ -704,7 +707,7 @@ to
 
 }
 
-@media (min-width:451px) and (max-width:700px) {   /* Ab hier leer lassen */
+@media (min-width:551px) and (max-width:700px) {   /* Ab hier leer lassen */
     
     .summary-container {
         display: flex;
@@ -922,7 +925,7 @@ to
 
 
 
-@media (min-width:300px) and (max-width:450px) {  
+@media (min-width:300px) and (max-width:550px) {  
 
   
     .summary-container {
@@ -1389,9 +1392,387 @@ to
 
                   
 
+  /* For NestHub */
+  @media (width:1024px) and (height:600px) {
+    .summary-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        background-color: #F5F5F5;
+        height: calc(100vh - 80px);
+        width: calc(100vw - 232px);
+        margin-top: 80px;
+        margin-left: 232px;
+        padding-left: 75px;
+    }
+
+.mobile-headline {
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        margin-top: 30px;
+        margin-bottom: 30px;
+}
+.mobile-headline h1{
+    font-size:47px;
+    font-weight:700;
+     
+}
+.mobile-headline span{
+    font-size:21px;
+    border-left: none;
+    padding-left:0; 
+}
+
+.blueline{
+    width:117px;
+    border-bottom: 3px solid #29ABE2; 
+    padding-top:20px;
+}
+.summary-numberbox{
+    margin-left: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.summary-overview-tasksboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 10px;
+    width: 80px;
+    height: 80px;
+    background: #FFFFFF;
+    border-radius: 20px;
+    text-align: center;
+}
+.summary-overview-tasksprogress {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 10px;
+    width: 80px;
+    height: 80px;
+    background: #FFFFFF;
+    border-radius: 20px;
+    text-align: center;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+.summary-overview-tasksawaitingfeedback {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 10px;
+    width: 80px;
+    height: 80px;
+    background: #FFFFFF;
+    border-radius: 20px;
+    text-align: center;
+}
 
 
+.summary-priority-box{
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    background: #FFFFFF;
+    border-radius:20px;
+    width:280px;
+    height:80px;
+    margin-top:20px;
+    margin-bottom:20px;   
+}
+.summary-priority-urgent {
+    font-size: 10px;
+    padding-right:15px;
+}
+.summary-priority-urgent span{
+    font-size: 32px;
+}
+.summary-priority-urgent-flex{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding-left:5px;
+}
+.summary-priority-urgentdeadline {
+    font-size: 10px;
+    padding-left:15px;
+}
+.summary-priority-urgentdeadline span {
+    font-size: 16px;
+}
 
+.summary-overview-taskstodo{
+display:flex;
+justify-content: center;
+align-items:center;
+background: #FFFFFF;
+border-radius:20px;
+height: 80px;
+width: 130px;
+margin-right:10px;
+}
+
+.summary-overview-tasksdone{
+display:flex;
+justify-content: center;
+align-items:center;
+background: #FFFFFF;
+border-radius:20px;
+height: 80px;
+width: 130px;
+margin-left:10px;
+}
+
+.summary-overview-tasks span {
+font-size: 32px;
+}
+.summary-overview-taskstodo2 {
+font-size: 10px;
+}
+.summary-overview-tasksdone2 {
+font-size: 10px;
+}
+.summary-overview-tasks2 {
+    width: auto;
+}
+.summary-overview-tasks2 span {
+font-size: 32px;
+}
+
+#numberTasksBoard, #numberTasksinProgress, #numberTasksawaitingFeedback, #numberTasksUrgent, #numberTasksTodo, #numberTasksDone {
+font-weight: 600;
+height: 40px;
+}
+
+.urgent-icon {
+width: 30px;
+height: 30px;
+border-radius: 100%;
+}
+.todo-icon {
+width: 30px;
+height: 30px;
+border-radius: 100%;
+background-color: #091931;
+}
+.done-icon {
+width: 30px;
+height: 30px;
+border-radius: 100%;
+background-color: #091931;
+}
+.todo-icon img {
+position: relative;
+left: 9px;
+top: 2px;
+opacity: 1;
+height: 17px;
+}
+.done-icon img {
+position: relative;
+left: 7px;
+top: 2px;
+opacity: 1;
+width: 17px;
+}    
+
+}
+
+/* For NestHub Max */
+@media (width:1280px) and (height:800px) {
+    .summary-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        background-color: #F5F5F5;
+        height: calc(100vh - 80px);
+        width: calc(100vw - 232px);
+        margin-top: 80px;
+        margin-left: 232px;
+        padding-left: 75px;
+    }
+
+.mobile-headline {
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        margin-top: 30px;
+        margin-bottom: 30px;
+}
+.mobile-headline h1{
+    font-size:47px;
+    font-weight:700;
+     
+}
+.mobile-headline span{
+    font-size:21px;
+    border-left: none;
+    padding-left:0; 
+}
+
+.blueline{
+    width:117px;
+    border-bottom: 3px solid #29ABE2; 
+    padding-top:20px;
+}
+.summary-numberbox{
+    margin-left: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.summary-overview-tasksboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 10px;
+    width: 80px;
+    height: 80px;
+    background: #FFFFFF;
+    border-radius: 20px;
+    text-align: center;
+}
+.summary-overview-tasksprogress {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 10px;
+    width: 80px;
+    height: 80px;
+    background: #FFFFFF;
+    border-radius: 20px;
+    text-align: center;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+.summary-overview-tasksawaitingfeedback {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 10px;
+    width: 80px;
+    height: 80px;
+    background: #FFFFFF;
+    border-radius: 20px;
+    text-align: center;
+}
+
+
+.summary-priority-box{
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    background: #FFFFFF;
+    border-radius:20px;
+    width:280px;
+    height:80px;
+    margin-top:20px;
+    margin-bottom:20px;   
+}
+.summary-priority-urgent {
+    font-size: 10px;
+    padding-right:15px;
+}
+.summary-priority-urgent span{
+    font-size: 32px;
+}
+.summary-priority-urgent-flex{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding-left:5px;
+}
+.summary-priority-urgentdeadline {
+    font-size: 10px;
+    padding-left:15px;
+}
+.summary-priority-urgentdeadline span {
+    font-size: 16px;
+}
+
+.summary-overview-taskstodo{
+display:flex;
+justify-content: center;
+align-items:center;
+background: #FFFFFF;
+border-radius:20px;
+height: 80px;
+width: 130px;
+margin-right:10px;
+}
+
+.summary-overview-tasksdone{
+display:flex;
+justify-content: center;
+align-items:center;
+background: #FFFFFF;
+border-radius:20px;
+height: 80px;
+width: 130px;
+margin-left:10px;
+}
+
+.summary-overview-tasks span {
+font-size: 32px;
+}
+.summary-overview-taskstodo2 {
+font-size: 10px;
+}
+.summary-overview-tasksdone2 {
+font-size: 10px;
+}
+.summary-overview-tasks2 {
+    width: auto;
+}
+.summary-overview-tasks2 span {
+font-size: 32px;
+}
+
+#numberTasksBoard, #numberTasksinProgress, #numberTasksawaitingFeedback, #numberTasksUrgent, #numberTasksTodo, #numberTasksDone {
+font-weight: 600;
+height: 40px;
+}
+
+.urgent-icon {
+width: 30px;
+height: 30px;
+border-radius: 100%;
+}
+.todo-icon {
+width: 30px;
+height: 30px;
+border-radius: 100%;
+background-color: #091931;
+}
+.done-icon {
+width: 30px;
+height: 30px;
+border-radius: 100%;
+background-color: #091931;
+}
+.todo-icon img {
+position: relative;
+left: 9px;
+top: 2px;
+opacity: 1;
+height: 17px;
+}
+.done-icon img {
+position: relative;
+left: 7px;
+top: 2px;
+opacity: 1;
+width: 17px;
+}    
+
+}
 
 
 
