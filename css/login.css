@@ -637,7 +637,7 @@ display:none;
     .formular-inputdesign {
         width: auto;
         height: 41px;
-        margin-bottom: 50px;
+        margin-bottom: 20px;
     }
     .formular-inputdesign input{
         height: 39px;
@@ -814,6 +814,7 @@ to
         margin-right:0;
     }
 
+
 }
 
 @media (min-width:429px) and (max-width:752px) {
@@ -845,15 +846,18 @@ to
     }
     .dummy{
         width:88px;
-        height:35px;
+        height:20px;
         border-top: 3px solid #29abe2;
     }
     .login-notajoinuser {
         position: absolute;
-        right: calc(50vw - 140px);
-        top: calc(50vh + 257px + 61px + 30px);
+        right: calc(50vw - 198px/2);
+        top:calc(50vh + 443px/2 + 25px);
     }
-
+    .login-notajoinuser span {
+        font-size: 14px;
+        margin-right: 5px;
+    }
     .logo-for-mobile{
         display:flex;
         position:absolute;
@@ -864,34 +868,25 @@ to
         height:122px;
     }
 
-    .forgotpassword-Box {
-        width: 372px;
-        /* width: calc(100vw - 100px); */
-        height: 502px;
-    }
-    .resetpassword-Box {
-        width: 372px;
-        height: 525px;
-        /* width: calc(100vw - 100px) !important; */
-    }
     .moving-logo-later {
-        width: 64px;
-        height: 78px;
+        width: 44px;
+        height: 58px;
         z-index:10;
     }
     .moving-logo-first{
         z-index:10;   
     }   
     .moving-logo-later-mobile{
-        width: 64px;
-        height: 78px;
+        width: 44px;
+        height: 58px;
         z-index:11;  
     }
     .moving-logo-first-mobile{
         z-index:11;   
     }
     .login-Box{
-        height:573px;
+        height:443px;
+        /* height:calc(100vh - 78px - 50px - 41px - 25px); */
         width:372px;
         /* width: calc(100vw - 100px); */
     }
@@ -901,14 +896,12 @@ to
     .formular-inputdesign {
         width: auto;
         height: 41px;
-        margin-bottom: 50px;
+        margin-bottom: 20px;
     }
     .formular-inputdesign input{
         height: 39px;
     }
-    .signup-Box{
-        width: calc(100vw - 100px);
-    }
+
 
 /* Login-Animation */
 .animate-logo{
@@ -929,8 +922,8 @@ to
 {
     left:50px;
     top:25px;
-    width:64px;
-    height:78px;
+    width:44px;
+    height:58px;
     opacity:0;
 }
 }  
@@ -954,8 +947,8 @@ to
 {
     left:50px;
     top:25px;
-    width:64px;
-    height: 78px;
+    width:44px;
+    height: 58px;
     
 }
 }  
@@ -1000,6 +993,7 @@ to
         flex-direction: column-reverse;
         width:100%;
         margin:0;
+        font-size:11px;
     }
     .login-buttons {
         display: flex;
@@ -1007,20 +1001,24 @@ to
         margin:0;
     }
     .login-user {
-        font-size: 16px;
+        height: 41px;
+        width: 141px;
+        font-size: 14px;
         margin:0px;
         margin-top:20px;
         margin-bottom:20px;
     }
     .login-guest {
-        font-size: 16px;
+        height: 41px;
+        width: 141px;
+        font-size: 14px;
         margin:0px;
     }
     .login-signupbtn {
-        font-size: 16px;
+        font-size: 14px;
     }
     .login-Box h1 {
-        font-size: 47px;
+        font-size: 27px;
     }
     .login-cbx {
         margin-top: 20px;
@@ -1033,54 +1031,100 @@ to
     }
 
    /* SIGNUP */
-   .signup-Box h1 {
-    font-size: 47px;
+   .signup-Box{
+    height:401px;
+    width: calc(100vw - 100px);
 }
-.signup-Box {
-    height: 501px;
-    width: 372px;
+   .signup-Box h1 {
+    font-size: 37px;
 }
 .signup-user {
-    width: 180px;
+    height:41px;
+    width: 111px;
     font-size: 16px;
     margin-right:0;
 }
 .backbutton {
-    left: 35px;
-    top: 22px;
-    width: 16px;
-    height: 15.56px;
+    left: 25px;
+    top: 16px;
+    width: 12px;
+    height: 12px;
 }
 
     /* FORGOT PW */
+    .forgotpassword-Box {
+        width: 372px;
+        /* width: calc(100vw - 100px); */
+        height: 400px;
+    }
     .forgotpassword-Box h1 {
-        font-size: 40px;
+        font-size: 27px;
         text-align:center;
     }
     .forgotpassword-Box span {
+        font-size:14px;
         margin-left: 25px;
         margin-right: 25px;
     }
     .forgotpassword-send {
-        width: 180px;
-        font-size: 16px;
+        width: 150px;
+        height:41px;
+        font-size: 14px;
         margin-right:0;
     }
 
     /* SUCCESS */
 
     /* RESET PASSWORD */
+    .resetpassword-Box {
+        width: 372px;
+        height: 400px;
+        /* width: calc(100vw - 100px) !important; */
+    }
     .resetpassword-Box h1 {
-        font-size: 40px;
+        font-size: 27px;
+        text-align: center;
+    }
+    .resetpassword-Box span {
+        font-size: 16px;
         text-align: center;
     }
     .reset-user {
-        height: 51px;
-        width: 180px;
-        font-size: 16px;
-        margin-right:0;
+        height: 41px;
+        width: 111px;
+        font-size: 14px;
+        margin-right: 0;
     }
 
+    #alert-info{
+        position: absolute;
+        top: 100vh;
+        left:calc(100% - 50vw - 276px/2);
+        z-index:99;
+        height: 74px;
+        width: 276px;
+        font-size:19px;
+        border-radius:20px;
+        color:#FFFFFF;
+        font-weight: 400; 
+        background-color: #091931;
+        border: 1px solid #091931; 
+    }
+
+#reset-info{
+    position: absolute;
+    top: 100vh;
+    left:calc(100% - 50vw - 276px/2);
+    z-index:99;
+    height: 74px;
+    width: 276px;
+    font-size:19px;
+    border-radius:20px;
+    color:#FFFFFF;
+    font-weight: 400; 
+    background-color: #091931;
+    border: 1px solid #091931; 
+}
 }
 
 @media (min-width:300px) and (max-width:428px) {  
@@ -1112,7 +1156,7 @@ to
     }
     .dummy{
         width:88px;
-        height:35px;
+        height:20px;
         border-top: 3px solid #29abe2;
     }
 
@@ -1126,34 +1170,24 @@ to
         height:122px;
     }
 
-    .forgotpassword-Box {
-        /* width: 372px; */
-        width: calc(100vw - 56px);
-        height: 592px;
-    }
-    .resetpassword-Box {
-        /* width: 372px; */
-        height: 592px;
-        width: calc(100vw - 56px) !important;
-    }
     .moving-logo-later {
-        width: 64px;
-        height: 78px;
+        width: 44px;
+        height: 58px;
         z-index:10;
     }
     .moving-logo-first{
         z-index:10;   
     }   
     .moving-logo-later-mobile{
-        width: 64px;
-        height: 78px;
+        width: 44px;
+        height: 58px;
         z-index:11;  
     }
     .moving-logo-first-mobile{
         z-index:11;   
     }
     .login-Box{
-        height:573px;
+        height:443px;
         /* width:372px; */
         width: calc(100vw - 56px);
     }
@@ -1161,17 +1195,15 @@ to
        width: calc(100% - 56px);
     }
     .formular-inputdesign {
-        width: auto;
+        width: 100%;
         height: 41px;
-        margin-bottom: 56px;
+        margin-bottom: 20px;
     }
     .formular-inputdesign input{
         height: 39px;
         font-size:12px;
     }
-    .signup-Box{
-        width: calc(100vw - 56px);
-    }
+
 
 /* Login-Animation */
 .animate-logo{
@@ -1192,8 +1224,8 @@ to
 {
     left:50px;
     top:25px;
-    width:64px;
-    height:78px;
+    width:44px;
+    height:58px;
     opacity:0;
 }
 }  
@@ -1217,8 +1249,8 @@ to
 {
     left:50px;
     top:25px;
-    width:64px;
-    height:78px;
+    width:44px;
+    height:58px;
     
 }
 }  
@@ -1263,19 +1295,21 @@ to
         flex-direction: column-reverse;
         margin:0;
         width: auto;
+        font-size:11px;
     }
     .login-notajoinuser {
         position: absolute;
-        right: calc(50vw - 111.44px);
-        top: calc(50vh + 257px + 61px + 30px);
+        right: calc(50vw - 198px/2);
+        top:calc(50vh + 443px/2 + 25px);
     }
     .login-notajoinuser span {
-        font-size: 16px;
+        font-size: 14px;
         margin-right: 5px;
     }
     .login-signupbtn {
         height: 41px;
         width: 81px;
+        font-size: 14px;
     }
     .login-buttons {
         display: flex;
@@ -1283,20 +1317,21 @@ to
         margin:0;
     }
     .login-user {
-        font-size: 16px;
+        height: 41px;
+        width: 141px;
+        font-size: 14px;
         margin:0px;
         margin-top:20px;
         margin-bottom:20px;
     }
     .login-guest {
-        font-size: 16px;
+        height: 41px;
+        width: 141px;
+        font-size: 14px;
         margin:0px;
     }
-    .login-signupbtn {
-        font-size: 16px;
-    }
     .login-Box h1 {
-        font-size: 47px;
+        font-size: 27px;
     }
     .login-cbx {
         margin-top: 20px;
@@ -1309,57 +1344,106 @@ to
     }
 
    /* SIGNUP */
+   .signup-Box{
+    height:401px;
+    width: calc(100vw - 56px);
+   }
    .signup-Box h1 {
-    font-size: 47px;
+    font-size: 37px;
    }
    .signup-user {
-    width: 180px;
+    height:41px;
+    width: 111px;
     font-size: 16px;
     margin-right:0;
    }
    .backbutton {
-    left: 35px;
-    top: 22px;
-    width: 16px;
-    height: 15.56px;
-   }
+    left: 25px;
+    top: 16px;
+    width: 12px;
+    height: 12px;
+}
 
     /* FORGOT PW */
+    .forgotpassword-Box {
+        /* width: 372px; */
+        width: calc(100vw - 56px);
+        height: 400px;
+    }
     .forgotpassword-Box h1 {
-        font-size: 34px;
+        font-size: 27px;
         text-align:center;
         padding-bottom:20px;
         margin-right:15px;
         margin-left:15px;
     }
     .forgotpassword-Box span {
+        font-size: 14px;
         margin-left: 25px;
         margin-right: 25px;
     }
     .forgotpassword-send {
-        width: 180px;
-        font-size: 16px;
+        width: 150px;
+        height:41px;
+        font-size: 14px;
         margin-right:0;
     }
 
     /* SUCCESS */
 
     /* RESET PASSWORD */
+    .resetpassword-Box {
+        width: calc(100vw - 56px) !important;
+        height: 400px;
+        /* width: calc(100vw - 100px) !important; */
+    }
     .resetpassword-Box h1 {
-        font-size: 34px;
+        font-size: 27px;
         text-align: center;
         padding-bottom:20px;
         margin-right:15px;
         margin-left:15px;
     }
-    .reset-user {
-        height: 51px;
-        width: 180px;
+    .resetpassword-Box span {
         font-size: 16px;
-        margin-right:0;
-    }    
+        text-align: center;
+    }
+    .reset-user {
+        height: 41px;
+        width: 111px;
+        font-size: 14px;
+        margin-right: 0;
+    }  
     
+    #alert-info{
+        position: absolute;
+        top: 100vh;
+        left:calc(100% - 50vw - 276px/2);
+        z-index:99;
+        height: 74px;
+        width: 276px;
+        font-size:19px;
+        border-radius:20px;
+        color:#FFFFFF;
+        font-weight: 400; 
+        background-color: #091931;
+        border: 1px solid #091931; 
+    }
 
+    #reset-info{
+        position: absolute;
+        top: 100vh;
+        left:calc(100% - 50vw - 276px/2);
+        z-index:99;
+        height: 74px;
+        width: 276px;
+        font-size:19px;
+        border-radius:20px;
+        color:#FFFFFF;
+        font-weight: 400; 
+        background-color: #091931;
+        border: 1px solid #091931; 
+    }
 }
 
 @media (min-width:280px) and (max-width:299px) {  
@@ -1391,7 +1475,7 @@ to
     }
     .dummy{
         width:88px;
-        height:35px;
+        height:20px;
         border-top: 3px solid #29abe2;
     }
 
@@ -1405,34 +1489,24 @@ to
         height:122px;
     }
 
-    .forgotpassword-Box {
-        /* width: 372px; */
-        width: calc(100vw - 56px);
-        height: 592px;
-    }
-    .resetpassword-Box {
-        /* width: 372px; */
-        height: 592px;
-        width: calc(100vw - 56px) !important;
-    }
     .moving-logo-later {
-        width: 64px;
-        height: 78px;
+        width: 44px;
+        height: 58px;
         z-index:10;
     }
     .moving-logo-first{
         z-index:10;   
     }   
     .moving-logo-later-mobile{
-        width: 64px;
-        height: 78px;
+        width: 44px;
+        height: 58px;
         z-index:11;  
     }
     .moving-logo-first-mobile{
         z-index:11;   
     }
     .login-Box{
-        height:573px;
+        height:443px;
         /* width:372px; */
         width: calc(100vw - 56px);
     }
@@ -1440,17 +1514,15 @@ to
        width: calc(100% - 56px);
     }
     .formular-inputdesign {
-        width: auto;
+        width: 100%;
         height: 41px;
-        margin-bottom: 56px;
+        margin-bottom: 20px;
     }
     .formular-inputdesign input{
         height: 39px;
         font-size:10px;
     }
-    .signup-Box{
-        width: calc(100vw - 56px);
-    }
+
 
 /* Login-Animation */
 .animate-logo{
@@ -1471,8 +1543,8 @@ to
 {
     left:50px;
     top:25px;
-    width:64px;
-    height:78px;
+    width:44px;
+    height:58px;
     opacity:0;
 }
 }  
@@ -1496,9 +1568,8 @@ to
 {
     left:50px;
     top:25px;
-    width:64px;
-    height:78px;
-    
+    width:44px;
+    height:58px;    
 }
 }  
 /* Login-Animation-Mobile */
@@ -1542,19 +1613,21 @@ to
         flex-direction: column-reverse;
         margin:0;
         width: auto;
+        font-size:11px;
     }
     .login-notajoinuser {
         position: absolute;
-        right: calc(50vw - 111.44px);
-        top: calc(50vh + 257px + 61px + 30px);
+        right: calc(50vw - 198px/2);
+        top:calc(50vh + 443px/2 + 25px);
     }
     .login-notajoinuser span {
-        font-size: 16px;
+        font-size: 14px;
         margin-right: 5px;
     }
     .login-signupbtn {
         height: 41px;
         width: 81px;
+        font-size: 14px;
     }
     .login-buttons {
         display: flex;
@@ -1562,20 +1635,21 @@ to
         margin:0;
     }
     .login-user {
-        font-size: 16px;
+        height: 41px;
+        width: 141px;
+        font-size: 14px;
         margin:0px;
         margin-top:20px;
         margin-bottom:20px;
     }
     .login-guest {
-        font-size: 16px;
+        height: 41px;
+        width: 141px;
+        font-size: 14px;
         margin:0px;
     }
-    .login-signupbtn {
-        font-size: 16px;
-    }
     .login-Box h1 {
-        font-size: 47px;
+        font-size: 27px;
     }
     .login-cbx {
         margin-top: 20px;
@@ -1588,24 +1662,34 @@ to
     }
 
    /* SIGNUP */
+   .signup-Box{
+    height:401px;
+    width: calc(100vw - 56px);
+   }
    .signup-Box h1 {
-    font-size: 47px;
+    font-size: 37px;
    }
    .signup-user {
-    width: 180px;
+    height:41px;
+    width: 111px;
     font-size: 16px;
     margin-right:0;
    }
    .backbutton {
-    left: 35px;
-    top: 22px;
-    width: 16px;
-    height: 15.56px;
-   }
+    left: 25px;
+    top: 16px;
+    width: 12px;
+    height: 12px;
+}
 
     /* FORGOT PW */
+    .forgotpassword-Box {
+        /* width: 372px; */
+        width: calc(100vw - 56px);
+        height: 400px;
+    }
     .forgotpassword-Box h1 {
-        font-size: 34px;
+        font-size: 27px;
         text-align:center;
         padding-bottom:20px;
         margin-right:15px;
@@ -1613,33 +1697,72 @@ to
         margin-top:15px;
     }
     .forgotpassword-Box span {
+        font-size: 14px;
         margin-left: 25px;
         margin-right: 25px;
     }
     .forgotpassword-send {
-        width: 180px;
-        font-size: 16px;
+        width: 150px;
+        height:41px;
+        font-size: 14px;
         margin-right:0;
     }
 
     /* SUCCESS */
 
     /* RESET PASSWORD */
+    .resetpassword-Box {
+        width: calc(100vw - 56px) !important;
+        height: 400px;
+        /* width: calc(100vw - 100px) !important; */
+    }
     .resetpassword-Box h1 {
-        font-size: 34px;
+        font-size: 27px;
         text-align: center;
         padding-bottom:20px;
         margin-right:15px;
         margin-left:15px;
         margin-top:15px;
     }
-    .reset-user {
-        height: 51px;
-        width: 180px;
+    .resetpassword-Box span {
         font-size: 16px;
-        margin-right:0;
-    }    
-    
+        text-align: center;
+    }
+    .reset-user {
+        height: 41px;
+        width: 111px;
+        font-size: 14px;
+        margin-right: 0;
+    } 
+
+    #alert-info{
+        position: absolute;
+        top: 100vh;
+        left:calc(100% - 50vw - 276px/2);
+        z-index:99;
+        height: 74px;
+        width: 276px;
+        font-size:19px;
+        border-radius:20px;
+        color:#FFFFFF;
+        font-weight: 400; 
+        background-color: #091931;
+        border: 1px solid #091931; 
+    }
+    #reset-info{
+        position: absolute;
+        top: 100vh;
+        left:calc(100% - 50vw - 276px/2);
+        z-index:99;
+        height: 74px;
+        width: 276px;
+        font-size:19px;
+        border-radius:20px;
+        color:#FFFFFF;
+        font-weight: 400; 
+        background-color: #091931;
+        border: 1px solid #091931; 
+    }
 
 }
 
