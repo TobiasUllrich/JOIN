@@ -104,12 +104,10 @@ function templateOfTaskDone(taskDone, l) {
 </div>`
 }
 
-// BREAK SOLO TASK TEMPLATE
-
 function templateBigBoxSoloTask(soloTasks, indexOfSoloTask) {
     return `
     <div id="big-box-solo-task" class="main-big-box-task-container">
-        <div onclick="closeSoloTaskBigBox(${indexOfSoloTask})" class="close-big-box-task c-pointer"><img src="./img/board/close.png"></div>
+        <div onclick="closeSoloTaskBigBox(${indexOfSoloTask})" class="close-big-box-task c-pointer"><img class="close-task" src="./img/board/close.png"><img class="close-task-phone" src="img/board/back_phone.png"></div>
         <div id="big-box-task-headline" class="big-box-task-headline">
             <div><h4 class="d-center" id="big-box-headline">${soloTasks[indexOfSoloTask].category}</h4></div>
         </div>
@@ -146,10 +144,6 @@ function templateBigBoxSoloTask(soloTasks, indexOfSoloTask) {
     </div>`
 }
 
-// BREAK BIG BOX TEMPLATE
-
-// SEARCH TASK TEMPLATE 
-
 function templateOfSearchTask(taskSearch, index) {
     return `
     <div id="search-task${index}" onclick="openCurrentTaskBigBoxOnSearch(${index}, ['${taskSearch.status.toLowerCase()}'], '${taskSearch.categorycolor}')"; class="main-task-container">
@@ -176,8 +170,6 @@ function templateOfSearchTask(taskSearch, index) {
     </div>
 </div>`
 }
-
-// ##############BOARD TEMPLATES END################# //
 
 function templateEditCurrentTask(currentTask, idOfCurrentTask) {
     return `
@@ -245,6 +237,8 @@ function templateShowAllWorkers(indexOfUsers, userName) {
     return `
     <div onclick="submitCheckbox(${indexOfUsers})" class="solo-contact"><label>${userName}</label><input name="users" id="checkbox-${indexOfUsers}" type="checkbox"></div>`
 }
+
+// ################################ BOARD TEMPLATE END ################################################### 
 
 
 function newCategoryInputHTML() {
