@@ -240,6 +240,15 @@ function templateShowAllWorkers(indexOfUsers, userName) {
 
 // ################################ BOARD TEMPLATE END ################################################### 
 
+// ################################ ADD TASK TEMPLATE START ################################################### 
+
+
+
+function userInAssigned(userName, indexOfUsers) {
+    return /*html*/`
+    <div onclick="assingCheckbox(${indexOfUsers})" class="solo-assigned"><label>${userName}</label><input name="users" id="checkbox-${indexOfUsers}" type="checkbox"></div>`
+}
+
 
 function newCategoryInputHTML() {
     return /*html*/`
@@ -335,11 +344,6 @@ function loadAssignedHTML() {
     `;
 }
 
-function userInAssigned(userName) {
-    return /*html*/`
-    <div class="solo-contact"><label>${userName}</label><input name="users" type="checkbox"></div>`
-}
-
 
 // 
 
@@ -360,6 +364,10 @@ function searchEmailInputHTML() {
   </div>
     `;
 }
+
+// ################################ ADD TASK TEMPLATE END ################################################### 
+
+
 function templateAssignedToOfSoloTask(firstName, lastName){
     return `
     <div class="worker-name-start-letters d-center">${firstName}${lastName}</div>`
@@ -369,3 +377,5 @@ function templateCurrentWorkersOfTasksBigBox(firstName, lastName, fullName){
     return `
     <div class="solo-worker-big-box"><div class="worker-name-start-letters-edit d-center">${firstName.charAt(0)}${lastName.charAt(0)}</div><div class="edit-worker-fullname">${fullName}</div>`
 }
+
+

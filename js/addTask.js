@@ -73,6 +73,15 @@ function prioCheck(idOfPicture) {
   document.getElementById(`${idOfPicture}`).style = 'filter: brightness(0%) saturate(0%) contrast(1000%) invert(100%);';
 }
 
+function creatTask(){
+  let titel = document.getElementById('titelInput').value;
+  let description = document.getElementById('description').value;
+  let categoryInput = document.getElementById('categoryInput').value;
+  let colorInput = document.getElementById('colorInput').value;
+  let dueDate = document.getElementById('dueDate').value;
+  
+}
+
 /**
  * Is activated via the input or Img and changes the subtaskStart Img to Delete and Add Img 
  */
@@ -137,9 +146,10 @@ function openAssign() {
 
   function renderAssingUser(){
     let assingUser = document.getElementById('assignDropdown');
+    assingUser.innerHTML = "";
     for (let i = 0; i < assignUsers.length; i++) {
       const userName = assignUsers[i];
-      assingUser.innerHTML += userInAssigned(userName)
+      assingUser.innerHTML += userInAssigned(userName, i)
     };
   }
 
