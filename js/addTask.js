@@ -3,6 +3,7 @@ let categorys = ['Sales', 'Backoffice'];
 let categoryColors = ['8aa4ff', 'ff0000', '2ad300', 'ff8a00', 'e200be', '0038ff'];
 let usedColors = ['fc71ff', '1fd7c1 ']
 let assignUsers = [];
+let selectedUsers = [];
 
 
 async function loadAddTastk() {
@@ -79,7 +80,8 @@ function creatTask(){
   let categoryInput = document.getElementById('categoryInput').value;
   let colorInput = document.getElementById('colorInput').value;
   let dueDate = document.getElementById('dueDate').value;
-  
+  let assignedInput = document.getElementById('assignedInput').value;
+
 }
 
 /**
@@ -169,15 +171,15 @@ function assingCheckbox(idOfCheckbox) {
 }
 
 function checkIfWorkerPushable(id) {
-  if (!selectedWorkers.includes(users[id])) {
-      selectedWorkers.push(users[id]);
+  if (!selectedUsers.includes(users[id])) {
+    selectedUsers.push(users[id]);
   }
 }
 
 function checkIfWorkerRemoveable(id) {
   for (let p = 0; p < selectedWorkers.length; p++) {
-      if (selectedWorkers[p] === users[id]) {
-          selectedWorkers.splice(p, 1);
+      if (selectedUsers[p] === users[id]) {
+        selectedUsers.splice(p, 1);
       }
   }
 }
