@@ -311,12 +311,12 @@ function allCategoryHTML(i) {
       `;
 }
 
-function subtaskListHTML(i) {
-    const subtask = subtasks[i];
+function subtaskListHTML(indexOfSubtask) {
+    let subtask = subtasks[indexOfSubtask];
     return /*html*/`
-        <div class="subtask-list-form-check">
-          <input class="subtask-list-input" type="checkbox" value="" id="flexCheckDefault">
-            <label class="subtask-list-label" for="flexCheckDefault" id=${subtask}>
+        <div onclick="subtasksCheckbox(${indexOfSubtask})" class="subtask-list-form-check">
+          <input class="subtask-list-input" type="checkbox" value="" id="${subtask}-${indexOfSubtask}">
+            <label class="subtask-list-label" for="flexCheckDefault" id="${subtask}${indexOfSubtask}">
               ${subtask}
             </label>
           </div>`;

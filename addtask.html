@@ -98,15 +98,15 @@
                                 <label id="prio">Prio</label>
                                 <div class="toggle-buttons">
 
-                                    <input onclick="prioCheck('urgentIcon')" type="radio" id="urgent"
+                                    <input onclick="prioChangeColor('urgentIcon'), selecedPrio('Urgent')" type="radio" id="urgent"
                                         name="fav_language" value="Urgent" required>
                                     <label class="prio-label-urgent" for="urgent">Urgent <img id="urgentIcon"
                                             src="./img/addtask/urgent-addtask.png"></label>
-                                    <input onclick="prioCheck('mediumIcon')" type="radio" id="medium"
+                                    <input onclick="prioChangeColor('mediumIcon'), selecedPrio('Medium')" type="radio" id="medium"
                                         name="fav_language" value="Medium">
                                     <label class="prio-label-medium" for="medium">Medium <img id="mediumIcon"
                                             src="./img/addtask/medium-addtask.png"></label>
-                                    <input onclick="prioCheck('lowIcon')" type="radio" id="low" name="fav_language"
+                                    <input onclick="prioChangeColor('lowIcon'), selecedPrio('Low')" type="radio" id="low" name="fav_language"
                                         value="Low">
                                     <label class="prio-label-low" for="low">Low <img id="lowIcon"
                                             src="./img/addtask/low-addtask.png"></label>
