@@ -112,7 +112,7 @@ function renderDone() {
 }
 
 /**
- * This Function render the peoples who work on this task
+ * This function render the peoples who work on this task
  * 
  * @param {Number} index - this is the index of current task
  * @param {string} status - status means in which current status the task is 
@@ -133,7 +133,7 @@ function renderAssignedNamesOfTask(index, status, soloStatusArray) {
 }
 
 /**
- * This Function filter all tasks by there status and put them in an seperate array
+ * This function filter all tasks by there status and put them in an seperate array
  * 
  */
 
@@ -156,7 +156,7 @@ function addTaskBoard() {
 }
 
 /**
- * This Function close the add task container
+ * This function close the add task container
  * 
  */
 
@@ -166,7 +166,7 @@ function closeAddTaskContainer() {
 }
 
 /**
- * This Function open the clicked task in a bigger window 
+ * This function open the clicked task in a bigger window 
  * 
  * @param {number} indexOfSoloTask - this in the index of clicked task
  * @param {string} statusTask - this string means in which status the clicked task is
@@ -185,7 +185,7 @@ function openCurrentTaskBigBox(indexOfSoloTask, statusTask, categorycolor) {
 }
 
 /**
- * This Function checks which status the clicked task is and opens the clicked task in bigger window and runs the HTML Template
+ * This function checks which status the clicked task is and opens the clicked task in bigger window and runs the HTML Template
  * 
  * @param {string} statusTask - this string means in which status the task is
  * @param {id} bigBoxContainer - this is the main container where the bigger window pops up
@@ -211,7 +211,7 @@ function checkStatusOfTask(statusTask, bigBoxContainer, indexOfSoloTask) {
 }
 
 /**
- * In this Function the user have the opportunity to edit the clicked task and run the HTML Template
+ * In this function the user have the opportunity to edit the clicked task and run the HTML Template
  * 
  * @param {number} idOfCurrentTask - this is the index of clicked task
  */
@@ -226,7 +226,7 @@ function editCurrentTask(idOfCurrentTask) {
 }
 
 /**
- * This Function render the people who works on the clicked task in bigger window
+ * This function render the people who works on the clicked task in bigger window
  * 
  * @param {number} indexOfTask - this is the index of clicked task 
  * @param {string} statusOfTask - this string means in which status the clicked task is
@@ -248,7 +248,7 @@ function showCurrentWorkersBigBox(indexOfTask, statusOfTask) {
 }
 
 /**
- * This Function renders the people who works on the clicked task in bigger window and runs the HTML Template
+ * This function renders the people who works on the clicked task in bigger window and runs the HTML Template
  * 
  * @param {number} indexOfTask - this is the index of clicked task 
  * @param {array} statusTasksArray - this is a filtered array by taskstatus
@@ -267,7 +267,7 @@ function renderCurrentWorkersBigBox(indexOfTask, statusTasksArray) {
 }
 
 /**
- * This Function open the searched task in bigger window and adds some CSS to background
+ * This function open the searched task in bigger window and adds some CSS to background
  * 
  * @param {number} indexOfSoloTask - this is the index of searched task
  * @param {string} statusTask - this string means in which status the searched task is
@@ -283,10 +283,28 @@ function openCurrentTaskBigBoxOnSearch(indexOfSoloTask, statusTask, categorycolo
     checkStatusOfTaskOnSearch(statusTask, bigBoxContainer, indexOfSoloTask);
     checkPriorityBackgroundColor();
     checkHeadlineColorBigBox(categorycolor);
+    renderCurrentWorkersBigBoxSearch(indexOfSoloTask)
 }
 
 /**
- * This Function checks in which status the searched task is an runs the HTML Template
+ * This function renders the current workers of task after clicked on a task to open the bigger window
+ * 
+ * @param {number} indexOfTask - this is the index of clicked task
+ */
+function renderCurrentWorkersBigBoxSearch(indexOfTask){
+    let currentTaskWorkers = document.getElementById(`current-workers`);
+    currentTaskWorkers.innerHTML = '';
+    for (let x = 0; x < tasks[indexOfTask].assignedTo.length; x++) {
+        let assUser = tasks[indexOfTask].assignedTo[x];
+        let object = getUserAsObject(assUser);
+        let objectName = object.name;
+        let objectSurname = object.surname;
+        currentTaskWorkers.innerHTML += templateCurrentWorkersOfTasksBigBox(objectName, objectSurname, objectName);
+    }
+}
+
+/**
+ * This function checks in which status the searched task is an runs the HTML Template
  * 
  * @param {string} statusTask - this string means in which status the searched task is
  * @param {id} bigBoxContainer  - this is the container where the search task can be open in bigger window 
@@ -312,7 +330,7 @@ function checkStatusOfTaskOnSearch(statusTask, bigBoxContainer, indexOfSoloTask)
 }
 
 /**
- * This Function close the bigger window pop up when the user open it 
+ * This function close the bigger window pop up when the user open it 
  * 
  */
 
@@ -335,7 +353,7 @@ function checkHeadlineColorBigBox(categorycolor) {
 }
 
 /**
- * This Function runs when user clicked a task to open in bigger window and checks in which prio the task is and add the suitable color to the background of prio container 
+ * This function runs when user clicked a task to open in bigger window and checks in which prio the task is and add the suitable color to the background of prio container 
  * 
  */
 
@@ -354,7 +372,7 @@ function checkPriorityBackgroundColor() {
 }
 
 /**
- * This Function gets the user value of the inputfield and iterate the task array after that the function "checkTermsOfSearch" runs 
+ * This function gets the user value of the inputfield and iterate the task array after that the function "checkTermsOfSearch" runs 
  * 
  * @param {string} idOfInputfield - This is the id of the search - inputfield 
  */
@@ -369,7 +387,7 @@ function searchTask(idOfInputfield) {
 }
 
 /**
- * This Function runs the searchTask Function by pressing the Enter button
+ * This function runs the searchTask Function by pressing the Enter button
  * 
  * @param {id} idOfSearchContainer - this is the search-container that getting clicked when user press enter 
  */
@@ -392,19 +410,42 @@ function checkTermsOfSearch(userSearch, m, taskSearch) {
     if (taskSearch.title.toLowerCase().includes(userSearch)) {
         if (taskSearch.status == 'To do') {
             searchInToDoContainer(taskSearch, m);
+            showAssingedToWorkersSearch(taskSearch);
         } else {
             if (taskSearch.status == 'In progress') {
                 seachInProgressContainer(taskSearch, m);
+                showAssingedToWorkersSearch(taskSearch);
             } else {
                 if (taskSearch.status == 'Awaiting feedback') {
                     seachInFeedbackContainer(taskSearch, m);
+                    showAssingedToWorkersSearch(taskSearch);
                 } else {
                     if (taskSearch.status == 'Done') {
                         searchInDoneContainer(taskSearch, m);
+                        showAssingedToWorkersSearch(taskSearch);
                     }
                 }
             }
         }
+    }
+}
+
+/**
+ * This function shows the first letters of assigned workers names after search a task 
+ * 
+ * @param {array} objectOfSearchTask - this is the searched task as object
+ */
+
+function showAssingedToWorkersSearch(objectOfSearchTask){
+    let outputContainer = document.getElementById('solo-worker-search');
+    outputContainer.innerHTML = '';
+
+    for (let x = 0; x < objectOfSearchTask.assignedTo.length; x++) {
+        let assUser = objectOfSearchTask.assignedTo[x];
+        let object = getUserAsObject(assUser);
+        let objectName = object.name.charAt(0);
+        let objectSurname = object.surname.charAt(0);
+        outputContainer.innerHTML += templateAssignedToOfSoloTask(objectName, objectSurname);
     }
 }
 
@@ -461,7 +502,7 @@ function searchInDoneContainer(taskSearch, m) {
 }
 
 /**
- * This Function checks if user delete his value and shows all tasks again 
+ * This function checks if user delete his value and shows all tasks again 
  * 
  * @param {string} idOfInputfield - this is the id of the search input field 
  */
@@ -498,7 +539,7 @@ function startDragging(id) {
 }
 
 /**
- * This Function allowed the user to drop the dragged element in current space
+ * This function allowed the user to drop the dragged element in current space
  * 
  * @param {event} ev - this event allows user to drop element in current space 
  */
@@ -508,7 +549,7 @@ function allowDrop(ev) {
 }
 
 /**
- * This Function saves the new status of task in task array when user use drag and drop 
+ * This function saves the new status of task in task array when user use drag and drop 
  * 
  * @param {string} newStatus - this string is the status which is gonna be the new status of task 
  */
@@ -858,7 +899,7 @@ function checkIfWorkerIsPushable(id) {
     if (!selectedWorkers.includes(users[id]) && id > 0) {
         selectedWorkers.push(users[id]);
     }
-    if (id == '-1') { 
+    if (id == '-1') {
         if (!selectedWorkers.includes(loggedUser)) {
             selectedWorkers.push(loggedUser);
         }
@@ -876,8 +917,8 @@ function checkIfWorkerIsRemoveable(id) {
         if (selectedWorkers[p] === users[id]) {
             selectedWorkers.splice(p, 1);
         }
-        if(selectedWorkers[p] == loggedUser){
-            selectedWorkers.splice(p ,1);
+        if (selectedWorkers[p] == loggedUser) {
+            selectedWorkers.splice(p, 1);
         }
     }
 }

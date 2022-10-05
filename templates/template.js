@@ -14,7 +14,6 @@ function templateOfNewTaskToDo(taskTodo, i) {
         <div class="workers-prio">
             <div class="main-workers">
                 <div id="solo-worker-todo${i}" class="solo-worker">
-                    <!--TEMPLATE RENDERN VON ARBEIERN-->
                 </div>
             </div>
         <div id="prio-img-todo" class="prio-img">
@@ -39,8 +38,6 @@ function templateOfTaskInProgress(taskProgress, j) {
         <div class="workers-prio">
             <div class="main-workers">
                 <div id="solo-worker-progress${j}" class="solo-worker">
-                    <!--TEMPLATE RENDERN VON ARBEIERN-->
-                    <div class="worker-name-start-letters d-center">EB</div>
                 </div>
             </div>
         <div id="prio-img-progress" class="prio-img">
@@ -65,9 +62,6 @@ function templateOfTaskFeedback(taskFeedback, k) {
         <div class="workers-prio">
             <div class="main-workers">
                 <div id="solo-worker-feedback${k}" class="solo-worker">
-                    <!--TEMPLATE RENDERN VON ARBEIERN-->
-                    <div class="worker-name-start-letters d-center">EB</div>
-                    <div class="worker-name-start-letters d-center">TU</div>
                 </div>
             </div>
         <div id="prio-img-feedback" class="prio-img">
@@ -92,9 +86,6 @@ function templateOfTaskDone(taskDone, l) {
         <div class="workers-prio">
             <div class="main-workers">
                 <div id="solo-worker-done${l}" class="solo-worker">
-                    <!--TEMPLATE RENDERN VON ARBEIERN-->
-                    <div class="worker-name-start-letters d-center">EB</div>
-                    <div class="worker-name-start-letters d-center">EB</div>
                 </div>
             </div>
         <div id="prio-img-done" class="prio-img">
@@ -158,10 +149,7 @@ function templateOfSearchTask(taskSearch, index) {
         </div>
         <div class="workers-prio">
             <div class="main-workers">
-                <div id="solo-worker" class="solo-worker">
-                    <!--TEMPLATE RENDERN VON ARBEIERN-->
-                    <div class="worker-name-start-letters d-center"></div>
-
+                <div id="solo-worker-search" class="solo-worker">
                 </div>
             </div>
         <div id="prio-img-search" class="prio-img">
