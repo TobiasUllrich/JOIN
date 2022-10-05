@@ -901,7 +901,7 @@ function checkValidatorCheckboxes() {
 }
 
 /**
- * This function shows all possible workers in edit task overview, the user whos loggin in gets removed from the list and is saved in "You" option
+ * This function shows all possible workers in edit task overview, the user whos logged in gets removed from the list and is saved in "You" option
  * 
  */
 
@@ -915,6 +915,14 @@ function showAllPossibleWorkers() {
     }
 }
 
+/**
+ * This function clears the placeholder from the inputfields in edit task overview by clicking and shows the needed information also as placeholder
+ * 
+ * @param {string} inputfield - this string means the id of the inputfield in task overview
+ * @param {string} newPlaceholder - this string is the new placeholder by clicking in the inputfield
+ * @param {string} oldPlaceholder - this string is the default placeholder by clicking the inputfield again
+ */
+
 function clearPlaceholder(inputfield, newPlaceholder, oldPlaceholder) {
     let currentPlaceholder = document.getElementById(`edit-${inputfield}`).placeholder;
     if (currentPlaceholder == oldPlaceholder) {
@@ -925,6 +933,16 @@ function clearPlaceholder(inputfield, newPlaceholder, oldPlaceholder) {
     }
 }
 
+/**
+ * This function update the task array after submit the change button in edit task overview
+ * 
+ * @param {number} taskId - index of current task 
+ * @param {string} title - new task title
+ * @param {string} description - new task description
+ * @param {date} date - new task date
+ * @param {string} prio - new task prio
+ */
+
 function updateTaskArray(taskId, title, description, date, prio) {
     tasks[taskId].title = title;
     tasks[taskId].description = description;
@@ -934,6 +952,12 @@ function updateTaskArray(taskId, title, description, date, prio) {
     closeEditContainer();
     showAlert();
 }
+
+/**
+ * This function clears the assigned to array from current task after submit the change button in task edit overview and fills the array with the new email adresses of new worker
+ * 
+ * @param {number} taskId - index of current task 
+ */
 
 function renderNewWorkers(taskId) {
     tasks[taskId].assignedTo = [];
@@ -946,10 +970,20 @@ function renderNewWorkers(taskId) {
     renderBoard();
 }
 
+/**
+ * This function shows a succes alert after succesfully editing a task and runs the hide alert function after 3 seconds
+ * 
+ */
+
 function showAlert() {
     document.getElementById('succes-alert').classList.remove('d-none');
     setTimeout(hideAlert, 3000);
 }
+
+/**
+ * This function hide the succes alert
+ * 
+ */
 
 function hideAlert() {
     document.getElementById('succes-alert').classList.add('d-none');
