@@ -28,6 +28,7 @@
     <link rel="stylesheet" type='text/css' media='screen' href="css/fonts.css">
     <link rel="stylesheet" type='text/css' media='screen' href="css/style.css">
     <link rel="stylesheet" type='text/css' media='screen' href="css/board.css">
+    <link rel="stylesheet" type='text/css' media='screen' href="css/addtask.css">
 
     <!-- JavaScript Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
@@ -149,7 +150,9 @@
         <div onclick="closeAddTaskContainer()" id="main-add-task-container" class="main-add-task-container d-none d-center">
             <div onclick="doNotClose(event)" class="add-task-subcontainer d-center">
                 <div onclick="closeAddTaskContainer()" class="close-add-task c-pointer"><img src="./img/board/close.png"></div>
-                <span>HIER KOMMT EUGENS ADD TEMPLATE REIN</span>
+                <!-- AddTask Tamplate einbindung -->
+                    <div w3-include-html="templates/addTaskTemplate.html"></div>
+                <!-- AddTask Tamplate einbindung -->
             </div>
         </div>
 
