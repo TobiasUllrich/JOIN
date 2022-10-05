@@ -124,6 +124,7 @@ function subtaskInputAdd(idOfInput) {
   let subtask = document.getElementById(`${idOfInput}`).value;
   if (subtask.length >= 1) {
     subtasks.push(subtask);
+    selectedSubtasks = [];
     showSubstasks();
     subtaskInputDelete();
   } else {
@@ -183,16 +184,16 @@ function subtasksCheckbox(indexOfSubtask){
  
 }
 
-function subtasksCheckboxPushable(id) {
-  if (!selectedSubtasks.includes(selectedSubtasks[id])) {
-    selectedSubtasks.push(selectedSubtasks[id]);
+function subtasksCheckboxPushable(indexOfSubtask) {
+  if (!selectedSubtasks.includes(subtasks[indexOfSubtask])) {
+    selectedSubtasks.push(subtasks[indexOfSubtask]);
   }
 }
 
-function subtasksCheckboxRemoveable(id) {
-  for (let p = 0; p < selectedSubtasks.length; p++) {
-    if (selectedSubtasks[p] === selectedSubtasks[id]) {
-      selectedSubtasks.splice(p, 1);
+function subtasksCheckboxRemoveable(indexOfSubtask) {
+  for (let r = 0; r < selectedSubtasks.length; r++) {
+    if (selectedSubtasks[r] === subtasks[indexOfSubtask]) {
+      selectedSubtasks.splice(r, 1);
     }
   }
 }
@@ -211,15 +212,15 @@ function assingCheckbox(idOfCheckbox) {
   checkValidatorCheckbox();
 }
 
-function checkIfWorkerPushable(id) {
-  if (!selectedUsers.includes(users[id])) {
-    selectedUsers.push(users[id]);
+function checkIfWorkerPushable(idOfCheckbox) {
+  if (!selectedUsers.includes(users[idOfCheckbox])) {
+    selectedUsers.push(users[idOfCheckbox]);
   }
 }
 
-function checkIfWorkerRemoveable(id) {
+function checkIfWorkerRemoveable(idOfCheckbox) {
   for (let p = 0; p < selectedUsers.length; p++) {
-    if (selectedUsers[p] === users[id]) {
+    if (selectedUsers[p] === users[idOfCheckbox]) {
       selectedUsers.splice(p, 1);
     }
   }

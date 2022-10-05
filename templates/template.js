@@ -246,7 +246,7 @@ function templateShowAllWorkers(indexOfUsers, userName) {
 
 function userInAssigned(userName, indexOfUsers) {
     return /*html*/`
-    <div onclick="assingCheckbox(${indexOfUsers})" class="solo-assigned"><label>${userName}</label><input name="users" id="checkbox-${indexOfUsers}" type="checkbox"></div>`
+    <div onclick="assingCheckbox(${indexOfUsers})" class="solo-assigned"><label>${userName}</label><input onclick="assingCheckbox(${indexOfUsers})" name="users" id="checkbox-${indexOfUsers}" type="checkbox"></div>`
 }
 
 
@@ -315,7 +315,7 @@ function subtaskListHTML(indexOfSubtask) {
     let subtask = subtasks[indexOfSubtask];
     return /*html*/`
         <div onclick="subtasksCheckbox(${indexOfSubtask})" class="subtask-list-form-check">
-          <input class="subtask-list-input" type="checkbox" value="" id="${subtask}-${indexOfSubtask}">
+          <input onclick="subtasksCheckbox(${indexOfSubtask})" class="subtask-list-input" type="checkbox" value="" id="${subtask}-${indexOfSubtask}">
             <label class="subtask-list-label" for="flexCheckDefault" id="${subtask}${indexOfSubtask}">
               ${subtask}
             </label>
