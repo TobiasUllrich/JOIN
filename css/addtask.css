@@ -579,3 +579,63 @@ input[type="radio"]:checked + .prio-label-urgent {
   transform: none !important;
   transition: none !important;
 }
+
+@media (min-width: 0px) and (max-width: 1480px) {
+
+  #subtaskList{
+    height: 100px;
+  }
+
+  .add-task-form{
+    justify-content: center;
+  }
+  .separator-line{
+    display: none;
+  }
+
+  .input-area {
+    margin-left: 20px;
+  }
+
+}
+
+@media (min-width: 0px) and (max-width: 1114px) {
+
+  .headline{
+    margin-left: 192px;
+  }
+  .add-task-container{
+    margin-left: 77px;
+  }
+}
+
+@media (min-width: 0px) and (max-width: 900px) {
+
+  .headline{
+    margin-left: 0px;
+  }
+  .add-task-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 0px;
+  }
+
+  .add-task-board {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  .checkCheckboxes{
+    left: 0%;
+  }
+
+  .add-task-form{
+    margin-bottom: 78px;
+  }
+}
+
+@media (min-width: 0px) and (max-width: 400px){
+
+}

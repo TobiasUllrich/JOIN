@@ -379,16 +379,20 @@ body {
     position: absolute;
     top: 0;
     left: 0;
+    backdrop-filter: brightness(35%);
 }
 
 .add-task-subcontainer {
+    display: flex;
+    margin-left: 10px;
+    margin-right: 10px;
     height: 87vh;
-    width: 60vw;
-    background: #2a3647;
+    width: 72vw;
+    background: #ffffff;
     border-radius: 30px;
     z-index: 3;
     position: relative;
-    color: white;
+    color: white
 }
 
 .close-add-task {
@@ -397,9 +401,9 @@ body {
     right: 25px;
 }
 
-.close-add-task img {
+/* .close-add-task img { 
     filter: brightness(0) invert(1);
-}
+}*/
 
 .main-big-box-task-container {
     display: flex;
@@ -845,6 +849,9 @@ body {
     .headline-task {
         width: 270px;
         justify-content: space-around;
+    }
+    .add-task-subcontainer{
+        overflow-y: scroll;
     }
 }
 
