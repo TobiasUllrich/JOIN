@@ -8,7 +8,8 @@ body {
     overflow-x: hidden;     /* Standard: Was auf der X-Achse aus dem Body/Tag rausläuft wird nicht mehr gezeigt */
                            /* muss dem Body gegeben werden, ABER funktioniert nicht auf dem Handy -> Lösung: Alles in eine <div> was in <body> ist und diesem <div> das overflow-Attribut geben */           
     display:flex;
-    flex-direction:column;    
+    flex-direction:column;
+    background-color:#F5F5F5;     
     }
 
 /* HELP */
@@ -18,7 +19,7 @@ body {
     flex-direction:column;
     justify-content: flex-start;
     background-color:#F5F5F5; 
-    height: calc(100vh - 80px);
+
     width: calc(100vw - 232px);  /* Be sure to put spaces around the '-' sign in the calculation */ 
     margin-top:80px;   /* Because of the fixed Menu on the top */
     margin-bottom:80px;
@@ -69,6 +70,11 @@ body {
         cursor:pointer;
         
     }
+    .bulletpoint{
+        margin-right:40px;
+        font-weight:700;
+        font-size:27px;
+    }
 
 /* INTERVALLE FÜRS HANDY */
 @media (min-width:1101px) and (max-width:1200px) {
@@ -81,7 +87,7 @@ body {
         flex-direction:column;
         justify-content: flex-start;
         background-color:#F5F5F5; 
-        height: calc(100vh - 80px);
+
         width: calc(100vw - 232px);  /* Be sure to put spaces around the '-' sign in the calculation */ 
         margin-top:80px;   /* Because of the fixed Menu on the top */
         margin-bottom:80px;
@@ -90,6 +96,7 @@ body {
         padding-right: 75px;
     }
 
+
 }
 @media (min-width:901px) and (max-width:950px) {
     .help-container{
@@ -97,7 +104,7 @@ body {
         flex-direction:column;
         justify-content: flex-start;
         background-color:#F5F5F5; 
-        height: calc(100vh - 80px);
+
         width: calc(100vw - 232px);  /* Be sure to put spaces around the '-' sign in the calculation */ 
         margin-top:80px;   /* Because of the fixed Menu on the top */
         margin-bottom:80px;
@@ -105,6 +112,7 @@ body {
         padding-left: 5px;
         padding-right: 75px;
     }
+
 
 }
 
@@ -117,7 +125,7 @@ body {
         margin-left: 0;
         margin-top: 80px;
         margin-bottom:80px;
-        width: 100%;
+        width: 103%;
         height: calc(100vh - 160px);
         padding-left: 0;
         padding-right: 50px;
@@ -171,11 +179,7 @@ body {
         width:100%;
         display:flex;
     }
-    .bulletpoint{
-        margin-right:40px;
-        font-weight:700;
-        font-size:27px;
-    }
+
 }
 
 @media (min-width:280px) and (max-width:399px) {
@@ -187,7 +191,7 @@ body {
         margin-left: 0;
         margin-top: 80px;
         margin-bottom:80px;
-        width: 100%;
+        width: 104%;
         height: calc(100vh - 160px);
         padding-left: 0;
         padding-right: 50px;
@@ -231,6 +235,7 @@ body {
         height: calc(100vh - 80px);
         width: calc(100vw + 15px);
     }
+
 
 }
 

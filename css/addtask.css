@@ -7,6 +7,9 @@ body {
   display: none;
 }
 
+label{
+  margin-bottom: 10px;
+}
 .d-flex {
   display: flex;
   justify-content: space-between;
@@ -98,7 +101,6 @@ body {
 .input-area input {
   height: 50px;
   width: 422px;
-  margin-top: 10px;
 }
 
 .input-area select {
@@ -136,10 +138,9 @@ body {
   border: 1px solid #d1d1d1;
 }
 
-
-
 .dropdown {
   position: relative;
+  width: 100%;
   display: inline-block;
 }
 
@@ -162,6 +163,7 @@ body {
   border-radius: 10px;
   z-index: 1;
   cursor: pointer;
+  max-height: 200px;
 }
 
 .dropdown-content p {
@@ -179,8 +181,7 @@ body {
   background-color: #ddd;
 }
 
-
-.hover:hover{
+.hover:hover {
   background-color: #ddd;
 }
 .current-category {
@@ -208,6 +209,7 @@ body {
 }
 
 .hidden-input {
+  position: absolute;
   opacity: 0;
   height: 1px !important;
   margin: 0px !important;
@@ -233,7 +235,7 @@ p {
   padding-top: 10px;
 }
 
-.black-icon{
+.black-icon {
   filter: grayscale(100%) brightness(0%);
 }
 
@@ -264,6 +266,34 @@ p {
   z-index: -1;
 }
 
+.solo-assigned {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 45px;
+  outline: none;
+  padding-left: 16px;
+  padding-right: 0px;
+  font-size: 20px;
+  color: black;
+  overflow-y: scroll;
+}
+
+.solo-assigned:hover {
+  background-color: lightgray;
+}
+
+.solo-assigned label {
+  inline-size: min-content;
+  width: auto;
+  margin-top: 0px;
+}
+
+.solo-assigned input {
+  height: 15px;
+  width: 15px; 
+  margin-top: 0px;
+}
 
 /*************************************** ColorPicker CSS */
 
@@ -434,6 +464,7 @@ input[type="radio"]:checked + .add-task-color-picker {
   min-width: 130px;
   max-height: 51px;
   cursor: pointer;
+  margin-top: 0px;
 }
 
 .toggle-buttons input:checked + label {
@@ -487,7 +518,6 @@ input[type="radio"]:checked + .prio-label-urgent {
   justify-content: center;
   align-items: center;
   height: 50px;
-  margin-top: 10px;
   background-color: white;
   cursor: pointer;
   width: 50px;
@@ -514,7 +544,7 @@ input[type="radio"]:checked + .prio-label-urgent {
 }
 
 .subtask-separator-line {
-  margin-top: 20px;
+  margin-top: 10px;
   z-index: 2;
   width: 0px;
   height: 30px;
@@ -550,4 +580,62 @@ input[type="radio"]:checked + .prio-label-urgent {
   transition: none !important;
 }
 
+@media (min-width: 0px) and (max-width: 1480px) {
 
+  #subtaskList{
+    height: 100px;
+  }
+
+  .add-task-form{
+    justify-content: center;
+  }
+  .separator-line{
+    display: none;
+  }
+
+  .input-area {
+    margin-left: 20px;
+  }
+
+}
+
+@media (min-width: 0px) and (max-width: 1114px) {
+
+  .headline{
+    margin-left: 192px;
+  }
+  .add-task-container{
+    margin-left: 77px;
+  }
+}
+
+@media (min-width: 0px) and (max-width: 900px) {
+
+  .headline{
+    margin-left: 0px;
+  }
+  .add-task-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 0px;
+  }
+
+  .add-task-board {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  .checkCheckboxes{
+    left: 0%;
+  }
+
+  .add-task-form{
+    margin-bottom: 78px;
+  }
+}
+
+@media (min-width: 0px) and (max-width: 400px){
+
+}
