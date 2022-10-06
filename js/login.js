@@ -150,11 +150,27 @@ function tryLogin() {
  * Trys to Signup with data from the signup-form; if email is already registered signup will not work
  */
 async function trySignup() {
+    let email = document.getElementById('signup-email').value;
+    let object = createSignupData(email);
 
+    if (checkifEMailexists(email)) {
+        animateMessage('E-Mail already exists!'); //Email already in Database
+    }
+    else {    
+        await addUser(object); //Signed up successfully
+        showLoginForm2();
+    }
+}
+
+/**
+ * Creates & returns an object with signupdata of the user
+ * @param {*} email email which wants to signup
+ * @returns 
+ */
+function createSignupData(email){
     let fullname = document.getElementById('signup-name').value;
     let name = fullname.slice(0,fullname.indexOf(' '));
     let surname = fullname.slice(fullname.indexOf(' ')+1,fullname.length);
-    let email = document.getElementById('signup-email').value;
     let password = document.getElementById('signup-password').value;
 
     let object = {
@@ -165,14 +181,7 @@ async function trySignup() {
         "phone": "",
         "password": password
     }
-
-    if (checkifEMailexists(email)) {
-        animateMessage('E-Mail already exists!'); //Email already in Database
-    }
-    else {    
-        await addUser(object); //Signed up successfully
-        showLoginForm2();
-    }
+    return object;
 }
 
 /**
@@ -207,8 +216,8 @@ function resetPassword() {
 /**
  * Try to reset password with the link from the email; email has to exist and passwords have to be equal!
  * @param {*} email Email for which the password can be reseted
- * @param {*} pw1 Password1
- * @param {*} pw2 Password2
+ * @param {*} pw1 New Password
+ * @param {*} pw2 New Password (confirmation of first Password entered)
  */
 async function tryToResetPassword(email,pw1,pw2){
     if (!email || !checkifEMailexists(email)) //Check if qry contained in URL OR Check if Email exists
