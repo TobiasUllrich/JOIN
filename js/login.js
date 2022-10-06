@@ -1,3 +1,6 @@
+/**
+ * Object used if someone logs in as guest
+ */
 let guest = {
     "name": "Guest",
     "picture": "randomprofilepicture.webp",
@@ -6,7 +9,11 @@ let guest = {
     "password": "none123"
 }
 
-//Make Arrow black if MOBILE-VERSION
+/**
+ * Makes arrow black if mobile-version
+ * @param {*} arrowelement ID of the arrow-element
+ * @param {*} containerforwidth ID of container with 100vw (to check if mobile-version is active)
+ */
 function setArrow(arrowelement,containerforwidth){
     let breite = document.getElementById(`${containerforwidth}`).clientWidth;
 
@@ -17,8 +24,9 @@ function setArrow(arrowelement,containerforwidth){
     {document.getElementById(`${arrowelement}`).src=`img/backarrow-icon.png`;}
   }
 
-
-//Logo-Animation
+/**
+ * Logo-Animation in desktop-version OR mobile-version 
+ */
 function loginAnimation() {
     let breite = document.getElementById('center-container').clientWidth;
     if (breite < 927) // Mobile
@@ -33,8 +41,9 @@ function loginAnimation() {
     }
 }
 
-
-//Reset-PW-Animation
+/**
+ * Plays animation if you reseted your password and redirects you to login2.html
+ */
 function resetPwAnimation() {
     document.getElementById('reset-info').classList.add('animate-resetPw');
     document.getElementById('resetpw-box').classList.remove('d-none');
@@ -42,66 +51,86 @@ function resetPwAnimation() {
     setTimeout(function () {
         document.getElementById('reset-info').classList.remove('animate-resetPw');
         document.getElementById('resetpw-box').classList.add('d-none');
-        showLoginForm2(); //Login-Screen without animation
+        showLoginForm2(); //Directs to login2.html (without animation)
     }, 1000);
 }
 
-//Wrong-Email-Animation
+/**
+ * Animates a message for the user
+ * @param {*} message Message-variable with the text that will be displayed
+ */
 function animateMessage(message) {
     document.getElementById('alert-text').innerHTML = message;
     document.getElementById('alert-info').classList.add('animate-Wrong');
     document.getElementById('alert-box').classList.remove('d-none');
 
-    setTimeout(function () {
+    setTimeout(function () { //Lets the message disappear after 1 second
         document.getElementById('alert-info').classList.remove('animate-Wrong');
         document.getElementById('alert-box').classList.add('d-none');
     }, 1000);
 }
 
-//Login-Screen with animation
+/**
+ * Directs to index.html (with animation) to login
+ */
 function showLoginForm() {
     window.location.href = 'index.html';
 }
 
-//Login-Screen without animation
+/**
+ * Directs to index2.html (without animation) to login
+ */
 function showLoginForm2() {
     window.location.href = 'index2.html';
 }
 
-//SignUp-Screen
+/**
+ * Directs to signup.html to register at JOIN
+ */
 function showSignUpForm() {
     window.location.href = 'signup.html';
 }
 
-//PasswordForgotten-Screen
+/**
+ * Directs to sendemail.html to request an email to reset your password
+ */
 function showPasswordForgottenForm() {
     window.location.href = 'sendemail.html';
 }
 
-//PasswordReset-Screen
+/**
+ * Directs to setpassword.html to reset your password
+ */
 function showResetPasswordForm() {
     let emailtochangepw = document.getElementById('forgotpassword-email').value;
     window.location.href = `setpassword.html?msg=${emailtochangepw}`;
 };
 
-//Login as Guest
+/**
+ * Lets you login as Guest and redirects you to summary.html
+ */
 function loginAsGuest() {
     setArray ('arrayOfactUser',guest); //Save Guest-User-Object in local Storage
     window.location.href = 'summary.html';
 }
 
-//Go to Help-Section
+/**
+ * Directs you to help.html for help
+ */
 function showHelpPage() {
     window.location.href = 'help.html';
 }
 
-//Go to LegalNotice-Section
+/**
+ * Directs you to legalnotice.html for legalnotice
+ */
 function showLegalNoticePage() {
     window.location.href = 'legalnotice.html';
 }
 
-
-//Try to Login
+/**
+ * Try to Login
+ */
 function tryLogin() {
     let email = document.getElementById('login-email').value;
     let password = document.getElementById('login-password').value;
@@ -119,7 +148,9 @@ function tryLogin() {
     }
 }
 
-//Try to Signup
+/**
+ * Try to Signup
+ */
 async function trySignup() {
     let fullname = document.getElementById('signup-name').value;
     let name=fullname.slice(0,fullname.indexOf(' '));
@@ -147,7 +178,9 @@ async function trySignup() {
     }
 }
 
-//Try to send Email
+/**
+ * Try to send Email
+ */
 function tryToSendEmail() {
     let email = document.getElementById('forgotpassword-email').value;
 
@@ -155,13 +188,14 @@ function tryToSendEmail() {
     else 
     {
         animateMessage('E-Mail not found!') //Email not sent
-
         event.preventDefault();  //<- "action" eines Formulars wird immer nach "onsubmit" ausgeführt
     }                            //<- Über die Funktion die bei "onsubmit" ausgeführt wird, kann man action stoppen
                                  //<- event.preventDefault(); stoppt eine weitere Verarbeitung des Formulars und damit auch die Ausführung von "action"  
 }
 
-//Password reset after request
+/**
+ * Password reset after request
+ */
 async function resetPassword() {
 
     const urlParams = new URLSearchParams(window.location.search);
@@ -187,19 +221,5 @@ async function resetPassword() {
     {
         animateMessage('Unequal Passwords!');
     }
-}
-
-//Animation for Mobile (900px or less)
-function mobileAnimation(){
-    
-}
-
-
-// Password benötigt mindestens einen Großbuchstaben, Kleinbuchstaben und eine Zahl
-// Liefert true -> Test bestanden; Liefert false -> Test nicht bestanden!
-function checkPasswordSyntax(str) { // at least one number, one lowercase and one uppercase letter
-    // at least six characters that are letters, numbers or the underscore
-    var re = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])\w{6,}$/;
-    return re.test(str);
 }
 
