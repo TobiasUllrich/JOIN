@@ -129,35 +129,34 @@ function showLegalNoticePage() {
 }
 
 /**
- * Try to Login
+ * Trys to Login; email & password have to be existing and correct
  */
 function tryLogin() {
     let email = document.getElementById('login-email').value;
     let password = document.getElementById('login-password').value;
 
     if (checkifEMailexists(email) && checkifPasswordMatches(email, password)) {    
-        let actuser = getUserAsObject(email);
+        let actuser = getUserAsObject(email); //Gets all user data for the specific email in one object
         setArray ('arrayOfactUser',actuser); //Save User-Object in local Storage
         window.location.href = 'summary.html';  //Password & Email correct
     }
     else if (!checkifEMailexists(email)) 
-    { animateMessage('E-Mail not found!'); //Email incorrect
-    }
+    {animateMessage('E-Mail not found!');} //Email incorrect
     else 
-    { animateMessage('Wrong Password!'); //Password incorrect
-    }
+    {animateMessage('Wrong Password!');} //Password incorrect
 }
 
 /**
- * Try to Signup
+ * Trys to Signup with data from the signup-form; if email is already registered signup will not work
  */
 async function trySignup() {
+
     let fullname = document.getElementById('signup-name').value;
-    let name=fullname.slice(0,fullname.indexOf(' '));
-    let surname=fullname.slice(fullname.indexOf(' ')+1,fullname.length);
+    let name = fullname.slice(0,fullname.indexOf(' '));
+    let surname = fullname.slice(fullname.indexOf(' ')+1,fullname.length);
     let email = document.getElementById('signup-email').value;
     let password = document.getElementById('signup-password').value;
-    console.log(name, ' ', surname);
+
     let object = {
         "name": name,
         "surname": surname,
@@ -168,18 +167,16 @@ async function trySignup() {
     }
 
     if (checkifEMailexists(email)) {
-        //Email already in Database
-        animateMessage('E-Mail already exists!');
+        animateMessage('E-Mail already exists!'); //Email already in Database
     }
-    else {
-        //Signed up successfully
-        await addUser(object);
+    else {    
+        await addUser(object); //Signed up successfully
         showLoginForm2();
     }
 }
 
 /**
- * Try to send Email
+ * Trys to send Email, if password was forgotten by the user; email has to exist in database
  */
 function tryToSendEmail() {
     let email = document.getElementById('forgotpassword-email').value;
@@ -194,25 +191,31 @@ function tryToSendEmail() {
 }
 
 /**
- * Password reset after request
+ * Try to reset password with the link from the email
  */
-async function resetPassword() {
+function resetPassword() {
 
     const urlParams = new URLSearchParams(window.location.search);
     let email = urlParams.get('msg');
 
     let pw1 = document.getElementById('reset-pw').value;
     let pw2 = document.getElementById('reset-pw2').value;
+    
+    tryToResetPassword(email,pw1,pw2);
+}
 
-    if (!email)
+/**
+ * Try to reset password with the link from the email; email has to exist and passwords have to be equal!
+ * @param {*} email Email for which the password can be reseted
+ * @param {*} pw1 Password1
+ * @param {*} pw2 Password2
+ */
+async function tryToResetPassword(email,pw1,pw2){
+    if (!email || !checkifEMailexists(email)) //Check if qry contained in URL OR Check if Email exists
     {
-        animateMessage('E-Mail not found!'); //Check if qry contained in URL
+        animateMessage('E-Mail not found!'); 
     }
-    else if (!checkifEMailexists(email)) //Check if Email exists
-    {
-        animateMessage('E-Mail not found!');
-    }
-    else if (pw1 == pw2) //Check Pws are equal
+    else if (pw1 == pw2) //Check if Pws are equal
     {
         await setPasswordForUser(email, pw1);
         resetPwAnimation();
@@ -222,4 +225,3 @@ async function resetPassword() {
         animateMessage('Unequal Passwords!');
     }
 }
-
