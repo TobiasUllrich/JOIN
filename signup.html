@@ -54,21 +54,14 @@
 
 
 <!--Sobald der body-Bereich geladen wurde, wird das Java-Script ausgeführt-->
-
 <body onload="init();setArrow('backfromsignup','signup-container');">
 
-    
-
-    <!-- MAIN -->
-    <!-- Nur im LogIn-Formular sichtbar -->
+     
+    <!-- Only visible in LogIn-Formular -->
     <img id="animatedlogo" class="moving-logo-later" src="img/JOIN-Logo.png">
 
 
-    <!-- In allen anderen Formularen sichtbar -->
-    <!-- <img class="moving-logo" src="img/JOIN-Logo.png">   -->
-
-
-
+    <!-- MAIN -->
     <div id="signup-container" class="signup-container">
         <!-- SignUp Seite -->
         <div id="signup-Box" class="signup-Box">
@@ -83,21 +76,20 @@
             <img id="backfromsignup" onclick="showLoginForm2();" class="backbutton" src="">
         </div> 
     </div>
+    <!-- MAIN -->
 
     <!-- Password reset animations -->
     <div id="resetpw-box" class="d-none">
     </div>
     <button id="reset-info">You reset your password</button>
+    <!-- Password reset animations -->
 
     <!-- Wrong PW or Email animations -->
     <div id="alert-box" class="d-none">
     </div>
     <button id="alert-info"><img src="img/alert.png"><span id="alert-text">Wrong Password!</span></button>
-
-    <!-- MAIN -->
-
-
-
+    <!-- Wrong PW or Email animations -->
+    
 </body>
 
 

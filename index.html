@@ -12,7 +12,7 @@
     <title>JOIN</title>
     <!--See Trello, Jira or kanbanflow-->
     <!--ToDos, In Progress, Backlog, Testing-->
-    <!--Help-Sektion: Beschreibung wie es geht-->
+    <!--Help-Section: Beschreibung wie es geht-->
     <!--Impressum & Datenschutz unten links in grau-->
     <!--Daten sollen auf Server mit smallest-backend-ever gespeichert werden-->
     <!--Learnings von Kochwelt-->
@@ -52,15 +52,13 @@
     <!-- KOPFBEREICH STANDARD-->
 </head>
 
-
 <!--Sobald der body-Bereich geladen wurde, wird das Java-Script ausgeführt-->
-
 <body id="body" onload="init(); loginAnimation();">
 
     
 
-    <!-- MAIN -->
-    <!-- Nur im LogIn-Formular sichtbar -->
+
+    <!-- Only visible in LogIn-Formular -->
     <img id="animatedlogo" class="moving-logo-first" src="img/JOIN-Logo.png">
     <img id="animatedlogo2" class="moving-logo-later d-none" src="img/JOIN-Logo.png">
     
@@ -69,17 +67,12 @@
 
     <!-- For Mobile Animation -->
     <div id="mobilelogo" class="mobilelogo"></div>
+    <!-- For Mobile Animation -->
 
-    <!-- In allen anderen Formularen sichtbar -->
-    <!-- <img class="moving-logo" src="img/JOIN-Logo.png">   -->
-    
-
-
+    <!-- MAIN -->
     <div id="center-container" class="center-container">
 
     <div class="login-container2">
-
-        <!-- Erste Seite -->
         <div id="login-Box" class="login-Box">
             <h1>Log in</h1>
             <div class="dummy"></div>      
@@ -93,16 +86,19 @@
     </div>
 
     </div>
+    <!-- MAIN -->
 
     <!-- Password reset animations -->
     <div id="resetpw-box" class="d-none">
     </div>
     <button id="reset-info">You reset your password</button>
+    <!-- Password reset animations -->
 
     <!-- Wrong PW or Email animations -->
     <div id="alert-box" class="d-none">
     </div>
     <button id="alert-info"><img src="img/alert.png"><span id="alert-text">Wrong Password!</span></button>
+    <!-- Wrong PW or Email animations -->
 
     <!-- For Sign-Up -->
     <div id="login-notajoinuser" class="login-notajoinuser">
@@ -111,8 +107,6 @@
     </div>
     <!-- For Sign-Up -->
 
-
-    <!-- MAIN -->
 
 
 

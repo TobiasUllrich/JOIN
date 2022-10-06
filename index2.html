@@ -54,26 +54,17 @@
 
 
 <!--Sobald der body-Bereich geladen wurde, wird das Java-Script ausgeführt-->
-
 <body id="body" onload="init();">
 
     
 
-    <!-- MAIN -->
-    <!-- Nur im LogIn-Formular sichtbar -->
+    <!-- Only visible in LogIn-Formular -->
     <img id="animatedlogo2" class="moving-logo-later" src="img/JOIN-Logo.png">
-
-    <!-- In allen anderen Formularen sichtbar -->
-    <!-- <img class="moving-logo" src="img/JOIN-Logo.png">   -->
     
-
-
-
+    <!-- MAIN -->
     <div class="center-container">
 
     <div id="login-container" class="login-container">
-
-        <!-- Erste Seite -->
         <div id="login-Box" class="login-Box">
             <h1>Log in</h1>
             <div class="dummy"></div>       
@@ -87,28 +78,28 @@
     </div>
 
     </div>
+    <!-- MAIN -->   
 
     <!-- Password reset animations -->
     <div id="resetpw-box" class="d-none">
     </div>
     <button id="reset-info">You reset your password</button>
+    <!-- Password reset animations -->
 
     <!-- Wrong PW or Email animations -->
     <div id="alert-box" class="d-none">
     </div>
     <button id="alert-info"><img src="img/alert.png"><span id="alert-text">Wrong Password!</span></button>
+    <!-- Wrong PW or Email animations -->
 
    <!-- For Sign-Up -->
     <div id="login-notajoinuser" class="login-notajoinuser">
         <span>Not a Join user?</span>
         <button onclick="showSignUpForm();" class="login-signupbtn">Sign up</button>
     </div>
-    <!-- MAIN -->
-
-
+   <!-- For Sign-Up -->
 
 </body>
-
 
 
 </html>
