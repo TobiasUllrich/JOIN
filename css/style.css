@@ -63,7 +63,6 @@ body {
 }
 
 .header-legnotice {
-  /* margin-top:300px; */
   margin-top: 42vh;
   display: flex;
   justify-content: center;
@@ -99,6 +98,7 @@ body {
     border-radius: 8px;
     border: 1px solid #ffffff;
   }
+/* ===== Scrollbar CSS ===== */
 
 
 /* FOOTER  */
@@ -110,9 +110,7 @@ body {
   align-items: center;
   height: 80px;
   background-color: #ffffff;
-  width: calc(
-    100vw - 232px
-  ); /*Be sure to put spaces around the '-' sign in the calculation*/
+  width: calc(100vw - 232px);
   margin-left: 232px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
 }
