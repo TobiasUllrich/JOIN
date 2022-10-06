@@ -1,11 +1,38 @@
-let subtasks = [];
+let addTaskSubtasks = [];
 let selectedSubtasks = [];
-let categorys = ['Sales', 'Backoffice'];
-let categoryColors = ['8aa4ff', 'ff0000', '2ad300', 'ff8a00', 'e200be', '0038ff'];
+let addTaskCategorys = ['Sales', 'Backoffice'];
+let addTaskCategoryColors = ['8aa4ff', 'ff0000', '2ad300', 'ff8a00', 'e200be', '0038ff'];
 let usedColors = ['fc71ff', '1fd7c1 ']
 let assignUsers = [];
 let selectedUsers = [];
 let selectedPrio;
+
+
+
+function rendernTask() {
+  taskAddToBoardAnimation();
+  let taskTitle = document.getElementById('titelInput').value;
+  let taskDescription = document.getElementById('description').value;
+  let taskCategory  = document.getElementById('categoryInput').value;
+  let taskCategoryColor  = document.getElementById('colorInput').value;
+  let taskDueDate  = document.getElementById('dueDate').value;
+  let TASK = {
+    id: tasks.length,
+    title: taskTitle,
+    description: taskDescription,
+    category: taskCategory,
+    categoryColor: '#'+taskCategoryColor,
+    assignedTo: selectedUsers,
+    dueDate: taskDueDate.split("-").reverse().join("-"),
+    priority: selectedPrio,
+    subTasks: selectedSubtasks,
+  };
+  addTask(TASK);
+}
+
+function taskAddToBoardAnimation(){
+  
+}
 
 
 async function loadAddTastk() {
@@ -14,6 +41,10 @@ async function loadAddTastk() {
   loadAssigned();
   loadUser();
   renderAssingUser();
+}
+
+function idOfTask(){
+  
 }
 
 function loadUser() {
@@ -48,7 +79,7 @@ function clearInputValueCategory() {
 function loadCategorys() {
   let allCategorys = document.getElementById('allCategorys');
   allCategorys.innerHTML = '';
-  for (let i = 0; i < categorys.length; i++) {
+  for (let i = 0; i < addTaskCategorys.length; i++) {
     allCategorys.innerHTML += allCategoryHTML(`${i}`);
   }
 }
@@ -90,14 +121,7 @@ function selecedPrio(prioStatus) {
 
 }
 
-function creatTask() {
-  let titel = document.getElementById('titelInput').value;
-  let description = document.getElementById('description').value;
-  let category = document.getElementById('categoryInput').value;
-  let categoryColor = document.getElementById('colorInput').value;
-  let dueDate = document.getElementById('dueDate').value;
 
-}
 
 /**
  * Is activated via the input or Img and changes the subtaskStart Img to Delete and Add Img 
@@ -123,7 +147,7 @@ function subtaskInputDelete() {
 function subtaskInputAdd(idOfInput) {
   let subtask = document.getElementById(`${idOfInput}`).value;
   if (subtask.length >= 1) {
-    subtasks.push(subtask);
+    addTaskSubtasks.push(subtask);
     selectedSubtasks = [];
     showSubstasks();
     subtaskInputDelete();
@@ -134,13 +158,13 @@ function subtaskInputAdd(idOfInput) {
 
 function showSubstasks() {
   document.getElementById('subtaskList').innerHTML = '';
-  for (let i = 0; i < subtasks.length; i++) {
+  for (let i = 0; i < addTaskSubtasks.length; i++) {
     document.getElementById('subtaskList').innerHTML += subtaskListHTML(`${i}`);
   }
 }
 
 function clearSubtasksArray() {
-  subtasks = [];
+  addTaskSubtasks = [];
   document.getElementById('subtaskList').innerHTML = '';
 }
 
@@ -171,7 +195,7 @@ function renderAssingUser() {
 }
 
 function subtasksCheckbox(indexOfSubtask){
-  let subtask = subtasks[indexOfSubtask];
+  let subtask = addTaskSubtasks[indexOfSubtask];
   let clickedSubtask = document.getElementById(`${subtask}-${indexOfSubtask}`);
 
   if (clickedSubtask.checked == false) {
@@ -185,14 +209,14 @@ function subtasksCheckbox(indexOfSubtask){
 }
 
 function subtasksCheckboxPushable(indexOfSubtask) {
-  if (!selectedSubtasks.includes(subtasks[indexOfSubtask])) {
-    selectedSubtasks.push(subtasks[indexOfSubtask]);
+  if (!selectedSubtasks.includes(addTaskSubtasks[indexOfSubtask])) {
+    selectedSubtasks.push(addTaskSubtasks[indexOfSubtask]);
   }
 }
 
 function subtasksCheckboxRemoveable(indexOfSubtask) {
   for (let r = 0; r < selectedSubtasks.length; r++) {
-    if (selectedSubtasks[r] === subtasks[indexOfSubtask]) {
+    if (selectedSubtasks[r] === addTaskSubtasks[indexOfSubtask]) {
       selectedSubtasks.splice(r, 1);
     }
   }
@@ -256,7 +280,7 @@ function switchToSearchInput() {
 
 function categoryColorPicker() {
   document.getElementById('category-color-picker').innerHTML = '';
-  for (let i = 0; i < categoryColors.length; i++) {
+  for (let i = 0; i < addTaskCategoryColors.length; i++) {
     document.getElementById('category-color-picker').innerHTML += categoryColorPickerHTML(`${i}`);
   };
 }
@@ -270,7 +294,7 @@ function pushNewCategory() {
   if (category.length >= 1) {
     if (getSelectedValue != null) {
       usedColors.push(document.querySelector('input[ name = "color" ]:checked').value);
-      categorys.push(category);
+      addTaskCategorys.push(category);
       loadCategory();
     } else {
       errorMessage.innerHTML = errorMessageHTML();
@@ -290,7 +314,7 @@ function currentCategory(categoryNumber) {
   let colorValue = document.getElementById('colorInput');
   openCategory();
   categoryValue.value = '';
-  categoryValue.value = (`${categorys[categoryNumber]}`);
+  categoryValue.value = (`${addTaskCategorys[categoryNumber]}`);
   colorValue.value = '';
   colorValue.value = (`${usedColors[categoryNumber]}`);
   categoryContainer.innerHTML = '';

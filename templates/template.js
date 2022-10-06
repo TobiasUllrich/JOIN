@@ -273,8 +273,8 @@ function errorMessageHTML() {
 
 function categoryColorPickerHTML(i) {
     return /*html*/`
-                <input class="input-radio" type="radio" name="color" id="${categoryColors[i]}" value="${categoryColors[i]}" />
-                <label for="${categoryColors[i]}" class="add-task-color-picker"><span class="color-${i}"></span></label> 
+                <input class="input-radio" type="radio" name="color" id="${addTaskCategoryColors[i]}" value="${addTaskCategoryColors[i]}" />
+                <label for="${addTaskCategoryColors[i]}" class="add-task-color-picker"><span class="color-${i}"></span></label> 
     `
 }
 
@@ -291,7 +291,7 @@ function loadCategoryHTML() {
 function currentCategoryHTML(i) {
     return /*html*/` 
       <div   class="active-category">
-      <p> ${categorys[i]}</p>
+      <p> ${addTaskCategorys[i]}</p>
       <div style="background-color:#${usedColors[i]}" class="categoryColor">
       </div>
     </div>
@@ -301,7 +301,7 @@ function currentCategoryHTML(i) {
 function allCategoryHTML(i) {
     return /*html*/`
     <div onclick="currentCategory(${i})"  class="current-category">
-      <p> ${categorys[i]}</p>
+      <p> ${addTaskCategorys[i]}</p>
       <div style="background-color:#${usedColors[i]}" class="categoryColor">
       </div>
     </div>
@@ -309,7 +309,7 @@ function allCategoryHTML(i) {
 }
 
 function subtaskListHTML(indexOfSubtask) {
-    let subtask = subtasks[indexOfSubtask];
+    let subtask = addTaskSubtasks[indexOfSubtask];
     return /*html*/`
         <div onclick="subtasksCheckbox(${indexOfSubtask})" class="subtask-list-form-check">
           <input onclick="subtasksCheckbox(${indexOfSubtask})" class="subtask-list-input" type="checkbox" value="" id="${subtask}-${indexOfSubtask}">
