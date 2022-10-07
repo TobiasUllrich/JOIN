@@ -45,10 +45,6 @@ async function loadAddTastk() {
   renderAssingUser();
 }
 
-function idOfTask() {
-
-}
-
 function loadUser() {
   for (let i = 0; i < users.length; i++) {
     const userFullname = users[i].name;
@@ -86,14 +82,6 @@ function loadCategorys() {
   }
 }
 
-
-
-function urgency() {
-  let urgency = document.getElementById('urgency');
-  let index = urgency.options[urgency.selectedIndex];
-
-  console.log(urgency, index);
-}
 
 function addBg(idOfPicture) {
   document.getElementById(`${idOfPicture}`).style = 'transition: all 225ms ease-in-out; filter: invert(67%) sepia(27%) saturate(4917%) hue-rotate(164deg) brightness(94%) contrast(88%);';
@@ -235,7 +223,7 @@ function assingCheckbox(idOfCheckbox) {
     checkIfWorkerRemoveable(idOfCheckbox);
     clickedCheckbox.checked = false;
   }
-  checkValidatorCheckbox();
+  checkValiCheckbox();
 }
 
 function checkIfWorkerPushable(idOfCheckbox) {
@@ -252,7 +240,7 @@ function checkIfWorkerRemoveable(idOfCheckbox) {
   }
 }
 
-function checkValidatorCheckbox() {
+function checkValiCheckbox() {
   let checkboxAssignedTo = document.getElementById('assignedInput');
   let checkboxes = document.querySelectorAll('input[type="checkbox"]');
   let checkedOne = Array.prototype.slice.call(checkboxes).some(x => x.checked);
@@ -308,7 +296,8 @@ function pushNewCategory() {
 }
 
 /**
- * @parma {number} categoryNumber 
+ * *
+ * @param {number} categoryNumber
  */
 function currentCategory(categoryNumber) {
   let categoryContainer = document.getElementById('dropbtnCategory');
