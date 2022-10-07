@@ -241,7 +241,7 @@ function templateCurrentWorkersOfTasksBigBox(firstName, lastName, fullName){
 
 
 
-function userInAssigned(userName, indexOfUsers) {
+function userInAssignedHTML(userName, indexOfUsers) {
     return /*html*/`
     <div onclick="assingCheckbox(${indexOfUsers})" class="solo-assigned"><label>${userName}</label><input onclick="assingCheckbox(${indexOfUsers})" name="users" id="checkbox-${indexOfUsers}" type="checkbox"></div>`
 }

@@ -13,25 +13,27 @@ function rendernTask() {
   taskAddToBoardAnimation();
   let taskTitle = document.getElementById('titelInput').value;
   let taskDescription = document.getElementById('description').value;
-  let taskCategory  = document.getElementById('categoryInput').value;
-  let taskCategoryColor  = document.getElementById('colorInput').value;
-  let taskDueDate  = document.getElementById('dueDate').value;
+  let taskCategory = document.getElementById('categoryInput').value;
+  let taskCategoryColor = document.getElementById('colorInput').value;
+  let taskDueDate = document.getElementById('dueDate').value;
   let TASK = {
     id: tasks.length,
     title: taskTitle,
     description: taskDescription,
     category: taskCategory,
-    categoryColor: '#'+taskCategoryColor,
+    categoryColor: '#' + taskCategoryColor,
     assignedTo: selectedUsers,
     dueDate: taskDueDate.split("-").reverse().join("-"),
     priority: selectedPrio,
     subTasks: selectedSubtasks,
+    status: "To do",
   };
-  addTask(TASK);
+  // console.log(TASK)
+ addTask(TASK);
 }
 
-function taskAddToBoardAnimation(){
-  
+function taskAddToBoardAnimation() {
+
 }
 
 
@@ -43,8 +45,8 @@ async function loadAddTastk() {
   renderAssingUser();
 }
 
-function idOfTask(){
-  
+function idOfTask() {
+
 }
 
 function loadUser() {
@@ -190,11 +192,11 @@ function renderAssingUser() {
   assingUser.innerHTML = "";
   for (let i = 0; i < assignUsers.length; i++) {
     const userName = assignUsers[i];
-    assingUser.innerHTML += userInAssigned(userName, i)
+    assingUser.innerHTML += userInAssignedHTML(userName, i)
   };
 }
 
-function subtasksCheckbox(indexOfSubtask){
+function subtasksCheckbox(indexOfSubtask) {
   let subtask = addTaskSubtasks[indexOfSubtask];
   let clickedSubtask = document.getElementById(`${subtask}-${indexOfSubtask}`);
 
@@ -205,7 +207,7 @@ function subtasksCheckbox(indexOfSubtask){
     subtasksCheckboxRemoveable(indexOfSubtask);
     clickedSubtask.checked = false;
   }
- 
+
 }
 
 function subtasksCheckboxPushable(indexOfSubtask) {
@@ -238,13 +240,13 @@ function assingCheckbox(idOfCheckbox) {
 
 function checkIfWorkerPushable(idOfCheckbox) {
   if (!selectedUsers.includes(users[idOfCheckbox])) {
-    selectedUsers.push(users[idOfCheckbox]);
+    selectedUsers.push(users[idOfCheckbox].email);
   }
 }
 
 function checkIfWorkerRemoveable(idOfCheckbox) {
   for (let p = 0; p < selectedUsers.length; p++) {
-    if (selectedUsers[p] === users[idOfCheckbox]) {
+    if (selectedUsers[p] === users[idOfCheckbox].email) {
       selectedUsers.splice(p, 1);
     }
   }

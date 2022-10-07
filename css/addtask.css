@@ -7,7 +7,7 @@ body {
   display: none;
 }
 
-label{
+label {
   margin-bottom: 10px;
 }
 .d-flex {
@@ -291,7 +291,7 @@ p {
 
 .solo-assigned input {
   height: 15px;
-  width: 15px; 
+  width: 15px;
   margin-top: 0px;
 }
 
@@ -581,40 +581,36 @@ input[type="radio"]:checked + .prio-label-urgent {
 }
 
 @media (min-width: 0px) and (max-width: 1480px) {
-
-  #subtaskList{
+  #subtaskList {
     height: 100px;
   }
 
-  .add-task-form{
+  .add-task-form {
     justify-content: center;
   }
-  .separator-line{
+  .separator-line {
     display: none;
   }
 
   .input-area {
     margin-left: 20px;
   }
-
 }
 
-@media (min-width: 0px) and (max-width: 1114px) {
-
-  .headline{
+@media (min-width: 900px) and (max-width: 1114px) {
+  .headline {
     margin-left: 192px;
   }
-  .add-task-container{
+  .add-task-container {
     margin-left: 77px;
   }
 }
 
-@media (min-width: 0px) and (max-width: 900px) {
-
-  .headline{
+@media (min-width: 440px) and (max-width: 900px) {
+  .headline {
     margin-left: 0px;
   }
-  .add-task-container{
+  .add-task-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -627,15 +623,72 @@ input[type="radio"]:checked + .prio-label-urgent {
     padding-right: 0px;
   }
 
-  .checkCheckboxes{
+  .checkCheckboxes {
     left: 0%;
   }
 
-  .add-task-form{
+  .add-task-form {
     margin-bottom: 78px;
   }
 }
 
-@media (min-width: 0px) and (max-width: 400px){
+@media (min-width: 280px) and (max-width: 440px) {
 
+  .headline h1 {
+    font-size: 46px;
+  }
+  .headline {
+    margin-left: 0px;
+  }
+  .add-task-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 0px;
+  }
+
+  .add-task-board {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  .checkCheckboxes {
+    left: 0%;
+  }
+
+  .add-task-form {
+    margin-bottom: 78px;
+  }
+
+  .input-area input {
+    width: 280px;
+  }
+
+  .dropbtn-category {
+    width: 280px;
+    font-size: 16px;
+  }
+
+  .dropbtn-assign {
+    width: 280px;
+    font-size: 16px;
+  }
+
+  .input-area textarea {
+    width: 280px;
+  }
+  .toggle-buttons {
+    flex-direction: column;
+  }
+
+  .toggle-buttons label {
+    min-width: 250px;
+  }
+  
+
+.toggle-buttons input[type="radio"] {
+    visibility: hidden;
+    margin-top: -47px;
+}
 }
