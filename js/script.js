@@ -1,4 +1,6 @@
-/* [1.] Variablen ganz oben werden zuerst geladen/initialisiert und sind deshalb auch überall nutzbar */
+/**
+ * Array to visualize the structure of the database users-array
+ */
 let usersScript = [
   {
     "name": "Tobias Ullrich",
@@ -50,6 +52,9 @@ let usersScript = [
   }
 ];
 
+/**
+ * Array to visualize the structure of the database tasks-array
+ */
 let tasksScript = [
   {
     "id": 0,
@@ -136,50 +141,52 @@ let tasksScript = [
     "subTasks": ['Putzen', 'Spülen', 'Saubermachen']
   }
 ];
-/* [1.] Variablen ganz oben werden zuerst geladen/initialisiert und sind deshalb auch überall nutzbar */
 
-/* [2.] Leert die Datenbank-Arrays users & tasks und befüllt sie mit den Daten von usersScript und tasksScript*/
+
+/**
+ * Deletes the users- & tasks-array of the database
+ */
 async function RESET() {
   await deleteAllUsers();
   await deleteAllTasks();
   await init();
 }
-async function FILL() {
 
+
+/**
+ * Fills the users- & tasks-array of the database with the data from usersScript & tasksScript
+ */
+async function FILL() {
   for (i = 0; i < usersScript.length; i++) {
     await addUser(usersScript[i]);
-    console.log(usersScript[i]);
   };
 
   for (i = 0; i < tasksScript.length; i++) {
     await addTask(tasksScript[i]);
-    console.log(tasksScript[i]);
   };
 
   await init();
-
 }
 
 
-/* [2.] Leert die Datenbank-Arrays users & tasks und befüllt sie mit den Daten von usersScript und tasksScript*/
-
-
-/* [3.]  Für den Datenaustausch mit dem Server */
-// https://github.com/JunusErgin/smallest_backend_ever
+/**
+ * For the data-interchange with the server
+ */
 let users = [];
 let tasks = [];
 
+// https://github.com/JunusErgin/smallest_backend_ever
 // Funktion setURL() ändert die Variable BASE_SERVER_URL auf den angegebenen Pfad
 // Unter dem angegebenen Pfad muss der Ordner smallest_backend_ever mit allen Dateien von GitHub liegen
 setURL('https://gruppe-2970.developerakademie.net/smallest_backend_ever');
-
-// WICHTIG ZU INSTALLIEREN SIND DIE FOLGENDEN ZWEI:
-//  FÜR CHROME-ERWEITERUNG: https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf
-//  FÜR LIVE-SERVER: https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer
+//  FOR CHROME-EXTENSION: https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf
+//  FOR LIVE-SERVER: https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer
 
 
+/**
+ * Gets users- & tasks-data from the server
+ */
 async function init() {
-
   // GET User-Data form the Server which is saved in backend
   await downloadFromServer();
   users = JSON.parse(backend.getItem('users')) || [];
@@ -187,10 +194,14 @@ async function init() {
   // GET Tasks-Data form the Server which is saved in backendTWO
   await downloadFromServerTWO(); /** INSERT FOR SECOND JSON-FILE */
   tasks = JSON.parse(backendTWO.getItem('tasks')) || [];
-
 }
 
-// GET SINGLE USER AS OBJECT
+
+/**
+ * Gives you all user-data for an e-mail
+ * @param {*} email E-Mail-adress to search for in the users-array
+ * @returns User-object with all data correspondig to the user with the specific E-Mail
+ */
 function getUserAsObject(email) {
   for (i = 0; i < users.length; i++) {
     if (users[i]['email'].toLowerCase() == email.toLowerCase()) {
@@ -199,11 +210,15 @@ function getUserAsObject(email) {
   }
 }
 
-// CHECK IF EMAIL OF USER IS IN ARRAY
+
+/**
+ * Checks if an e-mail exists in users-array
+ * @param {*} email E-Mail-adress to search for in the users-array
+ * @returns true if e-mail was found, else returns false
+ */
 function checkifEMailexists(email) {
   let userfound = false;
   for (i = 0; i < users.length; i++) {
-    console.log(users[i]['email'].toLowerCase());
     if (users[i]['email'].toLowerCase() == email.toLowerCase()) {
       userfound = true; //Email found
       return userfound;
@@ -211,7 +226,13 @@ function checkifEMailexists(email) {
   }
 }
 
-// CHECK IF PASSWORD-ENTRY OF USER WITH CERTAIN EMAIL MATCHES DATABASE-PASSWORD
+
+/**
+ * Checks if password-entry of a user with a certain email matches with the database-password
+ * @param {*} email E-Mail-adress to search for in the users-array
+ * @param {*} password Password typed in by the user in the Input-field
+ * @returns true if password-parameter matches password in the database, else returns false
+ */
 function checkifPasswordMatches(email, password) {
   let passwordmatches = false;
   for (i = 0; i < users.length; i++) {
@@ -222,135 +243,168 @@ function checkifPasswordMatches(email, password) {
   }
 }
 
-// SET PASSWORD FOR PASSWORDFORGOTTEN-REQUESTS
+
+/**
+ * Sets new password for a specific user-email
+ * @param {*} email E-Mail-adress of a specific user
+ * @param {*} password New Password to set for the specific user
+ * @returns 
+ */
 async function setPasswordForUser(email, password) {
   let passwordSet = false;
   for (i = 0; i < users.length; i++) {
     if (users[i]['email'].toLowerCase() == email.toLowerCase()) {
       users[i]['password'] = password;
       passwordSet = true; //Password is set
-      //-> Im Live Array können wir gleich sehen, dass das Element inzugefügt wurde, es wird in der nächsten Zeile noch ins Backend übertragen
-      await backend.setItem('users', JSON.stringify(users));
+      await backend.setItem('users', JSON.stringify(users)); //users-array is saved into backend
       return passwordSet; //If changed "true" is returned, else it stays "false"
     }
   }
 }
 
-// ADD USER TO ARRAY
+
+/**
+ * Adds a new user to the users-array
+ * @param {*} object User-object with all data correspondig to the user
+ */
 async function addUser(object) {
   users.push(object); //
- //-> Im Live Array können wir gleich sehen, dass das Element inzugefügt wurde, es wird in der nächsten Zeile noch ins Backend übertragen
- await backend.setItem('users', JSON.stringify(users));
+ await backend.setItem('users', JSON.stringify(users)); //users-array is saved into backend
 }
 
-// ADD TASK TO ARRAY
+
+/**
+ * Adds a new task to the tasks-array
+ * @param {*} object Tasks-object with all data correspondig to the task
+ */
 async function addTask(object) {
   tasks.push(object);
-  //-> Im Live Array können wir gleich sehen, dass das Element inzugefügt wurde, es wird in der nächsten Zeile noch ins Backend übertragen
-  await backendTWO.setItem('tasks', JSON.stringify(tasks));
+  await backendTWO.setItem('tasks', JSON.stringify(tasks)); //tasks-array is saved into backend
 }
 
-// DELETE SPECIFIC USER FROM ARRAY
+
+/**
+ * Deletes a specific user from the users-array via index
+ * @param {*} index Index from 0 to N
+ */
 async function delUser(index) {
-  //let id = users.indexOf(name);
-  if (index !== parseInt(index, 10)) { console.log("Data is not an integer!"); }
-  if (index >= users.length || index < 0) { console.log("ERROR: Number to High or to Low!"); }
-  else if (index == 0 && users.length == 1) { console.log("KILL Complete Array"); deleteAllUsers(); }
+  if (index !== parseInt(index, 10)) { } //Data is not an integer!
+  if (index >= users.length || index < 0) { } //ERROR: Number to High or to Low!
+  else if (index == 0 && users.length == 1) { deleteAllUsers(); } //KILL Complete Array
   else {
-    console.log("Data is an integer!");
-    users.splice(index, 1);
-    //-> Im Live Array können wir gleich sehen, dass das Element gelöscht wurde, es wird in der nächsten Zeile noch ins Backend übertragen
-    await backend.setItem('users', JSON.stringify(users));
+    users.splice(index, 1); //Data is an integer!
+    await backend.setItem('users', JSON.stringify(users)); //users-array is saved into backend
   }
 }
 
-// DELETE SPECIFIC TASK FROM ARRAY
+
+/**
+ * Deletes a specific task from the tasks-array via index
+ * @param {*} index Index from 0 to N
+ */
 async function delTask(index) {
   //let id = tasks.indexOf(name);
-  if (index !== parseInt(index, 10)) { console.log("Data is not an integer!"); }
-  if (index >= tasks.length || index < 0) { console.log("ERROR: Number to High or to Low!"); }
-  else if (index == 0 && tasks.length == 1) { console.log("KILL Complete Array"); deleteAllTasks(); }
+  if (index !== parseInt(index, 10)) { } //Data is not an integer!
+  if (index >= tasks.length || index < 0) { } //ERROR: Number to High or to Low!
+  else if (index == 0 && tasks.length == 1) { deleteAllTasks(); } //KILL Complete Array
   else {
-    console.log("Data is an integer!");
-    tasks.splice(index, 1);
-    //-> Im Live Array können wir gleich sehen, dass das Element gelöscht wurde, es wird in der nächsten Zeile noch ins Backend übertragen
-    await backendTWO.setItem('tasks', JSON.stringify(tasks));
+    tasks.splice(index, 1); //Data is an integer!
+    await backendTWO.setItem('tasks', JSON.stringify(tasks)); //tasks-array is saved into backend
   }
 }
 
-// DELETE ALL USERS FROM ARRAY
+
+/**
+ * Deletes all users from users-array
+ */
 async function deleteAllUsers() {
-  await backend.deleteItem('users');
-  //-> Wenn jetzt nach dem Deleten ein init() ausgeführt wird, dann sieht man, dass das Array leer ist
+  await backend.deleteItem('users'); //init() shows, that array is empty
 }
 
-// DELETE ALL TASKS FROM ARRAY
+
+/**
+ * Deletes all tasks from tasks-array
+ */
 async function deleteAllTasks() {
-  await backendTWO.deleteItem('tasks');
-  //-> Wenn jetzt nach dem Deleten ein init() ausgeführt wird, dann sieht man, dass das Array leer ist
+  await backendTWO.deleteItem('tasks'); //init() shows, that array is empty
 }
-/* [3.]  Für den Datenaustausch mit dem Server */
 
-/* [4.]  For Log-Out in the right corner */
+
+/**
+ * Enables the Pop-Up-Menu on the upper right corner to show up
+ */
 function showLogoutButton() {
   document.getElementById('logout').classList.remove('d-none');
 }
-/* [4.]  For Log-Out in the right corner */
 
-/* [5.]  For Log-Out in the right corner */
+
+/**
+ * Lets the Pop-Up-Menu on the upper right corner disappear
+ */
 function hideLogoutButton() {
   try { document.getElementById('logout').classList.add('d-none'); }
   catch (e) { };
 }
-/* [5.]  For Log-Out in the right corner */
 
-/* [6.] Funktion um weitere HTML-Dateien einzubinden (Code von w3c)*/
-/* Code von w3c*/
+
+/**
+ * Lets the Pop-Up-Menu on the upper right corner disappear
+ * @param {*} event Every event that does not target 'footer-picture' lets the Pop-Up-Menu on the right corner disappear
+ */
+window.onclick = function (event) {
+  if (event.target.id != 'footer-picture') {
+    hideLogoutButton();
+  }
+}
+
+
+/**
+ * Sets the user-picture in the upper right corner if you have logged in into the JOIN-Tool
+ */
+function setactUser() {
+  let actUserArray = [];
+  actUserArray = getArray('arrayOfactUser') //Gets User-Object from local Storage
+
+  //Without setTimeout it trys to write into src before page is loaded (Hint: src="" as Standard of the Element you want to write in)
+  setTimeout(function () {
+    document.getElementById('footer-picture').src = `img/${actUserArray['picture']}`;
+  }, 1000);
+}
+
+
+/**
+ * Includes header.html & footer.html into all pages
+ */
 async function includeHTML() {
-  let includeElements = document.querySelectorAll('[w3-include-html]'); //Alle Elemente mit Attribut '[w3-include-html]' werden ausgewählt
+  let includeElements = document.querySelectorAll('[w3-include-html]'); //All elements with the Attribut '[w3-include-html]' are selected
   for (let i = 0; i < includeElements.length; i++) {
     const element = includeElements[i];
-    file = element.getAttribute("w3-include-html"); // die Suche nach dem Attribut beinhaltet auch header.html, wenn die Seite dieses Attribut besitzt
-    let resp = await fetch(file); // await kann nur mit asynchroner Funktion verwendet werden
-    if (resp.ok) {   // ok = Boolean Variable die den Status anzeigt ob alles ok ist (true) oder eben nicht (false)
+    file = element.getAttribute("w3-include-html"); // Searches for all elements with the "w3-include-html" attribute
+    let resp = await fetch(file); // await 
+    if (resp.ok) {   // ok = Boolean Variable which saves the status (true = fine; false = not fine)
       element.innerHTML = await resp.text();
     } else {
       element.innerHTML = 'Page not found';
     }
   }
 }
-/* [6.] Funktion um weitere HTML-Dateien einzubinden (Code von w3c)*/
 
-/* [7.] Array zu String und wieder zurück */
-/* Im localStorage kann nur Text gespeichert werden, ABER im Code kann nur ein Array sinnvoll genutzt werden */
-/* key ist der Name unter welchem der Array gespeichert werden soll (frei wählbarer Text) und array ist das Array selbst  */
+
+/**
+ * Saves array as String in the localStorage
+ * @param {*} key Unique key under which the array is saved in the localStorage
+ * @param {*} array Array with data
+ */
 function setArray(key, array) {
   localStorage.setItem(key, JSON.stringify(array));
 }
 
+
+/**
+ * Gets an array from the localStorage
+ * @param {*} key Unique key under which the array is saved in the localStorage
+ * @returns an array, which can be saved into a variable
+ */
 function getArray(key) {
-  return JSON.parse(localStorage.getItem(key)); // JSON.parse() wandelt einen String in einen Array um
-}
-/* [7.] Array zu String und wieder zurück */
-
-/* [8.] Click-Events */
-/* Funktionen nicht mehr den Elementen bei onclick="" zuweisen, sondern hier über die ID */
-window.onclick = function (event) {
-  //console.log(event.target); // Hier kann man sich das Element ausgeben lassen
-
-  if (event.target.id != 'footer-picture') {
-    hideLogoutButton();
-  }
-}
-/* [8.] Click-Events */
-
-//SET USER PIC FOR KANBAN-BOARD
-function setactUser() {
-  let actUserArray = [];
-  actUserArray = getArray('arrayOfactUser') //Get User-Object from local Storage
-
-  //Ohne setTimeout versucht er src zu beschreiben bevor die Seite fertig geladen ist (Tipp: src="" als Standard beim zu beschreibenden Element)
-  setTimeout(function () {
-    document.getElementById('footer-picture').src = `img/${actUserArray['picture']}`;
-  }, 1000);
+  return JSON.parse(localStorage.getItem(key));
 }
