@@ -9,36 +9,6 @@ let selectedPrio;
 
 
 
-function rendernTask() {
-  addedToBoard();
-  let taskTitle = document.getElementById('titelInput').value;
-  let taskDescription = document.getElementById('description').value;
-  let taskCategory = document.getElementById('categoryInput').value;
-  let taskCategoryColor = document.getElementById('colorInput').value;
-  let taskDueDate = document.getElementById('dueDate').value;
-  let TASK = {
-    id: tasks.length,
-    title: taskTitle,
-    description: taskDescription,
-    category: taskCategory,
-    categoryColor: '#' + taskCategoryColor,
-    assignedTo: selectedUsers,
-    dueDate: taskDueDate.split("-").reverse().join("-"),
-    priority: selectedPrio,
-    subTasks: selectedSubtasks,
-    status: "To do",
-  };
-  // console.log(TASK)
-//  addTask(TASK);
-}
-
-
-function addedToBoard(){
-  let addedToBoard = document.getElementById('addedToBoard')
-  addedToBoard.classList.toggle('d-none');
-  addedToBoard.classList.toggle('added-to-board');
-}
-
 
 async function loadAddTastk() {
   await init();
@@ -69,6 +39,40 @@ function loadAssigned() {
   assignedContainer.innerHTML = '';
   assignedContainer.innerHTML = loadAssignedHTML();
 }
+
+
+function rendernTask() {
+
+  let taskTitle = document.getElementById('titelInput').value;
+  let taskDescription = document.getElementById('description').value;
+  let taskCategory = document.getElementById('categoryInput').value;
+  let taskCategoryColor = document.getElementById('colorInput').value;
+  let taskDueDate = document.getElementById('dueDate').value;
+  let TASK = {
+    id: tasks.length,
+    title: taskTitle,
+    description: taskDescription,
+    category: taskCategory,
+    categoryColor: '#' + taskCategoryColor,
+    assignedTo: selectedUsers,
+    dueDate: taskDueDate.split("-").reverse().join("-"),
+    priority: selectedPrio,
+    subTasks: selectedSubtasks,
+    status: "To do",
+  };
+  console.log(TASK)
+  addTask(TASK);
+  addedToBoard();
+}
+
+
+function addedToBoard() {
+  let addedToBoard = document.getElementById('addedToBoard')
+  addedToBoard.classList.toggle('d-none');
+  addedToBoard.classList.toggle('added-to-board');
+  setTimeout(function () { location.href = "board.html" }, 2000);
+}
+
 
 function clearInputValueCategory() {
   let categoryValue = document.getElementById('categoryInput');

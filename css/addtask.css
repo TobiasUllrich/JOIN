@@ -60,7 +60,8 @@ label {
 .separator-line {
   width: 0px;
   height: 551px;
-  border: 1px solid #d1d1d1;
+  border: 0;
+  border-left: 2px solid #d1d1d1;
 }
 
 .add-task-form {
@@ -602,7 +603,11 @@ input[type="radio"]:checked + .prio-label-urgent {
   transition: none !important;
 }
 
-@media (min-width: 0px) and (max-width: 1480px) {
+.kanban-h4 {
+  display: none;
+}
+
+@media (min-width: 1114px) and (max-width: 1480px) {
   #subtaskList {
     height: 100px;
   }
@@ -620,6 +625,21 @@ input[type="radio"]:checked + .prio-label-urgent {
 }
 
 @media (min-width: 900px) and (max-width: 1114px) {
+  #subtaskList {
+    height: 100px;
+  }
+
+  .add-task-form {
+    justify-content: center;
+  }
+  .separator-line {
+    display: none;
+  }
+
+  .input-area {
+    margin-left: 20px;
+  }
+
   .headline {
     margin-left: 192px;
   }
@@ -629,6 +649,13 @@ input[type="radio"]:checked + .prio-label-urgent {
 }
 
 @media (min-width: 440px) and (max-width: 900px) {
+  .separator-line {
+    display: none;
+  }
+
+  .kanban-h4 {
+    display: flex;
+  }
   .headline {
     margin-left: 0px;
   }
@@ -655,8 +682,17 @@ input[type="radio"]:checked + .prio-label-urgent {
 }
 
 @media (min-width: 280px) and (max-width: 440px) {
+  .separator-line {
+    display: none;
+  }
+
+  .kanban-h4 {
+    display: flex;
+    font-size: 14px;
+  }
+
   .headline h1 {
-    font-size: 46px;
+    font-size: 44px;
   }
   .headline {
     margin-left: 0px;
@@ -683,28 +719,32 @@ input[type="radio"]:checked + .prio-label-urgent {
   }
 
   .input-area input {
-    width: 280px;
+    width: 260px;
   }
 
   .dropbtn-category {
-    width: 280px;
+    width: 260px;
     font-size: 16px;
   }
 
   .dropbtn-assign {
-    width: 280px;
+    width: 260px;
     font-size: 16px;
   }
 
   .input-area textarea {
-    width: 280px;
+    width: 260px;
   }
   .toggle-buttons {
     flex-direction: column;
   }
 
   .toggle-buttons label {
-    min-width: 250px;
+    min-width: 260px;
+  }
+
+  .input-area label {
+    font-size: 16px;
   }
 
   .toggle-buttons input[type="radio"] {
