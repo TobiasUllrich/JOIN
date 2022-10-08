@@ -10,7 +10,7 @@ let selectedPrio;
 
 
 function rendernTask() {
-  taskAddToBoardAnimation();
+  addedToBoard();
   let taskTitle = document.getElementById('titelInput').value;
   let taskDescription = document.getElementById('description').value;
   let taskCategory = document.getElementById('categoryInput').value;
@@ -29,11 +29,14 @@ function rendernTask() {
     status: "To do",
   };
   // console.log(TASK)
- addTask(TASK);
+//  addTask(TASK);
 }
 
-function taskAddToBoardAnimation() {
 
+function addedToBoard(){
+  let addedToBoard = document.getElementById('addedToBoard')
+  addedToBoard.classList.toggle('d-none');
+  addedToBoard.classList.toggle('added-to-board');
 }
 
 

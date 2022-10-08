@@ -25,7 +25,6 @@ label {
   padding-top: 150px;
   margin-left: 232px;
   padding-right: 40px;
-  padding-bottom: 20px;
 }
 
 .headline {
@@ -96,6 +95,29 @@ label {
   line-height: 120%;
   color: #000000;
   margin-top: 20px;
+}
+
+.added-to-board {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 9;
+  top: 0px;
+  width: 110%;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  height: 100%;
+  padding-top: 70vh;
+  animation: up 1s ease-in-out;
+  overflow: hidden;
+}
+
+@keyframes up {
+  1% {
+    padding-top: 110vh;
+  }
 }
 
 .input-area input {
@@ -633,7 +655,6 @@ input[type="radio"]:checked + .prio-label-urgent {
 }
 
 @media (min-width: 280px) and (max-width: 440px) {
-
   .headline h1 {
     font-size: 46px;
   }
@@ -685,10 +706,9 @@ input[type="radio"]:checked + .prio-label-urgent {
   .toggle-buttons label {
     min-width: 250px;
   }
-  
 
-.toggle-buttons input[type="radio"] {
+  .toggle-buttons input[type="radio"] {
     visibility: hidden;
     margin-top: -47px;
-}
+  }
 }
