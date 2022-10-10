@@ -466,8 +466,9 @@ input[type="radio"]:checked + .add-task-color-picker {
 .toggle-buttons {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
+  margin-left: -16px;
 }
 
 .toggle-buttons input[type="radio"] {
@@ -608,6 +609,10 @@ input[type="radio"]:checked + .prio-label-urgent {
 }
 
 @media (min-width: 1114px) and (max-width: 1480px) {
+  .button-container {
+    margin-bottom: 20px;
+  }
+
   #subtaskList {
     height: 100px;
   }
@@ -625,8 +630,12 @@ input[type="radio"]:checked + .prio-label-urgent {
 }
 
 @media (min-width: 900px) and (max-width: 1114px) {
+  .button-container {
+    margin-bottom: 20px;
+  }
+
   #subtaskList {
-    height: 100px;
+    display: block;
   }
 
   .add-task-form {
@@ -648,16 +657,43 @@ input[type="radio"]:checked + .prio-label-urgent {
   }
 }
 
-@media (min-width: 440px) and (max-width: 900px) {
+@media (min-width: 400px) and (max-width: 900px) {
+  .dropdown-content {
+    width: 360px;
+  }
+
+  .dropdown-content p {
+    font-size: 16px;
+  }
+
+  .solo-assigned label {
+    display: inline-block;
+    font-size: 16px;
+    width: 100%;
+  }
+
+  .headline {
+    width: 340px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .input-area {
+    width: 360px;
+  }
+
   .separator-line {
     display: none;
   }
 
   .kanban-h4 {
     display: flex;
+    font-size: 20px;
   }
   .headline {
     margin-left: 0px;
+    font-size: 34px;
   }
   .add-task-container {
     display: flex;
@@ -665,6 +701,7 @@ input[type="radio"]:checked + .prio-label-urgent {
     justify-content: center;
     align-items: center;
     margin-left: 0px;
+    margin-bottom: 50px;
   }
 
   .add-task-board {
@@ -678,21 +715,100 @@ input[type="radio"]:checked + .prio-label-urgent {
 
   .add-task-form {
     margin-bottom: 78px;
+    justify-content: center;
+  }
+
+  .input-area input {
+    width: 360px;
+  }
+
+  .dropbtn-category {
+    width: 360px;
+    font-size: 16px;
+  }
+
+  .dropbtn-assign {
+    width: 360px;
+    font-size: 16px;
+  }
+
+  .input-area textarea {
+    width: 360px;
+  }
+
+  #subtaskList {
+    min-height: 10px;
+    height: 100px;
+  }
+
+  .toggle-buttons {
+    flex-direction: column;
+    margin-left: 0px;
+  }
+
+  .toggle-buttons input[type="radio"] {
+    visibility: hidden;
+    margin-top: -47px;
+  }
+
+  .toggle-buttons label {
+    min-width: 360px;
+  }
+
+  .toggle-buttons input[type="radio"] {
+    visibility: hidden;
+    margin-right: 0px;
   }
 }
 
-@media (min-width: 280px) and (max-width: 440px) {
-  .separator-line {
-    display: none;
+@media (min-width: 280px) and (max-width: 400px) {
+  .dropdown-content {
+    width: 260px;
+    
+  }
+
+  .dropdown-content p {
+    font-size: 16px;
+  }
+
+  .solo-assigned label {
+    display: inline-block;
+    
+    font-size: 12px;
+    width: 100%;
+  }
+  .current-category{
+    height: 60px;
+  }
+  .solo-assigned{
+    height: 60px;
+  }
+
+  .headline {
+    width: 240px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
   }
 
   .kanban-h4 {
-    display: flex;
     font-size: 14px;
   }
 
   .headline h1 {
-    font-size: 44px;
+    font-size: 40px;
+  }
+
+  .input-area {
+    width: 260px;
+  }
+
+  .separator-line {
+    display: none;
+  }
+
+  .kanban-h4 {
+    display: flex;
   }
   .headline {
     margin-left: 0px;
@@ -703,6 +819,7 @@ input[type="radio"]:checked + .prio-label-urgent {
     justify-content: center;
     align-items: center;
     margin-left: 0px;
+    margin-bottom: 50px;
   }
 
   .add-task-board {
@@ -716,6 +833,7 @@ input[type="radio"]:checked + .prio-label-urgent {
 
   .add-task-form {
     margin-bottom: 78px;
+    justify-content: center;
   }
 
   .input-area input {
@@ -735,20 +853,28 @@ input[type="radio"]:checked + .prio-label-urgent {
   .input-area textarea {
     width: 260px;
   }
+
+  #subtaskList {
+    min-height: 10px;
+    height: 100px;
+  }
+
   .toggle-buttons {
     flex-direction: column;
+    margin-left: 0px;
+  }
+
+  .toggle-buttons input[type="radio"] {
+    visibility: hidden;
+    margin-top: -47px;
   }
 
   .toggle-buttons label {
     min-width: 260px;
   }
 
-  .input-area label {
-    font-size: 16px;
-  }
-
   .toggle-buttons input[type="radio"] {
     visibility: hidden;
-    margin-top: -47px;
+    margin-right: 0px;
   }
 }
