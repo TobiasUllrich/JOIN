@@ -128,9 +128,33 @@ function renderAssignedNamesOfTask(index, status, soloStatusArray) {
         let object = getUserAsObject(assUser);
         let objectName = object.name.charAt(0);
         let objectSurname = object.surname.charAt(0);
+
+        if(soloStatusArray[index].assignedTo.length <= 3){
         renderOutputContainer.innerHTML += templateAssignedToOfSoloTask(objectName, objectSurname);
+        } else{
+            // showPlusMark(index, status, soloStatusArray);
+        }
     }
 }
+//############## NOCH IM TEST #################
+function showPlusMark(index, status, soloStatusArray){
+    let renderOutputContainer = document.getElementById(`solo-worker-${status}${index}`);
+    renderOutputContainer.innerHTML = '';
+    let amountAssignedWorker = soloStatusArray[index].assignedTo.length;
+    let shortArrayWorkers = soloStatusArray[index].assignedTo.splice(2, amountAssignedWorker);
+    console.log(shortArrayWorkers);
+
+    for(let x = 0; x < shortArrayWorkers,length; x++){
+        let assUser = shortArrayWorkers.assignedTo[x];
+        let object = getUserAsObject(assUser)
+        let objectName = object.name.charAt(0);
+        let objectSurname = object.surname.charAt(0);
+        renderOutputContainer.innerHTML += templateAssignedToOfSoloTask(objectName, objectSurname);
+    }
+
+    renderOutputContainer.innerHTML += showPlusSign(amountAssignedWorker);
+}
+
 
 /**
  * This function filter all tasks by there status and put them in an seperate array
@@ -799,7 +823,7 @@ function submitCheckbox(idOfCheckbox) {
  */
 
 function checkIfWorkerIsPushable(id) {
-    if (!selectedWorkers.includes(users[id]) && id > 0) {
+    if (!selectedWorkers.includes(users[id]) && id >= 0) {
         selectedWorkers.push(users[id]);
     }
     if (id == '-1') {
@@ -1041,7 +1065,7 @@ function removeDisplayNoneMainContainer(bigBoxContainer) {
 /**
  * This function adds the CSS style "display:flex" when user close the bigger window pop up
  * 
- * @param {string} bigBoxContainer - 
+ * @param {string} bigBoxContainer - this is the bigger window pop up when user clicks on task
  */
 
 function addDisplayNoneMainContainer(bigBoxContainer) {
@@ -1056,4 +1080,4 @@ function addDisplayNoneMainContainer(bigBoxContainer) {
 
  function doNotClose(event) {
     event.stopPropagation();
-}
+ }

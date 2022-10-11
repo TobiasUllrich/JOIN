@@ -231,6 +231,11 @@ function templateAssignedToOfSoloTask(firstName, lastName){
     <div class="worker-name-start-letters d-center">${firstName}${lastName}</div>`
 }
 
+function showPlusSign(amountWorker){
+    return `
+    <div class="worker-name-start-letters d-center bg-black">+ ${amountWorker}</div>`
+}
+
 function templateCurrentWorkersOfTasksBigBox(firstName, lastName, fullName){
     return `
     <div class="solo-worker-big-box"><div class="worker-name-start-letters-edit d-center">${firstName.charAt(0)}${lastName.charAt(0)}</div><div class="edit-worker-fullname">${fullName}</div>`
