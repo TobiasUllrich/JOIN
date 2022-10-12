@@ -133,6 +133,7 @@ function renderAssignedNamesOfTask(index, status, soloStatusArray) {
         if(soloStatusArray[index].assignedTo.length <= 3){
         renderOutputContainer.innerHTML += templateAssignedToOfSoloTask(objectName, objectSurname);
         } else{
+            renderOutputContainer.innerHTML += templateAssignedToOfSoloTask(objectName, objectSurname); // DIESER CODE MUSS WEG
             // showPlusMark(index, status, soloStatusArray);
         }
     }
