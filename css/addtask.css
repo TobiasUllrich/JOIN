@@ -491,6 +491,10 @@ input[type="radio"]:checked + .add-task-color-picker {
   margin-top: 0px;
 }
 
+#placeholder{
+  display: none !important;
+}
+
 .toggle-buttons input:checked + label {
   background: #ebf5d7;
   color: white;

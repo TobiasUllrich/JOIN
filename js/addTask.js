@@ -69,7 +69,7 @@ function rendernTask() {
     subTasks: selectedSubtasks,
     status: "To do",
   };
-  addTask(TASK);
+  // addTask(TASK);
   addedToBoard();
 }
 
@@ -78,8 +78,8 @@ function rendernTask() {
  */
 function addedToBoard() {
   let addedToBoard = document.getElementById('addedToBoard')
-  addedToBoard.classList.toggle('d-none');
   addedToBoard.classList.toggle('added-to-board');
+  addedToBoard.classList.toggle('d-none');
   setTimeout(function () { location.href = "board.html" }, 3000);
 }
 
@@ -136,6 +136,8 @@ function prioChangeColor(idOfPicture) {
  * @param {String} prioStatus - Gibt weiter welches der Prois knöpfe aktiviert wurden
  */
 function selecedPrio(prioStatus) {
+  let prioInput = document.getElementById('prioInput');
+  prioInput.required = false;
   if (prioStatus == 'Urgent') {
     selectedPrio = 'Urgent'
   }
