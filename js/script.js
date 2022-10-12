@@ -270,7 +270,7 @@ function checkifPasswordMatches(email, password) {
  * Sets new password for a specific user-email
  * @param {string} email E-Mail-adress of a specific user
  * @param {string} password New Password to set for the specific user
- * @returns 
+ * @returns true if password has successfully been changed, otherwise false
  */
 async function setPasswordForUser(email, password) {
   let passwordSet = false;

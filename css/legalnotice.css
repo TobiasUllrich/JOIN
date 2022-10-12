@@ -110,7 +110,7 @@ body {
         margin-left: 0;
         margin-top: 80px;
         margin-bottom: 80px;
-        width: 102%;
+        width: 100%;
         padding-left: 0;
         padding-right: 50px;
         overflow-y: scroll;
@@ -144,7 +144,7 @@ body {
         display: flex;
         position: absolute;
         right: calc(90px/2 - 24.66px/2); /*So lassen, weil wenn Schrift 16px ist dann passt es*/
-        top: calc(30px);
+        top: calc(111px);
         height: 24px;
         width: 24.66px;
         cursor: pointer;
@@ -168,7 +168,7 @@ body {
         margin-left: 0;
         margin-top: 80px;
         margin-bottom: 80px;
-        width: 102%;
+        width: 100%;
         padding-left: 0;
         padding-right: 50px;
         overflow-y: scroll;
@@ -202,7 +202,7 @@ body {
         display: flex;
         position: absolute;
         right: calc(90px/2 - 24.66px/2); /*So lassen, weil wenn Schrift 16px ist dann passt es*/
-        top: calc(30px);
+        top: calc(111px);
         height: 24px;
         width: 24.66px;
         cursor: pointer;

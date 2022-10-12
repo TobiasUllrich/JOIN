@@ -1,4 +1,9 @@
 /**
+ * Array which contains colors for users
+ */
+let colors = ['#8aa4ff', '#ff0000', '#2ad300', '#ff8a00', '#e200be', '#0038ff'];
+
+/**
  * Object used if someone logs in as guest
  */
 let guest = {
@@ -8,7 +13,7 @@ let guest = {
     "email": "Guest@nowhere.de",
     "phone": "",
     "password": "none123",
-    "color": "#091931"
+    "color": "#8aa4ff"
 }
 
 /**
@@ -16,15 +21,16 @@ let guest = {
  * @param {string} arrowelement ID of the arrow-element
  * @param {string} containerforwidth ID of container with 100vw (to check if mobile-version is active)
  */
-function setArrow(arrowelement,containerforwidth){
+function setArrow(arrowelement, containerforwidth) {
     let breite = document.getElementById(`${containerforwidth}`).clientWidth;
 
     if (breite < 927) // Mobile
-    {document.getElementById(`${arrowelement}`).src=`img/black-arrow.png`;
+    {
+        document.getElementById(`${arrowelement}`).src = `img/black-arrow.png`;
     }
     else // Desktop
-    {document.getElementById(`${arrowelement}`).src=`img/backarrow-icon.png`;}
-  }
+    { document.getElementById(`${arrowelement}`).src = `img/backarrow-icon.png`; }
+}
 
 /**
  * Logo-Animation in desktop-version OR mobile-version 
@@ -33,13 +39,14 @@ function loginAnimation() {
     let breite = document.getElementById('center-container').clientWidth;
     if (breite < 927) // Mobile
     {
-     document.getElementById('animatedlogo').classList.add('animate-logo-mobile');
-     document.getElementById('animatedlogo-mobile').classList.add('animate-logo'); 
-     document.getElementById('mobilelogo').classList.add('animate-mobile');   
+        document.getElementById('animatedlogo').classList.add('animate-logo-mobile');
+        document.getElementById('animatedlogo-mobile').classList.add('animate-logo');
+        document.getElementById('mobilelogo').classList.add('animate-mobile');
     }
     else // Desktop
-    {document.getElementById('animatedlogo').classList.add('animate-logo');
-     document.getElementById('animatedlogo-mobile').classList.add('animate-logo');
+    {
+        document.getElementById('animatedlogo').classList.add('animate-logo');
+        document.getElementById('animatedlogo-mobile').classList.add('animate-logo');
     }
 }
 
@@ -112,7 +119,7 @@ function showResetPasswordForm() {
  * Lets you login as Guest and redirects you to summary.html
  */
 function loginAsGuest() {
-    setArray ('arrayOfactUser',guest); //Save Guest-User-Object in local Storage
+    setArray('arrayOfactUser', guest); //Save Guest-User-Object in local Storage
     window.location.href = 'summary.html';
 }
 
@@ -137,15 +144,13 @@ function tryLogin() {
     let email = document.getElementById('login-email').value;
     let password = document.getElementById('login-password').value;
 
-    if (checkifEMailexists(email) && checkifPasswordMatches(email, password)) {    
+    if (checkifEMailexists(email) && checkifPasswordMatches(email, password)) {
         let actuser = getUserAsObject(email); //Gets all user data for the specific email in one object
-        setArray ('arrayOfactUser',actuser); //Save User-Object in local Storage
+        setArray('arrayOfactUser', actuser); //Save User-Object in local Storage
         window.location.href = 'summary.html';  //Password & Email correct
     }
-    else if (!checkifEMailexists(email)) 
-    {animateMessage('E-Mail not found!');} //Email incorrect
-    else 
-    {animateMessage('Wrong Password!');} //Password incorrect
+    else if (!checkifEMailexists(email)) { animateMessage('E-Mail not found!'); } //Email incorrect
+    else { animateMessage('Wrong Password!'); } //Password incorrect
 }
 
 /**
@@ -158,7 +163,7 @@ async function trySignup() {
     if (checkifEMailexists(email)) {
         animateMessage('E-Mail already exists!'); //Email already in Database
     }
-    else {    
+    else {
         await addUser(object); //Signed up successfully
         showLoginForm2();
     }
@@ -169,11 +174,12 @@ async function trySignup() {
  * @param {string} email email which wants to signup
  * @returns 
  */
-function createSignupData(email){
+function createSignupData(email) {
     let fullname = document.getElementById('signup-name').value;
-    let name = fullname.slice(0,fullname.indexOf(' '));
-    let surname = fullname.slice(fullname.indexOf(' ')+1,fullname.length);
+    let name = fullname.slice(0, fullname.indexOf(' '));
+    let surname = fullname.slice(fullname.indexOf(' ') + 1, fullname.length);
     let password = document.getElementById('signup-password').value;
+    let color = colors[generateRandomInteger(colors.length-1)];
 
     let object = {
         "name": name,
@@ -182,7 +188,7 @@ function createSignupData(email){
         "email": email,
         "phone": "",
         "password": password,
-        "color": "#091931"
+        "color": color
     }
     return object;
 }
@@ -194,12 +200,11 @@ function tryToSendEmail() {
     let email = document.getElementById('forgotpassword-email').value;
 
     if (checkifEMailexists(email)) { } //Email sent 
-    else 
-    {
+    else {
         animateMessage('E-Mail not found!') //Email not sent
         event.preventDefault();  //<- "action" eines Formulars wird immer nach "onsubmit" ausgeführt
     }                            //<- Über die Funktion die bei "onsubmit" ausgeführt wird, kann man action stoppen
-                                 //<- event.preventDefault(); stoppt eine weitere Verarbeitung des Formulars und damit auch die Ausführung von "action"  
+    //<- event.preventDefault(); stoppt eine weitere Verarbeitung des Formulars und damit auch die Ausführung von "action"  
 }
 
 /**
@@ -212,8 +217,8 @@ function resetPassword() {
 
     let pw1 = document.getElementById('reset-pw').value;
     let pw2 = document.getElementById('reset-pw2').value;
-    
-    tryToResetPassword(email,pw1,pw2);
+
+    tryToResetPassword(email, pw1, pw2);
 }
 
 /**
@@ -222,18 +227,33 @@ function resetPassword() {
  * @param {string} pw1 New Password
  * @param {string} pw2 New Password (confirmation of first Password entered)
  */
-async function tryToResetPassword(email,pw1,pw2){
+async function tryToResetPassword(email, pw1, pw2) {
     if (!email || !checkifEMailexists(email)) //Check if qry contained in URL OR Check if Email exists
     {
-        animateMessage('E-Mail not found!'); 
+        animateMessage('E-Mail not found!');
     }
     else if (pw1 == pw2) //Check if Pws are equal
     {
         await setPasswordForUser(email, pw1);
         resetPwAnimation();
     }
-    else 
-    {
+    else {
         animateMessage('Unequal Passwords!');
     }
+}
+
+/**
+ * Generates & returns a random Integer between 0 and maximum
+ * @param {number} maximum Variable that defines the upper Border for the returned Integer
+ * @returns a random Integer between 0 and maximum
+ */
+function generateRandomInteger(maximum) {
+    let colorindexfound = false;
+    let colorindex;
+    let index = Math.random() * (maximum + 1);
+
+    for (let i = 0; i < (maximum + 1); i++) {
+        if (index < i + 1 && !colorindexfound) { colorindex = i; colorindexfound = true; }
+    }
+    return colorindex;
 }
