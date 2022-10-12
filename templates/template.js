@@ -207,7 +207,7 @@ function templateEditCurrentTask(currentTask, idOfCurrentTask) {
                 <div id="edit-assignedTo-subcontainer" class="edit-assignedTo-subcontainer c-pointer">
                     <div onclick="showCompleteContainer()">Select contacts to assign<img id="dropdown-img" src="./img/board/dropdown.png"><input required class="checkCheckboxes" id="checkCheckboxes"></div>
                     <div id="edit-workers" class="edit-workers d-none">
-                        <div onclick="submitCheckbox('-1')" class="solo-contact"><label>You</label><input name="users" id="checkbox--1" type="checkbox"></div>
+                        <div onclick="submitCheckbox('-1')" class="solo-contact"><label>You</label><input onclick="submitCheckbox('-1')"; name="users" id="checkbox--1" type="checkbox"></div>
                     </div>
                 </div>
             </div>   
@@ -223,7 +223,7 @@ function templateEditCurrentTask(currentTask, idOfCurrentTask) {
 
 function templateShowAllWorkers(indexOfUsers, userName) {
     return `
-    <div onclick="submitCheckbox(${indexOfUsers})" class="solo-contact"><label>${userName}</label><input name="users" id="checkbox-${indexOfUsers}" type="checkbox"></div>`
+    <div onclick="submitCheckbox(${indexOfUsers})" class="solo-contact"><label>${userName}</label><input onclick="submitCheckbox(${indexOfUsers})" name="users" id="checkbox-${indexOfUsers}" type="checkbox"></div>`
 }
 
 function templateAssignedToOfSoloTask(firstName, lastName){
@@ -261,7 +261,7 @@ function templateCurrentWorkersOfTasksBigBox(firstName, lastName, fullName){
 
 function userInAssignedHTML(userName, indexOfUsers) {
     return /*html*/`
-    <div onclick="assingCheckbox(${indexOfUsers})" class="solo-assigned"><label>${userName}</label><input onclick="assingCheckbox(${indexOfUsers})" name="users" id="checkbox-${indexOfUsers}" type="checkbox"></div>`
+    <div onclick="assingCheckbox(${indexOfUsers})" class="solo-assigned"><label>${userName}</label><input onclick="assingCheckbox(${indexOfUsers})" name="users" id="checkboxUNBENENNEN-${indexOfUsers}" type="checkbox"></div>`
 }
 
 

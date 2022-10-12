@@ -7,6 +7,7 @@ let currentDraggingElement;
 let editNewPrio;
 let assignedPeople = [];
 let selectedWorkers = [];
+let selectedWorkersEmail = [];
 let loggedUser = getArray('arrayOfactUser');
 
 /**
@@ -544,23 +545,10 @@ function allowDrop(ev) {
  */
 
 function moveTo(newStatus) {
-    if (newStatus == 'To do') {
         tasks[currentDraggingElement].status = newStatus;
-        changeTaskAttribute(currentDraggingElement,'status',newStatus);
-    }
-    if (newStatus == 'In progress') {
-        tasks[currentDraggingElement].status = newStatus;
-        changeTaskAttribute(currentDraggingElement,'status',newStatus);
-    }
-    if (newStatus == 'Awaiting feedback') {
-        tasks[currentDraggingElement].status = newStatus;
-        changeTaskAttribute(currentDraggingElement,'status',newStatus);
-    }
-    if (newStatus == 'Done') {
-        tasks[currentDraggingElement].status = newStatus;
-        changeTaskAttribute(currentDraggingElement,'status',newStatus);
-    }
-    renderBoard();
+        changeTaskAttribute(currentDraggingElement, 'status', newStatus);
+        filterTasks();
+        renderBoard();
 }
 
 /**
@@ -799,6 +787,9 @@ function submitChanges(idOfCurrentTask) {
     updateTaskArray(idOfCurrentTask, newTitle, newDescription, newDate, newPrio);
     setRequiredToDefault();
     editNewPrio = '';
+    selectedWorkers = [];
+    selectedWorkersEmail = [];
+    renderBoard();
 }
 
 /**
@@ -829,10 +820,12 @@ function submitCheckbox(idOfCheckbox) {
 function checkIfWorkerIsPushable(id) {
     if (!selectedWorkers.includes(users[id]) && id >= 0) {
         selectedWorkers.push(users[id]);
+        selectedWorkersEmail.push(users[id].email)
     }
     if (id == '-1') {
         if (!selectedWorkers.includes(loggedUser)) {
             selectedWorkers.push(loggedUser);
+            selectedWorkersEmail.push(loggedUser.email);
         }
     }
 }
@@ -847,9 +840,11 @@ function checkIfWorkerIsRemoveable(id) {
     for (let p = 0; p < selectedWorkers.length; p++) {
         if (selectedWorkers[p] === users[id]) {
             selectedWorkers.splice(p, 1);
+            selectedWorkersEmail.splice(p, 1);
         }
         if (selectedWorkers[p] == loggedUser) {
             selectedWorkers.splice(p, 1);
+            selectedWorkersEmail.splice(p, 1);
         }
     }
 }
@@ -922,7 +917,7 @@ function updateTaskArray(taskId, title, description, date, prio) {
     object['description']=description;
     object['dueDate']=date;
     object['priority']=prio;
-    // object['assignedTo']=['email1@web.de', email2, email3];
+    object['assignedTo']= selectedWorkersEmail;
     changeTask(object);
 
     // tasks[taskId].title = title;
