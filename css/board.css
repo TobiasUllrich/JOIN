@@ -9,6 +9,11 @@ body {
   transition: all 225ms ease-in-out;
 }
 
+.bg-black{
+  background: black !important;
+  color: white !important;
+}
+
 .reset-rotation {
   transform: rotate(0deg);
   transition: all 225ms ease-in-out;
@@ -614,8 +619,9 @@ body {
   color: black;
   display: flex;
   justify-content: space-evenly;
-  align-items: center;
   position: relative;
+  height: 45px;
+  align-items: center;
 }
 
 .edit-prioclass:hover {
@@ -637,6 +643,11 @@ body {
   opacity: 0;
   z-index: -1;
   position: absolute;
+  top: 0px;
+}
+
+.edit-prioclass label{
+  margin: 0px;
 }
 
 .close-edit-container {

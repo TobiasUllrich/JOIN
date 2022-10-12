@@ -128,9 +128,33 @@ function renderAssignedNamesOfTask(index, status, soloStatusArray) {
         let object = getUserAsObject(assUser);
         let objectName = object.name.charAt(0);
         let objectSurname = object.surname.charAt(0);
+
+        if(soloStatusArray[index].assignedTo.length <= 3){
         renderOutputContainer.innerHTML += templateAssignedToOfSoloTask(objectName, objectSurname);
+        } else{
+            // showPlusMark(index, status, soloStatusArray);
+        }
     }
 }
+//############## NOCH IM TEST #################
+function showPlusMark(index, status, soloStatusArray){
+    let renderOutputContainer = document.getElementById(`solo-worker-${status}${index}`);
+    renderOutputContainer.innerHTML = '';
+    let amountAssignedWorker = soloStatusArray[index].assignedTo.length;
+    let shortArrayWorkers = soloStatusArray[index].assignedTo.splice(2, amountAssignedWorker);
+    console.log(shortArrayWorkers);
+
+    for(let x = 0; x < shortArrayWorkers,length; x++){
+        let assUser = shortArrayWorkers.assignedTo[x];
+        let object = getUserAsObject(assUser)
+        let objectName = object.name.charAt(0);
+        let objectSurname = object.surname.charAt(0);
+        renderOutputContainer.innerHTML += templateAssignedToOfSoloTask(objectName, objectSurname);
+    }
+
+    renderOutputContainer.innerHTML += showPlusSign(amountAssignedWorker);
+}
+
 
 /**
  * This function filter all tasks by there status and put them in an seperate array
@@ -143,26 +167,6 @@ function filterTasks() {
     soloTasksProgress = tasks.filter(status => status.status == 'In progress'); // All tasks in progress
     soloTasksFeedback = tasks.filter(status => status.status == 'Awaiting feedback'); // All tasks feedback
     soloTasksDone = tasks.filter(status => status.status == 'Done'); // All tasks done
-}
-
-/**
- * Here is it possible to add an task in the board.html
- * 
- */
-
-function addTaskBoard() {
-    let addTaskContainer = document.getElementById('main-add-task-container');
-    removeDisplayNoneMainContainer(addTaskContainer);
-}
-
-/**
- * This function close the add task container
- * 
- */
-
-function closeAddTaskContainer() {
-    let addTaskContainer = document.getElementById('main-add-task-container');
-    addDisplayNoneMainContainer(addTaskContainer);
 }
 
 /**
@@ -192,7 +196,7 @@ function openCurrentTaskBigBox(indexOfSoloTask, statusTask, categorycolor) {
  * @param {number} indexOfSoloTask - this is the index of clicked task
  */
 
-function checkStatusOfTask(statusTask, bigBoxContainer, indexOfSoloTask) {
+function checkStatusOfTask(statusTask, bigBoxContainer, indexOfSoloTask) { 
     if (statusTask == 'to do') {
         bigBoxContainer.innerHTML = templateBigBoxSoloTask(soloTasksTodo, indexOfSoloTask);
     } else {
@@ -200,7 +204,7 @@ function checkStatusOfTask(statusTask, bigBoxContainer, indexOfSoloTask) {
             bigBoxContainer.innerHTML = templateBigBoxSoloTask(soloTasksProgress, indexOfSoloTask);
         } else {
             if (statusTask == 'awaiting feedback') {
-                bigBoxContainer.innerHTML = templateBigBoxSoloTask(soloTasksFeedback, indexOfSoloTask);
+                bigBoxContainer.innerHTML = templateBigBoxSoloTask(soloTasksFeedback, indexOfSoloTask); // soloTasksFeedback
             } else {
                 if (statusTask == 'done') {
                     bigBoxContainer.innerHTML = templateBigBoxSoloTask(soloTasksDone, indexOfSoloTask);
@@ -211,28 +215,13 @@ function checkStatusOfTask(statusTask, bigBoxContainer, indexOfSoloTask) {
 }
 
 /**
- * In this function the user have the opportunity to edit the clicked task and run the HTML Template
- * 
- * @param {number} idOfCurrentTask - this is the index of clicked task
- */
-
-function editCurrentTask(idOfCurrentTask) {
-    let currentTask = tasks[idOfCurrentTask];
-
-    let bigBoxContainer = document.getElementById('big-box-solo-task');
-    bigBoxContainer.innerHTML = '';
-
-    bigBoxContainer.innerHTML = templateEditCurrentTask(currentTask, idOfCurrentTask);
-}
-
-/**
  * This function render the people who works on the clicked task in bigger window
  * 
  * @param {number} indexOfTask - this is the index of clicked task 
  * @param {string} statusOfTask - this string means in which status the clicked task is
  */
 
-function showCurrentWorkersBigBox(indexOfTask, statusOfTask) {
+ function showCurrentWorkersBigBox(indexOfTask, statusOfTask) {
     if (statusOfTask == 'todo') {
         renderCurrentWorkersBigBox(indexOfTask, soloTasksTodo);
     }
@@ -264,6 +253,48 @@ function renderCurrentWorkersBigBox(indexOfTask, statusTasksArray) {
         let objectSurname = object.surname;
         currentTaskWorkers.innerHTML += templateCurrentWorkersOfTasksBigBox(objectName, objectSurname, objectName);
     }
+}
+
+/**
+ * This function add the hex color code from task array (categorycolor) to the headline background when user opens the clicked task in bigger window
+ * 
+ * @param {hex} categorycolor 
+ */
+
+function checkHeadlineColorBigBox(categorycolor) {
+    let bigBoxHeadlineContainer = document.getElementById('big-box-task-headline');
+    bigBoxHeadlineContainer.style = `background:${categorycolor}`;
+}
+
+/**
+ * This function runs when user clicked a task to open in bigger window and checks in which prio the task is and add the suitable color to the background of prio container 
+ * 
+ */
+
+function checkPriorityBackgroundColor() {
+    let prioBackgroundColor = document.getElementById('priority-big-box-color');
+
+    if (prioBackgroundColor.innerHTML == 'Urgent') {
+        prioBackgroundColor.style.background = '#ff5520';
+    }
+    if (prioBackgroundColor.innerHTML == 'Low') {
+        prioBackgroundColor.style.background = '#7ae229';
+    }
+    if (prioBackgroundColor.innerHTML == 'Medium') {
+        prioBackgroundColor.style.background = '#ffc85f';
+    }
+}
+
+/**
+ * This function close the bigger window pop up when the user open it 
+ * 
+ */
+
+ function closeSoloTaskBigBox() {
+    let bigBoxContainer = document.getElementById('main-bigbox-solo-task-container');
+    addDisplayNoneMainContainer(bigBoxContainer);
+    setOpacityBackgroundToNormal();
+    removeUnclickableBackground();
 }
 
 /**
@@ -330,54 +361,12 @@ function checkStatusOfTaskOnSearch(statusTask, bigBoxContainer, indexOfSoloTask)
 }
 
 /**
- * This function close the bigger window pop up when the user open it 
- * 
- */
-
-function closeSoloTaskBigBox() {
-    let bigBoxContainer = document.getElementById('main-bigbox-solo-task-container');
-    addDisplayNoneMainContainer(bigBoxContainer);
-    setOpacityBackgroundToNormal();
-    removeUnclickableBackground();
-}
-
-/**
- * This function add the hex color code from task array (categorycolor) to the headline background when user opens the clicked task in bigger window
- * 
- * @param {hex} categorycolor 
- */
-
-function checkHeadlineColorBigBox(categorycolor) {
-    let bigBoxHeadlineContainer = document.getElementById('big-box-task-headline');
-    bigBoxHeadlineContainer.style = `background:${categorycolor}`;
-}
-
-/**
- * This function runs when user clicked a task to open in bigger window and checks in which prio the task is and add the suitable color to the background of prio container 
- * 
- */
-
-function checkPriorityBackgroundColor() {
-    let prioBackgroundColor = document.getElementById('priority-big-box-color');
-
-    if (prioBackgroundColor.innerHTML == 'Urgent') {
-        prioBackgroundColor.style.background = '#ff5520';
-    }
-    if (prioBackgroundColor.innerHTML == 'Low') {
-        prioBackgroundColor.style.background = '#7ae229';
-    }
-    if (prioBackgroundColor.innerHTML == 'Medium') {
-        prioBackgroundColor.style.background = '#ffc85f';
-    }
-}
-
-/**
  * This function gets the user value of the inputfield and iterate the task array after that the function "checkTermsOfSearch" runs 
  * 
  * @param {string} idOfInputfield - This is the id of the search - inputfield 
  */
 
-function searchTask(idOfInputfield) {
+ function searchTask(idOfInputfield) {
     let userSearch = document.getElementById(`${idOfInputfield}`).value.toLowerCase();
 
     for (let m = 0; m < tasks.length; m++) {
@@ -571,13 +560,57 @@ function moveTo(newStatus) {
 }
 
 /**
- * This function stops Progagation when user click on background
+ * This function starts a rotation animation when user wants to drag a task
  * 
- * @param {event} event - adds default stopProgagation function 
+ * @param {string} status - this string means which current status the dragged element has
+ * @param {number} index - this is the index of tasks which is going to be dragged
  */
 
-function doNotClose(event) {
-    event.stopPropagation();
+ function dragHighlight(status, index) {
+    document.getElementById(`${status}-task${index}`).classList.add('rotation');
+}
+
+/**
+ * When the user starts to drag a task this function showing possible drop-places by removing CSS style "display:none"
+ * 
+ * @param {string} otherStatusOne - this is one of three possible drop places
+ * @param {string} otherStatusTwo - this is one of three possible drop places
+ * @param {string} otherStatusThree - this is one of three possible drop places
+ */
+
+ function showEmptyPlaces(otherStatusOne, otherStatusTwo, otherStatusThree) {
+    document.getElementById(`empty-space-${otherStatusOne}`).classList.remove('d-none');
+    document.getElementById(`empty-space-${otherStatusTwo}`).classList.remove('d-none');
+    document.getElementById(`empty-space-${otherStatusThree}`).classList.remove('d-none');
+}
+
+/**
+ * When user drops a task in other status-container the possible empty places are hidden again
+ * 
+ * @param {string} otherStatusOne - this is one of three possible drop places which is getting the style "display: none" again
+ * @param {string} otherStatusTwo - this is one of three possible drop places which is getting the style "display: none" again
+ * @param {string} otherStatusThree - this is one of three possible drop places which is getting the style "display: none" again
+ */
+
+function hideEmptyPlaces(otherStatusOne, otherStatusTwo, otherStatusThree) {
+    document.getElementById(`empty-space-${otherStatusOne}`).classList.add('d-none');
+    document.getElementById(`empty-space-${otherStatusTwo}`).classList.add('d-none');
+    document.getElementById(`empty-space-${otherStatusThree}`).classList.add('d-none');
+}
+
+/**
+ * In this function the user have the opportunity to edit the clicked task and run the HTML Template
+ * 
+ * @param {number} idOfCurrentTask - this is the index of clicked task
+ */
+
+ function editCurrentTask(idOfCurrentTask) {
+    let currentTask = tasks[idOfCurrentTask];
+
+    let bigBoxContainer = document.getElementById('big-box-solo-task');
+    bigBoxContainer.innerHTML = '';
+
+    bigBoxContainer.innerHTML = templateEditCurrentTask(currentTask, idOfCurrentTask);
 }
 
 /**
@@ -609,141 +642,6 @@ function RemoveEditContainerColors(indexOfSoloTask) {
 }
 
 /**
- * This function makes the background of container blue
- * 
- * @param {id} container - id of container which is going to be blue
- */
-
-function makeContainerBlue(container) {
-    container.style.background = '#29ABE2';
-}
-
-/**
- * This function removes the backgroundcolor blue of container
- * 
- * @param {id} container - id of container which backgroundcolor should be removed
- */
-
-function removeContainerColorBlue(container) {
-    container.style.background = '#2a3647';
-}
-
-/**
- * This function changes the color of image to white
- * 
- * @param {id} image - this is the id of image which is going the get a new color to white
- */
-
-function makeImgWhite(image) {
-    image.style.filter = 'filter: brightness(0) invert(1)';
-}
-
-/**
- * This function set image color to default 
- * 
- * @param {id} image - this is the id of image which get default color again
- */
-
-function makeImageColorDefault(image) {
-    image.style.filter = 'filter: brightness(0) invert(1)';
-}
-
-/**
- * This function adds opacity to background when clicked task is open in bigger window
- * 
- */
-
-function addOpacityToMainBackground() {
-    document.getElementById('main-board-container').style.opacity = '0.6';
-}
-
-/**
- * This function makes the background unclickable when clicked task is open in bigger window
- * 
- */
-
-function backgroundIsUnclickable() {
-    document.getElementById('main-board-container').style.pointerEvents = 'none';
-}
-
-/**
- * This function sets the background opacity to default wehen user close the bigger window pop up by clicking on an task
- * 
- */
-
-function setOpacityBackgroundToNormal() {
-    document.getElementById('main-board-container').style.opacity = '1.0';
-}
-
-/**
- * This function makes the background clickable again wehen user close the bigger window pop up by clicking on an task
- * 
- */
-
-function removeUnclickableBackground() {
-    document.getElementById('main-board-container').style.pointerEvents = 'all';
-}
-
-/**
- * This function removes the CSS style "display:none" when user click on task
- * 
- * @param {string} bigBoxContainer - this is the bigger window pop up when user clicks on task
- */
-
-function removeDisplayNoneMainContainer(bigBoxContainer) {
-    bigBoxContainer.classList.remove('d-none');
-}
-
-/**
- * This function adds the CSS style "display:flex" when user close the bigger window pop up
- * 
- * @param {string} bigBoxContainer - 
- */
-
-function addDisplayNoneMainContainer(bigBoxContainer) {
-    bigBoxContainer.classList.add('d-none');
-}
-
-/**
- * This function starts a rotation animation when user wants to drag a task
- * 
- * @param {string} status - this string means which current status the dragged element has
- * @param {number} index - this is the index of tasks which is going to be dragged
- */
-
-function dragHighlight(status, index) {
-    document.getElementById(`${status}-task${index}`).classList.add('rotation');
-}
-
-/**
- * When the user starts to drag a task this function showing possible drop-places by removing CSS style "display:none"
- * 
- * @param {string} otherStatusOne - this is one of three possible drop places
- * @param {string} otherStatusTwo - this is one of three possible drop places
- * @param {string} otherStatusThree - this is one of three possible drop places
- */
-
-function showEmptyPlaces(otherStatusOne, otherStatusTwo, otherStatusThree) {
-    document.getElementById(`empty-space-${otherStatusOne}`).classList.remove('d-none');
-    document.getElementById(`empty-space-${otherStatusTwo}`).classList.remove('d-none');
-    document.getElementById(`empty-space-${otherStatusThree}`).classList.remove('d-none');
-}
-
-/**
- * When user drops a task in other status-container the possible empty places are hidden again
- * 
- * @param {string} otherStatusOne - this is one of three possible drop places which is getting the style "display: none" again
- * @param {string} otherStatusTwo - this is one of three possible drop places which is getting the style "display: none" again
- * @param {string} otherStatusThree - this is one of three possible drop places which is getting the style "display: none" again
- */
-
-function hideEmptyPlaces(otherStatusOne, otherStatusTwo, otherStatusThree) {
-    document.getElementById(`empty-space-${otherStatusOne}`).classList.add('d-none');
-    document.getElementById(`empty-space-${otherStatusTwo}`).classList.add('d-none');
-    document.getElementById(`empty-space-${otherStatusThree}`).classList.add('d-none');
-}
-
-/**
  * This function close the edit container by adding CSS style "display:none"
  * 
  * 
@@ -762,15 +660,12 @@ function closeEditContainer() {
 function changePrioTo(newPrio) {
     if (newPrio == 'Urgent') {
         changePrioToUrgent();
-        editNewPrio = 'Urgent'
     }
     if (newPrio == 'Medium') {
         changePrioToMedium();
-        editNewPrio = 'Medium'
     }
     if (newPrio == 'Low') {
         changePrioToLow();
-        editNewPrio = 'Low'
     }
 }
 
@@ -780,6 +675,8 @@ function changePrioTo(newPrio) {
  */
 
 function changePrioToUrgent() {
+    editNewPrio = 'Urgent';
+    removeRequiredValidation();
     highlightClickedPrioContainer('urgent');
     removePossibleClickedPrioBefore('medium', 'low');
     removeImgFilter('medium');
@@ -792,6 +689,8 @@ function changePrioToUrgent() {
  */
 
 function changePrioToMedium() {
+    editNewPrio = 'Medium';
+    removeRequiredValidation();
     highlightClickedPrioContainer('medium');
     removePossibleClickedPrioBefore('urgent', 'low');
     removeImgFilter('urgent');
@@ -804,10 +703,36 @@ function changePrioToMedium() {
  */
 
 function changePrioToLow() {
+    editNewPrio = 'Low';
+    removeRequiredValidation();
     highlightClickedPrioContainer('low');
     removePossibleClickedPrioBefore('urgent', 'medium');
     removeImgFilter('urgent');
     removeImgFilter('medium');
+}
+
+/**
+ * This function removes the required attribut when user choose one prio 
+ * 
+ */
+
+ function removeRequiredValidation(){
+    if(editNewPrio.length > 0){
+        document.getElementById('change-prio-urgent').required = false;
+        document.getElementById('change-prio-medium').required = false;
+        document.getElementById('change-prio-low').required = false;
+    } 
+}
+
+/**
+ * this function sets the form validation of piro buttons to default after submit changes
+ * 
+ */
+
+function setRequiredToDefault(){
+    document.getElementById('change-prio-urgent').required = true;
+    document.getElementById('change-prio-medium').required = true;
+    document.getElementById('change-prio-low').required = true;
 }
 
 /**
@@ -868,6 +793,8 @@ function submitChanges(idOfCurrentTask) {
     let newDate = document.getElementById('edit-date').value;  // Wird falschherum dargestellt d.h. 2022-09-03
     let newPrio = editNewPrio;
     updateTaskArray(idOfCurrentTask, newTitle, newDescription, newDate, newPrio);
+    setRequiredToDefault();
+    editNewPrio = '';
 }
 
 /**
@@ -896,7 +823,7 @@ function submitCheckbox(idOfCheckbox) {
  */
 
 function checkIfWorkerIsPushable(id) {
-    if (!selectedWorkers.includes(users[id]) && id > 0) {
+    if (!selectedWorkers.includes(users[id]) && id >= 0) {
         selectedWorkers.push(users[id]);
     }
     if (id == '-1') {
@@ -1004,7 +931,6 @@ function renderNewWorkers(taskId) {
     tasks[taskId].assignedTo = [];
     for (let w = 0; w < selectedWorkers.length; w++) {
         const selectedWorker = selectedWorkers[w].email;
-        console.log(selectedWorker);
 
         tasks[taskId].assignedTo.push(selectedWorker);
     }
@@ -1029,3 +955,129 @@ function showAlert() {
 function hideAlert() {
     document.getElementById('succes-alert').classList.add('d-none');
 }
+
+/**
+ * Here is it possible to add an task in the board.html
+ * 
+ */
+
+ function addTaskBoard() {
+    let addTaskContainer = document.getElementById('main-add-task-container');
+    removeDisplayNoneMainContainer(addTaskContainer);
+}
+
+/**
+ * This function close the add task container
+ * 
+ */
+
+function closeAddTaskContainer() {
+    let addTaskContainer = document.getElementById('main-add-task-container');
+    addDisplayNoneMainContainer(addTaskContainer);
+}
+
+/**
+ * This function makes the background of container blue
+ * 
+ * @param {id} container - id of container which is going to be blue
+ */
+
+ function makeContainerBlue(container) {
+    container.style.background = '#29ABE2';
+}
+
+/**
+ * This function removes the backgroundcolor blue of container
+ * 
+ * @param {id} container - id of container which backgroundcolor should be removed
+ */
+
+function removeContainerColorBlue(container) {
+    container.style.background = '#2a3647';
+}
+
+/**
+ * This function changes the color of image to white
+ * 
+ * @param {id} image - this is the id of image which is going the get a new color to white
+ */
+
+function makeImgWhite(image) {
+    image.style.filter = 'filter: brightness(0) invert(1)';
+}
+
+/**
+ * This function set image color to default 
+ * 
+ * @param {id} image - this is the id of image which get default color again
+ */
+
+function makeImageColorDefault(image) {
+    image.style.filter = 'filter: brightness(0) invert(1)';
+}
+
+/**
+ * This function adds opacity to background when clicked task is open in bigger window
+ * 
+ */
+
+function addOpacityToMainBackground() {
+    document.getElementById('main-board-container').style.opacity = '0.6';
+}
+
+/**
+ * This function makes the background unclickable when clicked task is open in bigger window
+ * 
+ */
+
+function backgroundIsUnclickable() {
+    document.getElementById('main-board-container').style.pointerEvents = 'none';
+}
+
+/**
+ * This function sets the background opacity to default wehen user close the bigger window pop up by clicking on an task
+ * 
+ */
+
+function setOpacityBackgroundToNormal() {
+    document.getElementById('main-board-container').style.opacity = '1.0';
+}
+
+/**
+ * This function makes the background clickable again wehen user close the bigger window pop up by clicking on an task
+ * 
+ */
+
+function removeUnclickableBackground() {
+    document.getElementById('main-board-container').style.pointerEvents = 'all';
+}
+
+/**
+ * This function removes the CSS style "display:none" when user click on task
+ * 
+ * @param {string} bigBoxContainer - this is the bigger window pop up when user clicks on task
+ */
+
+function removeDisplayNoneMainContainer(bigBoxContainer) {
+    bigBoxContainer.classList.remove('d-none');
+}
+
+/**
+ * This function adds the CSS style "display:flex" when user close the bigger window pop up
+ * 
+ * @param {string} bigBoxContainer - this is the bigger window pop up when user clicks on task
+ */
+
+function addDisplayNoneMainContainer(bigBoxContainer) {
+    bigBoxContainer.classList.add('d-none');
+}
+
+/**
+ * This function stops Progagation when user click on background
+ * 
+ * @param {event} event - adds default stopProgagation function 
+ */
+
+ function doNotClose(event) {
+    event.stopPropagation();
+ }

@@ -95,24 +95,24 @@ function templateOfTaskDone(taskDone, l) {
 </div>`
 }
 
-function templateBigBoxSoloTask(soloTasks, indexOfSoloTask) {
+function templateBigBoxSoloTask(soloTasksArray ,indexOfSoloTask) { // soloTasksFeedback // 3 
     return `
     <div id="big-box-solo-task" class="main-big-box-task-container">
         <div onclick="closeSoloTaskBigBox(${indexOfSoloTask})" class="close-big-box-task c-pointer"><img class="close-task" src="./img/board/close.png"><img class="close-task-phone" src="img/board/back_phone.png"></div>
         <div id="big-box-task-headline" class="big-box-task-headline">
-            <div><h4 class="d-center" id="big-box-headline">${soloTasks[indexOfSoloTask].category}</h4></div>
+            <div><h4 class="d-center" id="big-box-headline">${soloTasksArray[indexOfSoloTask].category}</h4></div>
         </div>
         <div class="big-box-task-title">
-            <span><h2>${soloTasks[indexOfSoloTask].title}</h2></span>
+            <span><h2>${soloTasksArray[indexOfSoloTask].title}</h2></span>
         </div>
         <div class="big-box-task-description">
-            <span>${soloTasks[indexOfSoloTask].description}</span>
+            <span>${soloTasksArray[indexOfSoloTask].description}</span>
         </div>
         <div class="big-box-task-date">
             <table>
                 <tr>
                     <td>Due date:</td>
-                    <td>${soloTasks[indexOfSoloTask].dueDate}</td>
+                    <td>${soloTasksArray[indexOfSoloTask].dueDate}</td>
                 </tr>
             </table>
         </div>
@@ -120,7 +120,7 @@ function templateBigBoxSoloTask(soloTasks, indexOfSoloTask) {
             <table>
                 <tr>
                     <td>Priority:</td>
-                    <td id="priority-big-box-color">${soloTasks[indexOfSoloTask].priority}</td>
+                    <td id="priority-big-box-color">${soloTasksArray[indexOfSoloTask].priority}</td>
                 </tr>
             </table>
         </div>
@@ -131,7 +131,7 @@ function templateBigBoxSoloTask(soloTasks, indexOfSoloTask) {
             <div id="current-workers" class="assigned-to-workers">
             </div>
         </div>
-        <div onclick="editCurrentTask(${soloTasks[indexOfSoloTask].id}); showAllPossibleWorkers();" id="edit-button${indexOfSoloTask}" onmouseover="changeEditContainerColors(${indexOfSoloTask})" onmouseleave="RemoveEditContainerColors(${indexOfSoloTask})" class="edit-button d-center c-pointer"><img id="edit-pencil${indexOfSoloTask}" src="./img/board/pencil.png"></div>
+        <div onclick="editCurrentTask(${soloTasksArray[indexOfSoloTask].id}); showAllPossibleWorkers();" id="edit-button${indexOfSoloTask}" onmouseover="changeEditContainerColors(${indexOfSoloTask})" onmouseleave="RemoveEditContainerColors(${indexOfSoloTask})" class="edit-button d-center c-pointer"><img id="edit-pencil${indexOfSoloTask}" src="./img/board/pencil.png"></div>
     </div>`
 }
 
@@ -182,19 +182,19 @@ function templateEditCurrentTask(currentTask, idOfCurrentTask) {
                 <h3>Prio</h3>
                 <div class="edit-prio-subcontainer">
 
-                    <div id="prio-urgent-container" class="edit-prioclass c-pointer">
+                    <div onclick="changePrioTo(['Urgent'])" id="prio-urgent-container" class="edit-prioclass c-pointer">
                         <input required type="radio" id="change-prio-urgent" name="prioclass" value="Urgent">
-                        <label class="d-cemter c-pointer" for="change-prio-urgent" id="urgent-prio" onclick="changePrioTo(['Urgent'])" class="prio-label-urgent" for="urgent">Urgent<img id="urgent-img" src="./img/board/urgent-addtask.png"></label>
+                        <div class="d-cemter c-pointer" for="change-prio-urgent" id="urgent-prio" class="prio-label-urgent" for="urgent">Urgent<img id="urgent-img" src="./img/board/urgent-addtask.png"></div>
                     </diV>
     
-                    <div id="prio-medium-container" class="edit-prioclass c-pointer">
+                    <div onclick="changePrioTo(['Medium'])" id="prio-medium-container" class="edit-prioclass c-pointer">
                         <input required type="radio" id="change-prio-medium" name="prioclass" value="Medium">
-                        <label class="d-cemter c-pointer" for="change-prio-medium" id="medium-prio" onclick="changePrioTo(['Medium'])" class="prio-label-medium" for="medium">Medium<img id="medium-img" src="./img/board/medium-addtask.png"></label>
+                        <div class="d-cemter c-pointer" for="change-prio-medium" id="medium-prio" class="prio-label-medium" for="medium">Medium<img id="medium-img" src="./img/board/medium-addtask.png"></div>
                     </diV>
     
-                    <div id="prio-low-container" class="edit-prioclass c-pointer">
+                    <div onclick="changePrioTo(['Low'])" id="prio-low-container" class="edit-prioclass c-pointer">
                         <input required type="radio" id="change-prio-low" name="prioclass" value="Low">
-                        <label class="d-cemter c-pointer" for="change-prio-low" id="low-prio" onclick="changePrioTo(['Low'])" class="prio-label-low" for="low">Low<img id="low-img" src="./img/board/low-addtask.png"></label>
+                        <div class="d-cemter c-pointer" for="change-prio-low" id="low-prio" class="prio-label-low" for="low">Low<img id="low-img" src="./img/board/low-addtask.png"></div>
                     </div>
                 </div>
             </div>
@@ -229,6 +229,11 @@ function templateShowAllWorkers(indexOfUsers, userName) {
 function templateAssignedToOfSoloTask(firstName, lastName){
     return `
     <div class="worker-name-start-letters d-center">${firstName}${lastName}</div>`
+}
+
+function showPlusSign(amountWorker){
+    return `
+    <div class="worker-name-start-letters d-center bg-black">+ ${amountWorker}</div>`
 }
 
 function templateCurrentWorkersOfTasksBigBox(firstName, lastName, fullName){
