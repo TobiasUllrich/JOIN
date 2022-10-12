@@ -721,7 +721,7 @@ function changePrioToLow() {
  * 
  */
 
-function setRequiredToDefault(){
+async function setRequiredToDefault(){
     document.getElementById('change-prio-urgent').required = true;
     document.getElementById('change-prio-medium').required = true;
     document.getElementById('change-prio-low').required = true;
@@ -779,17 +779,26 @@ function showCompleteContainer() {
  * @param {number} idOfCurrentTask - index of current clicked task  
  */
 
-function submitChanges(idOfCurrentTask) {
+async function submitChanges(idOfCurrentTask) {
     let newTitle = document.getElementById('edit-title').value;
     let newDescription = document.getElementById('edit-description').value;
     let newDate = document.getElementById('edit-date').value;  // Wird falschherum dargestellt d.h. 2022-09-03
     let newPrio = editNewPrio;
-    updateTaskArray(idOfCurrentTask, newTitle, newDescription, newDate, newPrio);
-    setRequiredToDefault();
+    await updateTaskArray(idOfCurrentTask, newTitle, newDescription, newDate, newPrio);
+    await setRequiredToDefault();
+    await resetAllArraysAndParameters();
+    loadInit();
+}
+
+/**
+ * This function resets all used arrays and parameters to default
+ * 
+ */
+
+async function resetAllArraysAndParameters(){
     editNewPrio = '';
     selectedWorkers = [];
     selectedWorkersEmail = [];
-    renderBoard();
 }
 
 /**
@@ -910,39 +919,18 @@ function clearPlaceholder(inputfield, newPlaceholder, oldPlaceholder) {
  * @param {string} prio - new task prio
  */
 
-function updateTaskArray(taskId, title, description, date, prio) {
+async function updateTaskArray(taskId, title, description, date, prio) {
 
     let object = tasks[taskId];
-    object['title']=title;
-    object['description']=description;
-    object['dueDate']=date;
-    object['priority']=prio;
+    object['title']= title;
+    object['description']= description;
+    object['dueDate']= date;
+    object['priority']= prio;
     object['assignedTo']= selectedWorkersEmail;
-    changeTask(object);
-
-    // tasks[taskId].title = title;
-    // tasks[taskId].description = description;
-    // tasks[taskId].dueDate = date;
-    // tasks[taskId].priority = prio;
-    renderNewWorkers(taskId);
+    await changeTask(object);
+    renderBoard();
     closeEditContainer();
     showAlert();
-}
-
-/**
- * This function clears the assigned to array from current task after submit the change button in task edit overview and fills the array with the new email adresses of new worker
- * 
- * @param {number} taskId - index of current task 
- */
-
-function renderNewWorkers(taskId) {
-    tasks[taskId].assignedTo = [];
-    for (let w = 0; w < selectedWorkers.length; w++) {
-        const selectedWorker = selectedWorkers[w].email;
-
-        tasks[taskId].assignedTo.push(selectedWorker);
-    }
-    renderBoard();
 }
 
 /**
