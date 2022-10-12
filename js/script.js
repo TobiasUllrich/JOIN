@@ -199,7 +199,7 @@ async function init() {
 
 /**
  * Gives you all user-data for an e-mail
- * @param {*} email E-Mail-adress to search for in the users-array
+ * @param {string} email E-Mail-adress to search for in the users-array
  * @returns User-object with all data correspondig to the user with the specific E-Mail
  */
 function getUserAsObject(email) {
@@ -213,7 +213,7 @@ function getUserAsObject(email) {
 
 /**
  * Checks if an e-mail exists in users-array
- * @param {*} email E-Mail-adress to search for in the users-array
+ * @param {string} email E-Mail-adress to search for in the users-array
  * @returns true if e-mail was found, else returns false
  */
 function checkifEMailexists(email) {
@@ -229,8 +229,8 @@ function checkifEMailexists(email) {
 
 /**
  * Checks if password-entry of a user with a certain email matches with the database-password
- * @param {*} email E-Mail-adress to search for in the users-array
- * @param {*} password Password typed in by the user in the Input-field
+ * @param {string} email E-Mail-adress to search for in the users-array
+ * @param {string} password Password typed in by the user in the Input-field
  * @returns true if password-parameter matches password in the database, else returns false
  */
 function checkifPasswordMatches(email, password) {
@@ -246,8 +246,8 @@ function checkifPasswordMatches(email, password) {
 
 /**
  * Sets new password for a specific user-email
- * @param {*} email E-Mail-adress of a specific user
- * @param {*} password New Password to set for the specific user
+ * @param {string} email E-Mail-adress of a specific user
+ * @param {string} password New Password to set for the specific user
  * @returns 
  */
 async function setPasswordForUser(email, password) {
@@ -265,7 +265,7 @@ async function setPasswordForUser(email, password) {
 
 /**
  * Adds a new user to the users-array
- * @param {*} object User-object with all data correspondig to the user
+ * @param {object} object User-object with all data correspondig to the user
  */
 async function addUser(object) {
   users.push(object);
@@ -275,36 +275,30 @@ async function addUser(object) {
 
 /**
  * Adds a new task to the tasks-array
- * @param {*} object Tasks-object with all data correspondig to the task
+ * @param {object} object Tasks-object with all data correspondig to the task
  */
 async function addTask(object) {
   tasks.push(object);
   await backendTWO.setItem('tasks', JSON.stringify(tasks)); //tasks-array is saved into backend
 }
 
-//****** */
+
+/**
+ * Changes one attribute of a task with a certain index to a certain value or to an array of values
+ * @param {number} index Index of the task
+ * @param {string} attribute Attribute you want to change
+ * @param {value or array} valueOrArray Value you want the attribute to have
+ */
  async function changeTaskAttribute(index,attribute,valueOrArray) { 
   tasks[index][attribute] = valueOrArray;
   await backendTWO.setItem('tasks', JSON.stringify(tasks)); //tasks-array is saved into backend
 }
 
-//****** */
 
-// let object = {
-//   "id": id,
-//   "title": title,
-//   "category": category,
-//   "categorycolor": categorycolor,
-//   "description": description,
-//   "dueDate": dueDate,
-//   "priority": priority, 
-//   "status": status,
-//   "assignedTo": [email1, email2, email3],
-//   "subTasks": [subtask1, subtask2, subtask3]
-// }
-
-
-
+/**
+ * Changes one or more attribute of a task with a certain index through an object which contains the new values 
+ * @param {object} object Object which equals a complete Task (e.g. object = tasks[3];)
+ */
 async function changeTask(object) {
   let index = object['id']; 
   tasks[index]['title'] = object['title'];
@@ -320,10 +314,9 @@ async function changeTask(object) {
 }
 
 
-
 /**
  * Deletes a specific user from the users-array via index
- * @param {*} index Index from 0 to N
+ * @param {number} index Index from 0 to N
  */
 async function delUser(index) {
   if (index !== parseInt(index, 10)) { } //Data is not an integer!
@@ -338,7 +331,7 @@ async function delUser(index) {
 
 /**
  * Deletes a specific task from the tasks-array via index
- * @param {*} index Index from 0 to N
+ * @param {number} index Index from 0 to N
  */
 async function delTask(index) {
   //let id = tasks.indexOf(name);
@@ -387,10 +380,11 @@ function hideLogoutButton() {
 
 /**
  * Lets the Pop-Up-Menu on the upper right corner disappear
- * @param {*} event Every event that does not target 'footer-picture' lets the Pop-Up-Menu on the right corner disappear
+ * @param {object} event Every event that does not target 'footer-picture' lets the Pop-Up-Menu on the right corner disappear
  */
 window.onclick = function (event) {
   if (event.target.id != 'footer-picture') {
+    console.log(event);
     hideLogoutButton();
   }
 }
@@ -430,8 +424,8 @@ async function includeHTML() {
 
 /**
  * Saves array as String in the localStorage
- * @param {*} key Unique key under which the array is saved in the localStorage
- * @param {*} array Array with data
+ * @param {string} key Unique key under which the array is saved in the localStorage
+ * @param {array} array Array with data
  */
 function setArray(key, array) {
   localStorage.setItem(key, JSON.stringify(array));
@@ -440,7 +434,7 @@ function setArray(key, array) {
 
 /**
  * Gets an array from the localStorage
- * @param {*} key Unique key under which the array is saved in the localStorage
+ * @param {string} key Unique key under which the array is saved in the localStorage
  * @returns an array, which can be saved into a variable
  */
 function getArray(key) {

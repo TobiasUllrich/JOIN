@@ -12,8 +12,8 @@ let guest = {
 
 /**
  * Makes arrow black if mobile-version
- * @param {*} arrowelement ID of the arrow-element
- * @param {*} containerforwidth ID of container with 100vw (to check if mobile-version is active)
+ * @param {string} arrowelement ID of the arrow-element
+ * @param {string} containerforwidth ID of container with 100vw (to check if mobile-version is active)
  */
 function setArrow(arrowelement,containerforwidth){
     let breite = document.getElementById(`${containerforwidth}`).clientWidth;
@@ -58,7 +58,7 @@ function resetPwAnimation() {
 
 /**
  * Animates a message for the user
- * @param {*} message Message-variable with the text that will be displayed
+ * @param {string} message Message-variable with the text that will be displayed
  */
 function animateMessage(message) {
     document.getElementById('alert-text').innerHTML = message;
@@ -165,7 +165,7 @@ async function trySignup() {
 
 /**
  * Creates & returns an object with signupdata of the user
- * @param {*} email email which wants to signup
+ * @param {string} email email which wants to signup
  * @returns 
  */
 function createSignupData(email){
@@ -216,9 +216,9 @@ function resetPassword() {
 
 /**
  * Try to reset password with the link from the email; email has to exist and passwords have to be equal!
- * @param {*} email Email for which the password can be reseted
- * @param {*} pw1 New Password
- * @param {*} pw2 New Password (confirmation of first Password entered)
+ * @param {string} email Email for which the password can be reseted
+ * @param {string} pw1 New Password
+ * @param {string} pw2 New Password (confirmation of first Password entered)
  */
 async function tryToResetPassword(email,pw1,pw2){
     if (!email || !checkifEMailexists(email)) //Check if qry contained in URL OR Check if Email exists

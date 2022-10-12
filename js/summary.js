@@ -123,12 +123,11 @@ function fillSummarywithInfos() {
 
 /**
  * Receives a date-variable and converts it into a string with the format "August 5, 2022"
- * @param {*} datetotransform The received date-variable
+ * @param {date} datetotransform The received date-variable
  * @returns 
  */
 function transformDate2(datetotransform) {
   let datum = datetotransform;
-  //console.log(datum);
   let tag = datum.getDate(datetotransform);
   let monat = datum.getMonth(datetotransform);
   let jahr = datum.getFullYear(datetotransform);
@@ -138,7 +137,7 @@ function transformDate2(datetotransform) {
 
 /**
  * Receives a string-variable in the format "30-10-2010" and converts it into a date-variable
- * @param {*} datetotransform The received string-variable
+ * @param {string} datetotransform The received string-variable
  * @returns 
  */
 function transformDate(datetotransform) {
@@ -161,8 +160,8 @@ function showBoard() {
 
 /**
  * Inverts Font-color & Background-Color of a specific element plus its img on hover
- * @param {*} idOfElementToChange ID of the element
- * @param {*} idOfPicture ID of the img
+ * @param {string} idOfElementToChange ID of the element
+ * @param {string} idOfPicture ID of the img
  */
 function addBackground(idOfElementToChange, idOfPicture) {
   document.getElementById(idOfElementToChange).style = 'background-color: #FFFFFF;';
@@ -171,8 +170,8 @@ function addBackground(idOfElementToChange, idOfPicture) {
 
 /**
  * Inverts Font-color & Background-Color of a specific element plus its img on hover
- * @param {*} idOfElementToChange ID of the element
- * @param {*} idOfPicture ID of the img
+ * @param {string} idOfElementToChange ID of the element
+ * @param {string} idOfPicture ID of the img
  */
 function removeBackground(idOfElementToChange, idOfPicture) {
   document.getElementById(idOfElementToChange).style = 'background-color: #091931;';
