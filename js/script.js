@@ -8,7 +8,8 @@ let usersScript = [
     "picture": "tobias.jpg",
     "email": "ullrich.tobias@gmx.de",
     "phone": "888",
-    "password": "xxxxx"    
+    "password": "xxxxx",
+    "color": "#091931"    
   },
   {
     "name": "Edip Bahcecioglu",
@@ -16,7 +17,8 @@ let usersScript = [
     "picture": "edip.jpg",
     "email": "edip-bahcecioglu@hotmail.de",
     "phone": "888",
-    "password": "xxxxx"
+    "password": "xxxxx",
+    "color": "#091931"
   },
   {
     "name": "Eugen Oswald",
@@ -24,7 +26,8 @@ let usersScript = [
     "picture": "eugen.jpg",
     "email": "oswaldeugen95@gmail.com",
     "phone": "888",
-    "password": "xxxxx"
+    "password": "xxxxx",
+    "color": "#091931"
   },
   {
     "name": "Rick Cabanossi",
@@ -32,7 +35,8 @@ let usersScript = [
     "picture": "rick.jpg",
     "email": "rickyC@gmail.com",
     "phone": "12345678910",
-    "password": "rIckydicLous"
+    "password": "rIckydicLous",
+    "color": "#091931"
   },
   {
     "name": "Mama Mia",
@@ -40,7 +44,8 @@ let usersScript = [
     "picture": "mami.jpg",
     "email": "MandM@web.de",
     "phone": "12776644",
-    "password": "mama123"
+    "password": "mama123",
+    "color": "#091931"
   },
   {
     "name": "Kate Rina",
@@ -48,7 +53,8 @@ let usersScript = [
     "picture": "kate.jpg",
     "email": "kateRollin@xxx.com",
     "phone": "333444555",
-    "password": "cheeseee"
+    "password": "cheeseee",
+    "color": "#091931"
   }
 ];
 
@@ -221,9 +227,25 @@ function checkifEMailexists(email) {
   for (i = 0; i < users.length; i++) {
     if (users[i]['email'].toLowerCase() == email.toLowerCase()) {
       userfound = true; //Email found
-      return userfound;
     }
   }
+  return userfound;
+}
+
+
+/**
+ * Checks if an e-mail exists in users-array and returns the index of the user
+ * @param {string} email E-Mail-adress to search for in the users-array
+ * @returns -1 if e-mail was not found, else returns Index (0 ... N)
+ */
+ function getUserIndexForEmail(email) {
+  let userindex = -1;
+  for (i = 0; i < users.length; i++) {
+    if (users[i]['email'].toLowerCase() == email.toLowerCase()) {
+      userindex = i; //Email found
+    }
+  }
+  return userindex;
 }
 
 
@@ -238,9 +260,9 @@ function checkifPasswordMatches(email, password) {
   for (i = 0; i < users.length; i++) {
     if (users[i]['email'].toLowerCase() == email.toLowerCase() && users[i]['password'] == password) {
       passwordmatches = true; //Password matches
-      return passwordmatches; //If found once "true" is returned, else it stays "false"
     }
   }
+  return passwordmatches; //If found once "true" is returned, else it stays "false"
 }
 
 
@@ -257,9 +279,9 @@ async function setPasswordForUser(email, password) {
       users[i]['password'] = password;
       passwordSet = true; //Password is set
       await backend.setItem('users', JSON.stringify(users)); //users-array is saved into backend
-      return passwordSet; //If changed "true" is returned, else it stays "false"
     }
   }
+  return passwordSet; //If changed "true" is returned, else it stays "false"
 }
 
 
@@ -292,6 +314,25 @@ async function addTask(object) {
  async function changeTaskAttribute(index,attribute,valueOrArray) { 
   tasks[index][attribute] = valueOrArray;
   await backendTWO.setItem('tasks', JSON.stringify(tasks)); //tasks-array is saved into backend
+}
+
+
+/**
+ * Changes one or more attribute of a user with a certain email through an object which contains the new values 
+ * @param {object} object Object which equals a complete User (e.g. object = users[2];)
+ */
+ async function changeUser(object) {
+  let email = object['email']; 
+  let index = getUserIndexForEmail(email);
+
+  users[index]['name'] = object['name'];
+  users[index]['surname'] = object['surname'];
+  users[index]['picture'] = object['picture'];
+  users[index]['email'] = object['email'];
+  users[index]['phone'] = object['phone'];
+  users[index]['password'] = object['password'];
+  users[index]['color'] = object['color'];
+  await backend.setItem('users', JSON.stringify(users)); //users-array is saved into backend
 }
 
 
@@ -334,7 +375,6 @@ async function delUser(index) {
  * @param {number} index Index from 0 to N
  */
 async function delTask(index) {
-  //let id = tasks.indexOf(name);
   if (index !== parseInt(index, 10)) { } //Data is not an integer!
   if (index >= tasks.length || index < 0) { } //ERROR: Number to High or to Low!
   else if (index == 0 && tasks.length == 1) { deleteAllTasks(); } //KILL Complete Array
@@ -384,7 +424,6 @@ function hideLogoutButton() {
  */
 window.onclick = function (event) {
   if (event.target.id != 'footer-picture') {
-    console.log(event);
     hideLogoutButton();
   }
 }

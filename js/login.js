@@ -7,7 +7,8 @@ let guest = {
     "picture": "randomprofilepicture.webp",
     "email": "Guest@nowhere.de",
     "phone": "",
-    "password": "none123"
+    "password": "none123",
+    "color": "#091931"
 }
 
 /**
@@ -180,7 +181,8 @@ function createSignupData(email){
         "picture": "randomprofilepicture.webp",
         "email": email,
         "phone": "",
-        "password": password
+        "password": password,
+        "color": "#091931"
     }
     return object;
 }
