@@ -546,19 +546,19 @@ function allowDrop(ev) {
 function moveTo(newStatus) {
     if (newStatus == 'To do') {
         tasks[currentDraggingElement].status = newStatus;
-        changeTask(currentDraggingElement,'status',newStatus);
+        changeTaskAttribute(currentDraggingElement,'status',newStatus);
     }
     if (newStatus == 'In progress') {
         tasks[currentDraggingElement].status = newStatus;
-        changeTask(currentDraggingElement,'status',newStatus);
+        changeTaskAttribute(currentDraggingElement,'status',newStatus);
     }
     if (newStatus == 'Awaiting feedback') {
         tasks[currentDraggingElement].status = newStatus;
-        changeTask(currentDraggingElement,'status',newStatus);
+        changeTaskAttribute(currentDraggingElement,'status',newStatus);
     }
     if (newStatus == 'Done') {
         tasks[currentDraggingElement].status = newStatus;
-        changeTask(currentDraggingElement,'status',newStatus);
+        changeTaskAttribute(currentDraggingElement,'status',newStatus);
     }
     renderBoard();
 }
@@ -916,10 +916,19 @@ function clearPlaceholder(inputfield, newPlaceholder, oldPlaceholder) {
  */
 
 function updateTaskArray(taskId, title, description, date, prio) {
-    tasks[taskId].title = title;
-    tasks[taskId].description = description;
-    tasks[taskId].dueDate = date;
-    tasks[taskId].priority = prio;
+
+    let object = tasks[taskId];
+    object['title']=title;
+    object['description']=description;
+    object['dueDate']=date;
+    object['priority']=prio;
+    // object['assignedTo']=['email1@web.de', email2, email3];
+    changeTask(object);
+
+    // tasks[taskId].title = title;
+    // tasks[taskId].description = description;
+    // tasks[taskId].dueDate = date;
+    // tasks[taskId].priority = prio;
     renderNewWorkers(taskId);
     closeEditContainer();
     showAlert();

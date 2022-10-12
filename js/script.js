@@ -8,7 +8,7 @@ let usersScript = [
     "picture": "tobias.jpg",
     "email": "ullrich.tobias@gmx.de",
     "phone": "888",
-    "password": "xxxxx"
+    "password": "xxxxx"    
   },
   {
     "name": "Edip Bahcecioglu",
@@ -283,15 +283,41 @@ async function addTask(object) {
 }
 
 //****** */
- async function changeTask(index,attribute,valueOrArray) { 
+ async function changeTaskAttribute(index,attribute,valueOrArray) { 
   tasks[index][attribute] = valueOrArray;
   await backendTWO.setItem('tasks', JSON.stringify(tasks)); //tasks-array is saved into backend
 }
 
+//****** */
+
+// let object = {
+//   "id": id,
+//   "title": title,
+//   "category": category,
+//   "categorycolor": categorycolor,
+//   "description": description,
+//   "dueDate": dueDate,
+//   "priority": priority, 
+//   "status": status,
+//   "assignedTo": [email1, email2, email3],
+//   "subTasks": [subtask1, subtask2, subtask3]
+// }
 
 
 
-
+async function changeTask(object) {
+  let index = object['id']; 
+  tasks[index]['title'] = object['title'];
+  tasks[index]['category'] = object['category'];
+  tasks[index]['categorycolor'] = object['categorycolor'];
+  tasks[index]['description'] = object['description'];
+  tasks[index]['dueDate'] = object['dueDate'];
+  tasks[index]['priority'] = object['priority'];
+  tasks[index]['status'] = object['status'];
+  tasks[index]['assignedTo'] = object['assignedTo'];
+  tasks[index]['subTasks'] = object['subTasks'];
+  await backendTWO.setItem('tasks', JSON.stringify(tasks)); //tasks-array is saved into backend
+}
 
 
 

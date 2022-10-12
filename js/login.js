@@ -3,6 +3,7 @@
  */
 let guest = {
     "name": "Guest",
+    "surname": "Guest",
     "picture": "randomprofilepicture.webp",
     "email": "Guest@nowhere.de",
     "phone": "",
