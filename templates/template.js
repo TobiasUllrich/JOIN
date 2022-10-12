@@ -366,7 +366,7 @@ function searchEmailInputHTML() {
     return /*html*/`
     <div class="input-group">
     
-      <input id="search-input" type="searc h" id="form1" class="form-control" placeholder="Contact eMail "/>
+      <input id="search-input" type="search" id="form1" class="form-control" placeholder="Contact eMail "/>
       <button onclick="backToSelectContacts()" id="subtaskDelete" class="" type="button">
       <img src="./img/addtask/x-vector.png" alt=""></button>
       <div id="subtask-separator-line" class="subtask-separator-line"></div>

@@ -12,7 +12,7 @@ let selectedPrio;
  */
 async function loadAddTastk() {
   await init();
-  loadCategorys();
+  loadCategory();
   loadAssigned();
   loadUser();
   renderAssingUser();
@@ -31,12 +31,12 @@ function loadUser() {
 /**
  * This function infects the loading of the categories.
  */
-function loadCategorys() {
+function loadCategory() {
   let categoryContainer = document.getElementById('categoryContainer');
   categoryContainer.innerHTML = '';
   categoryContainer.innerHTML = loadCategoryHTML();
   clearInputValueCategory();
-  loadCategory();
+  loadCategorys();
 }
 
 /**
@@ -96,7 +96,7 @@ function clearInputValueCategory() {
 /**
  * Individual categories are run through
  */
-function loadCategory() {
+function loadCategorys() {
   let allCategorys = document.getElementById('allCategorys');
   allCategorys.innerHTML = '';
   for (let i = 0; i < addTaskCategorys.length; i++) {
@@ -170,8 +170,8 @@ function subtaskInputDelete() {
 }
 
 /**
- * 
- * @param {string} idOfInput  id from Input
+ * If the input is longer than 1, it is pushed to addTaskSubtasks and the array selectedSubtasks is cleared
+ * @param {string} idOfInput - id from Input subtaskInputStart()
  */
 function subtaskInputAdd(idOfInput) {
   let subtask = document.getElementById(`${idOfInput}`).value;
@@ -235,8 +235,8 @@ function renderAssingUser() {
 }
 
 /**
- * 
- * @param {string} indexOfSubtask 
+ * This function checks if the clicked element is false or true and passes on 
+ * @param {number} indexOfSubtask - id of the checked checkbox
  */
 function subtasksCheckbox(indexOfSubtask) {
   let subtask = addTaskSubtasks[indexOfSubtask];
@@ -253,7 +253,8 @@ function subtasksCheckbox(indexOfSubtask) {
 }
 
 /**
- * @param {string} indexOfSubtask 
+ * If the selected element cannot be found in the array, it should be added to it
+ * @param {number} indexOfSubtask - id of the checked checkbox
  */
 function subtasksCheckboxPushable(indexOfSubtask) {
   if (!selectedSubtasks.includes(addTaskSubtasks[indexOfSubtask])) {
@@ -262,7 +263,8 @@ function subtasksCheckboxPushable(indexOfSubtask) {
 }
 
 /**
- * @param {string} indexOfSubtask 
+ * If the selected element is in the array, it will be removed
+ * @param {number} indexOfSubtask - id of the checked checkbox
  */
 function subtasksCheckboxRemoveable(indexOfSubtask) {
   for (let r = 0; r < selectedSubtasks.length; r++) {
@@ -272,8 +274,10 @@ function subtasksCheckboxRemoveable(indexOfSubtask) {
   }
 }
 
+
 /**
- * @param {string} indexOfSubtask  
+ * This function checks if the clicked element is false or true and passes on 
+ * @param {string} idOfCheckbox - id of the checked checkbox
  */
 function assingCheckbox(idOfCheckbox) {
   let clickedCheckbox = document.getElementById(`checkbox-${idOfCheckbox}`);
@@ -289,7 +293,8 @@ function assingCheckbox(idOfCheckbox) {
 }
 
 /**
- * @param {string} indexOfSubtask 
+ * If the selected element cannot be found in the array, it should be added to it
+ * @param {string} idOfCheckbox - id of the checked checkbox
  */
 function checkIfWorkerPushable(idOfCheckbox) {
   if (!selectedUsers.includes(users[idOfCheckbox])) {
@@ -298,7 +303,8 @@ function checkIfWorkerPushable(idOfCheckbox) {
 }
 
 /**
- * @param {string} indexOfSubtask  
+ * If the selected element is in the array, it will be removed
+ * @param {string} idOfCheckbox - id of the checked checkbox
  */
 function checkIfWorkerRemoveable(idOfCheckbox) {
   for (let p = 0; p < selectedUsers.length; p++) {
@@ -309,7 +315,7 @@ function checkIfWorkerRemoveable(idOfCheckbox) {
 }
 
 /**
- *  
+ *  This function checks if the clicked element is false or true and sets the input to false or true
  */
 function checkValiCheckbox() {
   let checkboxAssignedTo = document.getElementById('assignedInput');
@@ -324,7 +330,7 @@ function checkValiCheckbox() {
 }
 
 /**
- * 
+ * Initiates the creation of a new category
  */
 function addNewCategory() {
   clearInputValueCategory();
@@ -334,17 +340,9 @@ function addNewCategory() {
   categoryColorPicker();
 }
 
-/**
- *  
- */
-function switchToSearchInput() {
-  let assignedContainer = document.getElementById('assignedContainer');
-  assignedContainer.innerHTML = '';
-  assignedContainer.innerHTML = searchEmailInputHTML();
-}
 
 /**
- * 
+ * Goes through the colors and passes it to the HTML tamplate
  */
 function categoryColorPicker() {
   document.getElementById('category-color-picker').innerHTML = '';
@@ -354,7 +352,8 @@ function categoryColorPicker() {
 }
 
 /**
- * 
+ * Checks if the entered category has a minimum of 1 length and if a color is selected.
+ * If one of both is not filled in/selected, an error message appears.
  */
 function pushNewCategory() {
   let category = document.getElementById('newCategoryInput').value;
@@ -376,6 +375,7 @@ function pushNewCategory() {
 }
 
 /**
+ * Fills the hidden inputs with the selected color and category
  * @param {number} categoryNumber
  */
 function currentCategory(categoryNumber) {
@@ -391,9 +391,3 @@ function currentCategory(categoryNumber) {
   categoryContainer.innerHTML = currentCategoryHTML(`${categoryNumber}`);
 }
 
-/**
- * 
- */
-function backToSelectContacts() {
-  loadAssigned();
-}
