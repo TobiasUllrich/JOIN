@@ -341,21 +341,6 @@ function loadAssignedHTML() {
     return /*html*/`
     <div onclick="openAssign()" id="dropbtnAssign" class="dropbtn-assign" type="button">Select contacts to assign<img src="./img/addtask/dropdown-Vector.png" alt=""><input required class="checkCheckboxes" id="assignedInput"></div>
     <div id="assignDropdown" class="dropdown-content">
-        <!-- <span class="d-flex menu-option hover"><label class="assign-label" for="You">
-            You</label> <input required id="You" value="" class="assign-input" type="checkbox"></span>
-        <span class="d-flex menu-option hover"><label class="assign-label" for="Mustermann">
-            Max Mustermann</label> <input id="Mustermann" value="" class="assign-input"  type="checkbox"></span>
-        <span class="d-flex menu-option hover"><label class="assign-label" for="Musterhaus">
-            Fanz Musterhaus</label> <input id="Musterhaus" value="" class="assign-input" type="checkbox"></span>
-        <div onclick="switchToSearchInput()"class="switchToSearch-btn-assign hover" type="button">Select contacts to assign<img class="black-icon" src="./img/addtask/newContactIcon.png" alt=""></div>
-    </div> -->
-    <!-- 
-    <div onclick="showCompleteContainer()">Select contacts to assign<img id="dropdown-img" src="./img/board/dropdown.png"></div>
-        <div id="edit-workers" class="edit-workers d-none">
-                        <div onclick="submitCheckbox('-1')" class="solo-contact"><label>You</label><input name="users" id="checkbox--1" type="checkbox"></div>
-                    </div>
-                </div> -->
-    
     `;
 }
 
