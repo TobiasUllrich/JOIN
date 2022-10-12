@@ -268,7 +268,7 @@ async function setPasswordForUser(email, password) {
  * @param {*} object User-object with all data correspondig to the user
  */
 async function addUser(object) {
-  users.push(object); //
+  users.push(object);
  await backend.setItem('users', JSON.stringify(users)); //users-array is saved into backend
 }
 
@@ -281,6 +281,18 @@ async function addTask(object) {
   tasks.push(object);
   await backendTWO.setItem('tasks', JSON.stringify(tasks)); //tasks-array is saved into backend
 }
+
+//****** */
+ async function changeTask(index,attribute,valueOrArray) { 
+  tasks[index][attribute] = valueOrArray;
+  await backendTWO.setItem('tasks', JSON.stringify(tasks)); //tasks-array is saved into backend
+}
+
+
+
+
+
+
 
 
 /**

@@ -546,15 +546,19 @@ function allowDrop(ev) {
 function moveTo(newStatus) {
     if (newStatus == 'To do') {
         tasks[currentDraggingElement].status = newStatus;
+        changeTask(currentDraggingElement,'status',newStatus);
     }
     if (newStatus == 'In progress') {
         tasks[currentDraggingElement].status = newStatus;
+        changeTask(currentDraggingElement,'status',newStatus);
     }
     if (newStatus == 'Awaiting feedback') {
         tasks[currentDraggingElement].status = newStatus;
+        changeTask(currentDraggingElement,'status',newStatus);
     }
     if (newStatus == 'Done') {
         tasks[currentDraggingElement].status = newStatus;
+        changeTask(currentDraggingElement,'status',newStatus);
     }
     renderBoard();
 }
