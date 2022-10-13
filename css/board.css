@@ -2,6 +2,20 @@ body {
   font-family: "Inter";
   font-style: normal;
   background: #f6f7f8;
+  overflow: auto;
+}
+
+body ::-webkit-scrollbar{
+  width: 12px;
+}
+
+body ::-webkit-scrollbar-track{
+  background: lightgray;
+}
+
+body ::-webkit-scrollbar-thumb{
+  background-color: grey;
+  border-radius: 12px;
 }
 
 .rotation {
@@ -229,9 +243,13 @@ body {
   overflow-y: scroll;
 }
 
-::-webkit-scrollbar {
+.main-tasks-container::-webkit-scrollbar{
   display: none;
 }
+
+/* ::-webkit-scrollbar {
+  display: none;
+} */
 
 .main-solo-task-container {
   display: flex;
@@ -288,8 +306,7 @@ body {
 }
 
 .add-image:hover {
-  filter: invert(55%) sepia(66%) saturate(468%) hue-rotate(153deg)
-    brightness(90%) contrast(109%);
+  filter: invert(55%) sepia(66%) saturate(468%) hue-rotate(153deg) brightness(90%) contrast(109%);
   cursor: pointer;
 }
 
@@ -352,6 +369,12 @@ body {
 
 .solo-worker {
   display: flex;
+}
+
+.assigned-to-workers {
+  max-height: 240px;
+  overflow-y: auto;
+  width: 90%;
 }
 
 .worker-name-start-letters {
@@ -605,7 +628,7 @@ body {
 .edit-description textarea::placeholder {
   color: grey;
   font-size: 20px;
-  height: 100%;
+  height: 90%;
   width: 100%;
   padding-top: 8px;
 }
@@ -854,7 +877,7 @@ body {
   .headline-task {
     width: 250px;
   }
-  
+
 }
 
 @media (min-width: 1400px) and (max-width: 1449px) {
@@ -1279,7 +1302,7 @@ body {
     width: 135px;
   }
 
- 
+
 
   .solo-worker-big-box {
     margin-top: 16px;
@@ -1480,7 +1503,7 @@ body {
     padding-top: 0px;
   }
 
- 
+
   .main-headline-container {
     margin-bottom: 155px;
   }
@@ -1766,7 +1789,7 @@ body {
     padding-top: 0px;
   }
 
- 
+
   .main-headline-container {
     margin-bottom: 55px;
   }

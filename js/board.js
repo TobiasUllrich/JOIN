@@ -130,33 +130,33 @@ function renderAssignedNamesOfTask(index, status, soloStatusArray) {
         let objectName = object.name.charAt(0);
         let objectSurname = object.surname.charAt(0);
 
-        if(soloStatusArray[index].assignedTo.length <= 3){
-        renderOutputContainer.innerHTML += templateAssignedToOfSoloTask(objectName, objectSurname);
-        } else{
-            renderOutputContainer.innerHTML += templateAssignedToOfSoloTask(objectName, objectSurname); // DIESER CODE MUSS WEG
-            // showPlusMark(index, status, soloStatusArray);
+        if (soloStatusArray[index].assignedTo.length <= 3) {
+            renderOutputContainer.innerHTML += templateAssignedToOfSoloTask(objectName, objectSurname);
+        } else {
+            sliceArrayAndShowPlusMark(renderOutputContainer, index, soloStatusArray);
         }
     }
 }
-//############## NOCH IM TEST #################
-function showPlusMark(index, status, soloStatusArray){
-    let renderOutputContainer = document.getElementById(`solo-worker-${status}${index}`);
-    renderOutputContainer.innerHTML = '';
-    let amountAssignedWorker = soloStatusArray[index].assignedTo.length;
-    let shortArrayWorkers = soloStatusArray[index].assignedTo.splice(2, amountAssignedWorker);
-    console.log(shortArrayWorkers);
 
-    for(let x = 0; x < shortArrayWorkers,length; x++){
-        let assUser = shortArrayWorkers.assignedTo[x];
-        let object = getUserAsObject(assUser)
+function sliceArrayAndShowPlusMark(outputContainer, index, soloStatusArray) {
+    let amountAssignedWorker = soloStatusArray[index].assignedTo.length - 3;
+    console.log('Länge vom Assigned To Array', amountAssignedWorker); // KOMMT RAUS
+    let shortArrayWorkers = soloStatusArray[index].assignedTo.slice(0, 3);
+    console.log('Verkürzte Array', shortArrayWorkers); // KOMMT RAUS
+    outputContainer.innerHTML = '';
+    
+    for (let x = 0; x < shortArrayWorkers.length; x++) {
+        let assUser = shortArrayWorkers[x];
+        console.log('einzelner verkürzter Array', assUser); // KOMMT RAUS
+        let object = getUserAsObject(assUser);
+        console.log(object); // KOMMT RAUS
         let objectName = object.name.charAt(0);
         let objectSurname = object.surname.charAt(0);
-        renderOutputContainer.innerHTML += templateAssignedToOfSoloTask(objectName, objectSurname);
+        outputContainer.innerHTML += templateAssignedToOfSoloTask(objectName, objectSurname);
     }
 
-    renderOutputContainer.innerHTML += showPlusSign(amountAssignedWorker);
+    outputContainer.innerHTML += showPlusSign(amountAssignedWorker);
 }
-
 
 /**
  * This function filter all tasks by there status and put them in an seperate array
@@ -198,7 +198,7 @@ function openCurrentTaskBigBox(indexOfSoloTask, statusTask, categorycolor) {
  * @param {number} indexOfSoloTask - this is the index of clicked task
  */
 
-function checkStatusOfTask(statusTask, bigBoxContainer, indexOfSoloTask) { 
+function checkStatusOfTask(statusTask, bigBoxContainer, indexOfSoloTask) {
     if (statusTask == 'to do') {
         bigBoxContainer.innerHTML = templateBigBoxSoloTask(soloTasksTodo, indexOfSoloTask);
     } else {
@@ -206,7 +206,7 @@ function checkStatusOfTask(statusTask, bigBoxContainer, indexOfSoloTask) {
             bigBoxContainer.innerHTML = templateBigBoxSoloTask(soloTasksProgress, indexOfSoloTask);
         } else {
             if (statusTask == 'awaiting feedback') {
-                bigBoxContainer.innerHTML = templateBigBoxSoloTask(soloTasksFeedback, indexOfSoloTask); // soloTasksFeedback
+                bigBoxContainer.innerHTML = templateBigBoxSoloTask(soloTasksFeedback, indexOfSoloTask);
             } else {
                 if (statusTask == 'done') {
                     bigBoxContainer.innerHTML = templateBigBoxSoloTask(soloTasksDone, indexOfSoloTask);
@@ -223,7 +223,7 @@ function checkStatusOfTask(statusTask, bigBoxContainer, indexOfSoloTask) {
  * @param {string} statusOfTask - this string means in which status the clicked task is
  */
 
- function showCurrentWorkersBigBox(indexOfTask, statusOfTask) {
+function showCurrentWorkersBigBox(indexOfTask, statusOfTask) {
     if (statusOfTask == 'todo') {
         renderCurrentWorkersBigBox(indexOfTask, soloTasksTodo);
     }
@@ -292,7 +292,7 @@ function checkPriorityBackgroundColor() {
  * 
  */
 
- function closeSoloTaskBigBox() {
+function closeSoloTaskBigBox() {
     let bigBoxContainer = document.getElementById('main-bigbox-solo-task-container');
     addDisplayNoneMainContainer(bigBoxContainer);
     setOpacityBackgroundToNormal();
@@ -313,7 +313,7 @@ function openCurrentTaskBigBoxOnSearch(indexOfSoloTask, statusTask, categorycolo
     addOpacityToMainBackground();
     backgroundIsUnclickable();
     removeDisplayNoneMainContainer(bigBoxContainer);
-    checkStatusOfTaskOnSearch(statusTask, bigBoxContainer, indexOfSoloTask);
+    checkStatusOfTaskOnSearch(bigBoxContainer, indexOfSoloTask);
     checkPriorityBackgroundColor();
     checkHeadlineColorBigBox(categorycolor);
     renderCurrentWorkersBigBoxSearch(indexOfSoloTask)
@@ -324,7 +324,7 @@ function openCurrentTaskBigBoxOnSearch(indexOfSoloTask, statusTask, categorycolo
  * 
  * @param {number} indexOfTask - this is the index of clicked task
  */
-function renderCurrentWorkersBigBoxSearch(indexOfTask){
+function renderCurrentWorkersBigBoxSearch(indexOfTask) {
     let currentTaskWorkers = document.getElementById(`current-workers`);
     currentTaskWorkers.innerHTML = '';
     for (let x = 0; x < tasks[indexOfTask].assignedTo.length; x++) {
@@ -337,29 +337,14 @@ function renderCurrentWorkersBigBoxSearch(indexOfTask){
 }
 
 /**
- * This function checks in which status the searched task is an runs the HTML Template
+ * This function opnes the clicked Task in a bigger pop op window and runs the template function 
  * 
- * @param {string} statusTask - this string means in which status the searched task is
  * @param {id} bigBoxContainer  - this is the container where the search task can be open in bigger window 
  * @param {number} indexOfSoloTask - this is the index of searched task
  */
 
-function checkStatusOfTaskOnSearch(statusTask, bigBoxContainer, indexOfSoloTask) {
-    if (statusTask == 'to do') {
-        bigBoxContainer.innerHTML = templateBigBoxSoloTask(tasks, indexOfSoloTask);
-    } else {
-        if (statusTask == 'in progress') {
-            bigBoxContainer.innerHTML = templateBigBoxSoloTask(tasks, indexOfSoloTask);
-        } else {
-            if (statusTask == 'awaiting feedback') {
-                bigBoxContainer.innerHTML = templateBigBoxSoloTask(tasks, indexOfSoloTask);
-            } else {
-                if (statusTask == 'done') {
-                    bigBoxContainer.innerHTML = templateBigBoxSoloTask(tasks, indexOfSoloTask);
-                }
-            }
-        }
-    }
+function checkStatusOfTaskOnSearch(bigBoxContainer, indexOfSoloTask) {
+    bigBoxContainer.innerHTML = templateBigBoxSoloTask(tasks, indexOfSoloTask);
 }
 
 /**
@@ -368,7 +353,7 @@ function checkStatusOfTaskOnSearch(statusTask, bigBoxContainer, indexOfSoloTask)
  * @param {string} idOfInputfield - This is the id of the search - inputfield 
  */
 
- function searchTask(idOfInputfield) {
+function searchTask(idOfInputfield) {
     let userSearch = document.getElementById(`${idOfInputfield}`).value.toLowerCase();
 
     for (let m = 0; m < tasks.length; m++) {
@@ -399,25 +384,10 @@ function enterEventSearchTask(idOfSearchContainer) {
 
 function checkTermsOfSearch(userSearch, m, taskSearch) {
     if (taskSearch.title.toLowerCase().includes(userSearch)) {
-        if (taskSearch.status == 'To do') {
-            searchInToDoContainer(taskSearch, m);
-            showAssingedToWorkersSearch(taskSearch);
-        } else {
-            if (taskSearch.status == 'In progress') {
-                seachInProgressContainer(taskSearch, m);
-                showAssingedToWorkersSearch(taskSearch);
-            } else {
-                if (taskSearch.status == 'Awaiting feedback') {
-                    seachInFeedbackContainer(taskSearch, m);
-                    showAssingedToWorkersSearch(taskSearch);
-                } else {
-                    if (taskSearch.status == 'Done') {
-                        searchInDoneContainer(taskSearch, m);
-                        showAssingedToWorkersSearch(taskSearch);
-                    }
-                }
-            }
-        }
+        searchInToDoContainer(taskSearch, m);
+        seachInProgressContainer(taskSearch, m);
+        seachInFeedbackContainer(taskSearch, m);
+        searchInDoneContainer(taskSearch, m);
     }
 }
 
@@ -427,7 +397,7 @@ function checkTermsOfSearch(userSearch, m, taskSearch) {
  * @param {array} objectOfSearchTask - this is the searched task as object
  */
 
-function showAssingedToWorkersSearch(objectOfSearchTask){
+function showAssingedToWorkersSearch(objectOfSearchTask) {
     let outputContainer = document.getElementById('solo-worker-search');
     outputContainer.innerHTML = '';
 
@@ -448,9 +418,12 @@ function showAssingedToWorkersSearch(objectOfSearchTask){
  */
 
 function searchInToDoContainer(taskSearch, m) {
-    document.getElementById('category-todo').innerHTML = '';
-    document.getElementById('category-todo').innerHTML = templateOfSearchTask(taskSearch, m);
-    hideOtherTasks('progress', 'feedback', 'done');
+    if (taskSearch.status == 'To do') {
+        document.getElementById('category-todo').innerHTML = '';
+        document.getElementById('category-todo').innerHTML = templateOfSearchTask(taskSearch, m);
+        hideOtherTasks('progress', 'feedback', 'done');
+        showAssingedToWorkersSearch(taskSearch);
+    }
 }
 
 /**
@@ -461,9 +434,12 @@ function searchInToDoContainer(taskSearch, m) {
  */
 
 function seachInProgressContainer(taskSearch, m) {
-    document.getElementById('category-progress').innerHTML = '';
-    document.getElementById('category-progress').innerHTML = templateOfSearchTask(taskSearch, m);
-    hideOtherTasks('todo', 'feedback', 'done');
+    if (taskSearch.status == 'In progress') {
+        document.getElementById('category-progress').innerHTML = '';
+        document.getElementById('category-progress').innerHTML = templateOfSearchTask(taskSearch, m);
+        hideOtherTasks('todo', 'feedback', 'done');
+        showAssingedToWorkersSearch(taskSearch);
+    }
 }
 
 /**
@@ -474,9 +450,12 @@ function seachInProgressContainer(taskSearch, m) {
  */
 
 function seachInFeedbackContainer(taskSearch, m) {
-    document.getElementById('category-feedback').innerHTML = '';
-    document.getElementById('category-feedback').innerHTML = templateOfSearchTask(taskSearch, m);
-    hideOtherTasks('todo', 'progress', 'done');
+    if (taskSearch.status == 'Awaiting feedback') {
+        document.getElementById('category-feedback').innerHTML = '';
+        document.getElementById('category-feedback').innerHTML = templateOfSearchTask(taskSearch, m);
+        hideOtherTasks('todo', 'progress', 'done');
+        showAssingedToWorkersSearch(taskSearch);
+    }
 }
 
 /**
@@ -487,9 +466,12 @@ function seachInFeedbackContainer(taskSearch, m) {
  */
 
 function searchInDoneContainer(taskSearch, m) {
-    document.getElementById('category-done').innerHTML = '';
-    document.getElementById('category-done').innerHTML = templateOfSearchTask(taskSearch, m);
-    hideOtherTasks('todo', 'progress', 'feedback');
+    if (taskSearch.status == 'Done') {
+        document.getElementById('category-done').innerHTML = '';
+        document.getElementById('category-done').innerHTML = templateOfSearchTask(taskSearch, m);
+        hideOtherTasks('todo', 'progress', 'feedback');
+        showAssingedToWorkersSearch(taskSearch);
+    }
 }
 
 /**
@@ -546,10 +528,10 @@ function allowDrop(ev) {
  */
 
 function moveTo(newStatus) {
-        tasks[currentDraggingElement].status = newStatus;
-        changeTaskAttribute(currentDraggingElement, 'status', newStatus);
-        filterTasks();
-        renderBoard();
+    tasks[currentDraggingElement].status = newStatus;
+    changeTaskAttribute(currentDraggingElement, 'status', newStatus);
+    filterTasks();
+    renderBoard();
 }
 
 /**
@@ -559,7 +541,7 @@ function moveTo(newStatus) {
  * @param {number} index - this is the index of tasks which is going to be dragged
  */
 
- function dragHighlight(status, index) {
+function dragHighlight(status, index) {
     document.getElementById(`${status}-task${index}`).classList.add('rotation');
 }
 
@@ -571,7 +553,7 @@ function moveTo(newStatus) {
  * @param {string} otherStatusThree - this is one of three possible drop places
  */
 
- function showEmptyPlaces(otherStatusOne, otherStatusTwo, otherStatusThree) {
+function showEmptyPlaces(otherStatusOne, otherStatusTwo, otherStatusThree) {
     document.getElementById(`empty-space-${otherStatusOne}`).classList.remove('d-none');
     document.getElementById(`empty-space-${otherStatusTwo}`).classList.remove('d-none');
     document.getElementById(`empty-space-${otherStatusThree}`).classList.remove('d-none');
@@ -597,7 +579,7 @@ function hideEmptyPlaces(otherStatusOne, otherStatusTwo, otherStatusThree) {
  * @param {number} idOfCurrentTask - this is the index of clicked task
  */
 
- function editCurrentTask(idOfCurrentTask) {
+function editCurrentTask(idOfCurrentTask) {
     let currentTask = tasks[idOfCurrentTask];
 
     let bigBoxContainer = document.getElementById('big-box-solo-task');
@@ -709,12 +691,12 @@ function changePrioToLow() {
  * 
  */
 
- function removeRequiredValidation(){
-    if(editNewPrio.length > 0){
+function removeRequiredValidation() {
+    if (editNewPrio.length > 0) {
         document.getElementById('change-prio-urgent').required = false;
         document.getElementById('change-prio-medium').required = false;
         document.getElementById('change-prio-low').required = false;
-    } 
+    }
 }
 
 /**
@@ -722,7 +704,7 @@ function changePrioToLow() {
  * 
  */
 
-async function setRequiredToDefault(){
+async function setRequiredToDefault() {
     document.getElementById('change-prio-urgent').required = true;
     document.getElementById('change-prio-medium').required = true;
     document.getElementById('change-prio-low').required = true;
@@ -796,7 +778,7 @@ async function submitChanges(idOfCurrentTask) {
  * 
  */
 
-async function resetAllArraysAndParameters(){
+async function resetAllArraysAndParameters() {
     editNewPrio = '';
     selectedWorkers = [];
     selectedWorkersEmail = [];
@@ -923,11 +905,11 @@ function clearPlaceholder(inputfield, newPlaceholder, oldPlaceholder) {
 async function updateTaskArray(taskId, title, description, date, prio) {
 
     let object = tasks[taskId];
-    object['title']= title;
-    object['description']= description;
-    object['dueDate']= date;
-    object['priority']= prio;
-    object['assignedTo']= selectedWorkersEmail;
+    object['title'] = title;
+    object['description'] = description;
+    object['dueDate'] = date;
+    object['priority'] = prio;
+    object['assignedTo'] = selectedWorkersEmail;
     await changeTask(object);
     renderBoard();
     closeEditContainer();
@@ -958,7 +940,7 @@ function hideAlert() {
  * 
  */
 
- function addTaskBoard() {
+function addTaskBoard() {
     let addTaskContainer = document.getElementById('main-add-task-container');
     removeDisplayNoneMainContainer(addTaskContainer);
 }
@@ -979,7 +961,7 @@ function closeAddTaskContainer() {
  * @param {id} container - id of container which is going to be blue
  */
 
- function makeContainerBlue(container) {
+function makeContainerBlue(container) {
     container.style.background = '#29ABE2';
 }
 
@@ -1075,6 +1057,6 @@ function addDisplayNoneMainContainer(bigBoxContainer) {
  * @param {event} event - adds default stopProgagation function 
  */
 
- function doNotClose(event) {
+function doNotClose(event) {
     event.stopPropagation();
- }
+}
