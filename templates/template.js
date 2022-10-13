@@ -369,6 +369,23 @@ function searchEmailInputHTML() {
 
 // ################################ CONTACTS TEMPLATE START ################################################### 
 
+function firstLetterListHTML(firstSurnameLetter){
+    return /*html*/`
+    <div>
+        <div>
+            <h4>${firstSurnameLetter}</h4>
+        </div>
+        <div>
+
+        </div>
+        <div  class="contacts-container" id="${firstSurnameLetter}">
+
+        </div>
+        
+    </div>
+    `
+}
+
 function contactHTML(user) {
     let fullName = user['name'];
     let letter = fullName.match(/\b(\w)/g).join('');

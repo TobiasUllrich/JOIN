@@ -163,7 +163,6 @@ async function RESET() {
  * Fills the users- & tasks-array of the database with the data from usersScript & tasksScript
  */
 async function FILL() {
-  usersScript.sort((a, b) => a.surname.localeCompare(b.surname));
   for (i = 0; i < usersScript.length; i++) {
     await addUser(usersScript[i]);
   };
