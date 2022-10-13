@@ -77,30 +77,6 @@ body {
   margin-top: 50px;
 }
 
-/* ===== Scrollbar CSS ===== */
-  /* Firefox */
-  * {
-    scrollbar-width: auto;
-    scrollbar-color: #a8a8a8 #ffffff;
-  }
-
-  /* Chrome, Edge, and Safari */
-  *::-webkit-scrollbar {
-    width: 8px;
-  }
-
-  *::-webkit-scrollbar-track {
-    background: #ffffff;
-  }
-
-  *::-webkit-scrollbar-thumb {
-    background-color: #a8a8a8;
-    border-radius: 8px;
-    border: 1px solid #ffffff;
-  }
-/* ===== Scrollbar CSS ===== */
-
-
 /* FOOTER  */
 .footer {
   position: fixed;
