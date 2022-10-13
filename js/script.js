@@ -18,7 +18,7 @@ let usersScript = [
     "email": "edip-bahcecioglu@hotmail.de",
     "phone": "888",
     "password": "xxxxx",
-    "color": "#091931"
+    "color": "#0038ff"
   },
   {
     "name": "Eugen Oswald",
@@ -27,7 +27,7 @@ let usersScript = [
     "email": "oswaldeugen95@gmail.com",
     "phone": "888",
     "password": "xxxxx",
-    "color": "#091931"
+    "color": "#1fd7c1"
   },
   {
     "name": "Rick Cabanossi",
@@ -36,7 +36,7 @@ let usersScript = [
     "email": "rickyC@gmail.com",
     "phone": "12345678910",
     "password": "rIckydicLous",
-    "color": "#091931"
+    "color": "#8aa4ff"
   },
   {
     "name": "Mama Mia",
@@ -45,7 +45,7 @@ let usersScript = [
     "email": "MandM@web.de",
     "phone": "12776644",
     "password": "mama123",
-    "color": "#091931"
+    "color": "#2ad300"
   },
   {
     "name": "Kate Rina",
@@ -54,7 +54,7 @@ let usersScript = [
     "email": "kateRollin@xxx.com",
     "phone": "333444555",
     "password": "cheeseee",
-    "color": "#091931"
+    "color": "#ff8a00"
   }
 ];
 
@@ -78,7 +78,7 @@ let tasksScript = [
     "id": 1,
     "title": "Lagebesprechung Preiserhöhungen",
     "category": "Sales",  // Design, Marketing, Sales, Backoffice, Media usw. gerne weitere Vorschläge bzw. Ergänzungen
-    "categorycolor": "#091931",
+    "categorycolor": "#ff0000",
     "description": "Hier wird ein unnötiger Beschreibungstext stehen, der von dem User festgelegt wird",
     "dueDate": "30-10-2015",
     "priority": "Urgent",       // Urgent, Medium, Low
@@ -90,7 +90,7 @@ let tasksScript = [
     "id": 2,
     "title": "Planung der Weihnachtsfeier",
     "category": "Backoffice",  // Design, Marketing, Sales, Backoffice, Media usw. gerne weitere Vorschläge bzw. Ergänzungen
-    "categorycolor": "#091931",
+    "categorycolor": "#2ad300",
     "description": "Hier wird ein unnötiger Beschreibungstext stehen, der von dem User festgelegt wird",
     "dueDate": "30-10-2010",
     "priority": "Low",       // Urgent, Medium, Low
@@ -102,7 +102,7 @@ let tasksScript = [
     "id": 3,
     "title": "Kündigung der Mitarbeiterin XXX",
     "category": "Media",  // Design, Marketing, Sales, Backoffice, Media usw. gerne weitere Vorschläge bzw. Ergänzungen
-    "categorycolor": "#091931",
+    "categorycolor": "#ff8a00",
     "description": "Hier wird ein unnötiger Beschreibungstext stehen, der von dem User festgelegt wird",
     "dueDate": "30-10-2010",
     "priority": "Medium",       // Urgent, Medium, Low
@@ -114,7 +114,7 @@ let tasksScript = [
     "id": 4,
     "title": "Einführung neues Softwaresystem ERBY",
     "category": "Marketing",  // Design, Marketing, Sales, Backoffice, Media usw. gerne weitere Vorschläge bzw. Ergänzungen
-    "categorycolor": "#091931",
+    "categorycolor": "#8aa4ff",
     "description": "Hier wird ein unnötiger Beschreibungstext stehen, der von dem User festgelegt wird",
     "dueDate": "30-10-2010",
     "priority": "Medium",       // Urgent, Medium, Low
@@ -126,7 +126,7 @@ let tasksScript = [
     "id": 5,
     "title": "Einführungsschulung betriebseigenes Canbanboard",
     "category": "Design",  // Design, Marketing, Sales, Backoffice, Media usw. gerne weitere Vorschläge bzw. Ergänzungen
-    "categorycolor": "#091931",
+    "categorycolor": "#e200be",
     "description": "Hier wird ein unnötiger Beschreibungstext stehen, der von dem User festgelegt wird",
     "dueDate": "11-09-2022",
     "priority": "Urgent",       // Urgent, Medium, Low
@@ -138,7 +138,7 @@ let tasksScript = [
     "id": 6,
     "title": "Call popentcial clients",
     "category": "Sales",  // Design, Marketing, Sales, Backoffice, Media usw. gerne weitere Vorschläge bzw. Ergänzungen
-    "categorycolor": "#091931",
+    "categorycolor": "#0038ff",
     "description": "Make the product presentation to prospective buyers",
     "dueDate": "05-08-2022",
     "priority": "Urgent",       // Urgent, Medium, Low
@@ -163,6 +163,7 @@ async function RESET() {
  * Fills the users- & tasks-array of the database with the data from usersScript & tasksScript
  */
 async function FILL() {
+  usersScript.sort((a, b) => a.surname.localeCompare(b.surname));
   for (i = 0; i < usersScript.length; i++) {
     await addUser(usersScript[i]);
   };
