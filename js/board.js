@@ -138,18 +138,22 @@ function renderAssignedNamesOfTask(index, status, soloStatusArray) {
     }
 }
 
+/**
+ * This function runs when an task have more than 3 workers and shows an plus sign 
+ * 
+ * @param {string} outputContainer - this is the container where all workers get rendered in
+ * @param {number} index - this is the index of task
+ * @param {array} soloStatusArray -  this is an filtered array which means in which status the task is
+ */
+
 function sliceArrayAndShowPlusMark(outputContainer, index, soloStatusArray) {
     let amountAssignedWorker = soloStatusArray[index].assignedTo.length - 3;
-    console.log('Länge vom Assigned To Array', amountAssignedWorker); // KOMMT RAUS
     let shortArrayWorkers = soloStatusArray[index].assignedTo.slice(0, 3);
-    console.log('Verkürzte Array', shortArrayWorkers); // KOMMT RAUS
     outputContainer.innerHTML = '';
     
     for (let x = 0; x < shortArrayWorkers.length; x++) {
         let assUser = shortArrayWorkers[x];
-        console.log('einzelner verkürzter Array', assUser); // KOMMT RAUS
         let object = getUserAsObject(assUser);
-        console.log(object); // KOMMT RAUS
         let objectName = object.name.charAt(0);
         let objectSurname = object.surname.charAt(0);
         outputContainer.innerHTML += templateAssignedToOfSoloTask(objectName, objectSurname);
@@ -316,7 +320,7 @@ function openCurrentTaskBigBoxOnSearch(indexOfSoloTask, statusTask, categorycolo
     checkStatusOfTaskOnSearch(bigBoxContainer, indexOfSoloTask);
     checkPriorityBackgroundColor();
     checkHeadlineColorBigBox(categorycolor);
-    renderCurrentWorkersBigBoxSearch(indexOfSoloTask)
+    renderCurrentWorkersBigBoxSearch(indexOfSoloTask);
 }
 
 /**
@@ -332,7 +336,12 @@ function renderCurrentWorkersBigBoxSearch(indexOfTask) {
         let object = getUserAsObject(assUser);
         let objectName = object.name;
         let objectSurname = object.surname;
+
+        if(tasks[indexOfTask].assignedTo.length <=3){
         currentTaskWorkers.innerHTML += templateCurrentWorkersOfTasksBigBox(objectName, objectSurname, objectName);
+        } else {
+            sliceArrayAndShowPlusMark(currentTaskWorkers, indexOfTask, soloStatusArray); //############################## BAUSTELLE ############################
+        }
     }
 }
 
