@@ -1,7 +1,7 @@
 body {
-  font-family: 'Inter';
+  font-family: "Inter";
   font-style: normal;
-  background: #F6F7F8;
+  background: #f6f7f8;
 }
 
 .rotation {
@@ -9,7 +9,7 @@ body {
   transition: all 225ms ease-in-out;
 }
 
-.bg-black{
+.bg-black {
   background: black !important;
   color: white !important;
 }
@@ -51,7 +51,7 @@ body {
   height: 30vh;
   left: 267px;
   top: 57px;
-  background: #F6F7F8;
+  background: #f6f7f8;
 }
 
 .headline-navbar {
@@ -116,8 +116,8 @@ body {
   gap: 10px;
   width: 251px;
   height: 24px;
-  background: #FFFFFF;
-  border: 1px solid #A8A8A8;
+  background: #ffffff;
+  border: 1px solid #a8a8a8;
   border-radius: 10px;
   box-sizing: unset;
 }
@@ -129,8 +129,8 @@ body {
   gap: 10px;
   width: 251px;
   height: 24px;
-  background: #FFFFFF;
-  border: 1px solid #A8A8A8;
+  background: #ffffff;
+  border: 1px solid #a8a8a8;
   border-radius: 10px;
   box-sizing: unset;
 }
@@ -174,18 +174,18 @@ body {
   gap: 10px;
   width: 137px;
   height: 51px;
-  background: #2A3647;
-  border: 1px solid #2A3647;
+  background: #2a3647;
+  border: 1px solid #2a3647;
   border-radius: 10px;
   font-weight: 700;
   font-size: 21px;
-  color: #FFFFFF;
+  color: #ffffff;
   position: relative;
   transition: all 225ms ease-in-out;
 }
 
 .add-task-button:hover {
-  background: #29ABE2;
+  background: #29abe2;
   box-shadow: 0px 3px 0px 0px rgb(0, 0, 0, 0.3);
   border: none;
 }
@@ -193,7 +193,6 @@ body {
 .add-task-button span {
   font-size: 18px;
 }
-
 
 .add-task-button img {
   height: 18px;
@@ -206,7 +205,7 @@ body {
   height: 15px;
   left: 119.5px;
   top: 18px;
-  border: 1px solid #FFFFFF;
+  border: 1px solid #ffffff;
   transform: rotate(90deg);
 }
 
@@ -216,7 +215,7 @@ body {
   height: 15px;
   left: 119.5px;
   top: 18px;
-  border: 1px solid #FFFFFF;
+  border: 1px solid #ffffff;
 }
 
 .main-tasks-container {
@@ -269,13 +268,13 @@ body {
 .headline-task-phone h3 {
   font-weight: 700;
   font-size: 21px;
-  color: #2A3647;
+  color: #2a3647;
 }
 
 .headline-task h3 {
   font-weight: 700;
   font-size: 21px;
-  color: #2A3647;
+  color: #2a3647;
 }
 
 .add-image {
@@ -284,12 +283,13 @@ body {
   gap: 10px;
   width: 30px;
   height: 30px;
-  border: 2px solid #2A3647;
+  border: 2px solid #2a3647;
   border-radius: 10px;
 }
 
 .add-image:hover {
-  filter: invert(55%) sepia(66%) saturate(468%) hue-rotate(153deg) brightness(90%) contrast(109%);
+  filter: invert(55%) sepia(66%) saturate(468%) hue-rotate(153deg)
+    brightness(90%) contrast(109%);
   cursor: pointer;
 }
 
@@ -301,7 +301,7 @@ body {
   padding: 18px 19px;
   width: 250px;
   height: 239px;
-  background: #FFFFFF;
+  background: #ffffff;
   box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
   border-radius: 30px;
   margin-top: 20px;
@@ -320,13 +320,13 @@ body {
 .headline-solo-task h3 {
   font-weight: 400;
   font-size: 16px;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .task-title span {
   font-weight: 700;
   font-size: 16px;
-  color: #2A3647;
+  color: #2a3647;
 }
 
 .task-description {
@@ -340,7 +340,7 @@ body {
 .task-description span {
   font-weight: 400;
   font-size: 16px;
-  color: #A8A8A8;
+  color: #a8a8a8;
 }
 
 .workers-prio {
@@ -359,8 +359,8 @@ body {
   gap: 10px;
   width: 45px;
   height: 45px;
-  background: #0190E0;
-  border: 1px solid #FFFFFF;
+  background: #0190e0;
+  border: 1px solid #ffffff;
   border-radius: 58px;
   color: white;
   margin-left: -10px;
@@ -371,8 +371,8 @@ body {
   gap: 10px;
   width: 45px;
   height: 45px;
-  background: #0190E0;
-  border: 1px solid #FFFFFF;
+  background: #0190e0;
+  border: 1px solid #ffffff;
   border-radius: 58px;
   color: white;
 }
@@ -384,13 +384,16 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  
+  backdrop-filter: brightness(35%);
 }
 
 .add-task-subcontainer {
+  display: flex;
+  margin-left: 10px;
+  margin-right: 10px;
   height: 87vh;
-  width: 60vw;
-  background: #f6f7f8 ;
+  width: 72vw;
+  background: #f6f7f8;
   border-radius: 30px;
   z-index: 3;
   position: relative;
@@ -404,7 +407,7 @@ body {
 }
 
 .close-add-task img {
-  filter: brightness(0) invert(1);
+  width: 20px;
 }
 
 .main-big-box-task-container {
@@ -416,7 +419,7 @@ body {
   isolation: isolate;
   width: 623px;
   height: 700px;
-  background: #FFFFFF;
+  background: #ffffff;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
   border-radius: 30px;
   position: relative;
@@ -434,7 +437,7 @@ body {
 .big-box-task-headline h4 {
   font-weight: 400;
   font-size: 27px;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .big-box-task-title {
@@ -450,7 +453,7 @@ body {
 .big-box-task-title h2 {
   font-weight: 700;
   font-size: 49px;
-  color: #2A3647;
+  color: #2a3647;
 }
 
 .big-box-task-description span {
@@ -502,7 +505,7 @@ body {
   gap: 10px;
   width: 131px;
   height: 33px;
-  background: #FF3D00;
+  background: #ff3d00;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   text-align: center;
@@ -542,7 +545,6 @@ body {
   justify-content: center;
   padding-left: 232px;
   padding-top: 80px;
-
 }
 
 .empty-space {
@@ -647,7 +649,7 @@ body {
   top: 0px;
 }
 
-.edit-prioclass label{
+.edit-prioclass label {
   margin: 0px;
 }
 
@@ -679,7 +681,7 @@ body {
 }
 
 .change-edit-button button:hover {
-  background: #0190E0 !important;
+  background: #0190e0 !important;
 }
 
 .change-edit-button img {
@@ -830,1116 +832,1100 @@ body {
   opacity: 0;
 }
 
-
 @keyframes rotation {
   from {
-      transform: rotate(0deg);
+    transform: rotate(0deg);
   }
 
   to {
-      transform: rotate(359deg);
+    transform: rotate(359deg);
   }
 }
 
 /* RESPONSIVE_ANSICHT */
-@media (min-width:1501px) and (max-width: 1650px) {
+@media (min-width: 1501px) and (max-width: 1650px) {
   .headline-task {
-      width: 270px;
+    width: 270px;
   }
 
 }
 
-@media (min-width:1450px) and (max-width: 1500px) {
+@media (min-width: 1450px) and (max-width: 1500px) {
   .headline-task {
-      width: 250px;
+    width: 250px;
   }
+  
 }
 
-@media (min-width:1400px) and (max-width: 1449px) {
+@media (min-width: 1400px) and (max-width: 1449px) {
   .headline-task {
-      width: 270px;
-      justify-content: space-around;
+    width: 270px;
+    justify-content: space-around;
   }
-
 }
 
 @media (min-width: 1180px) and (max-width: 1399px) {
   .header {
-      position: fixed;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      bottom: 0;
-      background-color: #2a3647;
-      height: 80px;
-      width: 100vw;
-      font-size: 16px;
-      z-index: 11;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    bottom: 0;
+    background-color: #2a3647;
+    height: 80px;
+    width: 100vw;
+    font-size: 16px;
+    z-index: 11;
   }
 
   .big-box-tasks-container-full-size {
-      padding-left: 0px;
-      padding-top: 0px;
+    padding-left: 0px;
+    padding-top: 0px;
   }
 
   .header-logo {
-      display: none;
+    display: none;
   }
 
   .header-navigation {
-      height: 100%;
-      align-items: center;
-      width: 100%;
-      justify-content: space-evenly;
-      display: flex;
-      flex-direction: unset;
+    height: 100%;
+    align-items: center;
+    width: 100%;
+    justify-content: space-evenly;
+    display: flex;
+    flex-direction: unset;
   }
 
   .header-navigation-menupoints {
-      width: 120px;
-      justify-content: space-evenly;
+    width: 120px;
+    justify-content: space-evenly;
   }
 
   .header-summary {
-      margin-top: 0px;
+    margin-top: 0px;
   }
 
   .header-img-container {
-      width: 20%;
+    width: 20%;
   }
 
   .header-legnotice {
-      margin-top: 0px;
-      height: auto;
-      width: 155px;
+    margin-top: 0px;
+    height: auto;
+    width: 155px;
   }
 
   .main-board-container {
-      padding-left: 0px;
+    padding-left: 0px;
   }
 
   .footer {
-      margin-left: 0px;
-      width: 100%;
+    margin-left: 0px;
+    width: 100%;
   }
 
   .footer-headline {
-      display: none;
+    display: none;
   }
 
   .footer-logo {
-      height: 35px;
-      width: 35px;
-      margin-left: 35px;
-      display: flex;
+    height: 35px;
+    width: 35px;
+    margin-left: 35px;
+    display: flex;
   }
 
   .headline-task {
-      justify-content: space-evenly;
+    justify-content: space-evenly;
   }
 
   .headline-navbar {
-      height: 120px
+    height: 120px;
   }
 
   .footer-slogan {
-      display: flex;
-      width: 390px;
-      font-size: 20px;
+    display: flex;
+    width: 390px;
+    font-size: 20px;
   }
 
   .navbar {
-      margin-top: 67px;
+    margin-top: 67px;
   }
-
 }
 
 @media (min-width: 850px) and (max-width: 1179px) {
   .header {
-      position: fixed;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      bottom: 0;
-      background-color: #2a3647;
-      height: 80px;
-      width: 100vw;
-      font-size: 16px;
-      z-index: 11;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    bottom: 0;
+    background-color: #2a3647;
+    height: 80px;
+    width: 100vw;
+    font-size: 16px;
+    z-index: 11;
   }
 
   .big-box-tasks-container-full-size {
-      padding-left: 0px;
-      padding-top: 0px;
+    padding-left: 0px;
+    padding-top: 0px;
   }
 
   .header-logo {
-      display: none;
+    display: none;
   }
 
   .header-navigation {
-      height: 100%;
-      align-items: center;
-      width: 100%;
-      justify-content: space-evenly;
-      display: flex;
-      flex-direction: unset;
+    height: 100%;
+    align-items: center;
+    width: 100%;
+    justify-content: space-evenly;
+    display: flex;
+    flex-direction: unset;
   }
 
   .header-navigation-menupoints {
-      width: 120px;
-      justify-content: space-evenly;
+    width: 120px;
+    justify-content: space-evenly;
   }
 
   .header-summary {
-      margin-top: 0px;
+    margin-top: 0px;
   }
 
   .header-img-container {
-      width: 20%;
+    width: 20%;
   }
 
   .header-legnotice {
-      margin-top: 0px;
-      height: auto;
-      width: 155px;
+    margin-top: 0px;
+    height: auto;
+    width: 155px;
   }
 
   .footer-headline {
-      display: none;
+    display: none;
   }
 
   .footer-logo {
-      height: 35px;
-      width: 35px;
-      margin-left: 35px;
-      display: flex;
+    height: 35px;
+    width: 35px;
+    margin-left: 35px;
+    display: flex;
   }
 
   .main-board-container {
-      padding-left: 0px;
+    padding-left: 0px;
   }
 
   .footer {
-      margin-left: 0px;
-      width: 100%;
+    margin-left: 0px;
+    width: 100%;
   }
 
   .headline-navbar {
-      height: 120px
+    height: 120px;
   }
 
   .footer-slogan {
-      display: flex;
-      width: 390px;
-      font-size: 20px;
+    display: flex;
+    width: 390px;
+    font-size: 20px;
   }
 
   .navbar {
-      margin-top: 67px;
+    margin-top: 67px;
   }
 
   .headline-task {
-      width: 270px;
-      justify-content: space-around;
+    width: 270px;
+    justify-content: space-around;
   }
 
   .headline-tasks {
-      display: none;
+    display: none;
   }
 
   .main-task-container {
-      flex-direction: column;
-      width: 65%;
-      justify-content: space-evenly;
-      align-items: center;
-      height: 250px;
+    flex-direction: column;
+    width: 65%;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 250px;
   }
 
   .main-tasks-container {
-      flex-direction: column;
-      margin-top: 0px;
+    flex-direction: column;
+    margin-top: 0px;
   }
 
   .headline-task-phone {
-      display: flex;
-      width: 50%;
+    display: flex;
+    width: 50%;
   }
 
   .headline-task-phone h3 {
-      font-size: 27px;
+    font-size: 27px;
   }
 
   .main-solo-task-container {
-      width: 90%;
-      height: auto;
-      margin-bottom: 35px;
+    width: 90%;
+    height: auto;
+    margin-bottom: 35px;
   }
 
   .category-status-container {
-      width: 90%;
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-      justify-content: space-evenly;
-      height: auto;
-      box-sizing: border-box;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: auto;
+    box-sizing: border-box;
   }
 
   .headline-solo-task {
-      width: 250px;
-      height: 35px;
-      align-items: center;
+    width: 250px;
+    height: 35px;
+    align-items: center;
   }
 
   .headline-solo-task h3 {
-      font-size: 22px;
+    font-size: 22px;
   }
 
   .task-title {
-      text-align: center;
+    text-align: center;
   }
 
   .task-title span {
-      font-size: 22px;
+    font-size: 22px;
   }
 
   .task-description span {
-      font-size: 20px;
+    font-size: 20px;
   }
 
   .workers-prio {
-      padding-left: 18px;
-      padding-right: 18px;
+    padding-left: 18px;
+    padding-right: 18px;
   }
 
   .prio-img img {
-      width: 40px;
-      height: 40px;
+    width: 40px;
+    height: 40px;
   }
-
 }
 
 @media (min-width: 720px) and (max-width: 849px) {
   .header {
-      position: fixed;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      bottom: 0;
-      background-color: #2a3647;
-      height: 80px;
-      width: 100vw;
-      font-size: 16px;
-      z-index: 11;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    bottom: 0;
+    background-color: #2a3647;
+    height: 80px;
+    width: 100vw;
+    font-size: 16px;
+    z-index: 11;
   }
 
   .header-logo {
-      display: none;
+    display: none;
   }
 
   .header-navigation {
-      height: 100%;
-      align-items: center;
-      width: 100%;
-      justify-content: space-evenly;
-      display: flex;
-      flex-direction: unset;
+    height: 100%;
+    align-items: center;
+    width: 100%;
+    justify-content: space-evenly;
+    display: flex;
+    flex-direction: unset;
   }
 
   .headline-navbar {
-      height: 120px
+    height: 120px;
   }
 
   .footer-slogan {
-      display: flex;
-      width: 390px;
-      font-size: 20px;
+    display: flex;
+    width: 390px;
+    font-size: 20px;
   }
 
   .headline-navbar {
-      height: 120px
+    height: 120px;
   }
 
   .navbar {
-      margin-top: 67px;
+    margin-top: 67px;
   }
 
   .header-summary {
-      margin-top: 0px;
+    margin-top: 0px;
   }
 
   .header-legnotice {
-      margin-top: 0px;
-      height: auto;
-      width: auto;
+    margin-top: 0px;
+    height: auto;
+    width: auto;
   }
 
   .big-box-tasks-container-full-size {
-      padding-left: 0px;
-      padding-top: 0px;
+    padding-left: 0px;
+    padding-top: 0px;
   }
 
   .main-board-container {
-      padding-left: 0px;
+    padding-left: 0px;
   }
 
   .footer {
-      margin-left: 0px;
-      width: 100%;
+    margin-left: 0px;
+    width: 100%;
   }
 
   .headline-task {
-      width: 270px;
-      justify-content: space-around;
+    width: 270px;
+    justify-content: space-around;
   }
 
   .headline-tasks {
-      display: none;
+    display: none;
   }
 
   .main-task-container {
-      flex-direction: column;
-      width: 65%;
-      justify-content: space-evenly;
-      align-items: center;
-      height: 250px;
+    flex-direction: column;
+    width: 65%;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 250px;
   }
 
   .main-tasks-container {
-      flex-direction: column;
-      margin-top: 0px;
+    flex-direction: column;
+    margin-top: 0px;
   }
 
   .headline-task-phone {
-      display: flex;
-      width: 50%;
+    display: flex;
+    width: 50%;
   }
 
   .headline-task-phone h3 {
-      font-size: 27px;
+    font-size: 27px;
   }
 
   .main-solo-task-container {
-      width: 90%;
-      height: auto;
-      margin-bottom: 35px;
+    width: 90%;
+    height: auto;
+    margin-bottom: 35px;
   }
 
   .category-status-container {
-      width: 90%;
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-      justify-content: space-evenly;
-      height: auto;
-      box-sizing: border-box;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: auto;
+    box-sizing: border-box;
   }
 
   .headline-solo-task {
-      width: 250px;
-      height: 35px;
-      align-items: center;
+    width: 250px;
+    height: 35px;
+    align-items: center;
   }
 
   .headline-solo-task h3 {
-      font-size: 22px;
+    font-size: 22px;
   }
 
   .task-title {
-      text-align: center;
+    text-align: center;
   }
 
   .task-title span {
-      font-size: 22px;
+    font-size: 22px;
   }
 
   .task-description span {
-      font-size: 20px;
+    font-size: 20px;
   }
 
   .workers-prio {
-      padding-left: 18px;
-      padding-right: 18px;
+    padding-left: 18px;
+    padding-right: 18px;
   }
 
   .prio-img img {
-      width: 40px;
-      height: 40px;
+    width: 40px;
+    height: 40px;
   }
 
   .navbar {
-      width: 365px;
+    width: 365px;
   }
 
   .search-task {
-      width: 165px;
+    width: 165px;
   }
 
   .search-task input {
-      width: 135px;
+    width: 135px;
   }
 
-  .add-task-subcontainer {
-      height: 65vh;
-  }
+ 
 
   .solo-worker-big-box {
-      margin-top: 16px;
-      margin-bottom: 16px;
+    margin-top: 16px;
+    margin-bottom: 16px;
   }
 
   .main-big-box-task-container {
-      height: 100%;
-      z-index: 2;
-      width: 100%;
-      padding: 50px;
-      border-radius: 0;
+    height: 100%;
+    z-index: 2;
+    width: 100%;
+    padding: 50px;
+    border-radius: 0;
   }
 
   .edit-button {
-      bottom: 90px;
+    bottom: 90px;
   }
 
   .close-task-phone {
-      opacity: 1 !important;
+    opacity: 1 !important;
   }
 
   .close-task {
-      display: none;
+    display: none;
   }
 
-  .big-box-task-title{
-      width: 100%;
-      height: auto;
+  .big-box-task-title {
+    width: 100%;
+    height: auto;
   }
 
-  .big-box-task-title span{
-      width: 100%;
-      height: auto;
+  .big-box-task-title span {
+    width: 100%;
+    height: auto;
   }
 
-  .big-box-task-description{
-      width: 100%;
+  .big-box-task-description {
+    width: 100%;
   }
 
-  .big-box-task-description span{
-      width: 100%;
-      height: auto;
+  .big-box-task-description span {
+    width: 100%;
+    height: auto;
   }
 
-  .main-assigned-to{
-      max-height: 330px;
-      overflow-y: hidden;
-      overflow: scroll;
+  .main-assigned-to {
+    max-height: 330px;
+    overflow-y: hidden;
+    overflow: scroll;
   }
 
-  .assigned-to-workers{
-      max-height: 285px;
-      overflow-y: hidden;
-      overflow: scroll;
+  .assigned-to-workers {
+    max-height: 285px;
+    overflow-y: hidden;
+    overflow: scroll;
   }
-
-
 }
 
 @media (min-width: 450px) and (max-width: 719px) {
   .header {
-      position: fixed;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      bottom: 0;
-      background-color: #2a3647;
-      height: 80px;
-      width: 100vw;
-      font-size: 16px;
-      z-index: 11;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    bottom: 0;
+    background-color: #2a3647;
+    height: 80px;
+    width: 100vw;
+    font-size: 16px;
+    z-index: 11;
   }
 
   .header-logo {
-      display: none;
+    display: none;
   }
 
   .header-navigation {
-      height: 100%;
-      align-items: center;
-      width: 100%;
-      justify-content: space-evenly;
-      display: flex;
-      flex-direction: unset;
+    height: 100%;
+    align-items: center;
+    width: 100%;
+    justify-content: space-evenly;
+    display: flex;
+    flex-direction: unset;
   }
 
   .header-summary {
-      margin-top: 0px;
+    margin-top: 0px;
   }
 
   .header-legnotice {
-      margin-top: 0px;
-      height: auto;
-      width: auto;
+    margin-top: 0px;
+    height: auto;
+    width: auto;
   }
 
   .main-board-container {
-      padding-left: 0px;
+    padding-left: 0px;
   }
 
   .footer {
-      margin-left: 0px;
-      width: 100%;
+    margin-left: 0px;
+    width: 100%;
   }
 
   .footer-slogan {
-      display: flex;
-      width: 390px;
-      font-size: 20px;
+    display: flex;
+    width: 390px;
+    font-size: 20px;
   }
 
   .headline-task {
-      width: 270px;
-      justify-content: space-around;
+    width: 270px;
+    justify-content: space-around;
   }
 
   .headline-tasks {
-      display: none;
+    display: none;
   }
 
   .main-task-container {
-      flex-direction: column;
-      width: 100%;
-      justify-content: space-evenly;
-      height: 250px;
+    flex-direction: column;
+    width: 100%;
+    justify-content: space-evenly;
+    height: 250px;
   }
 
   .main-tasks-container {
-      flex-direction: column;
+    flex-direction: column;
   }
 
   .headline-task-phone {
-      display: flex;
-      width: 110%;
+    display: flex;
+    width: 110%;
   }
 
   .headline-task-phone h3 {
-      font-size: 27px;
+    font-size: 27px;
   }
 
   .main-solo-task-container {
-      width: 90%;
-      height: auto;
-      margin-bottom: 35px;
+    width: 90%;
+    height: auto;
+    margin-bottom: 35px;
   }
 
   .category-status-container {
-      width: 110%;
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-      justify-content: space-evenly;
-      height: auto;
-      box-sizing: border-box;
+    width: 110%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: auto;
+    box-sizing: border-box;
   }
 
   .headline-solo-task {
-      width: 100%;
-      height: 35px;
-      align-items: center;
+    width: 100%;
+    height: 35px;
+    align-items: center;
   }
 
   .headline-solo-task h3 {
-      font-size: 22px;
+    font-size: 22px;
   }
 
   .task-title span {
-      font-size: 22px;
+    font-size: 22px;
   }
 
   .task-description span {
-      font-size: 20px;
+    font-size: 20px;
   }
 
   .workers-prio {
-      padding-left: 18px;
-      padding-right: 18px;
+    padding-left: 18px;
+    padding-right: 18px;
   }
 
   .prio-img img {
-      width: 40px;
-      height: 40px;
+    width: 40px;
+    height: 40px;
   }
 
   .navbar {
-      width: 234px;
+    width: 234px;
   }
 
   .search-task {
-      display: none;
+    display: none;
   }
 
   .search-task-phone {
-      display: flex !important;
+    display: flex !important;
   }
 
   .big-box-tasks-container-full-size {
-      padding-left: 0px;
-      padding-top: 0px;
+    padding-left: 0px;
+    padding-top: 0px;
   }
 
-
-  .add-task-subcontainer {
-      height: 65vh;
-  }
-
+ 
   .main-headline-container {
-      margin-bottom: 155px;
+    margin-bottom: 155px;
   }
 
   .add-task-button {
-      width: 50px;
-      position: absolute;
-      right: 0px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-top: 25px;
+    width: 50px;
+    position: absolute;
+    right: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
   }
 
   .add-task-button span {
-      display: none;
+    display: none;
   }
 
   .add-task-button img {
-      width: 25px;
-      height: 25px;
-      object-fit: none;
+    width: 25px;
+    height: 25px;
+    object-fit: none;
   }
 
   .headline-category {
-      width: 170px;
+    width: 170px;
   }
 
-  .big-box-task-title h2{
-      font-size: 21px;
+  .big-box-task-title h2 {
+    font-size: 21px;
   }
 
-  .big-box-task-description span{
-      width: 100%;
-      height: auto;
-      font-size: 16px;
+  .big-box-task-description span {
+    width: 100%;
+    height: auto;
+    font-size: 16px;
   }
 
-
-  .big-box-task-date table tr td:first-child{
-      font-size: 18px;
+  .big-box-task-date table tr td:first-child {
+    font-size: 18px;
   }
 
-  .big-box-task-date table tr td:last-child{
-      font-size: 18px;
+  .big-box-task-date table tr td:last-child {
+    font-size: 18px;
   }
 
-  .big-box-task-prio table tr td:first-child{
-      font-size: 18px;
+  .big-box-task-prio table tr td:first-child {
+    font-size: 18px;
   }
 
-  .assigned-to-headline h4{
-      font-size: 18px;
+  .assigned-to-headline h4 {
+    font-size: 18px;
   }
 
-  .edit-worker-fullname{
-      font-size: 18px;
+  .edit-worker-fullname {
+    font-size: 18px;
   }
 
   .solo-worker-big-box {
-      margin-top: 16px;
-      margin-bottom: 16px;
+    margin-top: 16px;
+    margin-bottom: 16px;
   }
 
-  .main-edit-container{
-      padding-top: 50px;
-      padding-left: 15px;
-      padding-right: 15px;
+  .main-edit-container {
+    padding-top: 50px;
+    padding-left: 15px;
+    padding-right: 15px;
   }
 
-  .change-edit-button button{
-      bottom: 100px;
+  .change-edit-button button {
+    bottom: 100px;
   }
 
   .main-big-box-task-container {
-      height: 100%;
-      z-index: 2;
-      width: 100%;
-      padding: 50px;
-      border-radius: 0;
+    height: 100%;
+    z-index: 2;
+    width: 100%;
+    padding: 50px;
+    border-radius: 0;
   }
 
   .edit-button {
-      bottom: 90px;
+    bottom: 90px;
   }
 
   .close-task-phone {
-      opacity: 1 !important;
+    opacity: 1 !important;
   }
 
   .close-task {
-      display: none;
+    display: none;
   }
 
-  .big-box-task-title{
-      width: 100%;
-      height: auto;
+  .big-box-task-title {
+    width: 100%;
+    height: auto;
   }
 
-  .big-box-task-title span{
-      width: 100%;
-      height: auto;
+  .big-box-task-title span {
+    width: 100%;
+    height: auto;
   }
 
-  .big-box-task-description{
-      width: 100%;
+  .big-box-task-description {
+    width: 100%;
   }
 
-  .main-assigned-to{
-      max-height: 415px;
-      overflow-y: hidden;
-      overflow: scroll;
+  .main-assigned-to {
+    max-height: 415px;
+    overflow-y: hidden;
+    overflow: scroll;
   }
 
-  .assigned-to-workers{
-      max-height: 355px;
-      overflow-y: hidden;
-      overflow: scroll;
+  .assigned-to-workers {
+    max-height: 355px;
+    overflow-y: hidden;
+    overflow: scroll;
   }
 
   .edit-headline input::placeholder {
-      font-size: 16px;
+    font-size: 16px;
   }
 
-  .edit-description textarea::placeholder{
-      font-size: 16px;
-      padding-top: 8px;
-      width: 100%;
+  .edit-description textarea::placeholder {
+    font-size: 16px;
+    padding-top: 8px;
+    width: 100%;
   }
 }
 
 @media (min-width: 280px) and (max-width: 449px) {
   .header {
-      position: fixed;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      bottom: 0;
-      background-color: #2a3647;
-      height: 80px;
-      width: 100vw;
-      font-size: 16px;
-      z-index: 11;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    bottom: 0;
+    background-color: #2a3647;
+    height: 80px;
+    width: 100vw;
+    font-size: 16px;
+    z-index: 11;
   }
 
   .header-logo {
-      display: none;
+    display: none;
   }
 
   .header-navigation {
-      height: 100%;
-      align-items: center;
-      width: 100%;
-      justify-content: space-evenly;
-      display: flex;
-      flex-direction: unset;
+    height: 100%;
+    align-items: center;
+    width: 100%;
+    justify-content: space-evenly;
+    display: flex;
+    flex-direction: unset;
   }
 
   .header-summary {
-      margin-top: 0px;
+    margin-top: 0px;
   }
 
   .header-legnotice {
-      margin-top: 0px;
-      height: auto;
-      width: auto;
+    margin-top: 0px;
+    height: auto;
+    width: auto;
   }
 
   .main-board-container {
-      padding-left: 0px;
+    padding-left: 0px;
   }
 
   .footer {
-      margin-left: 0px;
-      width: 100%;
+    margin-left: 0px;
+    width: 100%;
   }
 
   .footer-slogan {
-      display: flex;
-      width: 250px;
-      font-size: 14px;
+    display: flex;
+    width: 250px;
+    font-size: 14px;
   }
 
   .headline-task {
-      width: 270px;
-      justify-content: space-around;
+    width: 270px;
+    justify-content: space-around;
   }
 
   .headline-tasks {
-      display: none;
+    display: none;
   }
 
-  .headline h2{
-      font-size: 40px;
+  .headline h2 {
+    font-size: 40px;
   }
 
   .main-task-container {
-      flex-direction: column;
-      width: 100%;
-      justify-content: space-evenly;
-      height: 250px;
+    flex-direction: column;
+    width: 100%;
+    justify-content: space-evenly;
+    height: 250px;
   }
 
   .main-tasks-container {
-      flex-direction: column;
+    flex-direction: column;
   }
 
   .headline-task-phone {
-      display: flex;
-      width: 110%;
+    display: flex;
+    width: 110%;
   }
 
-  .headline-navbar{
-      margin-top: 40px;
+  .headline-navbar {
+    margin-top: 40px;
   }
 
   .headline-task-phone h3 {
-      font-size: 27px;
+    font-size: 27px;
   }
 
   .main-solo-task-container {
-      width: 90%;
-      height: auto;
-      margin-bottom: 35px;
+    width: 90%;
+    height: auto;
+    margin-bottom: 35px;
   }
 
   .category-status-container {
-      width: 110%;
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-      justify-content: space-evenly;
-      height: auto;
-      box-sizing: border-box;
+    width: 110%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: auto;
+    box-sizing: border-box;
   }
 
   .headline-solo-task {
-      width: 100%;
-      height: 35px;
-      align-items: center;
+    width: 100%;
+    height: 35px;
+    align-items: center;
   }
 
   .headline-solo-task h3 {
-      font-size: 22px;
+    font-size: 22px;
   }
 
   .task-title span {
-      font-size: 22px;
+    font-size: 22px;
   }
 
   .task-description span {
-      font-size: 20px;
+    font-size: 20px;
   }
 
   .workers-prio {
-      padding-left: 18px;
-      padding-right: 18px;
+    padding-left: 18px;
+    padding-right: 18px;
   }
 
   .prio-img img {
-      width: 40px;
-      height: 40px;
+    width: 40px;
+    height: 40px;
   }
 
   .navbar {
-      width: 234px;
+    width: 234px;
   }
 
   .search-task {
-      display: none;
+    display: none;
   }
 
   .search-task-phone {
-      display: flex !important;
-      width: 130px;
+    display: flex !important;
+    width: 130px;
   }
 
-  .search-task-phone input{
-      width: 105px;
+  .search-task-phone input {
+    width: 105px;
   }
 
   .big-box-tasks-container-full-size {
-      padding-left: 0px;
-      padding-top: 0px;
+    padding-left: 0px;
+    padding-top: 0px;
   }
 
-
-  .add-task-subcontainer {
-      height: 65vh;
-  }
-
+ 
   .main-headline-container {
-      margin-bottom: 55px;
+    margin-bottom: 55px;
   }
 
   .add-task-button {
-      width: 30px;
-      height: 30px;
-      position: absolute;
-      right: 0px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-top: 30px;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
   }
 
-  .add-task-button img{
-      height: 20px;
-      width: 20px;
-      object-fit: cover;
+  .add-task-button img {
+    height: 20px;
+    width: 20px;
+    object-fit: cover;
   }
 
   .add-task-button span {
-      display: none;
+    display: none;
   }
 
   .headline-category {
-      width: 130px;
+    width: 130px;
   }
 
   .main-big-box-task-container {
-      height: 100%;
-      z-index: 2;
-      width: 100%;
-      padding-top: 20px;
-      padding-left: 10px;
-      padding-right: 5px;
-      border-radius: 0px;
+    height: 100%;
+    z-index: 2;
+    width: 100%;
+    padding-top: 20px;
+    padding-left: 10px;
+    padding-right: 5px;
+    border-radius: 0px;
   }
 
   .big-box-task-title {
-      width: 100%;
-      height: auto;
+    width: 100%;
+    height: auto;
   }
 
-  .big-box-task-title h2{
-      font-size: 18px;
+  .big-box-task-title h2 {
+    font-size: 18px;
   }
 
-  .big-box-task-title span{
-      width: 100%;
-      height: auto;
+  .big-box-task-title span {
+    width: 100%;
+    height: auto;
   }
 
-  .big-box-task-description{
-      width: 100%;
+  .big-box-task-description {
+    width: 100%;
   }
 
-  .big-box-task-description span{
-      font-size: 18px;
+  .big-box-task-description span {
+    font-size: 18px;
   }
 
-  .big-box-task-date table tr td:first-child{
-      font-size: 18px;
+  .big-box-task-date table tr td:first-child {
+    font-size: 18px;
   }
 
-  .big-box-task-date table tr td:last-child{
-      font-size: 18px;
+  .big-box-task-date table tr td:last-child {
+    font-size: 18px;
   }
 
-  .big-box-task-prio table tr td:first-child{
-      font-size: 18px;
+  .big-box-task-prio table tr td:first-child {
+    font-size: 18px;
   }
 
-  .assigned-to-headline h4{
-      font-size: 18px;
+  .assigned-to-headline h4 {
+    font-size: 18px;
   }
 
-  .edit-worker-fullname{
-      font-size: 18px;
+  .edit-worker-fullname {
+    font-size: 18px;
   }
 
   .edit-button {
-      bottom: 90px;
+    bottom: 90px;
   }
 
   .close-task-phone {
-      opacity: 1 !important;
+    opacity: 1 !important;
   }
 
   .close-task {
-      display: none;
+    display: none;
   }
 
   .solo-worker-big-box {
-      margin-top: 16px;
-      margin-bottom: 16px;
+    margin-top: 16px;
+    margin-bottom: 16px;
   }
 
-  .headline-solo-task{
-      font-size: 18px;
+  .headline-solo-task {
+    font-size: 18px;
   }
 
-  .task-title span{
-      font-size: 18px;
+  .task-title span {
+    font-size: 18px;
   }
 
-  .task-description span{
-      font-size: 16px;
+  .task-description span {
+    font-size: 16px;
   }
 
-  .prio-img img{
-      height: 30px;
-      width: 30px;
+  .prio-img img {
+    height: 30px;
+    width: 30px;
   }
 
-  .main-edit-container{
-      padding-top: 50px;
-      padding-left: 0px;
-      padding-right: 0px;
+  .main-edit-container {
+    padding-top: 50px;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 
-  .change-edit-button button{
-      bottom: 100px;
+  .change-edit-button button {
+    bottom: 100px;
   }
 
-  .edit-prioclass{
-      width: 180px;
-      height: 35px;
-      font-size: 10px;
+  .edit-prioclass {
+    width: 180px;
+    height: 35px;
+    font-size: 10px;
   }
 
-  .edit-prioclass img{
-      height: 15px;
-      width: 15px;
+  .edit-prioclass img {
+    height: 15px;
+    width: 15px;
   }
 
-  .edit-assignedTo-subcontainer div:first-child{
-      font-size: 14px;
+  .edit-assignedTo-subcontainer div:first-child {
+    font-size: 14px;
   }
 
-  .main-assigned-to{
-      max-height: 415px;
-      overflow-y: hidden;
-      overflow: scroll;
+  .main-assigned-to {
+    max-height: 415px;
+    overflow-y: hidden;
+    overflow: scroll;
   }
 
-  .assigned-to-workers{
-      max-height: 390px;
-      overflow-y: hidden;
-      overflow: scroll;
+  .assigned-to-workers {
+    max-height: 390px;
+    overflow-y: hidden;
+    overflow: scroll;
   }
 
   .edit-headline input::placeholder {
-      font-size: 12px;
+    font-size: 12px;
   }
 
-  .edit-description textarea::placeholder{
-      font-size: 12px;
-      padding-top: 8px;
-      width: 100%;
+  .edit-description textarea::placeholder {
+    font-size: 12px;
+    padding-top: 8px;
+    width: 100%;
   }
 }

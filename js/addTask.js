@@ -77,6 +77,7 @@ function rendernTask() {
  * Creates a waiting animation with a timer, when the timer expires you are redirected to the board
  */
 function addedToBoard() {
+  window.scrollTo(0, 0);
   let addedToBoard = document.getElementById('addedToBoard')
   addedToBoard.classList.toggle('added-to-board');
   addedToBoard.classList.toggle('d-none');
