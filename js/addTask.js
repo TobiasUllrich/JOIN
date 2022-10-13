@@ -69,7 +69,7 @@ function rendernTask() {
     subTasks: selectedSubtasks,
     status: "To do",
   };
-  // addTask(TASK);
+  addTask(TASK);
   addedToBoard();
 }
 

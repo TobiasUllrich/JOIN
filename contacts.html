@@ -50,7 +50,7 @@
 
 
 <!--Sobald der body-Bereich geladen wurde, wird das Java-Script ausgeführt-->
-<body onload="includeHTML();setactUser();init();">
+<body onload="includeHTML();setactUser();initContacts();">
 
 
     
@@ -59,7 +59,27 @@
     <div w3-include-html="templates/header.html"></div>
     <!-- Header einbinden -->
 
-    <div class="contacts-container">
+    <div class="main-contacts-container">
+        <div class="contacts-container">
+
+        </div>
+        <div class="contacts-information">
+
+            <div>
+                <h1>Contacts</h1>
+                <div class="separator-line"></div>
+                <h3>Better with a team</h3>
+            </div>
+            <div class="contact-information" id="contactInformation">
+
+            </div>
+
+            <div>
+                <button> New contact</button>
+            </div>
+
+        </div>
+
 
     
     </div>

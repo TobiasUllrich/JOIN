@@ -1,43 +1,42 @@
 html {
-    scroll-behavior: smooth;  /* Standard */
+  scroll-behavior: smooth; 
 }
 
 body {
-    margin: 0px;             /* Browser-Standard rückgängig machen: Äußerer Abstand */
-    font-family: "Inter";   /* Schriftart für den ganzen Body-Bereich festlegen */
-    overflow-x: hidden;     /* Standard: Was auf der X-Achse aus dem Body/Tag rausläuft wird nicht mehr gezeigt */
-                           /* muss dem Body gegeben werden, ABER funktioniert nicht auf dem Handy -> Lösung: Alles in eine <div> was in <body> ist und diesem <div> das overflow-Attribut geben */           
-    display:flex;
-    flex-direction:column;    
-    }
-
-/* CONTACTS*/
-
-
-
-/* INTERVALLE FÜRS HANDY */
-@media (min-width:301px) and (max-width:1400px) {
+  margin: 0px; 
+  font-family: "Inter"; 
+  overflow-x: hidden; 
+  display: flex;
+  flex-direction: column;
+  background-color: #f6f7f8;
 }
 
-@media (min-width:400px) and (max-width:800px) {
+.contacts-container {
+  position: absolute;
+  width: 453px;
+  height:100%;
+  left: 232px;
+  top: 80px;
+  background: #ffffff;
+  box-shadow: 4px 0px 6px rgba(0, 0, 0, 0.08);
 }
 
-@media (min-width:215px) and (max-width:300px) {
+.contacts-information{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: calc(100vw - -685px);
+    height: 100vh;
 }
 
-@media (min-width:299px) and (max-width:0px) {   /* Ab hier leer lassen */
+
+@media (min-width: 800px) and (max-width: 1400px) {
 }
 
+@media (min-width: 400px) and (max-width: 800px) {
+}
 
-
-                  
-
-
-
-
-
-
-
-
-
+@media (min-width: 270px) and (max-width: 400px) {
+}
 
