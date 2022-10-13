@@ -283,7 +283,7 @@ function subtasksCheckboxRemoveable(indexOfSubtask) {
  * @param {string} idOfCheckbox - id of the checked checkbox
  */
 function assingCheckbox(idOfCheckbox) {
-  let clickedCheckbox = document.getElementById(`checkboxUNBENENNEN-${idOfCheckbox}`);
+  let clickedCheckbox = document.getElementById(`userCheckbox-${idOfCheckbox}`);
 
   if (clickedCheckbox.checked == false) {
     clickedCheckbox.checked = true;
