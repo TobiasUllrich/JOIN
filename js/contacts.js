@@ -27,3 +27,10 @@ function renderContacts(){
         firstSurLetterID.innerHTML += contactHTML(user);
     }
 }
+
+
+function contactInformation(user){
+    let cInformation = document.getElementById('contact-information');
+    cInformation.innerHTML = '';
+    cInformation.innerHTML = contactInformationHTML(`${user}`);
+}

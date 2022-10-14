@@ -371,13 +371,11 @@ function searchEmailInputHTML() {
 
 function firstLetterListHTML(firstSurnameLetter){
     return /*html*/`
-    <div>
+    <div class="letter-list" >
         <div>
             <h4>${firstSurnameLetter}</h4>
         </div>
-        <div>
-
-        </div>
+        <div class="list-separator-line"></div>
         <div  class="contacts-container" id="${firstSurnameLetter}">
 
         </div>
@@ -389,17 +387,22 @@ function firstLetterListHTML(firstSurnameLetter){
 function contactHTML(user) {
     let fullName = user['name'];
     let letter = fullName.match(/\b(\w)/g).join('');
-    console.log(letter)
     return /*html*/`
-    <div class="contact-container">
+    <div class="contact-container" onclick="contactInformation(${user.email})">
         <div style="background-color: ${user.color}" class="contact-letter">
             <p>${letter}</p>
         </div>
-        <div>
-            <p>${fullName}</p>
-            <p>${user.email}</p>
+        <div class="nameEmail">
+            <p class="nameEmailP1">${fullName}</p>
+            <p class="nameEmailP2">${user.email}</p>
         </div>
     </div>
     `
+}
+
+function contactInformationHTML(user){
+    let fullName = user['name'];
+    let letter = fullName.match(/\b(\w)/g).join('');
+    console.log(letter)
 }
 
