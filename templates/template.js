@@ -388,7 +388,7 @@ function contactHTML(user) {
     let fullName = user['name'];
     let letter = fullName.match(/\b(\w)/g).join('');
     return /*html*/`
-    <div class="contact-container" onclick="contactInformation(${user.email})">
+    <div class="contact-container" id="contactContainer" onclick="contactInformation(${user.email})">
         <div style="background-color: ${user.color}" class="contact-letter">
             <p>${letter}</p>
         </div>

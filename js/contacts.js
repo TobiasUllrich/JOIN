@@ -30,7 +30,9 @@ function renderContacts(){
 
 
 function contactInformation(user){
-    let cInformation = document.getElementById('contact-information');
+    let cInformation = document.getElementById('contactInformation');
+    let contactContainer = document.getElementById('contactContainer');
+    contactContainer.togg
     cInformation.innerHTML = '';
     cInformation.innerHTML = contactInformationHTML(`${user}`);
 }

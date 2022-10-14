@@ -71,6 +71,12 @@ body {
   );
   cursor: pointer;
 }
+
+.contact-container-active {
+  background: #293647; 
+  color: white;
+  cursor: pointer;
+}
 .contact-container:hover .contact-letter {
   width: 36px;
   height: 36px;
