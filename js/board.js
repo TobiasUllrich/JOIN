@@ -146,9 +146,10 @@ function renderAssignedNamesOfTask(index, status, soloStatusArray) {
  * @param {array} soloStatusArray -  this is an filtered array which means in which status the task is
  */
 
-function sliceArrayAndShowPlusMark(outputContainer, index, soloStatusArray) {
-    let amountAssignedWorker = soloStatusArray[index].assignedTo.length - 3;
-    let shortArrayWorkers = soloStatusArray[index].assignedTo.slice(0, 3);
+function sliceArrayAndShowPlusMark(outputContainer, index, taskArray) {
+    let array = taskArray;
+    let amountAssignedWorker = array[index].assignedTo.length - 3;
+    let shortArrayWorkers = array[index].assignedTo.slice(0, 3);
     outputContainer.innerHTML = '';
     
     for (let x = 0; x < shortArrayWorkers.length; x++) {
@@ -336,12 +337,7 @@ function renderCurrentWorkersBigBoxSearch(indexOfTask) {
         let object = getUserAsObject(assUser);
         let objectName = object.name;
         let objectSurname = object.surname;
-
-        if(tasks[indexOfTask].assignedTo.length <=3){
         currentTaskWorkers.innerHTML += templateCurrentWorkersOfTasksBigBox(objectName, objectSurname, objectName);
-        } else {
-            sliceArrayAndShowPlusMark(currentTaskWorkers, indexOfTask, soloStatusArray); //############################## BAUSTELLE ############################
-        }
     }
 }
 
@@ -415,7 +411,14 @@ function showAssingedToWorkersSearch(objectOfSearchTask) {
         let object = getUserAsObject(assUser);
         let objectName = object.name.charAt(0);
         let objectSurname = object.surname.charAt(0);
-        outputContainer.innerHTML += templateAssignedToOfSoloTask(objectName, objectSurname);
+        let searchedTask = [objectOfSearchTask];
+        let index = objectOfSearchTask.id;
+
+        if(objectOfSearchTask.assignedTo.length <=3){
+            outputContainer.innerHTML += templateAssignedToOfSoloTask(objectName, objectSurname);
+        } else {
+            sliceArrayAndShowPlusMark(outputContainer, index, searchedTask);
+        }
     }
 }
 
