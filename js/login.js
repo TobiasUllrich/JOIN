@@ -119,6 +119,8 @@ function showResetPasswordForm() {
  * Lets you login as Guest and redirects you to summary.html
  */
 function loginAsGuest() {
+    document.getElementById('login-email').value =``; //Empty login-input-field to prevent tryLogin() from being executed
+    document.getElementById('login-password').value=``; //Empty login-input-field to prevent tryLogin() from being executed
     setArray('arrayOfactUser', guest); //Save Guest-User-Object in local Storage
     window.location.href = 'summary.html';
 }
