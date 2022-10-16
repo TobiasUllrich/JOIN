@@ -129,7 +129,11 @@ function renderAssignedNamesOfTask(index, status, soloStatusArray) {
         let user = getUserAsObject(assUser);
 
         if (soloStatusArray[index].assignedTo.length <= 3) {
-            renderOutputContainer.innerHTML += templateAssignedToOfSoloTask(user.name.charAt(0), user.surname.charAt(0), user.color);
+            try{renderOutputContainer.innerHTML += templateAssignedToOfSoloTask(user.name.charAt(0), user.surname.charAt(0), user.color)}
+            catch(e){
+                console.log('test', loggedUser.name.charAt(0), loggedUser.surname.charAt(0), loggedUser.color);
+                renderOutputContainer.innerHTML += templateAssignedToOfSoloTask(loggedUser.name.charAt(0), loggedUser.surname.charAt(0), loggedUser.color);
+            };
         } else {
             sliceArrayAndShowPlusMark(renderOutputContainer, index, soloStatusArray);
         }
@@ -153,7 +157,10 @@ function sliceArrayAndShowPlusMark(outputContainer, index, taskArray) {
     for (let x = 0; x < shortArrayWorkers.length; x++) {
         let assUser = shortArrayWorkers[x];
         let user = getUserAsObject(assUser);
-        outputContainer.innerHTML += templateAssignedToOfSoloTask(user.name.charAt(0), user.surname.charAt(0), user.color);
+        try{outputContainer.innerHTML += templateAssignedToOfSoloTask(user.name.charAt(0), user.surname.charAt(0), user.color)}
+        catch(e){
+            outputContainer.innerHTML += templateAssignedToOfSoloTask(loggedUser.name.charAt(0), loggedUser.surname.charAt(0), loggedUser.color);
+        };
     }
 
     outputContainer.innerHTML += showPlusSign(amountAssignedWorker);
@@ -164,7 +171,7 @@ function sliceArrayAndShowPlusMark(outputContainer, index, taskArray) {
  * 
  */
 
-function filterTasks() {
+async function filterTasks() {
     importantTasks = tasks.filter(priority => priority.priority == 'Urgent'); // All important Tasks
     soloTasksTodo = tasks.filter(status => status.status == 'To do'); // All tasks todo
     soloTasksProgress = tasks.filter(status => status.status == 'In progress'); // All tasks in progress
@@ -252,9 +259,13 @@ function renderCurrentWorkersBigBox(indexOfTask, statusTasksArray) {
     for (let x = 0; x < statusTasksArray[indexOfTask].assignedTo.length; x++) {
         let assUser = statusTasksArray[indexOfTask].assignedTo[x];
         let user = getUserAsObject(assUser);
-        currentTaskWorkers.innerHTML += templateCurrentWorkersOfTasksBigBox(user.name, user.surname, user.name, user.color);
+        try{currentTaskWorkers.innerHTML += templateCurrentWorkersOfTasksBigBox(user.name, user.surname, user.name, user.color)}
+        catch(e){
+            currentTaskWorkers.innerHTML += templateCurrentWorkersOfTasksBigBox(loggedUser.name, loggedUser.surname, loggedUser.name, loggedUser.color);
+        };
     }
 }
+
 
 /**
  * This function add the hex color code from task array (categorycolor) to the headline background when user opens the clicked task in bigger window
@@ -329,7 +340,10 @@ function renderCurrentWorkersBigBoxSearch(indexOfTask) {
     for (let x = 0; x < tasks[indexOfTask].assignedTo.length; x++) {
         let assUser = tasks[indexOfTask].assignedTo[x];
         let user = getUserAsObject(assUser);
-        currentTaskWorkers.innerHTML += templateCurrentWorkersOfTasksBigBox(user.name, user.surname, user.name, user.color);
+        try{currentTaskWorkers.innerHTML += templateCurrentWorkersOfTasksBigBox(user.name, user.surname, user.name, user.color)}
+        catch(e){
+            currentTaskWorkers.innerHTML += templateCurrentWorkersOfTasksBigBox(loggedUser.name, loggedUser.surname, loggedUser.name, loggedUser.color);
+        };
     }
 }
 
@@ -405,7 +419,10 @@ function showAssingedToWorkersSearch(objectOfSearchTask) {
         let index = objectOfSearchTask.id;
 
         if(objectOfSearchTask.assignedTo.length <=3){
-            outputContainer.innerHTML += templateAssignedToOfSoloTask(user.name.charAt(0), user.surname.charAt(0), user.color);
+            try{outputContainer.innerHTML += templateAssignedToOfSoloTask(user.name.charAt(0), user.surname.charAt(0), user.color)}
+            catch(e){
+                outputContainer.innerHTML += templateAssignedToOfSoloTask(loggedUser.name.charAt(0), loggedUser.surname.charAt(0), loggedUser.color);
+            };
         } else {
             sliceArrayAndShowPlusMark(outputContainer, index, searchedTask);
         }

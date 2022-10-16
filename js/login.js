@@ -13,7 +13,7 @@ let guest = {
     "email": "Guest@nowhere.de",
     "phone": "",
     "password": "none123",
-    "color": "#8aa4ff"
+    "color": "#4e963d"
 }
 
 /**
