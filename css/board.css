@@ -247,10 +247,6 @@ body ::-webkit-scrollbar-thumb{
   display: none;
 }
 
-/* ::-webkit-scrollbar {
-  display: none;
-} */
-
 .main-solo-task-container {
   display: flex;
   flex-direction: column;
@@ -762,7 +758,7 @@ body ::-webkit-scrollbar-thumb{
   padding-right: 12px;
   font-size: 20px;
   color: black;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .edit-assignedTo-subcontainer div:first-child {
@@ -1350,13 +1346,13 @@ body ::-webkit-scrollbar-thumb{
   .main-assigned-to {
     max-height: 330px;
     overflow-y: hidden;
-    overflow: scroll;
+    overflow: auto;
   }
 
   .assigned-to-workers {
     max-height: 285px;
     overflow-y: hidden;
-    overflow: scroll;
+    overflow: auto;
   }
 }
 
@@ -1613,13 +1609,13 @@ body ::-webkit-scrollbar-thumb{
   .main-assigned-to {
     max-height: 415px;
     overflow-y: hidden;
-    overflow: scroll;
+    overflow: auto;
   }
 
   .assigned-to-workers {
     max-height: 355px;
     overflow-y: hidden;
-    overflow: scroll;
+    overflow: auto;
   }
 
   .edit-headline input::placeholder {
@@ -1932,13 +1928,13 @@ body ::-webkit-scrollbar-thumb{
   .main-assigned-to {
     max-height: 415px;
     overflow-y: hidden;
-    overflow: scroll;
+    overflow: auto;
   }
 
   .assigned-to-workers {
     max-height: 390px;
     overflow-y: hidden;
-    overflow: scroll;
+    overflow: auto;
   }
 
   .edit-headline input::placeholder {
