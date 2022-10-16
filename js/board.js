@@ -126,13 +126,10 @@ function renderAssignedNamesOfTask(index, status, soloStatusArray) {
 
     for (let x = 0; x < soloStatusArray[index].assignedTo.length; x++) {
         let assUser = soloStatusArray[index].assignedTo[x];
-        let object = getUserAsObject(assUser);
-        let objectName = object.name.charAt(0);
-        let objectSurname = object.surname.charAt(0);
-        let objectColor = object.color;
+        let user = getUserAsObject(assUser);
 
         if (soloStatusArray[index].assignedTo.length <= 3) {
-            renderOutputContainer.innerHTML += templateAssignedToOfSoloTask(objectName, objectSurname, objectColor);
+            renderOutputContainer.innerHTML += templateAssignedToOfSoloTask(user.name.charAt(0), user.surname.charAt(0), user.color);
         } else {
             sliceArrayAndShowPlusMark(renderOutputContainer, index, soloStatusArray);
         }
@@ -155,11 +152,8 @@ function sliceArrayAndShowPlusMark(outputContainer, index, taskArray) {
     
     for (let x = 0; x < shortArrayWorkers.length; x++) {
         let assUser = shortArrayWorkers[x];
-        let object = getUserAsObject(assUser);
-        let objectName = object.name.charAt(0);
-        let objectSurname = object.surname.charAt(0);
-        let objectColor = object.color;
-        outputContainer.innerHTML += templateAssignedToOfSoloTask(objectName, objectSurname, objectColor);
+        let user = getUserAsObject(assUser);
+        outputContainer.innerHTML += templateAssignedToOfSoloTask(user.name.charAt(0), user.surname.charAt(0), user.color);
     }
 
     outputContainer.innerHTML += showPlusSign(amountAssignedWorker);
@@ -257,11 +251,8 @@ function renderCurrentWorkersBigBox(indexOfTask, statusTasksArray) {
     currentTaskWorkers.innerHTML = '';
     for (let x = 0; x < statusTasksArray[indexOfTask].assignedTo.length; x++) {
         let assUser = statusTasksArray[indexOfTask].assignedTo[x];
-        let object = getUserAsObject(assUser);
-        let objectName = object.name;
-        let objectSurname = object.surname;
-        let objectColor = object.color;
-        currentTaskWorkers.innerHTML += templateCurrentWorkersOfTasksBigBox(objectName, objectSurname, objectName, objectColor);
+        let user = getUserAsObject(assUser);
+        currentTaskWorkers.innerHTML += templateCurrentWorkersOfTasksBigBox(user.name, user.surname, user.name, user.color);
     }
 }
 
@@ -337,11 +328,8 @@ function renderCurrentWorkersBigBoxSearch(indexOfTask) {
     currentTaskWorkers.innerHTML = '';
     for (let x = 0; x < tasks[indexOfTask].assignedTo.length; x++) {
         let assUser = tasks[indexOfTask].assignedTo[x];
-        let object = getUserAsObject(assUser);
-        let objectName = object.name;
-        let objectSurname = object.surname;
-        let objectColor = object.Color;
-        currentTaskWorkers.innerHTML += templateCurrentWorkersOfTasksBigBox(objectName, objectSurname, objectName, objectColor);
+        let user = getUserAsObject(assUser);
+        currentTaskWorkers.innerHTML += templateCurrentWorkersOfTasksBigBox(user.name, user.surname, user.name, user.color);
     }
 }
 
@@ -412,14 +400,12 @@ function showAssingedToWorkersSearch(objectOfSearchTask) {
 
     for (let x = 0; x < objectOfSearchTask.assignedTo.length; x++) {
         let assUser = objectOfSearchTask.assignedTo[x];
-        let object = getUserAsObject(assUser);
-        let objectName = object.name.charAt(0);
-        let objectSurname = object.surname.charAt(0);
+        let user = getUserAsObject(assUser);
         let searchedTask = [objectOfSearchTask];
         let index = objectOfSearchTask.id;
 
         if(objectOfSearchTask.assignedTo.length <=3){
-            outputContainer.innerHTML += templateAssignedToOfSoloTask(objectName, objectSurname);
+            outputContainer.innerHTML += templateAssignedToOfSoloTask(user.name.charAt(0), user.surname.charAt(0), user.color);
         } else {
             sliceArrayAndShowPlusMark(outputContainer, index, searchedTask);
         }
