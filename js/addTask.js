@@ -62,7 +62,7 @@ function rendernTask() {
     title: taskTitle,
     description: taskDescription,
     category: taskCategory,
-    categoryColor: '#' + taskCategoryColor,
+    categorycolor: '#' + taskCategoryColor,
     assignedTo: selectedUsers,
     dueDate: taskDueDate.split("-").reverse().join("-"),
     priority: selectedPrio,

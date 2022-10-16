@@ -9,7 +9,7 @@ let usersScript = [
     "email": "ullrich.tobias@gmx.de",
     "phone": "888",
     "password": "xxxxx",
-    "color": "#091931"    
+    "color": "#ee00d6"    
   },
   {
     "name": "Edip Bahcecioglu",

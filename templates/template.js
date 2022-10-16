@@ -226,9 +226,9 @@ function templateShowAllWorkers(indexOfUsers, userName) {
     <div onclick="submitCheckbox(${indexOfUsers})" class="solo-contact"><label>${userName}</label><input onclick="submitCheckbox(${indexOfUsers})" name="users" id="checkbox-${indexOfUsers}" type="checkbox"></div>`
 }
 
-function templateAssignedToOfSoloTask(firstName, lastName) {
+function templateAssignedToOfSoloTask(firstName, lastName, userBackgroundColor) {
     return `
-    <div class="worker-name-start-letters d-center">${firstName}${lastName}</div>`
+    <div class="worker-name-start-letters d-center" style="background:${userBackgroundColor}">${firstName}${lastName}</div>`
 }
 
 function showPlusSign(amountWorker) {
@@ -236,22 +236,10 @@ function showPlusSign(amountWorker) {
     <div class="worker-name-start-letters d-center bg-black">+ ${amountWorker}</div>`
 }
 
-function templateCurrentWorkersOfTasksBigBox(firstName, lastName, fullName) {
+function templateCurrentWorkersOfTasksBigBox(firstName, lastName, fullName, userBackgroundColor) {
     return `
-    <div class="solo-worker-big-box"><div class="worker-name-start-letters-edit d-center">${firstName.charAt(0)}${lastName.charAt(0)}</div><div class="edit-worker-fullname">${fullName}</div>`
+    <div class="solo-worker-big-box"><div style="background:${userBackgroundColor}" class="worker-name-start-letters-edit d-center">${firstName.charAt(0)}${lastName.charAt(0)}</div><div class="edit-worker-fullname">${fullName}</div>`
 }
-
-
-function templateAssignedToOfSoloTask(firstName, lastName) {
-    return `
-    <div class="worker-name-start-letters d-center">${firstName}${lastName}</div>`
-}
-
-function templateCurrentWorkersOfTasksBigBox(firstName, lastName, fullName) {
-    return `
-    <div class="solo-worker-big-box"><div class="worker-name-start-letters-edit d-center">${firstName.charAt(0)}${lastName.charAt(0)}</div><div class="edit-worker-fullname">${fullName}</div>`
-}
-
 
 // ################################ BOARD TEMPLATE END ################################################### 
 

@@ -129,9 +129,10 @@ function renderAssignedNamesOfTask(index, status, soloStatusArray) {
         let object = getUserAsObject(assUser);
         let objectName = object.name.charAt(0);
         let objectSurname = object.surname.charAt(0);
+        let objectColor = object.color;
 
         if (soloStatusArray[index].assignedTo.length <= 3) {
-            renderOutputContainer.innerHTML += templateAssignedToOfSoloTask(objectName, objectSurname);
+            renderOutputContainer.innerHTML += templateAssignedToOfSoloTask(objectName, objectSurname, objectColor);
         } else {
             sliceArrayAndShowPlusMark(renderOutputContainer, index, soloStatusArray);
         }
@@ -157,7 +158,8 @@ function sliceArrayAndShowPlusMark(outputContainer, index, taskArray) {
         let object = getUserAsObject(assUser);
         let objectName = object.name.charAt(0);
         let objectSurname = object.surname.charAt(0);
-        outputContainer.innerHTML += templateAssignedToOfSoloTask(objectName, objectSurname);
+        let objectColor = object.color;
+        outputContainer.innerHTML += templateAssignedToOfSoloTask(objectName, objectSurname, objectColor);
     }
 
     outputContainer.innerHTML += showPlusSign(amountAssignedWorker);
@@ -258,7 +260,8 @@ function renderCurrentWorkersBigBox(indexOfTask, statusTasksArray) {
         let object = getUserAsObject(assUser);
         let objectName = object.name;
         let objectSurname = object.surname;
-        currentTaskWorkers.innerHTML += templateCurrentWorkersOfTasksBigBox(objectName, objectSurname, objectName);
+        let objectColor = object.color;
+        currentTaskWorkers.innerHTML += templateCurrentWorkersOfTasksBigBox(objectName, objectSurname, objectName, objectColor);
     }
 }
 
@@ -337,7 +340,8 @@ function renderCurrentWorkersBigBoxSearch(indexOfTask) {
         let object = getUserAsObject(assUser);
         let objectName = object.name;
         let objectSurname = object.surname;
-        currentTaskWorkers.innerHTML += templateCurrentWorkersOfTasksBigBox(objectName, objectSurname, objectName);
+        let objectColor = object.Color;
+        currentTaskWorkers.innerHTML += templateCurrentWorkersOfTasksBigBox(objectName, objectSurname, objectName, objectColor);
     }
 }
 

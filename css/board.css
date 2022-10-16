@@ -86,7 +86,7 @@ body ::-webkit-scrollbar-thumb{
   height: 51px;
 }
 
-.headline {
+.headline-board {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -95,7 +95,7 @@ body ::-webkit-scrollbar-thumb{
   height: 73px;
 }
 
-.headline h2 {
+.headline-board h2 {
   font-weight: 700;
   font-size: 61px;
   color: #000000;
@@ -1695,7 +1695,7 @@ body ::-webkit-scrollbar-thumb{
     display: none;
   }
 
-  .headline h2 {
+  .headline-board h2 {
     font-size: 40px;
   }
 
