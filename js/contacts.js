@@ -34,3 +34,11 @@ function contactInformation(fullName, userColor, userEmail , userPhone ){
     cInformation.innerHTML = '';
     cInformation.innerHTML = contactInformationHTML(fullName, userColor, userEmail , userPhone);
 }
+
+function closeAddContact(){
+    document.getElementById('addContactEditBG').classList.add('d-none');
+}
+
+function openAddContactContainer(){
+    document.getElementById('addContactEditBG').classList.remove('d-none');
+}
