@@ -357,7 +357,7 @@ function searchEmailInputHTML() {
 
 // ################################ CONTACTS TEMPLATE START ################################################### 
 
-function firstLetterListHTML(firstSurnameLetter){
+function firstLetterListHTML(firstSurnameLetter) {
     return /*html*/`
     <div class="letter-list" >
         <div>
@@ -376,7 +376,7 @@ function contactHTML(user) {
     let fullName = user['name'];
     let letter = fullName.match(/\b(\w)/g).join('');
     return /*html*/`
-    <div class="contact-container" id="contactContainer" onclick="contactInformation(${user.email})">
+    <div class="contact-container" id="contactContainer" onclick="contactInformation('${fullName}', '${user.color}', '${user.email}', '${user.phone}')">
         <div style="background-color: ${user.color}" class="contact-letter">
             <p>${letter}</p>
         </div>
@@ -388,9 +388,50 @@ function contactHTML(user) {
     `
 }
 
-function contactInformationHTML(user){
+function contactListHTML(user) {
     let fullName = user['name'];
     let letter = fullName.match(/\b(\w)/g).join('');
-    console.log(letter)
+    console.log(letter);
+}
+
+function contactInformationHTML(fullName, userColor, userEmail, userPhone) {
+    let letter = fullName.match(/\b(\w)/g).join('');
+    return /*html*/`
+    <div class="contactInformationBG">
+        <div class="contactInformationHealine">
+            <div class="contactInformationLetter" style="background-color: ${userColor}">
+                <p>${letter}</p>
+            </div>
+            <div class="contactInformationFullname">
+                <h2>${fullName}</h2>
+                <a href="addtask.html">+Add Task</a>
+            </div>
+        </div>
+        <div class="contactInformationCenter">
+            <div class="contactInformationInforHeadline">
+                <p>Contact Information</p>
+
+            </div>
+            <div class="contactInformationEdit" onclick="editContact('${fullName}', '${userEmail}', '${userPhone}')">
+                <img src="./img/contact/pencil.png" alt="">
+                <p>Edit Contact</p>
+
+            </div>
+        </div>
+        <div class="contactInformationEmailPhone">
+            <div class="contactInformationEmail">
+                <p>Email<br>
+                    <a href= "${userEmail}">${userEmail}</a>
+                </p>
+            </div>
+            <div class="contactInformationPhone">
+                <p>Phone<br>
+                    <a href="tel:+49${userPhone}">${userPhone}</a>
+                </p>
+                
+            </div>
+        </div>
+    </div>
+    `
 }
 

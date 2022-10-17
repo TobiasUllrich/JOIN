@@ -300,7 +300,6 @@ p {
   padding-right: 0px;
   font-size: 20px;
   color: black;
-  overflow-y: scroll;
 }
 
 .solo-assigned:hover {

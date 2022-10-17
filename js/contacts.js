@@ -29,10 +29,8 @@ function renderContacts(){
 }
 
 
-function contactInformation(user){
+function contactInformation(fullName, userColor, userEmail , userPhone ){
     let cInformation = document.getElementById('contactInformation');
-    let contactContainer = document.getElementById('contactContainer');
-    contactContainer.togg
     cInformation.innerHTML = '';
-    cInformation.innerHTML = contactInformationHTML(`${user}`);
+    cInformation.innerHTML = contactInformationHTML(fullName, userColor, userEmail , userPhone);
 }

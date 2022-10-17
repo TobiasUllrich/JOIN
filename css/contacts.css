@@ -38,7 +38,7 @@ body {
   flex-direction: column;
   position: absolute;
   justify-content: space-between;
-  
+
   right: 0;
   top: 0;
   bottom: 0;
@@ -73,7 +73,7 @@ body {
 }
 
 .contact-container-active {
-  background: #293647; 
+  background: #293647;
   color: white;
   cursor: pointer;
 }
@@ -171,8 +171,230 @@ body {
 }
 
 .new-contact-button:hover {
-  background: #29abe2  ;
-  border: 1px solid #29abe2  ;
+  background: #29abe2;
+  border: 1px solid #29abe2;
+}
+
+.contactInformationLetter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  height: 120px;
+  border-radius: 100%;
+  margin-right: 50px;
+  margin-bottom: 30px;
+  border: 3px solid #ffffff;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 70px;
+}
+
+.contactInformationLetter p {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  font-weight: 500;
+  font-size: 47px;
+  color: #ffffff;
+  transform: translateY(10%);
+}
+
+.contactInformationHealine {
+  display: flex;
+  align-items: center;
+}
+
+.contactInformationFullname h2 {
+  font-size: 47px;
+  color: #000000;
+}
+
+.contactInformationFullname h2 {
+  font-size: 47px;
+  color: #000000;
+}
+
+.contactInformationFullname a {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 120%;
+  display: flex;
+  align-items: center;
+  color: #29abe2;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  text-decoration: none;
+}
+
+.contactInformationCenter {
+  display: flex;
+  font-size: 21px;
+  line-height: 120%;
+  display: flex;
+  align-items: center;
+  color: #000000;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.contactInformationInforHeadline {
+  margin-right: 50px;
+}
+.contactInformationEdit {
+  display: flex;
+  cursor: pointer;
+  color: #2a3647;
+}
+
+.contactInformationEdit img {
+  height: 30px;
+  margin-right: 10px;
+}
+
+.contactInformationEmailPhone p {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 120%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #000000;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin-top: 40px;
+}
+
+.contactInformationEmail a {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 120%;
+  display: flex;
+  align-items: center;
+  color: #007cee;
+  text-decoration: none;
+}
+
+.contactInformationPhone a {
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 120%;
+  display: flex;
+  align-items: center;
+  color: #000000;
+}
+
+.addContactEditBG {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  z-index: 999;
+  position: absolute;
+  top: 0;
+  left: 0;
+  backdrop-filter: brightness(35%);
+}
+
+.inputAreaAddContact {
+  display: flex;
+  flex-direction: column;
+}
+
+.circleIcone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 120px;
+  border-radius: 100%;
+  background: #d1d1d1;
+  margin-right: 30px;
+}
+
+.circleIcone img {
+  width: 62px;
+}
+.addContactEditContainer {
+  display: flex;
+}
+
+.addContactEditContainerLeft {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 150px 46px;
+  width: 463px;
+  height: 594px;
+  gap: 12px;
+  isolation: isolate;
+  background: #2a3647;
+  color: white;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+.addContactEditContainerLeft h3 {
+  font-weight: 700;
+  font-size: 61px;
+  line-height: 120%;
+  color: #ffffff;
+}
+
+.addContactEditContainerLeft p {
+  font-weight: 400;
+  font-size: 27px;
+  line-height: 120%;
+  color: #ffffff;
+}
+
+.addContactSepline {
+  width: 90px;
+  border-bottom: 3px solid #29abe2;
+}
+
+.addContactEditContainerRight {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 150px 46px;
+  gap: 12px;
+  isolation: isolate;
+  background: white;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  position: relative;
+}
+
+.addContactEditContainerSubmit {
+  display: flex;
+}
+
+.closeAddContact {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  cursor: pointer;
+}
+
+.inputAddContact {
+  padding: 13px 21px;
+  width: 422px;
+  height: 40px;
+  background: #ffffff;
+  border: 1px solid #d1d1d1;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+.inputImg{
+  margin-left: -30px;
 }
 
 /* ===== Scrollbar CSS ===== */
