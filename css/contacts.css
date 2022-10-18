@@ -2,6 +2,9 @@ html {
   scroll-behavior: smooth;
 }
 
+.d-flex {
+  display: flex;
+}
 body {
   margin: 0px;
   font-family: "Inter";
@@ -246,6 +249,17 @@ body {
   display: flex;
   cursor: pointer;
   color: #2a3647;
+  padding-left: 10px;
+  padding-top: 10px;
+  padding-right: 10px;
+}
+.contactInformationEdit:hover {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(241, 241, 241, 1) 100%
+  );
+  border-radius: 10px;
 }
 
 .contactInformationEdit img {
@@ -393,8 +407,41 @@ body {
   margin-bottom: 30px;
 }
 
-.inputImg{
+.inputImg {
   margin-left: -30px;
+}
+
+.buttonCreateContact {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 18px 10px;
+  gap: 10px;
+  height: 61px;
+  background: #2a3647;
+  border-radius: 10px;
+  color: white;
+  border: none;
+  font-weight: 700;
+  font-size: 21px;
+}
+
+.buttonCancelContact {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 18px 10px;
+  gap: 10px;
+  height: 61px;
+  background: white;
+  border-radius: 10px;
+  color: #2a3647;
+  border: 1px solid #2a3647;
+  font-size: 21px;
+  color: #2a3647;
+  margin-right: 40px;
 }
 
 /* ===== Scrollbar CSS ===== */

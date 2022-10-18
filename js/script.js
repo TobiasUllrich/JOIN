@@ -39,8 +39,8 @@ let usersScript = [
     "color": "#8aa4ff"
   },
   {
-    "name": "Mama Mia",
-    "surname": "Mia",
+    "name": "Mama Rina",
+    "surname": "Rina",
     "picture": "mami.jpg",
     "email": "MandM@web.de",
     "phone": "12776644",

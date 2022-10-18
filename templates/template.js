@@ -435,3 +435,90 @@ function contactInformationHTML(fullName, userColor, userEmail, userPhone) {
     `
 }
 
+
+function editContactHTML(fullName, userColor, userEmail, userPhone) {
+    let letter = fullName.match(/\b(\w)/g).join('');
+    return /*html*/`
+<div class="addContactEditBG ">
+<div class="addContactEditContainer">
+    <div class="addContactEditContainerLeft">
+        <img src="./img/contact/joinIcon.png" alt="">
+        <h3>Edit contact</h3>
+        <div class="addContactSepline"></div>
+    </div>
+    <div class="addContactEditContainerRight">
+        <div class="closeAddContact">
+            <img onclick="closeAddContact()" class="closeAddContactIcon" src="./img/contact/x-icon.png">
+        </div>
+        <div class="addContactEditContainerSubmit">
+            <div class="circleIcone">
+                <img src="./img/contact/user-line.png" alt="">
+            </div>
+            <form class="inputAreaAddContact" onsubmit="createNewContact(); return false;">
+                <div>
+                    <input id="newName" pattern="^(\w\w+)\s(\w+)$" required class="inputAddContact" type="text" placeholder="Name Surname"><img class="inputImg" src="./img/contact/user-line-mini.png" alt=""
+                        srcset="">
+                </div>
+                <div >
+                    <input id="newEmail" required class="inputAddContact" type="email" placeholder="Email"><img class="inputImg" src="./img/contact/email.png" alt="" srcset="">
+                </div>
+                <div>
+                    <input id="newPhone"  required class="inputAddContact" type="phone" placeholder="Phone"><img class="inputImg" src="./img/contact/phone-line.png" alt=""
+                        srcset="">
+                </div>
+                <div>
+                    <button type="reset">Cancel <img src="./img/contact/x-icon-mini.png" alt=""></button>
+                    <button > Create contact <img src="./img/contact/akar-icons_check.png" alt=""
+                            srcset=""></button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+</div>
+`
+}
+
+
+function editContactHTML() {
+    return /*html*/`
+    <div id="addContactEditBG" class="addContactEditBG">
+        <div class="addContactEditContainer">
+            <div class="addContactEditContainerLeft">
+                <img src="./img/contact/joinIcon.png" alt="">
+                <h3>Add contact</h3>
+                <p>Tasks are better with a team!</p>
+            <div class="addContactSepline"></div>
+        </div>
+        <div class="addContactEditContainerRight">
+            <div class="closeAddContact">
+               <img onclick="closeAddContact()" class="closeAddContactIcon" src="./img/contact/x-icon.png">
+            </div>
+            <div class="addContactEditContainerSubmit">
+                <div class="circleIcone">
+                    <img src="./img/contact/user-line.png" alt="">
+                </div>
+                <form class="inputAreaAddContact" onsubmit="createNewContact(); return false;">
+                    <div>
+                        <input id="newName" pattern="^(\w\w+)\s(\w+)$" required class="inputAddContact" type="text" placeholder="Name Surname"><img class="inputImg" src="./img/contact/user-line-mini.png" alt=""
+                        srcset="">
+                    </div>
+                    <div>
+                        <input id="newEmail" required class="inputAddContact" type="email" placeholder="Email"><img class="inputImg" src="./img/contact/email.png" alt="" srcset="">
+                    </div>
+                    <div>
+                        <input id="newPhone"  required class="inputAddContact" type="phone" placeholder="Phone"><img class="inputImg" src="./img/contact/phone-line.png" alt=""
+                            srcset="">
+                    </div>
+                    <div class="d-flex">
+                        <button class="buttonCancelContact"  type="reset">Cancel <img src="./img/contact/x-icon-mini.png" alt=""></button>
+                        <button class="buttonCreateContact"> Create contact <img src="./img/contact/akar-icons_check.png" alt=""
+                            srcset=""></button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+`}
