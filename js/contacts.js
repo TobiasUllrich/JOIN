@@ -51,12 +51,19 @@ function openAddContactContainer() {
     let element = document.getElementById('tampletContainer');
     element.classList.remove('d-none')
     element.innerHTML = '';
-    element.innerHTML = editContactHTML();
+    element.innerHTML = addNewContactHTML();
+}
+
+function openEditContact(fullName, email, phone, color){
+    let element = document.getElementById('tampletContainer');
+    element.classList.remove('d-none')
+    element.innerHTML = '';
+    element.innerHTML = editContactHTML(fullName, email, phone, color);
 }
 
 async function createNewContact() {
     let fullname = document.getElementById('newName').value;
-    let name = fullname.slice(0, fullname.indexOf(' '));
+
     let surname = fullname.slice(fullname.indexOf(' ') + 1, fullname.length);
     let email = document.getElementById('newEmail').value;
     let phone = document.getElementById('newPhone').value;
@@ -71,5 +78,23 @@ async function createNewContact() {
         "color": color
     };
     await addUser(object);
+    location.reload();
+}
+
+
+function acceptEditContact(oldEmail){
+    let fullname = document.getElementById('editName').value;
+    let surname = fullname.slice(fullname.indexOf(' ') + 1, fullname.length);
+    let email = document.getElementById('editEmail').value;
+    let phone = document.getElementById('editPhone').value;
+    let object = {
+        "name": fullname,
+        "surname": surname,
+        "email": email,
+        "phone": phone,
+        "oldEmail":oldEmail,
+    };
+
+    changeUser(object);
     location.reload();
 }
