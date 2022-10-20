@@ -439,39 +439,39 @@ function contactInformationHTML(fullName, userColor, userEmail, userPhone) {
 function editContactHTML(fullName, email, phone, color) {
     let letter = fullName.match(/\b(\w)/g).join('');
     return /*html*/`
-<div class="addContactEditBG ">
-    <div class="addContactEditContainer">
-        <div class="addContactEditContainerLeft">
-            <img src="./img/contact/joinIcon.png" alt="">
-            <h3>Edit contact</h3>
-            <div class="addContactSepline"></div>
-        </div>
-        <div class="addContactEditContainerRight">
-            <div class="closeAddContact">
-                <img onclick="closeAddContact()" class="closeAddContactIcon" src="./img/contact/x-icon.png">
+    <div class="addContactEditBG ">
+        <div class="addContactEditContainer">
+            <div class="addContactEditContainerLeft">
+                <img src="./img/contact/joinIcon.png" alt="">
+                <h3>Edit contact</h3>
+                <div class="addContactSepline"></div>
             </div>
-            <div class="addContactEditContainerSubmit">
-                <div class="circleIcone" style="background-color: ${color}">
-                    <p>${letter} </p>
+            <div class="addContactEditContainerRight">
+                <div class="closeAddContact">
+                    <img onclick="closeAddContact()" class="closeAddContactIcon" src="./img/contact/x-icon.png">
                 </div>
-                <form class="inputAreaAddContact" onsubmit="acceptEditContact(email); return false;">
-                    <div>
-                        <input id="editName" pattern="^(\w\w+)\s(\w+)$" required class="inputAddContact" type="text" placeholder="${fullName}"><img class="inputImg" src="./img/contact/user-line-mini.png" alt="">
+                <div class="addContactEditContainerSubmit">
+                    <div class="circleIcone" style="background-color: ${color}">
+                        <p>${letter} </p>
                     </div>
-                    <div>
-                        <input id="editEmail" required class="inputAddContact" type="email" placeholder="${email}"><img class="inputImg" src="./img/contact/email.png" alt="">
-                    </div>
-                    <div>
-                        <input id="editPhone"  required class="inputAddContact" type="phone" placeholder="${phone}"><img class="inputImg" src="./img/contact/phone-line.png" alt="">
-                    </div>
-                    <div>
-                        <button > Save <img src="./img/contact/akar-icons_check.png" alt=""></button>
-                    </div>
-                </form>
+                    <form onsubmit="newEditContact(test); return false;" class="inputAreaAddContact" >
+                        <div>
+                            <input id="editName" pattern="^(&#92w&#92w+)&#92s(&#92w+)$" required class="inputAddContact" type="text" placeholder="${fullName}"><img class="inputImg" src="./img/contact/user-line-mini.png" alt="">
+                        </div>
+                        <div>
+                            <input id="editEmail" required class="inputAddContact" type="email" placeholder="${email}"><img class="inputImg" src="./img/contact/email.png" alt="">
+                        </div>
+                        <div>
+                            <input id="editPhone"  required class="inputAddContact" type="phone" placeholder="${phone}"><img class="inputImg" src="./img/contact/phone-line.png" alt="">
+                        </div>
+                        <div>
+                            <button> Save <img src="./img/contact/akar-icons_check.png" alt=""></button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
 `
 }
 
@@ -494,9 +494,9 @@ function addNewContactHTML() {
                 <div class="circleIcone">
                     <img src="./img/contact/user-line.png" alt="">
                 </div>
-                <form class="inputAreaAddContact" onsubmit="createNewContact(); return false;">
+                <form onsubmit="createNewContact(); return false;" class="inputAreaAddContact">
                     <div>
-                        <input id="newName" pattern="^(\w\w+)\s(\w+)$" required class="inputAddContact" type="text" placeholder="Name Surname"><img class="inputImg" src="./img/contact/user-line-mini.png" alt=""
+                        <input id="newName" pattern="^(&#92w&#92w+)&#92s(&#92w+)$" required class="inputAddContact" type="text" placeholder="Name Surname"><img class="inputImg" src="./img/contact/user-line-mini.png" alt=""
                         srcset="">
                     </div>
                     <div>
@@ -508,7 +508,7 @@ function addNewContactHTML() {
                     </div>
                     <div class="d-flex">
                         <button class="buttonCancelContact"  type="reset">Cancel <img src="./img/contact/x-icon-mini.png" alt=""></button>
-                        <button class="buttonCreateContact"> Create contact <img src="./img/contact/akar-icons_check.png" alt=""
+                        <button class="buttonCreateContact" type="submit"> Create contact <img src="./img/contact/akar-icons_check.png" alt=""
                             srcset=""></button>
                     </div>
                 </form>

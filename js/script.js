@@ -321,9 +321,9 @@ async function addTask(object) {
  * Changes one or more attribute of a user with a certain email through an object which contains the new values 
  * @param {object} object Object which equals a complete User (e.g. object = users[2];)
  */
- async function changeUser(object) {
-  let email = object['email']; 
-  let index = getUserIndexForEmail(email);
+ async function changeUser(object,) {
+  let oldEmail = object['oldEmail']; 
+  let index = getUserIndexForEmail(oldEmail);
 
   users[index]['name'] = object['name'];
   users[index]['surname'] = object['surname'];
