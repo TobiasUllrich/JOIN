@@ -327,11 +327,8 @@ async function addTask(object) {
 
   users[index]['name'] = object['name'];
   users[index]['surname'] = object['surname'];
-  users[index]['picture'] = object['picture'];
   users[index]['email'] = object['email'];
   users[index]['phone'] = object['phone'];
-  users[index]['password'] = object['password'];
-  users[index]['color'] = object['color'];
   await backend.setItem('users', JSON.stringify(users)); //users-array is saved into backend
 }
 

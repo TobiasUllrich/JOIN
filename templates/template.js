@@ -454,7 +454,7 @@ function editContactHTML(fullName, email, phone, color) {
                     <div class="circleIcone" style="background-color: ${color}">
                         <p>${letter} </p>
                     </div>
-                    <form onsubmit="newEditContact(test); return false;" class="inputAreaAddContact" >
+                    <form onsubmit="newEditContact('${email}'); return false;" class="inputAreaAddContact" >
                         <div>
                             <input id="editName" pattern="^(&#92w&#92w+)&#92s(&#92w+)$" required class="inputAddContact" type="text" placeholder="${fullName}"><img class="inputImg" src="./img/contact/user-line-mini.png" alt="">
                         </div>

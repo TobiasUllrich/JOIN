@@ -82,7 +82,7 @@ async function createNewContact() {
 }
 
 
-function newEditContact(oldEmail){
+async function newEditContact(oldEmail){
     let fullname = document.getElementById('editName').value;
     let surname = fullname.slice(fullname.indexOf(' ') + 1, fullname.length);
     let email = document.getElementById('editEmail').value;
@@ -95,6 +95,6 @@ function newEditContact(oldEmail){
         "oldEmail":oldEmail
     };
 
-    changeUser(object);
-  
+    await changeUser(object);
+    location.reload();
 }
