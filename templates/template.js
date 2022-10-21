@@ -397,7 +397,7 @@ function contactListHTML(user) {
 function contactInformationHTML(fullName, userColor, userEmail, userPhone) {
     let letter = fullName.match(/\b(\w)/g).join('');
     return /*html*/`
-    <div class="contactInformationBG">
+    <div class="contactInformationBG animationFadeIn">
         <div class="contactInformationHealine">
             <div class="contactInformationLetter" style="background-color: ${userColor}">
                 <p>${letter}</p>
@@ -440,7 +440,7 @@ function editContactHTML(fullName, email, phone, color) {
     let letter = fullName.match(/\b(\w)/g).join('');
     return /*html*/`
     <div class="addContactEditBG ">
-        <div class="addContactEditContainer">
+        <div class="addContactEditContainer animationFadeIn">
             <div class="addContactEditContainerLeft">
                 <img src="./img/contact/joinIcon.png" alt="">
                 <h3>Edit contact</h3>
@@ -464,8 +464,8 @@ function editContactHTML(fullName, email, phone, color) {
                         <div>
                             <input id="editPhone"  required class="inputAddContact" type="phone" placeholder="${phone}"><img class="inputImg" src="./img/contact/phone-line.png" alt="">
                         </div>
-                        <div>
-                            <button> Save <img src="./img/contact/akar-icons_check.png" alt=""></button>
+                        <div >
+                            <button class="buttonCreateContact"> Save <img src="./img/contact/akar-icons_check.png" alt=""></button>
                         </div>
                     </form>
                 </div>
@@ -479,6 +479,7 @@ function editContactHTML(fullName, email, phone, color) {
 function addNewContactHTML() {
     return /*html*/`
     <div id="addContactEditBG" class="addContactEditBG">
+        <div class="animationFadeIn">
         <div class="addContactEditContainer">
             <div class="addContactEditContainerLeft">
                 <img src="./img/contact/joinIcon.png" alt="">
@@ -506,14 +507,15 @@ function addNewContactHTML() {
                         <input id="newPhone"  required class="inputAddContact" type="phone" placeholder="Phone"><img class="inputImg" src="./img/contact/phone-line.png" alt=""
                             srcset="">
                     </div>
-                    <div class="d-flex">
-                        <button class="buttonCancelContact"  type="reset">Cancel <img src="./img/contact/x-icon-mini.png" alt=""></button>
+                    <div class="d-flex"  >
+                        <button onmouseover="changeColor('clear-x');" onmouseout="removeColor('clear-x');" class="buttonCancelContact"  type="reset">Cancel <img  id="clear-x" src="./img/contact/x-icon-mini.png" alt=""></button>
                         <button class="buttonCreateContact" type="submit"> Create contact <img src="./img/contact/akar-icons_check.png" alt=""
                             srcset=""></button>
                     </div>
                 </form>
             </div>
 
+        </div>
         </div>
     </div>
 `}
