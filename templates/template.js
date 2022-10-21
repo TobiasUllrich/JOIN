@@ -398,6 +398,7 @@ function contactInformationHTML(fullName, userColor, userEmail, userPhone) {
     let letter = fullName.match(/\b(\w)/g).join('');
     return /*html*/`
     <div class="contactInformationBG animationFadeIn">
+       
         <div class="contactInformationHealine">
             <div class="contactInformationLetter" style="background-color: ${userColor}">
                 <p>${letter}</p>
@@ -516,6 +517,9 @@ function addNewContactHTML() {
             </div>
 
         </div>
+        </div>
+        <div class="added-new-contact d-none" id="addedNewContact">
+            <img src="img/contact/Conyact succ.. created overlay.png" alt="">
         </div>
     </div>
 `}

@@ -37,6 +37,8 @@ function renderContacts() {
 
 function contactInformation(fullName, userColor, userEmail, userPhone) {
     let cInformation = document.getElementById('contactInformation');
+    let contactSite = document.getElementById('contactSite');
+    contactSite.style = 'display: flex';
     cInformation.innerHTML = '';
     cInformation.innerHTML = contactInformationHTML(fullName, userColor, userEmail, userPhone);
 }
@@ -54,8 +56,8 @@ function openAddContactContainer() {
     element.innerHTML = addNewContactHTML();
 }
 
-function openEditContact(fullName, email, phone, color){
-    let element = document.getElementById('tampletContainer');
+function openEditContact(fullName, email, phone, color){ 
+    let element = document.getElementById('tampletContainer'); 
     element.classList.remove('d-none')
     element.innerHTML = '';
     element.innerHTML = editContactHTML(fullName, email, phone, color);
@@ -78,7 +80,7 @@ async function createNewContact() {
         "color": color
     };
     await addUser(object);
-    location.reload();
+    addedNewContact();
 }
 
 
@@ -97,4 +99,19 @@ async function newEditContact(oldEmail){
 
     await changeUser(object);
     location.reload();
+    
+}
+
+function addedNewContact() {
+    window.scrollTo(0, 0);
+    let addedToBoard = document.getElementById('addedNewContact')
+    addedToBoard.classList.toggle('d-none');
+    setTimeout(function () { location.reload() }, 2000);
+  }
+
+function closeContactInfos(){
+    let contactSite = document.getElementById('contactSite');
+    let cInformation = document.getElementById('contactInformation');
+    contactSite.style = 'display: none';
+    cInformation.innerHTML = '';
 }
