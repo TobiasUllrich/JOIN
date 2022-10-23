@@ -442,8 +442,9 @@ function editContactHTML(fullName, email, phone, color) {
     return /*html*/`
     <div class="addContactEditBG ">
         <div class="addContactEditContainer animationFadeIn">
+        <img class="white-x" style="display:none;" src="img/contact/white-x.png" alt="" srcset="" onclick="closeAddContact()">
             <div class="addContactEditContainerLeft">
-                <img src="./img/contact/joinIcon.png" alt="">
+                <img src="./img/contact/joinIcon.png" alt="" >
                 <h3>Edit contact</h3>
                 <div class="addContactSepline"></div>
             </div>
@@ -482,6 +483,7 @@ function addNewContactHTML() {
     <div id="addContactEditBG" class="addContactEditBG">
         <div class="animationFadeIn">
         <div class="addContactEditContainer">
+            <img class="white-x" style="display:none;" src="img/contact/white-x.png" alt="" srcset="" onclick="closeAddContact()">
             <div class="addContactEditContainerLeft">
                 <img src="./img/contact/joinIcon.png" alt="">
                 <h3>Add contact</h3>
