@@ -1146,6 +1146,7 @@ body {
     width: 100%;
     left: 0;
     padding-bottom: 150px;
+    overflow-x: hidden;
   }
 
   .addContactEditContainer {
