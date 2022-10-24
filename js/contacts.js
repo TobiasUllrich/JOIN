@@ -1,5 +1,7 @@
 letter = [];
-
+/**
+ * Sorts the user list alphabetically
+ */
 async function initContacts() {
     await init();
     users.sort((a, b) => a.surname.localeCompare(b.surname));
@@ -8,6 +10,9 @@ async function initContacts() {
 
 }
 
+/**
+ * Pushes the initial letters into the letter array to display only the needed letters in a HTML then
+ */
 function renderLettersList() {
     let cCC = document.getElementById('childContactsContainer');
     for (let i = 0; i < users.length; i++) {
@@ -34,7 +39,13 @@ function renderContacts() {
     }
 }
 
-
+/**
+ * The contact information is called here 
+ * @param {string} fullName - Full name of the user
+ * @param {string} userColor - color of the user
+ * @param {string} userEmail - email of the user
+ * @param {string} userPhone - phonenumber of the user
+ */
 function contactInformation(fullName, userColor, userEmail, userPhone) {
     let cInformation = document.getElementById('contactInformation');
     let contactSite = document.getElementById('contactSite');
@@ -43,12 +54,18 @@ function contactInformation(fullName, userColor, userEmail, userPhone) {
     cInformation.innerHTML = contactInformationHTML(fullName, userColor, userEmail, userPhone);
 }
 
+/**
+ * Closes the window
+ */
 function closeAddContact() {
     let element = document.getElementById('tampletContainer');
     element.classList.add('d-none');
     element.innerHTML = '';
 }
 
+/**
+ * opens the Add Contact window
+ */
 function openAddContactContainer() {
     let element = document.getElementById('tampletContainer');
     element.classList.remove('d-none')
@@ -56,6 +73,13 @@ function openAddContactContainer() {
     element.innerHTML = addNewContactHTML();
 }
 
+/**
+ * opens the Edit Contact window
+ * @param {string} fullName - Full name of the user
+ * @param {string} email - email of the user
+ * @param {string} phone - phone number of the user
+ * @param {string} color - color of the user
+ */
 function openEditContact(fullName, email, phone, color){ 
     let element = document.getElementById('tampletContainer'); 
     element.classList.remove('d-none')
@@ -63,9 +87,12 @@ function openEditContact(fullName, email, phone, color){
     element.innerHTML = editContactHTML(fullName, email, phone, color);
 }
 
+
+/**
+ * The values are taken and thus a new contact is created
+ */
 async function createNewContact() {
     let fullname = document.getElementById('newName').value;
-
     let surname = fullname.slice(fullname.indexOf(' ') + 1, fullname.length);
     let email = document.getElementById('newEmail').value;
     let phone = document.getElementById('newPhone').value;
@@ -83,7 +110,10 @@ async function createNewContact() {
     addedNewContact();
 }
 
-
+/**
+ * The new data is put into an object to be pushed into the array at changeUser
+ * @param {string} oldEmail - the old/current email address
+ */
 async function newEditContact(oldEmail){
     let fullname = document.getElementById('editName').value;
     let surname = fullname.slice(fullname.indexOf(' ') + 1, fullname.length);
@@ -102,6 +132,9 @@ async function newEditContact(oldEmail){
     
 }
 
+/**
+ * Animation that a contact has been created is called
+ */
 function addedNewContact() {
     window.scrollTo(0, 0);
     let addedToBoard = document.getElementById('addedNewContact')
@@ -109,6 +142,9 @@ function addedNewContact() {
     setTimeout(function () { location.reload() }, 2000);
   }
 
+  /**
+   * Closes the window
+   */
 function closeContactInfos(){
     let contactSite = document.getElementById('contactSite');
     let cInformation = document.getElementById('contactInformation');
