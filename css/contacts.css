@@ -1026,6 +1026,10 @@ body {
 }
 
 @media (min-width: 280px) and (max-width: 450px) {
+  .list-separator-line{
+    min-width: 260px;
+    max-width: 260px;
+  }
   .new-contact-button {
     right: 0;
     margin-bottom: 0px !important;
@@ -1158,7 +1162,7 @@ body {
     gap: 12px;
     isolation: isolate;
     width: 270px;
-    height: 351px;
+    height: 260px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     border-bottom-left-radius: 0px;
@@ -1198,6 +1202,7 @@ body {
   .circleIcone {
     margin-bottom: 10px;
     margin-top: -100px;
+    margin-right: 0px
   }
 
   .closeAddContact {
@@ -1223,5 +1228,12 @@ body {
   .buttonCreateContact {
     font-weight: 700;
     font-size: 21px;
+  }
+  .nameEmailP2{
+    font-size: 14px;
+  }
+
+  .nameEmailP1{
+    font-size: 18px;
   }
 }
