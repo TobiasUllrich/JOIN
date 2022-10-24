@@ -176,7 +176,7 @@ body {
     height: 80px;
     width: 100%;
     font-size: 16px;
-    z-index: 11;
+    z-index: 16;
   }
   .header span {
     text-align: center;
@@ -215,6 +215,7 @@ body {
   .footer {
     width: 100%;
     margin-left: 0;
+    z-index: 10;
   }
   #footer-help {
     display: none;
@@ -306,6 +307,7 @@ body {
   .footer {
     width: 100%;
     margin-left: 0;
+    z-index: 10;
   }
   #footer-help {
     display: none;
@@ -395,6 +397,7 @@ body {
 
   /* FOOTER  */
   .footer {
+    z-index: 13;
     width: 100%;
     margin-left: 0;
   }
@@ -439,6 +442,10 @@ body {
 
 /* For NestHub */
 @media (width: 1024px) and (height: 600px) {
+  .header {
+    z-index: 10;
+  }
+
   .header-legnotice {
     margin-top: 12vh;
   }
@@ -448,5 +455,8 @@ body {
 @media (width: 1280px) and (height: 800px) {
   .header-legnotice {
     margin-top: 12vh;
+  }
+  .header {
+    z-index: 10;
   }
 }

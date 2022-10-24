@@ -31,11 +31,11 @@
     <script src="js//board/board3.js"></script> <!-- Statt <script> ... </script> -->
     <script src="js/summary.js"></script>
     <script src="js/addTask.js"></script>
-    <script src="templates/template.js"></script>    
+    <script src="templates/template.js"></script>
     <script src="js/contacts.js"></script>
     <script src="js/help.js"></script>
     <script src="js/login.js"></script>
-    
+
 
 
 </head>
@@ -50,27 +50,34 @@
     <!-- Header einbinden -->
 
     <div class="main-contacts-container">
+        <div class="add-contact-2">
+            <button onclick="openAddContactContainer()" class="new-contact-button"> New contact <img
+                    src="img/contact/new-contact-icone.png" alt="" srcset=""></button>
+        </div>
+        
         <div class="child-contacts-container" id="childContactsContainer">
 
         </div>
         <div class="contacts-information" id="contactSite">
+            <p class="contact-inofs-p">Kanaban Project Management Tool</p>
+            <div class="contacts-information-headline">
 
-            <div class="contacts-information-headline" >
                 <h1>Contacts</h1>
                 <div class="separator-line"></div>
                 <h3>Better with a team</h3>
+                <div class="separator-line-2"></div>
                 <div class="arrowLeft" onclick="closeContactInfos()">
                     <img src="./img/contact/arrow-left-line.png" alt="" srcset="">
                 </div>
             </div>
-           
+
             <div class="contact-information" id="contactInformation">
 
             </div>
 
-            <div>
-                <button onclick="openAddContactContainer()" class="new-contact-button"> New contact <img src="img/contact/new-contact-icone.png" alt=""
-                        srcset=""></button>
+            <div class="add-contact-1">
+                <button onclick="openAddContactContainer()" class="new-contact-button"> New contact <img
+                        src="img/contact/new-contact-icone.png" alt="" srcset=""></button>
             </div>
 
         </div>
@@ -83,9 +90,9 @@
 
     </div>
 
-    
 
-    
+
+
 
     <!-- Footer einbinden -->
     <div w3-include-html="templates/footer.html"></div>

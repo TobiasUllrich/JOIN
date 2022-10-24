@@ -432,7 +432,11 @@ function contactInformationHTML(fullName, userColor, userEmail, userPhone) {
                 
             </div>
         </div>
+        
     </div>
+    <div class="edit-icone" onclick="openEditContact('${fullName}', '${userEmail}', '${userPhone}','${userColor}')">
+            <img src="img/contact/edit-contact.png" alt="" >
+        </div>
     `
 }
 
