@@ -391,7 +391,6 @@ function contactHTML(user) {
 function contactListHTML(user) {
     let fullName = user['name'];
     let letter = fullName.match(/\b(\w)/g).join('');
-    console.log(letter);
 }
 
 function contactInformationHTML(fullName, userColor, userEmail, userPhone) {

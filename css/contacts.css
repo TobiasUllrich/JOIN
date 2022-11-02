@@ -716,9 +716,37 @@ body {
     margin-bottom: 0px !important;
     margin-left: 0px;
   }
+  .add-contact-1 {
+    display: none;
+  }
+
+  .add-contact-2 {
+    margin-right: 10px;
+    display: flex;
+    position: absolute;
+    right: 0;
+    z-index: 1;
+    margin-top: 91px;
+    margin-left: 374px;
+}
 }
 
 @media (min-width: 640px) and (max-width: 900px) {
+
+  .add-contact-1 {
+    display: none;
+  }
+
+  .add-contact-2 {
+    margin-right: 10px;
+    display: flex;
+    position: absolute;
+    right: 0;
+    z-index: 1;
+    margin-top: 91px;
+    margin-left: 374px;
+}
+
   .contacts-information-headline {
     margin-top: 0px;
   }
