@@ -6,6 +6,8 @@
     top: 0;
     left: 0;
     backdrop-filter: brightness(35%);
+    overflow-y: hidden;
+    overflow-x: hidden;
   }
   
   .add-task-subcontainer {

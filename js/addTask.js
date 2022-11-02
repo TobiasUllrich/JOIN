@@ -106,18 +106,18 @@ function loadCategorys() {
 }
 
 /**
- * The function changes the background color
+ * The function changes the X color
  * @param {String} idOfPicture - id from picture
  */
-function addBg(idOfPicture) {
-  document.getElementById(`${idOfPicture}`).style = 'transition: all 225ms ease-in-out; filter: invert(67%) sepia(27%) saturate(4917%) hue-rotate(164deg) brightness(94%) contrast(88%);';
+function changeColor(idOfPicture) {
+  document.getElementById(`${idOfPicture}`).style = 'filter: invert(67%) sepia(27%) saturate(4917%) hue-rotate(164deg) brightness(94%) contrast(88%);';
 }
 
 /**
  * Resets the background color.
  * @param {String} idOfPicture - id from picture
  */
-function removeBg(idOfPicture) {
+function removeColor(idOfPicture) {
   document.getElementById(`${idOfPicture}`).style = 'filter: invert(0%);';
 }
 

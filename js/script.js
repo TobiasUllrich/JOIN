@@ -321,17 +321,14 @@ async function addTask(object) {
  * Changes one or more attribute of a user with a certain email through an object which contains the new values 
  * @param {object} object Object which equals a complete User (e.g. object = users[2];)
  */
- async function changeUser(object) {
-  let email = object['email']; 
-  let index = getUserIndexForEmail(email);
+ async function changeUser(object,) {
+  let oldEmail = object['oldEmail']; 
+  let index = getUserIndexForEmail(oldEmail);
 
   users[index]['name'] = object['name'];
   users[index]['surname'] = object['surname'];
-  users[index]['picture'] = object['picture'];
   users[index]['email'] = object['email'];
   users[index]['phone'] = object['phone'];
-  users[index]['password'] = object['password'];
-  users[index]['color'] = object['color'];
   await backend.setItem('users', JSON.stringify(users)); //users-array is saved into backend
 }
 
