@@ -32,7 +32,7 @@ function renderLettersList() {
  */
 function renderContacts() {
     for (let i = 0; i < users.length; i++) {
-        let user = users[i];
+        let user = users[i]; 
         let firstSurnameLetter = user['surname'].match(/\b(\w)/g).join('');
         let firstSurLetterID = document.getElementById(firstSurnameLetter);
         firstSurLetterID.innerHTML += contactHTML(user);
