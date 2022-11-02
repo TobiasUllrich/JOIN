@@ -106,7 +106,7 @@
     }
   }
   
-  @media (min-width: 850px) and (max-width: 1179px) {
+  @media (min-width: 900px) and (max-width: 1179px) {
   
     .headline-navbar {
       height: 120px;
