@@ -10,7 +10,7 @@ let selectedPrio;
 /**
  * loads all categories and users
  */
-async function loadAddTastk() {
+async function loadAddTask() {
   await init();
   loadCategory();
   loadAssigned();
