@@ -27,7 +27,7 @@ async function loadInit() {
 async function checkIfBoardIsRenderable() {
     if (tasks.length > 0) {
         await filterTasks();
-        renderBoard();
+        await renderBoard();
     }
 }
 
@@ -36,7 +36,7 @@ async function checkIfBoardIsRenderable() {
  * 
  */
 
-function renderBoard() {
+async function renderBoard() {
     renderToDo();
     renderProgress();
     renderFeedback();

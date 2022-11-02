@@ -216,7 +216,7 @@
   
     .main-big-box-task-container {
       height: 100%;
-      z-index: 2;
+      z-index: 15;
       width: 100%;
       padding: 50px;
       border-radius: 0;
