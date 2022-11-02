@@ -494,7 +494,7 @@ function addNewContactHTML() {
                 <div class="circleIcone">
                     <img src="./img/contact/user-line.png" alt="">
                 </div>
-                <form class="inputAreaAddContact" onsubmit="createNewContact(); return false;">
+                <form class="inputAreaAddContact"; onsubmit="createNewContact(); return false;">
                     <div>
                         <input id="newName" pattern="^(\w\w+)\s(\w+)$" required class="inputAddContact" type="text" placeholder="Name Surname"><img class="inputImg" src="./img/contact/user-line-mini.png" alt=""
                         srcset="">
