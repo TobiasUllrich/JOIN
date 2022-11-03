@@ -127,7 +127,7 @@ async function updateTaskArray(taskId, title, description, date, prio) {
     await changeTask(object);
     renderBoard();
     closeEditContainer();
-    showAlert();
+    showAlert('succes-alert');
 }
 
 /**
@@ -135,9 +135,9 @@ async function updateTaskArray(taskId, title, description, date, prio) {
  * 
  */
 
-function showAlert() {
-    document.getElementById('succes-alert').classList.remove('d-none');
-    setTimeout(hideAlert, 3000);
+function showAlert(idOfAlert) {
+    document.getElementById(`${idOfAlert}`).classList.remove('d-none');
+    setTimeout(function() { hideAlert(idOfAlert)}, 3000);
 }
 
 /**
@@ -145,8 +145,9 @@ function showAlert() {
  * 
  */
 
-function hideAlert() {
-    document.getElementById('succes-alert').classList.add('d-none');
+function hideAlert(idOfAlert) {
+    console.log(idOfAlert);
+    document.getElementById(`${idOfAlert}`).classList.add('d-none');
 }
 
 /**
@@ -276,13 +277,18 @@ function doNotClose(event) {
 }
 
 /**
- * This function deletes a task via its index
+ * This function deletes a task by clicking on the basket button
  * 
  * @param {number} idOfCurrentTask - index of clicked task
  */
 async function deleteCurrentTask(idOfCurrentTask){
-    console.log('Geht',idOfCurrentTask);
-    await delTask(idOfCurrentTask-1);
+    for(let i = 0; i < tasks.length; i++){
+        if(tasks[i].id  === idOfCurrentTask){
+            tasks.splice(i,1);
+        }
+    }
+
     closeSoloTaskBigBox(idOfCurrentTask);
     await renderBoard();
+    showAlert('delete-alert');
 }
