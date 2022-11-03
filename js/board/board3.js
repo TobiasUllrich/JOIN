@@ -281,8 +281,8 @@ function doNotClose(event) {
  * @param {number} idOfCurrentTask - index of clicked task
  */
 async function deleteCurrentTask(idOfCurrentTask){
-    console.log('Geht');
-    delTask(idOfCurrentTask);
+    console.log('Geht',idOfCurrentTask);
+    await delTask(idOfCurrentTask-1);
     closeSoloTaskBigBox(idOfCurrentTask);
     await renderBoard();
 }

@@ -55,7 +55,7 @@ async function downloadFromServer() {
 async function downloadFromServerTWO() {
     let result = await loadJSONFromServerTWO();
     jsonFromServerTWO = JSON.parse(result);
-    //console.log('Tasks Loaded', result);
+    console.log('Tasks Loaded', result);
 }
 /** INSERT FOR SECOND JSON-FILE */
 
