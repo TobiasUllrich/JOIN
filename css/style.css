@@ -156,9 +156,9 @@ body {
   z-index: 10;
 }
 
-  .footer h1 {
-    margin-left: 90px;
-  }
+.footer h1 {
+  margin-left: 90px;
+}
 }
 @media (min-width: 901px) and (max-width: 950px) {
   .footer h1 {

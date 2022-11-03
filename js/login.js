@@ -37,16 +37,20 @@ function setArrow(arrowelement, containerforwidth) {
  */
 function loginAnimation() {
     let breite = document.getElementById('center-container').clientWidth;
-    if (breite < 927) // Mobile
+    let hoehe = document.getElementById('center-container').clientHeight;
+    if (breite < 927 || hoehe < 601) // Mobile (NestHub = Mobile)
     {
         document.getElementById('animatedlogo').classList.add('animate-logo-mobile');
         document.getElementById('animatedlogo-mobile').classList.add('animate-logo');
         document.getElementById('mobilelogo').classList.add('animate-mobile');
+        document.getElementById('whiteBackground').classList.add('d-none'); //Hide white Background for Mobile-View
     }
     else // Desktop
     {
+        document.getElementById('whiteBackground').classList.add('animate-background');
         document.getElementById('animatedlogo').classList.add('animate-logo');
         document.getElementById('animatedlogo-mobile').classList.add('animate-logo');
+        document.getElementById('mobilelogo').classList.add('d-none'); //Hide black Background for Desktop-View
     }
 }
 
