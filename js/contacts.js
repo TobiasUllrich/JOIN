@@ -94,6 +94,8 @@ function openEditContact(fullName, email, phone, color){
 async function createNewContact() {
     let fullname = document.getElementById('newName').value;
     let surname = fullname.slice(fullname.indexOf(' ') + 1, fullname.length);
+    fullname = fullname.charAt(0).toUpperCase() + fullname.slice(1,fullname.indexOf(' ')) + ' ' + surname.charAt(0).toUpperCase() + surname.slice(1,surname.length);
+    surname = surname.charAt(0).toUpperCase() + surname.slice(1,surname.length);
     let email = document.getElementById('newEmail').value;
     let phone = document.getElementById('newPhone').value;
     let color = colors[generateRandomInteger(colors.length - 1)];
@@ -117,6 +119,8 @@ async function createNewContact() {
 async function newEditContact(oldEmail){
     let fullname = document.getElementById('editName').value;
     let surname = fullname.slice(fullname.indexOf(' ') + 1, fullname.length);
+    fullname = fullname.charAt(0).toUpperCase() + fullname.slice(1,fullname.indexOf(' ')) + ' ' + surname.charAt(0).toUpperCase() + surname.slice(1,surname.length);
+    surname = surname.charAt(0).toUpperCase() + surname.slice(1,surname.length);
     let email = document.getElementById('editEmail').value;
     let phone = document.getElementById('editPhone').value;
     let object = {
@@ -137,6 +141,10 @@ async function newEditContact(oldEmail){
  */
 function addedNewContact() {
     window.scrollTo(0, 0);
+    let breite = window.innerWidth;
+    let hoehe = window.innerHeight;
+    document.getElementById('addedNewContact').style.top = `calc(${hoehe}/2)`;
+    document.getElementById('addedNewContact').style.left = `calc(${breite}/2)`;
     let addedToBoard = document.getElementById('addedNewContact')
     addedToBoard.classList.toggle('d-none');
     setTimeout(function () { location.reload() }, 2000);

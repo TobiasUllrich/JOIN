@@ -129,6 +129,8 @@ body {
   font-weight: 400;
   font-size: 21px;
   line-height: 120%;
+  max-width:200px;
+  word-wrap:break-word;
 }
 
 .nameEmailP2 {
@@ -137,6 +139,8 @@ body {
   font-weight: 400;
   font-size: 16px;
   line-height: 120%;
+  max-width:200px;
+  word-wrap:break-word;
 }
 
 .separator-line {
@@ -1276,9 +1280,13 @@ body {
   }
   .nameEmailP2{
     font-size: 14px;
+    max-width:166px;
+    word-wrap:break-word;
   }
 
   .nameEmailP1{
     font-size: 18px;
+    max-width:166px;
+    word-wrap:break-word;
   }
 }
