@@ -277,7 +277,7 @@ function doNotClose(event) {
 }
 
 /**
- * This function deletes a task by clicking on the basket button
+ * This function deletes a task by clicking on the basket button and updates the task array
  * 
  * @param {number} idOfCurrentTask - index of clicked task
  */
@@ -286,6 +286,7 @@ async function deleteCurrentTask(idOfCurrentTask){
         if(tasks[i].id  === idOfCurrentTask){
             tasks.splice(i,1);
         }
+        await backendTWO.setItem('tasks', JSON.stringify(tasks));
     }
 
     closeSoloTaskBigBox(idOfCurrentTask);

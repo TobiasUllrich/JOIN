@@ -131,7 +131,6 @@ function renderAssignedNamesOfTask(index, status, soloStatusArray) {
         if (soloStatusArray[index].assignedTo.length <= 3) {
             try{renderOutputContainer.innerHTML += templateAssignedToOfSoloTask(user.name.charAt(0), user.surname.charAt(0), user.color)}
             catch(e){
-                console.log('test', loggedUser.name.charAt(0), loggedUser.surname.charAt(0), loggedUser.color);
                 renderOutputContainer.innerHTML += templateAssignedToOfSoloTask(loggedUser.name.charAt(0), loggedUser.surname.charAt(0), loggedUser.color);
             };
         } else {
