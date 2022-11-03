@@ -56,8 +56,11 @@ function showGreetings() {
     document.getElementById('summary-container-for-mobile').classList.add('mobile-greeting');
 
     setTimeout(function () {
-      document.getElementById('summary-container-for-mobile').style.zIndex = -1;
+      document.getElementById('summary-container-for-mobile').style.zIndex = -1;     
     }, 2000);
+  }
+  else{
+    document.getElementById('summary-container-for-mobile').classList.add('d-none'); //Hides Mobile-Greetings in Desktop-Version
   }
 }
 
