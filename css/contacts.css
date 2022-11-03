@@ -485,6 +485,23 @@ body {
   animation: fadeIn 1s ease 0s 1 normal forwards;
 }
 
+.contact-basket{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  object-fit: contain;
+  position: absolute;
+  bottom: 0px;
+  right: 80px;
+  height: 57px;
+  width: 57px;
+  background: #2a3647;
+  padding: 20px;
+  border-radius: 18px;
+  transition: all 225ms ease-in-out;
+  cursor: pointer;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;

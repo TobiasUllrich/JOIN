@@ -1,4 +1,6 @@
 letter = [];
+
+
 /**
  * Sorts the user list alphabetically
  */
@@ -52,6 +54,16 @@ function contactInformation(fullName, userColor, userEmail, userPhone) {
     contactSite.style = 'display: flex';
     cInformation.innerHTML = '';
     cInformation.innerHTML = contactInformationHTML(fullName, userColor, userEmail, userPhone);
+}
+
+/**
+ * 
+ * @param {string} userEmail - email of the user
+ */
+async function deleteContactUser(userEmail){
+    let index = getUserIndexForEmail(userEmail);
+    await delUser(index);
+    setTimeout(function () { location.reload() }, 1000);
 }
 
 /**

@@ -431,6 +431,9 @@ function contactInformationHTML(fullName, userColor, userEmail, userPhone) {
                 </p>
                 
             </div>
+            <div class="contact-basket" onclick="deleteContactUser('${userEmail}')">
+                <img src="img/board/basket.png" alt="" srcset="">
+            </div>
         </div>
         
     </div>
