@@ -238,6 +238,10 @@
     .edit-button {
       bottom: 90px;
     }
+
+    .delete-button {
+      bottom: 90px;
+    }
   
     .close-task-phone {
       opacity: 1 !important;

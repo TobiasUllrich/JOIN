@@ -157,6 +157,17 @@
     border-radius: 18px;
     transition: all 225ms ease-in-out;
   }
+
+  .delete-button {
+    position: absolute;
+    bottom: 25px;
+    right: 88px;
+    height: 57px;
+    width: 57px;
+    background: #2a3647;
+    border-radius: 18px;
+    transition: all 225ms ease-in-out;
+  }
   
   .big-box-tasks-container-full-size {
     position: absolute;

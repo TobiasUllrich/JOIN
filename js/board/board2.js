@@ -232,6 +232,34 @@ function RemoveEditContainerColors(indexOfSoloTask) {
 }
 
 /**
+ * This function runs when user hover on delete task button and changes the color of edit container
+ * 
+ * @param {number} indexOfSoloTask - index of current clicked task 
+ */
+
+ function changeDeleteContainerColors(indexOfSoloTask) {
+    let deleteContainer = document.getElementById(`delete-button${indexOfSoloTask}`);
+    let deleteBasket = document.getElementById(`delete-basket${indexOfSoloTask}`);
+
+    makeContainerBlue(deleteContainer);
+    makeImgWhite(deleteBasket);
+}
+
+/**
+ * This function runs when user leave hover on delete task button so color changes are going default again
+ * 
+ * @param {number} indexOfSoloTask - index of current clicked task 
+ */
+
+ function RemoveDeleteContainerColors(indexOfSoloTask) {
+    let deleteContainer = document.getElementById(`delete-button${indexOfSoloTask}`);
+    let deleteBasket = document.getElementById(`delete-basket${indexOfSoloTask}`);
+
+    removeContainerColorBlue(deleteContainer);
+    makeImageColorDefault(deleteBasket);
+}
+
+/**
  * This function close the edit container by adding CSS style "display:none"
  * 
  * 

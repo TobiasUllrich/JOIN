@@ -274,3 +274,15 @@ function addDisplayNoneMainContainer(bigBoxContainer) {
 function doNotClose(event) {
     event.stopPropagation();
 }
+
+/**
+ * This function deletes a task via its index
+ * 
+ * @param {number} idOfCurrentTask - index of clicked task
+ */
+async function deleteCurrentTask(idOfCurrentTask){
+    console.log('Geht');
+    delTask(idOfCurrentTask);
+    closeSoloTaskBigBox(idOfCurrentTask);
+    await renderBoard();
+}
