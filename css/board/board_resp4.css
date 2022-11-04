@@ -332,6 +332,14 @@
     .main-tasks-container {
       margin-top: -50px;
     }
+
+    .edit-button {
+      bottom: 20px;
+    }
+
+    .delete-button {
+      bottom: 20px;
+    }
   }
 
   @media (min-height: 600px) and (max-height: 749px) and (max-width: 1300px) {
@@ -344,6 +352,14 @@
         .main-tasks-container {
           margin-top: -40px;
         }
+
+        .edit-button {
+          bottom: 20px;
+        }
+    
+        .delete-button {
+          bottom: 20px;
+        }
   }
 
   @media (min-height: 450px) and (max-height: 599px) and (max-width: 1300px) {
@@ -355,5 +371,13 @@
   @media (min-height: 450px) and (max-height: 599px) and (max-width: 720px) {
     .main-tasks-container {
       margin-top: -30px;
+    }
+
+    .edit-button {
+      bottom: 20px;
+    }
+
+    .delete-button {
+      bottom: 20px;
     }
 }
