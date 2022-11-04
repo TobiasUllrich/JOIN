@@ -98,7 +98,6 @@
     .headline-solo-task {
       width: 100%;
       height: 35px;
-      align-items: center;
     }
   
     .headline-solo-task h3 {
@@ -133,6 +132,8 @@
   
     .search-task-phone {
       display: flex !important;
+      justify-content:space-between;
+      width:83vw;
     }
   
     .big-box-tasks-container-full-size {
@@ -166,7 +167,7 @@
     }
   
     .headline-category {
-      width: 170px;
+      width: 230px;
     }
   
     .big-box-task-title h2 {
