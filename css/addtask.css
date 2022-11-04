@@ -636,6 +636,10 @@ input[type="radio"]:checked + .prio-label-urgent {
   display: none;
 }
 
+input#dueDate::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+}
+
 @media (min-width: 1114px) and (max-width: 1480px) {
   .button-container {
     margin-bottom: 20px;
