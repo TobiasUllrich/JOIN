@@ -130,20 +130,6 @@ function loginAsGuest() {
 }
 
 /**
- * Directs you to help.html for help
- */
-function showHelpPage() {
-    window.location.href = 'help.html';
-}
-
-/**
- * Directs you to legalnotice.html for legalnotice
- */
-function showLegalNoticePage() {
-    window.location.href = 'legalnotice.html';
-}
-
-/**
  * Trys to Login; email & password have to be existing and correct
  */
 function tryLogin() {
