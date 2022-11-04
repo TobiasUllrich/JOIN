@@ -5,6 +5,7 @@ let soloTasksFeedback = [];
 let soloTasksDone = [];
 let currentDraggingElement;
 let editNewPrio;
+let editNewStatus;
 let assignedPeople = [];
 let selectedWorkers = [];
 let selectedWorkersEmail = [];

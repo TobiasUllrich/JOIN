@@ -43,3 +43,24 @@
   .close-task-phone {
     opacity: 0;
   }
+
+  .new-task-status{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    cursor: pointer;
+  }
+
+  .new-status{
+    padding: 8px;
+    border-radius: 12px;
+    border: 1px solid lightgray;
+    color: black;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .new-status-highlight{
+    background-color: #2a3647;
+    color: white;
+  }

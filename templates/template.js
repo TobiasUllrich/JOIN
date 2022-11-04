@@ -219,7 +219,17 @@ function templateEditCurrentTask(currentTask, idOfCurrentTask) {
 
             <div class="close-edit-container c-pointer"><img onclick="closeEditContainer()" src="./img/board/close.png">
         </div>
-    </form>`
+    </form>
+    
+    <div>
+    <h3>Change Taskstatus to</h3>
+        <div class="new-task-status">
+            <div id="newStatus1" onclick="editStatusOfTask(${idOfCurrentTask}, 'To do'); highlightStatusContainer('1'); hideHiglightStatusContainer('2', '3', '4');" class="new-status">To do</div>
+            <div id="newStatus2" onclick="editStatusOfTask(${idOfCurrentTask}, 'In progress'); highlightStatusContainer('2'); hideHiglightStatusContainer('1', '3', '4');" class="new-status">In progress</div>
+            <div id="newStatus3" onclick="editStatusOfTask(${idOfCurrentTask}, 'Awaiting feedback'); highlightStatusContainer('3'); hideHiglightStatusContainer('1', '2', '4');" class="new-status">Awaiting feedback</div>
+            <div id="newStatus4" onclick="editStatusOfTask(${idOfCurrentTask}, 'Done'); highlightStatusContainer('4'); hideHiglightStatusContainer('1', '2', '3');" class="new-status">Done</div>
+        </div
+    </div>`
 }
 
 function templateShowAllWorkers(indexOfUsers, userName) {

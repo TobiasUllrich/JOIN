@@ -4,7 +4,7 @@
  * @param {number} idOfCheckbox - this is the index of checkbox by choosing new possible workers
  */
 
- function submitCheckbox(idOfCheckbox) {
+function submitCheckbox(idOfCheckbox) {
     let clickedCheckbox = document.getElementById(`checkbox-${idOfCheckbox}`);
 
     if (clickedCheckbox.checked == false) {
@@ -137,7 +137,7 @@ async function updateTaskArray(taskId, title, description, date, prio) {
 
 function showAlert(idOfAlert) {
     document.getElementById(`${idOfAlert}`).classList.remove('d-none');
-    setTimeout(function() { hideAlert(idOfAlert)}, 3000);
+    setTimeout(function () { hideAlert(idOfAlert) }, 3000);
 }
 
 /**
@@ -146,6 +146,7 @@ function showAlert(idOfAlert) {
  */
 
 function hideAlert(idOfAlert) {
+    console.log(idOfAlert);
     document.getElementById(`${idOfAlert}`).classList.add('d-none');
 }
 
@@ -280,14 +281,55 @@ function doNotClose(event) {
  * 
  * @param {number} idOfCurrentTask - index of clicked task
  */
-async function deleteCurrentTask(idOfCurrentTask){
-    for(let i = 0; i < tasks.length; i++){
-        if(tasks[i].id  === idOfCurrentTask){
-            tasks.splice(i,1);
-            await backendTWO.setItem('tasks', JSON.stringify(tasks));
-        }     
+async function deleteCurrentTask(idOfCurrentTask) {
+    for (let i = 0; i < tasks.length; i++) {
+        if (tasks[i].id === idOfCurrentTask) {
+            tasks.splice(i, 1);
+        }
+        await backendTWO.setItem('tasks', JSON.stringify(tasks));
     }
+
     closeSoloTaskBigBox(idOfCurrentTask);
     await renderBoard();
     showAlert('delete-alert');
+}
+
+/**
+ * This function highlights the new clicked status Container
+ * 
+ * @param {number} indexOfContainer - index of clicked container whats going to be highlighted
+ */
+
+function highlightStatusContainer(indexOfContainer) {
+    let container = document.getElementById(`newStatus${indexOfContainer}`);
+    container.classList.toggle('new-status-highlight');
+}
+
+/**
+ * This function removes the highlight of an container when the user clicks on other container
+ * 
+ * @param {number} otherStatusOne - first container whichs loses the style highlight
+ * @param {number} otherStatusTwo - second container whichs loses the style highlight
+ * @param {number} otherStatusThree - third container whichs loses the style highlight
+ */
+
+function hideHiglightStatusContainer(otherStatusOne, otherStatusTwo, otherStatusThree){
+    let otherContainerOne = document.getElementById(`newStatus${otherStatusOne}`);
+    let otherContainerTwo = document.getElementById(`newStatus${otherStatusTwo}`);
+    let otherContainerThree = document.getElementById(`newStatus${otherStatusThree}`);
+    otherContainerOne.classList.remove('new-status-highlight');
+    otherContainerTwo.classList.remove('new-status-highlight');
+    otherContainerThree.classList.remove('new-status-highlight');
+}
+
+/**
+ * This function change the status of an task 
+ * 
+ * @param {number} idOfCurrentTask - id of the task which is becoming a new status
+ * @param {string} newStautsOfTask - this is the nwe status of the task
+ */
+
+function editStatusOfTask(idOfCurrentTask, newStautsOfTask) {
+    editNewStatus = newStautsOfTask;
+    tasks[idOfCurrentTask].status = newStautsOfTask;
 }
