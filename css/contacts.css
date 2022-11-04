@@ -502,6 +502,11 @@ body {
   cursor: pointer;
 }
 
+.contact-basket:hover {
+  background: #29abe2;
+  border: 1px solid #29abe2;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;

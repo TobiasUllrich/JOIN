@@ -146,7 +146,6 @@ function showAlert(idOfAlert) {
  */
 
 function hideAlert(idOfAlert) {
-    console.log(idOfAlert);
     document.getElementById(`${idOfAlert}`).classList.add('d-none');
 }
 
@@ -285,10 +284,10 @@ async function deleteCurrentTask(idOfCurrentTask){
     for(let i = 0; i < tasks.length; i++){
         if(tasks[i].id  === idOfCurrentTask){
             tasks.splice(i,1);
-        }
-        await backendTWO.setItem('tasks', JSON.stringify(tasks));
+            console.log('Task mit Index ', i,' von ',tasks.length,' gelöscht');
+            await backendTWO.setItem('tasks', JSON.stringify(tasks));
+        }     
     }
-
     closeSoloTaskBigBox(idOfCurrentTask);
     await renderBoard();
     showAlert('delete-alert');
