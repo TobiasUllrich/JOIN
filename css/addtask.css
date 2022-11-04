@@ -138,6 +138,10 @@ label {
   max-height: 119px;
 }
 
+#description{
+  resize:none;
+}
+
 /* Category & Assigned to */
 
 #categoryContainer {
