@@ -284,7 +284,6 @@ async function deleteCurrentTask(idOfCurrentTask){
     for(let i = 0; i < tasks.length; i++){
         if(tasks[i].id  === idOfCurrentTask){
             tasks.splice(i,1);
-            console.log('Task mit Index ', i,' von ',tasks.length,' gelöscht');
             await backendTWO.setItem('tasks', JSON.stringify(tasks));
         }     
     }
