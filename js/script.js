@@ -478,3 +478,11 @@ function setArray(key, array) {
 function getArray(key) {
   return JSON.parse(localStorage.getItem(key));
 }
+
+
+function sectionSelected(selectedSection){
+  //Without setTimeout it trys to write into src before page is loaded (Hint: src="" as Standard of the Element you want to write in)
+  setTimeout(function () {
+    document.getElementById(`${selectedSection}`).classList.add('selected');
+  }, 300);
+}

@@ -430,6 +430,7 @@ body {
   border: 1px solid #d1d1d1;
   border-radius: 10px;
   margin-bottom: 30px;
+  outline:none;
 }
 
 .inputImg {
@@ -500,6 +501,11 @@ body {
   border-radius: 18px;
   transition: all 225ms ease-in-out;
   cursor: pointer;
+}
+
+.contact-basket:hover {
+  background: #29abe2;
+  border: 1px solid #29abe2;
 }
 
 @keyframes fadeIn {

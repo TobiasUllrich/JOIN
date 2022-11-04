@@ -138,6 +138,10 @@ label {
   max-height: 119px;
 }
 
+#description{
+  resize:none;
+}
+
 /* Category & Assigned to */
 
 #categoryContainer {
@@ -630,6 +634,10 @@ input[type="radio"]:checked + .prio-label-urgent {
 
 .kanban-h4 {
   display: none;
+}
+
+input#dueDate::-webkit-calendar-picker-indicator {
+  cursor: pointer;
 }
 
 @media (min-width: 1114px) and (max-width: 1480px) {
