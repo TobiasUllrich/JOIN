@@ -130,12 +130,14 @@ function fillSummarywithInfos() {
  * @returns 
  */
 function transformDate2(datetotransform) {
+  if(datetotransform != 0){
   let datum = datetotransform;
   let tag = datum.getDate(datetotransform);
   let monat = datum.getMonth(datetotransform);
   let jahr = datum.getFullYear(datetotransform);
   let wishedformat = monthNames[Number(monat)] + ' ' + Number(tag) + ', ' + jahr;
   return wishedformat;
+  }
 }
 
 /**
