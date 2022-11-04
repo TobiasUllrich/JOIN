@@ -36,6 +36,7 @@ function setArrow(arrowelement, containerforwidth) {
  * Logo-Animation in desktop-version OR mobile-version 
  */
 function loginAnimation() {
+    //document.getElementById('animatedlogo2').classList.add('d-none');  ***
     let breite = document.getElementById('center-container').clientWidth;
     let hoehe = document.getElementById('center-container').clientHeight;
     if (breite < 927 || hoehe < 601) // Mobile (NestHub = Mobile)
