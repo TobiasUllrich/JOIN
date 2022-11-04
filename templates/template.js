@@ -330,7 +330,7 @@ function subtaskListHTML(indexOfSubtask) {
     return /*html*/`
         <div onclick="subtasksCheckbox(${indexOfSubtask})" class="subtask-list-form-check">
           <input onclick="subtasksCheckbox(${indexOfSubtask})" class="subtask-list-input" type="checkbox" value="" id="${subtask}-${indexOfSubtask}">
-            <label class="subtask-list-label" for="flexCheckDefault" id="${subtask}${indexOfSubtask}">
+            <label class="subtask-list-label" onclick="" for="flexCheckDefault" id="${subtask}${indexOfSubtask}">
               ${subtask}
             </label>
           </div>`;

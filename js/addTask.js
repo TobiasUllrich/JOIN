@@ -252,7 +252,6 @@ function subtasksCheckbox(indexOfSubtask) {
     subtasksCheckboxRemoveable(indexOfSubtask);
     clickedSubtask.checked = false;
   }
-
 }
 
 /**

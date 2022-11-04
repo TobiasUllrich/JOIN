@@ -480,8 +480,12 @@ function getArray(key) {
 }
 
 
+/**
+ * Selects a section of the Menu via color
+ * @param {String} selectedSection String (=id) which says which section of the Menu is selected
+ */
 function sectionSelected(selectedSection){
-  //Without setTimeout it trys to write into src before page is loaded (Hint: src="" as Standard of the Element you want to write in)
+  //Without setTimeout it trys to add the 'selected'-class before page is loaded
   setTimeout(function () {
     document.getElementById(`${selectedSection}`).classList.add('selected');
   }, 300);

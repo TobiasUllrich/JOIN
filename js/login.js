@@ -26,7 +26,7 @@ function setArrow(arrowelement, containerforwidth) {
 
     if (breite < 927) // Mobile
     {
-        document.getElementById(`${arrowelement}`).src = `img/black-arrow.png`;
+      document.getElementById(`${arrowelement}`).src = `img/black-arrow.png`;
     }
     else // Desktop
     { document.getElementById(`${arrowelement}`).src = `img/backarrow-icon.png`; }
@@ -36,7 +36,6 @@ function setArrow(arrowelement, containerforwidth) {
  * Logo-Animation in desktop-version OR mobile-version 
  */
 function loginAnimation() {
-    //document.getElementById('animatedlogo2').classList.add('d-none');  ***
     let breite = document.getElementById('center-container').clientWidth;
     let hoehe = document.getElementById('center-container').clientHeight;
     if (breite < 927 || hoehe < 601) // Mobile (NestHub = Mobile)
