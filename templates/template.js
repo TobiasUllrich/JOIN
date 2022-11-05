@@ -212,16 +212,12 @@ function templateEditCurrentTask(currentTask, idOfCurrentTask) {
 
                 </div>
                 <div id="edit-assignedTo-subcontainer" class="edit-assignedTo-subcontainer c-pointer">
-                    <div onclick="showCompleteContainer()">Select contacts to assign<img id="dropdown-img" src="./img/board/dropdown.png"><input required class="checkCheckboxes" id="checkCheckboxes"></div>
+                    <div id="wrkcont" onclick="showCompleteContainer()">Select contacts to assign<img id="dropdown-img" src="./img/board/dropdown.png"><input required class="checkCheckboxes" id="checkCheckboxes"></div>
                     <div id="edit-workers" class="edit-workers d-none">
-                        <div onclick="submitCheckbox('-1')" class="solo-contact"><label>You</label><input onclick="submitCheckbox('-1')"; name="users" id="checkbox--1" type="checkbox"></div>
+                        <div id="scbx-1" onclick="submitCheckbox('-1')" class="solo-contact"><label>You</label><input onclick="submitCheckbox('-1')"; name="users" id="checkbox--1" type="checkbox"></div>
                     </div>
                 </div>
             </div>   
-
-            <div class="change-edit-button">
-                <button class="c-pointer" type="submit"><div>Ok</div><img src="./img/check_white.png"></button>
-            </div>
 
             <div class="close-edit-container c-pointer"><img onclick="closeEditContainer()" src="./img/board/close.png">
         </div>
@@ -234,14 +230,22 @@ function templateEditCurrentTask(currentTask, idOfCurrentTask) {
             <div id="newStatus2" onclick="editStatusOfTask(${idOfCurrentTask}, 'In progress'); highlightStatusContainer('2'); hideHiglightStatusContainer('1', '3', '4');" class="new-status">In progress</div>
             <div id="newStatus3" onclick="editStatusOfTask(${idOfCurrentTask}, 'Awaiting feedback'); highlightStatusContainer('3'); hideHiglightStatusContainer('1', '2', '4');" class="new-status">Awaiting feedback</div>
             <div id="newStatus4" onclick="editStatusOfTask(${idOfCurrentTask}, 'Done'); highlightStatusContainer('4'); hideHiglightStatusContainer('1', '2', '3');" class="new-status">Done</div>
-        </div
-    </div>`
+        </div>
+    </div>
+
+    <div style="display:flex;justify-content:flex-end;">
+    <div class="change-edit-button">
+      <button class="c-pointer" type="submit"><div>Ok</div><img src="./img/check_white.png"></button>
+    </div>
+    </div>
+    `
+    
 }
 
 
 function templateShowAllWorkers(indexOfUsers, userName) {
     return `
-    <div onclick="submitCheckbox(${indexOfUsers})" class="solo-contact"><label>${userName}</label><input onclick="submitCheckbox(${indexOfUsers})" name="users" id="checkbox-${indexOfUsers}" type="checkbox"></div>`
+    <div id="scbx${indexOfUsers}" onclick="submitCheckbox(${indexOfUsers})" class="solo-contact"><label>${userName}</label><input onclick="submitCheckbox(${indexOfUsers})" name="users" id="checkbox-${indexOfUsers}" type="checkbox"></div>`
 }
 
 
@@ -489,13 +493,13 @@ function editContactHTML(fullName, email, phone, color) {
                     </div>
                     <form onsubmit="newEditContact('${email}'); return false;" class="inputAreaAddContact" >
                         <div>
-                            <input id="editName" pattern="^(&#92w&#92w+)&#92s(&#92w+)$" required class="inputAddContact" type="text" placeholder="${fullName}"><img class="inputImg" src="./img/contact/user-line-mini.png" alt="">
+                            <input id="editName" pattern="^(&#92w&#92w+)&#92s(&#92w+)$" required class="inputAddContact" type="text" value="${fullName}" placeholder="${fullName}"><img class="inputImg" src="./img/contact/user-line-mini.png" alt="">
                         </div>
                         <div>
-                            <input id="editEmail" required class="inputAddContact" type="email" placeholder="${email}"><img class="inputImg" src="./img/contact/email.png" alt="">
+                            <input id="editEmail" required class="inputAddContact" type="email" value="${email}" placeholder="${email}"><img class="inputImg" src="./img/contact/email.png" alt="">
                         </div>
                         <div>
-                            <input id="editPhone"  required class="inputAddContact" type="phone" placeholder="${phone}"><img class="inputImg" src="./img/contact/phone-line.png" alt="">
+                            <input id="editPhone"  required class="inputAddContact" type="phone" value="${phone}" placeholder="${phone}"><img class="inputImg" src="./img/contact/phone-line.png" alt="">
                         </div>
                         <div >
                             <button class="buttonCreateContact"> Save <img src="./img/contact/akar-icons_check.png" alt=""></button>

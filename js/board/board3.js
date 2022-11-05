@@ -327,7 +327,7 @@ function hideHiglightStatusContainer(otherStatusOne, otherStatusTwo, otherStatus
  * This function change the status of an task 
  * 
  * @param {number} idOfCurrentTask - id of the task which is becoming a new status
- * @param {string} newStautsOfTask - this is the nwe status of the task
+ * @param {string} newStautsOfTask - this is the new status of the task
  */
 function editStatusOfTask(idOfCurrentTask, newStatusOfTask) {
     editNewStatus = newStatusOfTask;

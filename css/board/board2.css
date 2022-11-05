@@ -299,7 +299,6 @@
   }
   
   .change-edit-button button {
-    position: absolute;
     bottom: 25px;
     right: 25px;
     border: 1px solid lightgray;
@@ -313,6 +312,7 @@
     justify-content: space-between;
     align-items: center;
     transition: all 225ms ease-in-out;
+    margin-top:20px;
   }
   
   .change-edit-button div {

@@ -198,10 +198,51 @@ function editCurrentTask(idOfCurrentTask) {
 
     let bigBoxContainer = document.getElementById('big-box-solo-task');
     bigBoxContainer.innerHTML = '';
-
     bigBoxContainer.innerHTML = templateEditCurrentTask(currentTask, idOfCurrentTask);
+
+    fillContainerwithData(currentTask);
 }
 
+function fillContainerwithData(currentTask){
+    selectTitleDescriptionDate(currentTask);
+    selectTasksOfContainer(currentTask);
+    selectPriority(currentTask);
+    selectStatus(currentTask);
+}
+
+function selectTitleDescriptionDate(currentTask){
+    document.getElementById('edit-title').value=currentTask.title;
+    document.getElementById('edit-description').value=currentTask.description;
+    document.getElementById('edit-date').value=transformDateIntoEnglishFormat(currentTask.dueDate);
+}
+
+function selectTasksOfContainer(currentTask){
+    showCompleteContainer();
+    setTimeout(function () {
+        for (i=0;i<currentTask.assignedTo.length;i++){    
+            for (j=0;j<users.length;j++){
+               if(currentTask.assignedTo[i] == users[j].email){
+                  submitCheckbox(j);
+                 console.log(i , ' ', currentTask.assignedTo[i], ' passt zu ',users[j].email);
+               };
+            }   
+        };
+      }, 200); 
+    document.getElementById('wrkcont').click();
+}
+
+function selectPriority(currentTask){
+    if(currentTask.priority == 'Urgent'){document.getElementById('prio-urgent-container').click()};
+    if(currentTask.priority == 'Medium'){document.getElementById('prio-medium-container').click()};
+    if(currentTask.priority == 'Low'){document.getElementById('prio-low-container').click()};
+}
+
+function selectStatus(currentTask){
+    if(currentTask.status == 'To do'){document.getElementById('newStatus1').click()};
+    if(currentTask.status == 'In progress'){document.getElementById('newStatus2').click()};
+    if(currentTask.status == 'Awaiting feedback'){document.getElementById('newStatus3').click()};
+    if(currentTask.status == 'Done'){document.getElementById('newStatus4').click()};
+}
 
 /**
  * This function runs when user hover on edit task button and changes the color of edit container
