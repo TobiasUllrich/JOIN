@@ -319,6 +319,13 @@
       padding-top: 8px;
       width: 100%;
     }
+
+    .new-status{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 12px;
+    }
   }
 
 

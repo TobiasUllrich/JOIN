@@ -5,15 +5,15 @@ body {
   overflow: auto;
 }
 
-body ::-webkit-scrollbar{
+body ::-webkit-scrollbar {
   width: 12px;
 }
 
-body ::-webkit-scrollbar-track{
+body ::-webkit-scrollbar-track {
   background: lightgray;
 }
 
-body ::-webkit-scrollbar-thumb{
+body ::-webkit-scrollbar-thumb {
   background-color: grey;
   border-radius: 12px;
 }
@@ -243,7 +243,7 @@ body ::-webkit-scrollbar-thumb{
   overflow-y: scroll;
 }
 
-.main-tasks-container::-webkit-scrollbar{
+.main-tasks-container::-webkit-scrollbar {
   display: none;
 }
 
@@ -334,6 +334,12 @@ body ::-webkit-scrollbar-thumb{
   font-weight: 400;
   font-size: 16px;
   color: #ffffff;
+}
+
+.task-title {
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .task-title span {
