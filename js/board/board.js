@@ -366,11 +366,20 @@ function checkStatusOfTaskOnSearch(bigBoxContainer, indexOfSoloTask) {
  */
 function searchTask(idOfInputfield) {
     let userSearch = document.getElementById(`${idOfInputfield}`).value.toLowerCase();
-
-    for (let m = 0; m < tasks.length; m++) {
-        const taskSearch = tasks[m];
-        checkTermsOfSearch(userSearch, m, taskSearch);
-    }
+    if (userSearch.length == 0)
+    {
+        for (let m = 0; m < tasks.length; m++) {//Alle Container anzeigen!!!!!
+            const taskSearch = tasks[m];//Alle Container anzeigen!!!!!
+            console.log(tasks[m].title);//Alle Container anzeigen!!!!!
+            checkTermsOfSearch(tasks[m].title, m, taskSearch);//Alle Container anzeigen!!!!!
+        }
+    } 
+    else{
+        for (let m = 0; m < tasks.length; m++) {
+            const taskSearch = tasks[m];
+            checkTermsOfSearch(userSearch, m, taskSearch);
+        }
+    }  
 }
 
 
