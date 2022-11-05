@@ -223,7 +223,6 @@ function selectTasksOfContainer(currentTask){
             for (j=0;j<users.length;j++){
                if(currentTask.assignedTo[i] == users[j].email){
                   submitCheckbox(j);
-                 console.log(i , ' ', currentTask.assignedTo[i], ' passt zu ',users[j].email);
                };
             }   
         };
