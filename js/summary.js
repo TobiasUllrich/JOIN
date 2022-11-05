@@ -5,6 +5,7 @@ const monthNames = ["January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December"
 ];
 
+
 /**
  * Variables for calculation
  */
@@ -16,6 +17,7 @@ let nextDeadlineofUrgentTasks = 0;
 let nextUrgentTaskDate;
 let taskstoDo = 0;
 let tasksDone = 0;
+
 
 /**
  * Loads tasks from the database into the tasks-array, when summary.html gets opened
@@ -33,6 +35,7 @@ async function renderSummary() {
   centerGreetings();
   showGreetings();
 }
+
 
 /**
  * Centers greetings in the middle of summary.html; waits 1 second, because height & width have to be calculated
@@ -60,9 +63,10 @@ function showGreetings() {
     }, 2000);
   }
   else{
-    document.getElementById('summary-container-for-mobile').classList.add('d-none'); //Hides Mobile-Greetings in Desktop-Version
+      document.getElementById('summary-container-for-mobile').classList.add('d-none'); //Hides Mobile-Greetings in Desktop-Version
   }
 }
+
 
 /**
  * Writes the greetText & username into summary.html
@@ -77,6 +81,7 @@ function greetUser() {
   document.getElementById('actuser').innerHTML = actUserArray['name'];
   document.getElementById('actuser-mobile').innerHTML = actUserArray['name'];
 }
+
 
 /**
  * Generates a greetText according to the day-time
@@ -96,6 +101,7 @@ function sayGoodmorningEveningorNight() {
   return text;
 }
 
+
 /**
  * Collects & calculates Information to fill summary.html
  */
@@ -111,6 +117,7 @@ function collectAndFillSummarywithInfos() {
   nextUrgentTaskDate = transformDate2(nextDeadlineofUrgentTasks);  
 }
 
+
 /**
  * Fills the HTML-Elements of summary.html with calculated values
  */
@@ -123,6 +130,7 @@ function fillSummarywithInfos() {
   document.getElementById('numberTasksTodo').innerHTML = `${taskstoDo}`;
   document.getElementById('numberTasksDone').innerHTML = `${tasksDone}`;
 }
+
 
 /**
  * Receives a date-variable and converts it into a string with the format "August 5, 2022"
@@ -140,6 +148,7 @@ function transformDate2(datetotransform) {
   }
 }
 
+
 /**
  * Receives a string-variable in the format "30-10-2010" and converts it into a date-variable
  * @param {string} datetotransform The received string-variable
@@ -156,12 +165,14 @@ function transformDate(datetotransform) {
   return datumZusGesetzt;
 }
 
+
 /**
  * Directs you to board.html
  */
 function showBoard() {
   window.location.href = 'board.html';
 }
+
 
 /**
  * Inverts Font-color & Background-Color of a specific element plus its img on hover
@@ -172,6 +183,7 @@ function addBackground(idOfElementToChange, idOfPicture) {
   document.getElementById(idOfElementToChange).style = 'background-color: #FFFFFF;';
   document.getElementById(`${idOfPicture}`).style = 'filter: invert(100%);';
 }
+
 
 /**
  * Inverts Font-color & Background-Color of a specific element plus its img on hover

@@ -11,6 +11,7 @@ let selectedWorkers = [];
 let selectedWorkersEmail = [];
 let loggedUser = getArray('arrayOfactUser');
 
+
 /**
  * Loads all Tasks und Users from Backendserver and checks if Board is renderable
  * 
@@ -20,11 +21,11 @@ async function loadInit() {
     await checkIfBoardIsRenderable();
 }
 
+
 /**
  * If something is included in Taskarray the renderfunction starts
  * 
  */
-
 async function checkIfBoardIsRenderable() {
     if (tasks.length > 0) {
         await filterTasks();
@@ -32,11 +33,11 @@ async function checkIfBoardIsRenderable() {
     }
 }
 
+
 /**
  * Render all Tasks by Status
  * 
  */
-
 async function renderBoard() {
     renderToDo();
     renderProgress();
@@ -44,12 +45,11 @@ async function renderBoard() {
     renderDone();
 }
 
+
 /**
  * Render tasks with status todo in todo-container
  * 
- * 
  */
-
 function renderToDo() {
     let todoOutput = document.getElementById('category-todo');
     let todos = tasks.filter(status => status.status == 'To do');
@@ -62,11 +62,11 @@ function renderToDo() {
     }
 }
 
+
 /**
  * Render tasks with status in progress in progress-container
  * 
  */
-
 function renderProgress() {
     let inProgressOutput = document.getElementById('category-progress');
     let progress = tasks.filter(status => status.status == 'In progress');
@@ -79,11 +79,11 @@ function renderProgress() {
     }
 }
 
+
 /**
  * Render tasks with status awaiting feedback in feedback-container
  * 
  */
-
 function renderFeedback() {
     let feedbackOutput = document.getElementById('category-feedback');
     let feedback = tasks.filter(status => status.status == 'Awaiting feedback');
@@ -96,11 +96,11 @@ function renderFeedback() {
     }
 }
 
+
 /**
  * Render tasks with status done in done-container
  * 
  */
-
 function renderDone() {
     let doneOutput = document.getElementById('category-done');
     let doneTasks = tasks.filter(status => status.status == 'Done');
@@ -113,6 +113,7 @@ function renderDone() {
     }
 }
 
+
 /**
  * This function render the peoples who work on this task
  * 
@@ -120,7 +121,6 @@ function renderDone() {
  * @param {string} status - status means in which current status the task is 
  * @param {array} soloStatusArray  - in this array are all tasks filtered by there status 
  */
-
 function renderAssignedNamesOfTask(index, status, soloStatusArray) {
     let renderOutputContainer = document.getElementById(`solo-worker-${status}${index}`);
     renderOutputContainer.innerHTML = '';
@@ -140,6 +140,7 @@ function renderAssignedNamesOfTask(index, status, soloStatusArray) {
     }
 }
 
+
 /**
  * This function runs when an task have more than 3 workers and shows an plus sign 
  * 
@@ -147,7 +148,6 @@ function renderAssignedNamesOfTask(index, status, soloStatusArray) {
  * @param {number} index - this is the index of task
  * @param {array} soloStatusArray -  this is an filtered array which means in which status the task is
  */
-
 function sliceArrayAndShowPlusMark(outputContainer, index, taskArray) {
     let array = taskArray;
     let amountAssignedWorker = array[index].assignedTo.length - 3;
@@ -166,11 +166,11 @@ function sliceArrayAndShowPlusMark(outputContainer, index, taskArray) {
     outputContainer.innerHTML += showPlusSign(amountAssignedWorker);
 }
 
+
 /**
  * This function filter all tasks by there status and put them in an seperate array
  * 
  */
-
 async function filterTasks() {
     importantTasks = tasks.filter(priority => priority.priority == 'Urgent'); // All important Tasks
     soloTasksTodo = tasks.filter(status => status.status == 'To do'); // All tasks todo
@@ -179,6 +179,7 @@ async function filterTasks() {
     soloTasksDone = tasks.filter(status => status.status == 'Done'); // All tasks done
 }
 
+
 /**
  * This function open the clicked task in a bigger window 
  * 
@@ -186,7 +187,6 @@ async function filterTasks() {
  * @param {string} statusTask - this string means in which status the clicked task is
  * @param {hex} categorycolor - this is the color-hex-code of headline-background-color on bigger window 
  */
-
 function openCurrentTaskBigBox(indexOfSoloTask, statusTask, categorycolor) {
     let bigBoxContainer = document.getElementById('main-bigbox-solo-task-container');
     bigBoxContainer.innerHTML = '';
@@ -198,6 +198,7 @@ function openCurrentTaskBigBox(indexOfSoloTask, statusTask, categorycolor) {
     checkHeadlineColorBigBox(categorycolor);
 }
 
+
 /**
  * This function checks which status the clicked task is and opens the clicked task in bigger window and runs the HTML Template
  * 
@@ -205,7 +206,6 @@ function openCurrentTaskBigBox(indexOfSoloTask, statusTask, categorycolor) {
  * @param {id} bigBoxContainer - this is the main container where the bigger window pops up
  * @param {number} indexOfSoloTask - this is the index of clicked task
  */
-
 function checkStatusOfTask(statusTask, bigBoxContainer, indexOfSoloTask) {
     if (statusTask == 'to do') {
         bigBoxContainer.innerHTML = templateBigBoxSoloTask(soloTasksTodo, indexOfSoloTask);
@@ -224,13 +224,13 @@ function checkStatusOfTask(statusTask, bigBoxContainer, indexOfSoloTask) {
     }
 }
 
+
 /**
  * This function render the people who works on the clicked task in bigger window
  * 
  * @param {number} indexOfTask - this is the index of clicked task 
  * @param {string} statusOfTask - this string means in which status the clicked task is
  */
-
 function showCurrentWorkersBigBox(indexOfTask, statusOfTask) {
     if (statusOfTask == 'todo') {
         renderCurrentWorkersBigBox(indexOfTask, soloTasksTodo);
@@ -246,13 +246,13 @@ function showCurrentWorkersBigBox(indexOfTask, statusOfTask) {
     }
 }
 
+
 /**
  * This function renders the people who works on the clicked task in bigger window and runs the HTML Template
  * 
  * @param {number} indexOfTask - this is the index of clicked task 
  * @param {array} statusTasksArray - this is a filtered array by taskstatus
  */
-
 function renderCurrentWorkersBigBox(indexOfTask, statusTasksArray) {
     let currentTaskWorkers = document.getElementById(`current-workers`);
     currentTaskWorkers.innerHTML = '';
@@ -272,17 +272,16 @@ function renderCurrentWorkersBigBox(indexOfTask, statusTasksArray) {
  * 
  * @param {hex} categorycolor 
  */
-
 function checkHeadlineColorBigBox(categorycolor) {
     let bigBoxHeadlineContainer = document.getElementById('big-box-task-headline');
     bigBoxHeadlineContainer.style = `background:${categorycolor}`;
 }
 
+
 /**
  * This function runs when user clicked a task to open in bigger window and checks in which prio the task is and add the suitable color to the background of prio container 
  * 
  */
-
 function checkPriorityBackgroundColor() {
     let prioBackgroundColor = document.getElementById('priority-big-box-color');
 
@@ -297,17 +296,18 @@ function checkPriorityBackgroundColor() {
     }
 }
 
+
 /**
  * This function close the bigger window pop up when the user open it 
  * 
  */
-
 function closeSoloTaskBigBox() {
     let bigBoxContainer = document.getElementById('main-bigbox-solo-task-container');
     addDisplayNoneMainContainer(bigBoxContainer);
     setOpacityBackgroundToNormal();
     removeUnclickableBackground();
 }
+
 
 /**
  * This function open the searched task in bigger window and adds some CSS to background
@@ -316,7 +316,6 @@ function closeSoloTaskBigBox() {
  * @param {string} statusTask - this string means in which status the searched task is
  * @param {hex} categorycolor - this is the hex-color-code for the headline-background-color of search task
  */
-
 function openCurrentTaskBigBoxOnSearch(indexOfSoloTask, statusTask, categorycolor) {
     let bigBoxContainer = document.getElementById('main-bigbox-solo-task-container');
     bigBoxContainer.innerHTML = '';
@@ -328,6 +327,7 @@ function openCurrentTaskBigBoxOnSearch(indexOfSoloTask, statusTask, categorycolo
     checkHeadlineColorBigBox(categorycolor);
     renderCurrentWorkersBigBoxSearch(indexOfSoloTask);
 }
+
 
 /**
  * This function renders the current workers of task after clicked on a task to open the bigger window
@@ -347,23 +347,23 @@ function renderCurrentWorkersBigBoxSearch(indexOfTask) {
     }
 }
 
+
 /**
  * This function opnes the clicked Task in a bigger pop op window and runs the template function 
  * 
  * @param {id} bigBoxContainer  - this is the container where the search task can be open in bigger window 
  * @param {number} indexOfSoloTask - this is the index of searched task
  */
-
 function checkStatusOfTaskOnSearch(bigBoxContainer, indexOfSoloTask) {
     bigBoxContainer.innerHTML = templateBigBoxSoloTask(tasks, indexOfSoloTask);
 }
+
 
 /**
  * This function gets the user value of the inputfield and iterate the task array after that the function "checkTermsOfSearch" runs 
  * 
  * @param {string} idOfInputfield - This is the id of the search - inputfield 
  */
-
 function searchTask(idOfInputfield) {
     let userSearch = document.getElementById(`${idOfInputfield}`).value.toLowerCase();
 
@@ -373,17 +373,18 @@ function searchTask(idOfInputfield) {
     }
 }
 
+
 /**
  * This function runs the searchTask Function by pressing the Enter button
  * 
  * @param {id} idOfSearchContainer - this is the search-container that getting clicked when user press enter 
  */
-
 function enterEventSearchTask(idOfSearchContainer) {
     if (event.key === "Enter") {
         document.getElementById(`${idOfSearchContainer}`).click();
     }
 }
+
 
 /**
  * This function checks if the user search value is including in tasks title and searchs in every status container  
@@ -392,7 +393,6 @@ function enterEventSearchTask(idOfSearchContainer) {
  * @param {number} m - this is the index of available tasks
  * @param {object} taskSearch - this is a solo object of tasks
  */
-
 function checkTermsOfSearch(userSearch, m, taskSearch) {
     if (taskSearch.title.toLowerCase().includes(userSearch)) {
         searchInToDoContainer(taskSearch, m);

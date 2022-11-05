@@ -3,6 +3,7 @@
  */
 let colors = ['#8aa4ff', '#ff0000', '#2ad300', '#ff8a00', '#e200be', '#0038ff'];
 
+
 /**
  * Object used if someone logs in as guest
  */
@@ -15,6 +16,7 @@ let guest = {
     "password": "none123",
     "color": "#4e963d"
 }
+
 
 /**
  * Makes arrow black if mobile-version
@@ -31,6 +33,7 @@ function setArrow(arrowelement, containerforwidth) {
     else // Desktop
     { document.getElementById(`${arrowelement}`).src = `img/backarrow-icon.png`; }
 }
+
 
 /**
  * Logo-Animation in desktop-version OR mobile-version 
@@ -54,6 +57,7 @@ function loginAnimation() {
     }
 }
 
+
 /**
  * Plays animation if you reseted your password and redirects you to login2.html
  */
@@ -67,6 +71,7 @@ function resetPwAnimation() {
         showLoginForm2(); //Directs to login2.html (without animation)
     }, 1000);
 }
+
 
 /**
  * Animates a message for the user
@@ -83,12 +88,14 @@ function animateMessage(message) {
     }, 1000);
 }
 
+
 /**
  * Directs to index.html (with animation) to login
  */
 function showLoginForm() {
     window.location.href = 'index.html';
 }
+
 
 /**
  * Directs to index2.html (without animation) to login
@@ -97,12 +104,14 @@ function showLoginForm2() {
     window.location.href = 'index2.html';
 }
 
+
 /**
  * Directs to signup.html to register at JOIN
  */
 function showSignUpForm() {
     window.location.href = 'signup.html';
 }
+
 
 /**
  * Directs to sendemail.html to request an email to reset your password
@@ -111,6 +120,7 @@ function showPasswordForgottenForm() {
     window.location.href = 'sendemail.html';
 }
 
+
 /**
  * Directs to setpassword.html to reset your password
  */
@@ -118,6 +128,7 @@ function showResetPasswordForm() {
     let emailtochangepw = document.getElementById('forgotpassword-email').value;
     window.location.href = `setpassword.html?msg=${emailtochangepw}`;
 };
+
 
 /**
  * Lets you login as Guest and redirects you to summary.html
@@ -128,6 +139,7 @@ function loginAsGuest() {
     setArray('arrayOfactUser', guest); //Save Guest-User-Object in local Storage
     window.location.href = 'summary.html';
 }
+
 
 /**
  * Trys to Login; email & password have to be existing and correct
@@ -145,6 +157,7 @@ function tryLogin() {
     else { animateMessage('Wrong Password!'); } //Password incorrect
 }
 
+
 /**
  * Trys to Signup with data from the signup-form; if email is already registered signup will not work
  */
@@ -160,6 +173,7 @@ async function trySignup() {
         showLoginForm2();
     }
 }
+
 
 /**
  * Creates & returns an object with signupdata of the user
@@ -185,6 +199,7 @@ function createSignupData(email) {
     return object;
 }
 
+
 /**
  * Trys to send Email, if password was forgotten by the user; email has to exist in database
  */
@@ -199,6 +214,7 @@ function tryToSendEmail() {
     //<- event.preventDefault(); stoppt eine weitere Verarbeitung des Formulars und damit auch die Ausführung von "action"  
 }
 
+
 /**
  * Try to reset password with the link from the email
  */
@@ -212,6 +228,7 @@ function resetPassword() {
 
     tryToResetPassword(email, pw1, pw2);
 }
+
 
 /**
  * Try to reset password with the link from the email; email has to exist and passwords have to be equal!
@@ -233,6 +250,7 @@ async function tryToResetPassword(email, pw1, pw2) {
         animateMessage('Unequal Passwords!');
     }
 }
+
 
 /**
  * Generates & returns a random Integer between 0 and maximum

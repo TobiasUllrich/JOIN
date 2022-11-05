@@ -58,6 +58,7 @@ let usersScript = [
   }
 ];
 
+
 /**
  * Array to visualize the structure of the database tasks-array
  */
@@ -380,8 +381,6 @@ async function delTask(index) {
     await backendTWO.setItem('tasks', JSON.stringify(tasks)); //tasks-array is saved into backend
   }
 }
-
-
 
 
 /**

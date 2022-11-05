@@ -23,6 +23,7 @@ function templateOfNewTaskToDo(taskTodo, i) {
 </div>`
 }
 
+
 function templateOfTaskInProgress(taskProgress, j) {
     return `
     <div id="progress-task${j}" onclick="openCurrentTaskBigBox(${j}, ['in progress'], '${taskProgress.categorycolor}'); showCurrentWorkersBigBox(${j}, 'progress');" ondragstart="startDragging(${taskProgress['id']}); dragHighlight(['progress'], ${j}); showEmptyPlaces(['todo'], ['feedback'], ['done'])"; ondragend="hideEmptyPlaces(['todo'], ['feedback'], ['done'])"; class="main-task-container" draggable="true">
@@ -46,6 +47,7 @@ function templateOfTaskInProgress(taskProgress, j) {
     </div>
 </div>`
 }
+
 
 function templateOfTaskFeedback(taskFeedback, k) {
     return `
@@ -71,6 +73,7 @@ function templateOfTaskFeedback(taskFeedback, k) {
 </div>`
 }
 
+
 function templateOfTaskDone(taskDone, l) {
     return `
     <div id="done-task${l}" onclick="openCurrentTaskBigBox(${l}, ['done'], '${taskDone.categorycolor}'); showCurrentWorkersBigBox(${l}, 'done');" ondragstart="startDragging(${taskDone['id']}); dragHighlight(['done'], ${l}); showEmptyPlaces(['todo'], ['progress'], ['feedback'])"; ondragend="hideEmptyPlaces(['todo'], ['progress'], ['feedback'])"; class="main-task-container" draggable="true">
@@ -94,6 +97,7 @@ function templateOfTaskDone(taskDone, l) {
     </div>
 </div>`
 }
+
 
 function templateBigBoxSoloTask(soloTasksArray, indexOfSoloTask) { // soloTasksFeedback // 3 
     return `
@@ -136,6 +140,7 @@ function templateBigBoxSoloTask(soloTasksArray, indexOfSoloTask) { // soloTasksF
     </div>`
 }
 
+
 function templateOfSearchTask(taskSearch, index) {
     return `
     <div id="search-task${index}" onclick="openCurrentTaskBigBoxOnSearch(${index}, ['${taskSearch.status.toLowerCase()}'], '${taskSearch.categorycolor}')"; class="main-task-container">
@@ -159,6 +164,7 @@ function templateOfSearchTask(taskSearch, index) {
     </div>
 </div>`
 }
+
 
 function templateEditCurrentTask(currentTask, idOfCurrentTask) {
     return `
@@ -232,32 +238,33 @@ function templateEditCurrentTask(currentTask, idOfCurrentTask) {
     </div>`
 }
 
+
 function templateShowAllWorkers(indexOfUsers, userName) {
     return `
     <div onclick="submitCheckbox(${indexOfUsers})" class="solo-contact"><label>${userName}</label><input onclick="submitCheckbox(${indexOfUsers})" name="users" id="checkbox-${indexOfUsers}" type="checkbox"></div>`
 }
+
 
 function templateAssignedToOfSoloTask(firstName, lastName, userBackgroundColor) {
     return `
     <div class="worker-name-start-letters d-center" style="background:${userBackgroundColor}">${firstName}${lastName}</div>`
 }
 
+
 function showPlusSign(amountWorker) {
     return `
     <div class="worker-name-start-letters d-center bg-black">+ ${amountWorker}</div>`
 }
 
+
 function templateCurrentWorkersOfTasksBigBox(firstName, lastName, fullName, userBackgroundColor) {
     return `
     <div class="solo-worker-big-box"><div style="background:${userBackgroundColor}" class="worker-name-start-letters-edit d-center">${firstName.charAt(0)}${lastName.charAt(0)}</div><div class="edit-worker-fullname">${fullName}</div>`
 }
-
 // ################################ BOARD TEMPLATE END ################################################### 
 
+
 // ################################ ADD TASK TEMPLATE START ################################################### 
-
-
-
 function userInAssignedHTML(userName, indexOfUsers) {
     return /*html*/`
     <div onclick="assingCheckbox(${indexOfUsers})" class="solo-assigned"><label>${userName}</label><input onclick="assingCheckbox(${indexOfUsers})" name="users" id="userCheckbox-${indexOfUsers}" type="checkbox"></div>`
@@ -282,11 +289,13 @@ function newCategoryInputHTML() {
       `;
 }
 
+
 function errorMessageHTML() {
     return /*html*/`
     <p> Add a category and a color! </p>
   `
 }
+
 
 function categoryColorPickerHTML(i) {
     return /*html*/`
@@ -294,6 +303,7 @@ function categoryColorPickerHTML(i) {
                 <label for="${addTaskCategoryColors[i]}" class="add-task-color-picker"><span class="color-${i}"></span></label> 
     `
 }
+
 
 function loadCategoryHTML() {
     return /*html*/`
@@ -305,6 +315,7 @@ function loadCategoryHTML() {
       </div>`;
 }
 
+
 function currentCategoryHTML(i) {
     return /*html*/` 
       <div   class="active-category">
@@ -315,6 +326,7 @@ function currentCategoryHTML(i) {
       `;
 }
 
+
 function allCategoryHTML(i) {
     return /*html*/`
     <div onclick="currentCategory(${i})"  class="current-category">
@@ -324,6 +336,7 @@ function allCategoryHTML(i) {
     </div>
       `;
 }
+
 
 function subtaskListHTML(indexOfSubtask) {
     let subtask = addTaskSubtasks[indexOfSubtask];
@@ -336,6 +349,7 @@ function subtaskListHTML(indexOfSubtask) {
           </div>`;
 }
 
+
 function loadAssignedHTML() {
     return /*html*/`
     <div onclick="openAssign()" id="dropbtnAssign" class="dropbtn-assign" type="button">Select contacts to assign<img src="./img/addtask/dropdown-Vector.png" alt=""><input required class="checkCheckboxes" id="assignedInput"></div>
@@ -343,8 +357,6 @@ function loadAssignedHTML() {
     `;
 }
 
-
-// 
 
 function searchEmailInputHTML() {
     return /*html*/`
@@ -363,11 +375,10 @@ function searchEmailInputHTML() {
   </div>
     `;
 }
-
 // ################################ ADD TASK TEMPLATE END ################################################### 
 
-// ################################ CONTACTS TEMPLATE START ################################################### 
 
+// ################################ CONTACTS TEMPLATE START ################################################### 
 function firstLetterListHTML(firstSurnameLetter) {
     return /*html*/`
     <div class="letter-list" >
@@ -382,6 +393,7 @@ function firstLetterListHTML(firstSurnameLetter) {
     </div>
     `
 }
+
 
 function contactHTML(user) {
     let fullName = user['name'];
@@ -399,10 +411,12 @@ function contactHTML(user) {
     `
 }
 
+
 function contactListHTML(user) {
     let fullName = user['name'];
     let letter = fullName.match(/\b(\w)/g).join('');
 }
+
 
 function contactInformationHTML(fullName, userColor, userEmail, userPhone) {
     let letter = fullName.match(/\b(\w)/g).join('');

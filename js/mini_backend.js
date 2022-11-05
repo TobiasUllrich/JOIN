@@ -38,18 +38,17 @@ const backendTWO = {
 };
 /** INSERT FOR SECOND JSON-FILE */
 
-
 window.onload = async function() {
     downloadFromServer();
     downloadFromServerTWO(); /** INSERT FOR SECOND JSON-FILE */
 }
+
 
 async function downloadFromServer() {
     let result = await loadJSONFromServer();
     jsonFromServer = JSON.parse(result);
     //console.log('Users Loaded', result);
 }
-
 
 /** INSERT FOR SECOND JSON-FILE */
 async function downloadFromServerTWO() {
@@ -64,11 +63,11 @@ function setURL(url) {
     BASE_SERVER_URL = url;
 }
 
+
 /**
  * Loads a JSON or JSON Array to the Server
  * payload {JSON | Array} - The payload you want to store
  */
-
 async function loadJSONFromServer() {
     let response = await fetch(BASE_SERVER_URL + '/nocors.php?json=database&noache=' + (new Date().getTime()));
     return await response.text();
@@ -107,9 +106,6 @@ function loadJSONFromServerOld() {
 
     });
 }
-
-
-
 
 
 /**
@@ -166,7 +162,6 @@ function saveJSONToServer() {
     });
 }
 /** INSERT FOR SECOND JSON-FILE */
-
 
 
 function determineProxySettings() {

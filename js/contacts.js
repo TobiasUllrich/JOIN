@@ -8,9 +8,8 @@ async function initContacts() {
     await init();
     users.sort((a, b) => a.surname.localeCompare(b.surname));
     renderLettersList();
-
-
 }
+
 
 /**
  * Pushes the initial letters into the letter array to display only the needed letters in a HTML then
@@ -34,12 +33,13 @@ function renderLettersList() {
  */
 function renderContacts() {
     for (let i = 0; i < users.length; i++) {
-        let user = users[i]; 
+        let user = users[i];
         let firstSurnameLetter = user['surname'].match(/\b(\w)/g).join('');
         let firstSurLetterID = document.getElementById(firstSurnameLetter);
         firstSurLetterID.innerHTML += contactHTML(user);
     }
 }
+
 
 /**
  * The contact information is called here 
@@ -56,15 +56,17 @@ function contactInformation(fullName, userColor, userEmail, userPhone) {
     cInformation.innerHTML = contactInformationHTML(fullName, userColor, userEmail, userPhone);
 }
 
+
 /**
  * 
  * @param {string} userEmail - email of the user
  */
-async function deleteContactUser(userEmail){
+async function deleteContactUser(userEmail) {
     let index = getUserIndexForEmail(userEmail);
     await delUser(index);
     setTimeout(function () { location.reload() }, 1000);
 }
+
 
 /**
  * Closes the window
@@ -74,6 +76,7 @@ function closeAddContact() {
     element.classList.add('d-none');
     element.innerHTML = '';
 }
+
 
 /**
  * opens the Add Contact window
@@ -85,6 +88,7 @@ function openAddContactContainer() {
     element.innerHTML = addNewContactHTML();
 }
 
+
 /**
  * opens the Edit Contact window
  * @param {string} fullName - Full name of the user
@@ -92,8 +96,8 @@ function openAddContactContainer() {
  * @param {string} phone - phone number of the user
  * @param {string} color - color of the user
  */
-function openEditContact(fullName, email, phone, color){ 
-    let element = document.getElementById('tampletContainer'); 
+function openEditContact(fullName, email, phone, color) {
+    let element = document.getElementById('tampletContainer');
     element.classList.remove('d-none')
     element.innerHTML = '';
     element.innerHTML = editContactHTML(fullName, email, phone, color);
@@ -104,10 +108,8 @@ function openEditContact(fullName, email, phone, color){
  * The values are taken and thus a new contact is created
  */
 async function createNewContact() {
-    let fullname = document.getElementById('newName').value;
-    let surname = fullname.slice(fullname.indexOf(' ') + 1, fullname.length);
-    fullname = fullname.charAt(0).toUpperCase() + fullname.slice(1,fullname.indexOf(' ')) + ' ' + surname.charAt(0).toUpperCase() + surname.slice(1,surname.length);
-    surname = surname.charAt(0).toUpperCase() + surname.slice(1,surname.length);
+    let fullname = makeFirstLettersOfFullnameGreat(document.getElementById('newName').value);
+    let surname = makeFirstLetterOfSurnameGreat(fullname.slice(fullname.indexOf(' ') + 1, fullname.length));
     let email = document.getElementById('newEmail').value;
     let phone = document.getElementById('newPhone').value;
     let color = colors[generateRandomInteger(colors.length - 1)];
@@ -124,15 +126,37 @@ async function createNewContact() {
     addedNewContact();
 }
 
+
+/**
+ * Makes great the first Letters of Username
+ * @param {String} fullname e.g. tobias ullrich
+ * @returns fullname with great first Letters
+ */
+function makeFirstLettersOfFullnameGreat(fullname) {
+    let surname = fullname.slice(fullname.indexOf(' ') + 1, fullname.length);
+    let fullnameGreat = fullname.charAt(0).toUpperCase() + fullname.slice(1, fullname.indexOf(' ')) + ' ' + surname.charAt(0).toUpperCase() + surname.slice(1, surname.length);
+    return fullnameGreat;
+}
+
+
+/**
+ * Makes great the first Letter of Surname
+ * @param {String} surname e.g. ullrich
+ * @returns surname with great first Letter
+ */
+function makeFirstLetterOfSurnameGreat(surname) {
+    let surnameGreat = surname.charAt(0).toUpperCase() + surname.slice(1, surname.length);
+    return surnameGreat;
+}
+
+
 /**
  * The new data is put into an object to be pushed into the array at changeUser
  * @param {string} oldEmail - the old/current email address
  */
-async function newEditContact(oldEmail){
-    let fullname = document.getElementById('editName').value;
-    let surname = fullname.slice(fullname.indexOf(' ') + 1, fullname.length);
-    fullname = fullname.charAt(0).toUpperCase() + fullname.slice(1,fullname.indexOf(' ')) + ' ' + surname.charAt(0).toUpperCase() + surname.slice(1,surname.length);
-    surname = surname.charAt(0).toUpperCase() + surname.slice(1,surname.length);
+async function newEditContact(oldEmail) {
+    let fullname = makeFirstLettersOfFullnameGreat(document.getElementById('editName').value);
+    let surname = makeFirstLetterOfSurnameGreat(fullname.slice(fullname.indexOf(' ') + 1, fullname.length));
     let email = document.getElementById('editEmail').value;
     let phone = document.getElementById('editPhone').value;
     let object = {
@@ -140,13 +164,12 @@ async function newEditContact(oldEmail){
         "surname": surname,
         "email": email,
         "phone": phone,
-        "oldEmail":oldEmail
+        "oldEmail": oldEmail
     };
-
     await changeUser(object);
     location.reload();
-    
 }
+
 
 /**
  * Animation that a contact has been created is called
@@ -160,12 +183,13 @@ function addedNewContact() {
     let addedToBoard = document.getElementById('addedNewContact')
     addedToBoard.classList.toggle('d-none');
     setTimeout(function () { location.reload() }, 2000);
-  }
+}
 
-  /**
-   * Closes the window
-   */
-function closeContactInfos(){
+
+/**
+ * Closes the window
+ */
+function closeContactInfos() {
     let contactSite = document.getElementById('contactSite');
     let cInformation = document.getElementById('contactInformation');
     contactSite.style = 'display: none';

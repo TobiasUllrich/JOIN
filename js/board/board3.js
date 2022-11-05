@@ -3,7 +3,6 @@
  * 
  * @param {number} idOfCheckbox - this is the index of checkbox by choosing new possible workers
  */
-
 function submitCheckbox(idOfCheckbox) {
     let clickedCheckbox = document.getElementById(`checkbox-${idOfCheckbox}`);
 
@@ -17,12 +16,12 @@ function submitCheckbox(idOfCheckbox) {
     checkValidatorCheckboxes();
 }
 
+
 /**
  * This function checks if choosen new worker is already in selectedWorkers array and pushs the new worker to array
  * 
  * @param {number} id - index of user
  */
-
 function checkIfWorkerIsPushable(id) {
     if (!selectedWorkers.includes(users[id]) && id >= 0) {
         selectedWorkers.push(users[id]);
@@ -36,12 +35,12 @@ function checkIfWorkerIsPushable(id) {
     }
 }
 
+
 /**
  * This function checks if choosen new worker is already in selectedWorkers array and splices the selected user from array
  * 
  * @param {number} id - index of user 
  */
-
 function checkIfWorkerIsRemoveable(id) {
     for (let p = 0; p < selectedWorkers.length; p++) {
         if (selectedWorkers[p] === users[id]) {
@@ -55,11 +54,11 @@ function checkIfWorkerIsRemoveable(id) {
     }
 }
 
+
 /**
  * This function runs the form validation for the checkboxes so atleast one checkbox has to be clicked
  * 
  */
-
 function checkValidatorCheckboxes() {
     let checkboxAssignedTo = document.getElementById('checkCheckboxes');
     let checkboxes = document.querySelectorAll('input[type="checkbox"]');
@@ -73,11 +72,11 @@ function checkValidatorCheckboxes() {
     }
 }
 
+
 /**
  * This function shows all possible workers in edit task overview, the user whos logged in gets removed from the list and is saved in "You" option
  * 
  */
-
 function showAllPossibleWorkers() {
     let outputContainer = document.getElementById('edit-workers');
     for (let o = 0; o < users.length; o++) {
@@ -88,6 +87,7 @@ function showAllPossibleWorkers() {
     }
 }
 
+
 /**
  * This function clears the placeholder from the inputfields in edit task overview by clicking and shows the needed information also as placeholder
  * 
@@ -95,7 +95,6 @@ function showAllPossibleWorkers() {
  * @param {string} newPlaceholder - this string is the new placeholder by clicking in the inputfield
  * @param {string} oldPlaceholder - this string is the default placeholder by clicking the inputfield again
  */
-
 function clearPlaceholder(inputfield, newPlaceholder, oldPlaceholder) {
     let currentPlaceholder = document.getElementById(`edit-${inputfield}`).placeholder;
     if (currentPlaceholder == oldPlaceholder) {
@@ -106,6 +105,7 @@ function clearPlaceholder(inputfield, newPlaceholder, oldPlaceholder) {
     }
 }
 
+
 /**
  * This function update the task array after submit the change button in edit task overview
  * 
@@ -115,7 +115,6 @@ function clearPlaceholder(inputfield, newPlaceholder, oldPlaceholder) {
  * @param {date} date - new task date
  * @param {string} prio - new task prio
  */
-
 async function updateTaskArray(taskId, title, description, date, prio) {
 
     let object = tasks[taskId];
@@ -130,151 +129,152 @@ async function updateTaskArray(taskId, title, description, date, prio) {
     showAlert('succes-alert');
 }
 
+
 /**
  * This function shows a succes alert after succesfully editing a task and runs the hide alert function after 3 seconds
  * 
  */
-
 function showAlert(idOfAlert) {
     document.getElementById(`${idOfAlert}`).classList.remove('d-none');
     setTimeout(function () { hideAlert(idOfAlert) }, 3000);
 }
 
+
 /**
  * This function hide the succes alert
  * 
  */
-
 function hideAlert(idOfAlert) {
     console.log(idOfAlert);
     document.getElementById(`${idOfAlert}`).classList.add('d-none');
 }
 
+
 /**
  * Here is it possible to add an task in the board.html
  * 
  */
-
 function addTaskBoard() {
     let addTaskContainer = document.getElementById('main-add-task-container');
     removeDisplayNoneMainContainer(addTaskContainer);
 }
 
+
 /**
  * This function close the add task container
  * 
  */
-
 function closeAddTaskContainer() {
     let addTaskContainer = document.getElementById('main-add-task-container');
     addDisplayNoneMainContainer(addTaskContainer);
 }
+
 
 /**
  * This function makes the background of container blue
  * 
  * @param {id} container - id of container which is going to be blue
  */
-
 function makeContainerBlue(container) {
     container.style.background = '#29ABE2';
 }
+
 
 /**
  * This function removes the backgroundcolor blue of container
  * 
  * @param {id} container - id of container which backgroundcolor should be removed
  */
-
 function removeContainerColorBlue(container) {
     container.style.background = '#2a3647';
 }
+
 
 /**
  * This function changes the color of image to white
  * 
  * @param {id} image - this is the id of image which is going the get a new color to white
  */
-
 function makeImgWhite(image) {
     image.style.filter = 'filter: brightness(0) invert(1)';
 }
+
 
 /**
  * This function set image color to default 
  * 
  * @param {id} image - this is the id of image which get default color again
  */
-
 function makeImageColorDefault(image) {
     image.style.filter = 'filter: brightness(0) invert(1)';
 }
+
 
 /**
  * This function adds opacity to background when clicked task is open in bigger window
  * 
  */
-
 function addOpacityToMainBackground() {
     document.getElementById('main-board-container').style.opacity = '0.6';
 }
+
 
 /**
  * This function makes the background unclickable when clicked task is open in bigger window
  * 
  */
-
 function backgroundIsUnclickable() {
     document.getElementById('main-board-container').style.pointerEvents = 'none';
 }
+
 
 /**
  * This function sets the background opacity to default wehen user close the bigger window pop up by clicking on an task
  * 
  */
-
 function setOpacityBackgroundToNormal() {
     document.getElementById('main-board-container').style.opacity = '1.0';
 }
+
 
 /**
  * This function makes the background clickable again wehen user close the bigger window pop up by clicking on an task
  * 
  */
-
 function removeUnclickableBackground() {
     document.getElementById('main-board-container').style.pointerEvents = 'all';
 }
+
 
 /**
  * This function removes the CSS style "display:none" when user click on task
  * 
  * @param {string} bigBoxContainer - this is the bigger window pop up when user clicks on task
  */
-
 function removeDisplayNoneMainContainer(bigBoxContainer) {
     bigBoxContainer.classList.remove('d-none');
 }
+
 
 /**
  * This function adds the CSS style "display:flex" when user close the bigger window pop up
  * 
  * @param {string} bigBoxContainer - this is the bigger window pop up when user clicks on task
  */
-
 function addDisplayNoneMainContainer(bigBoxContainer) {
     bigBoxContainer.classList.add('d-none');
 }
+
 
 /**
  * This function stops Progagation when user click on background
  * 
  * @param {event} event - adds default stopProgagation function 
  */
-
 function doNotClose(event) {
     event.stopPropagation();
 }
+
 
 /**
  * This function deletes a task by clicking on the basket button and updates the task array
@@ -294,16 +294,17 @@ async function deleteCurrentTask(idOfCurrentTask) {
     showAlert('delete-alert');
 }
 
+
 /**
  * This function highlights the new clicked status Container
  * 
  * @param {number} indexOfContainer - index of clicked container whats going to be highlighted
  */
-
 function highlightStatusContainer(indexOfContainer) {
     let container = document.getElementById(`newStatus${indexOfContainer}`);
     container.classList.toggle('new-status-highlight');
 }
+
 
 /**
  * This function removes the highlight of an container when the user clicks on other container
@@ -312,7 +313,6 @@ function highlightStatusContainer(indexOfContainer) {
  * @param {number} otherStatusTwo - second container whichs loses the style highlight
  * @param {number} otherStatusThree - third container whichs loses the style highlight
  */
-
 function hideHiglightStatusContainer(otherStatusOne, otherStatusTwo, otherStatusThree){
     let otherContainerOne = document.getElementById(`newStatus${otherStatusOne}`);
     let otherContainerTwo = document.getElementById(`newStatus${otherStatusTwo}`);
@@ -322,13 +322,13 @@ function hideHiglightStatusContainer(otherStatusOne, otherStatusTwo, otherStatus
     otherContainerThree.classList.remove('new-status-highlight');
 }
 
+
 /**
  * This function change the status of an task 
  * 
  * @param {number} idOfCurrentTask - id of the task which is becoming a new status
  * @param {string} newStautsOfTask - this is the nwe status of the task
  */
-
 function editStatusOfTask(idOfCurrentTask, newStatusOfTask) {
     editNewStatus = newStatusOfTask;
     tasks[idOfCurrentTask].status = newStatusOfTask;

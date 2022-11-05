@@ -7,6 +7,7 @@ let assignUsers = [];
 let selectedUsers = [];
 let selectedPrio;
 
+
 /**
  * loads all categories and users
  */
@@ -18,6 +19,7 @@ async function loadAddTask() {
   renderAssingUser();
 }
 
+
 /**
  * All users are loaded from the backend and placed in the assignUsers array. 
  */
@@ -27,6 +29,7 @@ function loadUser() {
     assignUsers.push(userFullname);
   }
 }
+
 
 /**
  * This function infects the loading of the categories.
@@ -39,6 +42,7 @@ function loadCategory() {
   loadCategorys();
 }
 
+
 /**
  * This function infects the loading of the Assigneds.
  */
@@ -47,6 +51,7 @@ function loadAssigned() {
   assignedContainer.innerHTML = '';
   assignedContainer.innerHTML = loadAssignedHTML();
 }
+
 
 /**
  * This function takes the inputs and creates an Object
@@ -73,6 +78,7 @@ function rendernTask() {
   addedToBoard();
 }
 
+
 /**
  * Creates a waiting animation with a timer, when the timer expires you are redirected to the board
  */
@@ -84,6 +90,7 @@ function addedToBoard() {
   setTimeout(function () { location.href = "board.html" }, 3000);
 }
 
+
 /**
  * Clears the input value of element with ID categoryInput and colorInput.
  */
@@ -93,6 +100,7 @@ function clearInputValueCategory() {
   categoryValue.value = '';
   colorValue.value = '';
 }
+
 
 /**
  * Individual categories are run through
@@ -105,6 +113,7 @@ function loadCategorys() {
   }
 }
 
+
 /**
  * The function changes the X color
  * @param {String} idOfPicture - id from picture
@@ -113,6 +122,7 @@ function changeColor(idOfPicture) {
   document.getElementById(`${idOfPicture}`).style = 'filter: invert(67%) sepia(27%) saturate(4917%) hue-rotate(164deg) brightness(94%) contrast(88%);';
 }
 
+
 /**
  * Resets the background color.
  * @param {String} idOfPicture - id from picture
@@ -120,6 +130,7 @@ function changeColor(idOfPicture) {
 function removeColor(idOfPicture) {
   document.getElementById(`${idOfPicture}`).style = 'filter: invert(0%);';
 }
+
 
 /**
  * Changes the color of the selected element
@@ -131,6 +142,7 @@ function prioChangeColor(idOfPicture) {
   document.getElementById('urgentIcon').style = "";
   document.getElementById(`${idOfPicture}`).style = 'filter: brightness(0%) saturate(0%) contrast(1000%) invert(100%);';
 }
+
 
 /**
  * This function checks which of the 3 buttons has been activated and passes it to the array
@@ -148,8 +160,8 @@ function selecedPrio(prioStatus) {
   if (prioStatus == 'Low') {
     selectedPrio = 'Low'
   }
-
 }
+
 
 /**
  * With this function while the buttons changed to subtaskDelete and subtaskAdd
@@ -161,6 +173,7 @@ function subtaskInputStart() {
   document.getElementById('subtask-separator-line').classList.remove('d-none');
 }
 
+
 /**
  * The value is cleared and the buttons change to subtaskStart
  */
@@ -171,6 +184,7 @@ function subtaskInputDelete() {
   document.getElementById('subtaskAdd').classList.add('d-none');
   document.getElementById('subtask-separator-line').classList.add('d-none');
 }
+
 
 /**
  * If the input is longer than 1, it is pushed to addTaskSubtasks and the array selectedSubtasks is cleared
@@ -188,6 +202,7 @@ function subtaskInputAdd(idOfInput) {
   }
 }
 
+
 /**
  * The function goes through all subtasks and passes them to the HTML function
  */
@@ -198,6 +213,7 @@ function showSubstasks() {
   }
 }
 
+
 /**
  * the addTaskSubtasks array is cleared 
  */
@@ -205,6 +221,7 @@ function clearSubtasksArray() {
   addTaskSubtasks = [];
   document.getElementById('subtaskList').innerHTML = '';
 }
+
 
 /**
  *  CSS properties are toggled
@@ -225,6 +242,7 @@ function openAssign() {
   document.getElementById('assignDropdown').classList.toggle('dropdown-border-top-none');
 }
 
+
 /**
  *  Empty the element with the id assignDropdown and pass all assignUsers[i].
  */
@@ -236,6 +254,7 @@ function renderAssingUser() {
     assingUser.innerHTML += userInAssignedHTML(userName, i)
   };
 }
+
 
 /**
  * This function checks if the clicked element is false or true and passes on 
@@ -254,6 +273,7 @@ function subtasksCheckbox(indexOfSubtask) {
   }
 }
 
+
 /**
  * If the selected element cannot be found in the array, it should be added to it
  * @param {number} indexOfSubtask - id of the checked checkbox
@@ -263,6 +283,7 @@ function subtasksCheckboxPushable(indexOfSubtask) {
     selectedSubtasks.push(addTaskSubtasks[indexOfSubtask]);
   }
 }
+
 
 /**
  * If the selected element is in the array, it will be removed
@@ -294,6 +315,7 @@ function assingCheckbox(idOfCheckbox) {
   checkValiCheckbox();
 }
 
+
 /**
  * If the selected element cannot be found in the array, it should be added to it
  * @param {string} idOfCheckbox - id of the checked checkbox
@@ -303,6 +325,7 @@ function checkIfWorkerPushable(idOfCheckbox) {
     selectedUsers.push(users[idOfCheckbox].email);
   }
 }
+
 
 /**
  * If the selected element is in the array, it will be removed
@@ -315,6 +338,7 @@ function checkIfWorkerRemoveable(idOfCheckbox) {
     }
   }
 }
+
 
 /**
  *  This function checks if the clicked element is false or true and sets the input to false or true
@@ -330,6 +354,7 @@ function checkValiCheckbox() {
     checkboxAssignedTo.required = false;
   }
 }
+
 
 /**
  * Initiates the creation of a new category
@@ -353,6 +378,7 @@ function categoryColorPicker() {
   };
 }
 
+
 /**
  * Checks if the entered category has a minimum of 1 length and if a color is selected.
  * If one of both is not filled in/selected, an error message appears.
@@ -375,6 +401,7 @@ function pushNewCategory() {
     errorMessage.innerHTML = errorMessageHTML();
   }
 }
+
 
 /**
  * Fills the hidden inputs with the selected color and category
