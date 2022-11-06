@@ -94,8 +94,8 @@
     display: flex;
     justify-content: flex-end;
     position: absolute;
-    bottom: 8px;
-    right: 8px;
+    bottom: 15px;
+    right: 25px;
   }
 
   .buttons-big-box div{
