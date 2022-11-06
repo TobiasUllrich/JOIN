@@ -74,13 +74,13 @@
                 <div class="headline-board">
                     <h4 class="footer-slogan">Kanban Project Management Tool</h4>
                     <h2>Board</h2>
-                    <div class="search-task-phone d-none"><input onkeydown="checkEmptyField('user-search-phone'); enterEventSearchTask('search-task-btn-phone')" id="user-search-phone" placeholder="Find Task">
-                    <div id="search-task-btn-phone" onclick="searchTask('user-search-phone')" class="search-btn"><img class="search-img c-pointer" src="./img/board/search.png"></div>
+                    <div class="search-task-phone d-none"><input onkeyup="checkEmptyField('user-search-phone'); enterEventSearchTask('search-task-btn-phone')" id="user-search-phone" placeholder="Find Task">
+                    <div id="search-task-btn-phone" onclick="searchTask('user-search-phone'); checkEmptyField('user-search-phone')" class="search-btn"><img class="search-img c-pointer" src="./img/board/search.png"></div>
                 </div>
                 </div>
                 <div class="navbar">
-                    <div class="search-task"><input onkeydown="checkEmptyField('user-search'); enterEventSearchTask('search-task-btn')" id="user-search" placeholder="Find Task">
-                        <div id="search-task-btn" onclick="searchTask('user-search')" class="search-btn"><img class="search-img c-pointer" src="./img/board/search.png"></div>
+                    <div class="search-task"><input onkeyup="checkEmptyField('user-search'); enterEventSearchTask('search-task-btn')" id="user-search" placeholder="Find Task">
+                        <div id="search-task-btn" onclick="searchTask('user-search'); checkEmptyField('user-search')" class="search-btn"><img class="search-img c-pointer" src="./img/board/search.png"></div>
                     </div>
                     <div class="add-task">
                         <button onclick="addTaskBoard()" class="add-task-button d-center">

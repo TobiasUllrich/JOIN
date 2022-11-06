@@ -135,8 +135,10 @@ function templateBigBoxSoloTask(soloTasksArray, indexOfSoloTask) { // soloTasksF
             <div id="current-workers" class="assigned-to-workers">
             </div>
         </div>
-        <div onclick="editCurrentTask(${soloTasksArray[indexOfSoloTask].id}); showAllPossibleWorkers();" id="edit-button${indexOfSoloTask}" onmouseover="changeEditContainerColors(${indexOfSoloTask})" onmouseleave="RemoveEditContainerColors(${indexOfSoloTask})" class="edit-button d-center c-pointer"><img id="edit-pencil${indexOfSoloTask}" src="./img/board/pencil.png"></div>
-        <div onclick="deleteCurrentTask(${soloTasksArray[indexOfSoloTask].id})" id="delete-button${indexOfSoloTask}" onmouseover="changeDeleteContainerColors(${indexOfSoloTask})" onmouseleave="RemoveDeleteContainerColors(${indexOfSoloTask})" class="delete-button d-center c-pointer"><img id="delete-basket${indexOfSoloTask}" src="./img/board/basket.png"></div>
+        <div class="buttons-big-box">
+            <div onclick="editCurrentTask(${soloTasksArray[indexOfSoloTask].id}); showAllPossibleWorkers();" id="edit-button${indexOfSoloTask}" onmouseover="changeEditContainerColors(${indexOfSoloTask})" onmouseleave="RemoveEditContainerColors(${indexOfSoloTask})" class="edit-button d-center c-pointer"><img id="edit-pencil${indexOfSoloTask}" src="./img/board/pencil.png"></div>
+            <div onclick="deleteCurrentTask(${soloTasksArray[indexOfSoloTask].id})" id="delete-button${indexOfSoloTask}" onmouseover="changeDeleteContainerColors(${indexOfSoloTask})" onmouseleave="RemoveDeleteContainerColors(${indexOfSoloTask})" class="delete-button d-center c-pointer"><img id="delete-basket${indexOfSoloTask}" src="./img/board/basket.png"></div>
+        </div>
     </div>`
 }
 

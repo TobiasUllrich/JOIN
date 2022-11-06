@@ -85,3 +85,24 @@
     background-color: #2a3647;
     color: white;
   }
+
+  .category-status-container{
+    margin-bottom: 50px;
+  }
+
+  .buttons-big-box{
+    display: flex;
+    justify-content: flex-end;
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+  }
+
+  .buttons-big-box div{
+    height: 57px;
+    width: 57px;
+    background: #2a3647;
+    border-radius: 18px;
+    transition: all 225ms ease-in-out;
+    margin-left: 8px;
+  }

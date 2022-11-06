@@ -96,11 +96,13 @@ function searchInDoneContainer(taskSearch, m) {
  */
 function checkEmptyField(idOfInputfield) {
     let userSearch = document.getElementById(`${idOfInputfield}`).value.toLowerCase();
-    if (userSearch.length <= 1) {
+    console.log(userSearch.length);
+    if (userSearch.length = 0) { // <= 1
         renderBoard();
     }
 }
 
+// userSearch.length =  userSearch.length +1
 
 /**
  * If searched task getting find the other tasks are hidden 
