@@ -145,7 +145,6 @@ function showAlert(idOfAlert) {
  * 
  */
 function hideAlert(idOfAlert) {
-    console.log(idOfAlert);
     document.getElementById(`${idOfAlert}`).classList.add('d-none');
 }
 

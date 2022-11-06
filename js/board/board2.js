@@ -96,13 +96,11 @@ function searchInDoneContainer(taskSearch, m) {
  */
 function checkEmptyField(idOfInputfield) {
     let userSearch = document.getElementById(`${idOfInputfield}`).value.toLowerCase();
-    console.log(userSearch.length);
     if (userSearch.length = 0) { // <= 1
         renderBoard();
     }
 }
 
-// userSearch.length =  userSearch.length +1
 
 /**
  * If searched task getting find the other tasks are hidden 
@@ -205,6 +203,11 @@ function editCurrentTask(idOfCurrentTask) {
     fillContainerwithData(currentTask);
 }
 
+
+/**
+ * 
+ * @param {*} currentTask 
+ */
 function fillContainerwithData(currentTask){
     selectTitleDescriptionDate(currentTask);
     selectTasksOfContainer(currentTask);
@@ -212,12 +215,22 @@ function fillContainerwithData(currentTask){
     selectStatus(currentTask);
 }
 
+
+/**
+ * 
+ * @param {*} currentTask 
+ */
 function selectTitleDescriptionDate(currentTask){
     document.getElementById('edit-title').value=currentTask.title;
     document.getElementById('edit-description').value=currentTask.description;
     document.getElementById('edit-date').value=transformDateIntoEnglishFormat(currentTask.dueDate);
 }
 
+
+/**
+ * 
+ * @param {*} currentTask 
+ */
 function selectTasksOfContainer(currentTask){
     showCompleteContainer();
     setTimeout(function () {
@@ -232,18 +245,28 @@ function selectTasksOfContainer(currentTask){
     document.getElementById('wrkcont').click();
 }
 
+
+/**
+ * 
+ * @param {*} currentTask 
+ */
 function selectPriority(currentTask){
     if(currentTask.priority == 'Urgent'){document.getElementById('prio-urgent-container').click()};
     if(currentTask.priority == 'Medium'){document.getElementById('prio-medium-container').click()};
     if(currentTask.priority == 'Low'){document.getElementById('prio-low-container').click()};
 }
 
+/**
+ * 
+ * @param {*} currentTask 
+ */
 function selectStatus(currentTask){
     if(currentTask.status == 'To do'){document.getElementById('newStatus1').click()};
     if(currentTask.status == 'In progress'){document.getElementById('newStatus2').click()};
     if(currentTask.status == 'Awaiting feedback'){document.getElementById('newStatus3').click()};
     if(currentTask.status == 'Done'){document.getElementById('newStatus4').click()};
 }
+
 
 /**
  * This function runs when user hover on edit task button and changes the color of edit container
@@ -452,7 +475,7 @@ async function submitChanges(idOfCurrentTask) {
     let newDescription = document.getElementById('edit-description').value;
     let newDate = document.getElementById('edit-date').value;  // Wird falschherum dargestellt d.h. 2022-09-03
     let newPrio = editNewPrio;
-    await updateTaskArray(idOfCurrentTask, newTitle, newDescription, newDate, newPrio);
+    await updateTaskArray(idOfCurrentTask, newTitle, newDescription, transformDateIntoGermanFormat(newDate), newPrio);
     await setRequiredToDefault();
     await resetAllArraysAndParameters();
     loadInit();

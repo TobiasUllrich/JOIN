@@ -93,7 +93,6 @@
   .buttons-big-box{
     display: flex;
     justify-content: flex-end;
-    position: absolute;
     bottom: 15px;
     right: 25px;
   }

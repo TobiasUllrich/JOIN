@@ -172,7 +172,7 @@ function transformDate(datetotransform) {
  * @returns string-variable datumZusGesetzt
  */
  function transformDateIntoEnglishFormat(datetotransform) {
-  let datum = datetotransform;  //let datum = tasks[i]['dueDate'];
+  let datum = datetotransform;
   let ersterstrich = datum.indexOf('-');
   let zweiterstrich = datum.lastIndexOf('-');
   let tag = datum.slice(0, ersterstrich);
@@ -181,6 +181,29 @@ function transformDate(datetotransform) {
   if(monat.length == 1){monat = '0'+monat}
   let jahr = datum.slice(zweiterstrich + 1, datum.length);
   let datumZusGesetzt = jahr + '-' + monat + '-' + tag;
+  return datumZusGesetzt;
+}
+
+
+/**
+ * Receives a string-variable in the format "2010-10-30" and converts it into string "30-10-2010"
+ * @param {string} datetotransform The received string-variable
+ * @returns string-variable datumZusGesetzt
+ */
+ function transformDateIntoGermanFormat(datetotransform) {
+  let datum = datetotransform;  //let datum = tasks[i]['dueDate'];
+  let ersterstrich = datum.indexOf('-');
+  let zweiterstrich = datum.lastIndexOf('-');
+
+  let jahr = datum.slice(0, ersterstrich);
+  
+  let monat = datum.slice(ersterstrich + 1, zweiterstrich);
+  if(monat.length == 1){monat = '0'+monat}
+
+  let tag = datum.slice(zweiterstrich + 1, datum.length);
+  if(tag.length == 1){tag = '0'+tag}
+
+  let datumZusGesetzt = tag + '-' + monat + '-' + jahr;
   return datumZusGesetzt;
 }
 

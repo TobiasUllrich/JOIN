@@ -157,8 +157,6 @@
       width: 135px;
     }
   
-  
-  
     .solo-worker-big-box {
       margin-top: 16px;
       margin-bottom: 16px;
@@ -217,5 +215,13 @@
       max-height: 285px;
       overflow-y: hidden;
       overflow: auto;
+    }
+
+    .buffer-box{
+      position:absolute;
+      width:100vw;
+      height:80px;
+      bottom:80px;
+      background-color:#f6f7f8;
     }
   }

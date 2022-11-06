@@ -282,4 +282,12 @@
     font-size: 14px;
     padding: 8px;
   }
+
+  .buffer-box{
+    position:absolute;
+    width:100vw;
+    height:60px;
+    bottom:80px;
+    background-color:#f6f7f8;
+  }
 }
