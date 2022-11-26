@@ -104,20 +104,27 @@ label {
 	align-items: center;
 	position: absolute;
 	z-index: 100;
-	top: 0px;
-	width: 110%;
-	left: 0px;
-	right: 0px;
-	bottom: 0px;
-	height: 100%;
-	padding-top: 60vh;
-	animation: up 2s ease-in-out;
-	overflow: hidden;
+	top: 50%;
+	right: 0;
+	left: 0;
+	animation: fadeUp 1s ease 0s 1 normal forwards;
 }
 
-@keyframes up {
-	1% {
-		padding-top: 200vh;
+@keyframes fadeUp {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+
+	0% {
+		transform: translateY(100%);
+	}
+
+	100% {
+		transform: translateY(0);
 	}
 }
 
