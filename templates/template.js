@@ -1,7 +1,7 @@
 // ##############BOARD TEMPLATES START################# //
 function templateOfNewTaskToDo(taskTodo, i) {
-    return `
-    <div id="todo-task${i}" onclick="openCurrentTaskBigBox(${i}, ['to do'], '${taskTodo.categorycolor}'); showCurrentWorkersBigBox(${i}, 'todo');" ondragstart="startDragging(${taskTodo['id']}); dragHighlight(['todo'], ${i}); showEmptyPlaces(['progress'], ['feedback'], ['done'])"; ondragend="hideEmptyPlaces(['progress'], ['feedback'], ['done'])"; class="main-task-container"; draggable="true">
+	return `
+    <div id="todo-task${i}" onclick="openCurrentTaskBigBox(${i}, ['to do'], '${taskTodo.categorycolor}'); showCurrentWorkersBigBox(${i}, 'todo');" ondragstart="startDragging(${taskTodo["id"]}); dragHighlight(['todo'], ${i}); showEmptyPlaces(['progress'], ['feedback'], ['done'])"; ondragend="hideEmptyPlaces(['progress'], ['feedback'], ['done'])"; class="main-task-container"; draggable="true">
         <div class="headline-category">
             <div id="headline-solo-task-todo${i}" class="headline-solo-task" style="background:${taskTodo.categorycolor}"><h3 id="headline-task-todo${i}">${taskTodo.category}</h3></div>
         </div>
@@ -20,13 +20,12 @@ function templateOfNewTaskToDo(taskTodo, i) {
             <img id="prio-img-todo${i}" src="./img/board/prio-${taskTodo.priority}.png">
         </div>
     </div>
-</div>`
+</div>`;
 }
 
-
 function templateOfTaskInProgress(taskProgress, j) {
-    return `
-    <div id="progress-task${j}" onclick="openCurrentTaskBigBox(${j}, ['in progress'], '${taskProgress.categorycolor}'); showCurrentWorkersBigBox(${j}, 'progress');" ondragstart="startDragging(${taskProgress['id']}); dragHighlight(['progress'], ${j}); showEmptyPlaces(['todo'], ['feedback'], ['done'])"; ondragend="hideEmptyPlaces(['todo'], ['feedback'], ['done'])"; class="main-task-container" draggable="true">
+	return `
+    <div id="progress-task${j}" onclick="openCurrentTaskBigBox(${j}, ['in progress'], '${taskProgress.categorycolor}'); showCurrentWorkersBigBox(${j}, 'progress');" ondragstart="startDragging(${taskProgress["id"]}); dragHighlight(['progress'], ${j}); showEmptyPlaces(['todo'], ['feedback'], ['done'])"; ondragend="hideEmptyPlaces(['todo'], ['feedback'], ['done'])"; class="main-task-container" draggable="true">
         <div class="headline-category">
             <div id="headline-solo-task-progress${j}" class="headline-solo-task" style="background:${taskProgress.categorycolor}"><h3 id="headline-task-progress${j}">${taskProgress.category}</h3></div>
         </div>
@@ -45,13 +44,12 @@ function templateOfTaskInProgress(taskProgress, j) {
             <img id="prio-img-progress${j}" src="./img/board/prio-${taskProgress.priority}.png">
         </div>
     </div>
-</div>`
+</div>`;
 }
 
-
 function templateOfTaskFeedback(taskFeedback, k) {
-    return `
-    <div id="feedback-task${k}" onclick="openCurrentTaskBigBox(${k}, ['awaiting feedback'], '${taskFeedback.categorycolor}'); showCurrentWorkersBigBox(${k}, 'feedback');" ondragstart="startDragging(${taskFeedback['id']}); dragHighlight(['feedback'], ${k}); showEmptyPlaces(['todo'], ['progress'], ['done'])"; ondragend="hideEmptyPlaces(['todo'], ['progress'], ['done'])"; class="main-task-container" draggable="true">
+	return `
+    <div id="feedback-task${k}" onclick="openCurrentTaskBigBox(${k}, ['awaiting feedback'], '${taskFeedback.categorycolor}'); showCurrentWorkersBigBox(${k}, 'feedback');" ondragstart="startDragging(${taskFeedback["id"]}); dragHighlight(['feedback'], ${k}); showEmptyPlaces(['todo'], ['progress'], ['done'])"; ondragend="hideEmptyPlaces(['todo'], ['progress'], ['done'])"; class="main-task-container" draggable="true">
         <div class="headline-category">
             <div id="headline-solo-task-feedback${k}" class="headline-solo-task" style="background:${taskFeedback.categorycolor}"><h3 id="headline-task-feedback${k}">${taskFeedback.category}</h3></div>
         </div>
@@ -70,13 +68,12 @@ function templateOfTaskFeedback(taskFeedback, k) {
             <img id="prio-img-feedback${k}" src="./img/board/prio-${taskFeedback.priority}.png">
         </div>
     </div>
-</div>`
+</div>`;
 }
 
-
 function templateOfTaskDone(taskDone, l) {
-    return `
-    <div id="done-task${l}" onclick="openCurrentTaskBigBox(${l}, ['done'], '${taskDone.categorycolor}'); showCurrentWorkersBigBox(${l}, 'done');" ondragstart="startDragging(${taskDone['id']}); dragHighlight(['done'], ${l}); showEmptyPlaces(['todo'], ['progress'], ['feedback'])"; ondragend="hideEmptyPlaces(['todo'], ['progress'], ['feedback'])"; class="main-task-container" draggable="true">
+	return `
+    <div id="done-task${l}" onclick="openCurrentTaskBigBox(${l}, ['done'], '${taskDone.categorycolor}'); showCurrentWorkersBigBox(${l}, 'done');" ondragstart="startDragging(${taskDone["id"]}); dragHighlight(['done'], ${l}); showEmptyPlaces(['todo'], ['progress'], ['feedback'])"; ondragend="hideEmptyPlaces(['todo'], ['progress'], ['feedback'])"; class="main-task-container" draggable="true">
         <div class="headline-category">
             <div id="headline-solo-task-done${l}" class="headline-solo-task" style="background:${taskDone.categorycolor}"><h3 id="headline-task-done${l}">${taskDone.category}</h3></div>
         </div>
@@ -95,13 +92,14 @@ function templateOfTaskDone(taskDone, l) {
             <img id="prio-img-done${l}" src="./img/board/prio-${taskDone.priority}.png">
         </div>
     </div>
-</div>`
+</div>`;
 }
 
-
-function templateBigBoxSoloTask(soloTasksArray, indexOfSoloTask) { // soloTasksFeedback // 3 
-    return `
-    <div id="big-box-solo-task" class="main-big-box-task-container">
+function templateBigBoxSoloTask(soloTasksArray, indexOfSoloTask) {
+	// soloTasksFeedback // 3
+	return `
+    <div class="big-box-tasks-container-full-size2" onclick="closeSoloTaskBigBox(${indexOfSoloTask})">
+    <div id="big-box-solo-task" class="main-big-box-task-container" onclick="doNotClose(event)">
         <div onclick="closeSoloTaskBigBox(${indexOfSoloTask})" class="close-big-box-task c-pointer"><img class="close-task" src="./img/board/close.png"><img class="close-task-phone" src="img/board/back_phone.png"></div>
         <div id="big-box-task-headline" class="big-box-task-headline">
             <div><h4 class="d-center" id="big-box-headline">${soloTasksArray[indexOfSoloTask].category}</h4></div>
@@ -139,15 +137,18 @@ function templateBigBoxSoloTask(soloTasksArray, indexOfSoloTask) { // soloTasksF
             <div onclick="editCurrentTask(${soloTasksArray[indexOfSoloTask].id}); showAllPossibleWorkers();" id="edit-button${indexOfSoloTask}" onmouseover="changeEditContainerColors(${indexOfSoloTask})" onmouseleave="RemoveEditContainerColors(${indexOfSoloTask})" class="edit-button d-center c-pointer"><img id="edit-pencil${indexOfSoloTask}" src="./img/board/pencil.png"></div>
             <div onclick="deleteCurrentTask(${soloTasksArray[indexOfSoloTask].id})" id="delete-button${indexOfSoloTask}" onmouseover="changeDeleteContainerColors(${indexOfSoloTask})" onmouseleave="RemoveDeleteContainerColors(${indexOfSoloTask})" class="delete-button d-center c-pointer"><img id="delete-basket${indexOfSoloTask}" src="./img/board/basket.png"></div>
         </div>
-    </div>`
+    </div>`;
 }
 
-
 function templateOfSearchTask(taskSearch, index) {
-    return `
-    <div id="search-task${index}" onclick="openCurrentTaskBigBoxOnSearch(${index}, ['${taskSearch.status.toLowerCase()}'], '${taskSearch.categorycolor}')"; class="main-task-container">
+	return `
+    <div id="search-task${index}" onclick="openCurrentTaskBigBoxOnSearch(${index}, ['${taskSearch.status.toLowerCase()}'], '${
+		taskSearch.categorycolor
+	}')"; class="main-task-container">
         <div class="headline-category">
-            <div id="headline-solo-task-search${index}" class="headline-solo-task" style="background:${taskSearch.categorycolor}"><h3 id="headline-task-search${index}">${taskSearch.category}</h3></div>
+            <div id="headline-solo-task-search${index}" class="headline-solo-task" style="background:${
+		taskSearch.categorycolor
+	}"><h3 id="headline-task-search${index}">${taskSearch.category}</h3></div>
         </div>
         <div class="task-title">
             <span id="task-title">${taskSearch.title}</span>
@@ -164,27 +165,33 @@ function templateOfSearchTask(taskSearch, index) {
             <img id="prio-img-search${index}" src="./img/board/prio-${taskSearch.priority}.png">
         </div>
     </div>
-</div>`
+</div>`;
 }
 
-
 function templateEditCurrentTask(currentTask, idOfCurrentTask) {
-    return `
+	return `
     <form onsubmit="submitChanges(${idOfCurrentTask}); return false; checkCheckboxes();">
         <div id="main-edit-container" class="main-edit-container">
             <div class="edit-headline">
                 <h3>Title</h3>
-                <input required type="text" id="edit-title" onclick="clearPlaceholder('title', 'Enter a title', '${currentTask.title}')" class="edit-container-inputstyle c-pointer" placeholder="${currentTask.title}">
+                <input required type="text" id="edit-title" onclick="clearPlaceholder('title', 'Enter a title', '${
+					currentTask.title
+				}')" class="edit-container-inputstyle c-pointer" placeholder="${currentTask.title}">
             </div>
 
             <div class="edit-description">
                 <h3>Description</h3>
-                <textarea required type="text" id="edit-description" onclick="clearPlaceholder('description', 'Enter a description', '${currentTask.description}')" placeholder="${currentTask.description}"></textarea>
+                <textarea required type="text" id="edit-description" onclick="clearPlaceholder('description', 'Enter a description', '${
+					currentTask.description
+				}')" placeholder="${currentTask.description}"></textarea>
             </div>
 
             <div class="edit-date">
                 <h3>Due date</h3>
-                <input required id="edit-date" type="date" class="edit-container-inputstyle c-pointer" placeholder="${currentTask.dueDate.replaceAll('-', '.')}">
+                <input required id="edit-date" type="date" class="edit-container-inputstyle c-pointer" placeholder="${currentTask.dueDate.replaceAll(
+					"-",
+					"."
+				)}">
             </div>
 
             <div class="edit-prio">
@@ -240,45 +247,40 @@ function templateEditCurrentTask(currentTask, idOfCurrentTask) {
       <button class="c-pointer" type="submit"><div>Ok</div><img src="./img/check_white.png"></button>
     </div>
     </div>
-    `
-    
+    `;
 }
-
 
 function templateShowAllWorkers(indexOfUsers, userName) {
-    return `
-    <div id="scbx${indexOfUsers}" onclick="submitCheckbox(${indexOfUsers})" class="solo-contact"><label>${userName}</label><input onclick="submitCheckbox(${indexOfUsers})" name="users" id="checkbox-${indexOfUsers}" type="checkbox"></div>`
+	return `
+    <div id="scbx${indexOfUsers}" onclick="submitCheckbox(${indexOfUsers})" class="solo-contact"><label>${userName}</label><input onclick="submitCheckbox(${indexOfUsers})" name="users" id="checkbox-${indexOfUsers}" type="checkbox"></div>`;
 }
-
 
 function templateAssignedToOfSoloTask(firstName, lastName, userBackgroundColor) {
-    return `
-    <div class="worker-name-start-letters d-center" style="background:${userBackgroundColor}">${firstName}${lastName}</div>`
+	return `
+    <div class="worker-name-start-letters d-center" style="background:${userBackgroundColor}">${firstName}${lastName}</div>`;
 }
-
 
 function showPlusSign(amountWorker) {
-    return `
-    <div class="worker-name-start-letters d-center bg-black">+ ${amountWorker}</div>`
+	return `
+    <div class="worker-name-start-letters d-center bg-black">+ ${amountWorker}</div>`;
 }
-
 
 function templateCurrentWorkersOfTasksBigBox(firstName, lastName, fullName, userBackgroundColor) {
-    return `
-    <div class="solo-worker-big-box"><div style="background:${userBackgroundColor}" class="worker-name-start-letters-edit d-center">${firstName.charAt(0)}${lastName.charAt(0)}</div><div class="edit-worker-fullname">${fullName}</div>`
+	return `
+    <div class="solo-worker-big-box"><div style="background:${userBackgroundColor}" class="worker-name-start-letters-edit d-center">${firstName.charAt(
+		0
+	)}${lastName.charAt(0)}</div><div class="edit-worker-fullname">${fullName}</div>`;
 }
-// ################################ BOARD TEMPLATE END ################################################### 
+// ################################ BOARD TEMPLATE END ###################################################
 
-
-// ################################ ADD TASK TEMPLATE START ################################################### 
+// ################################ ADD TASK TEMPLATE START ###################################################
 function userInAssignedHTML(userName, indexOfUsers) {
-    return /*html*/`
-    <div onclick="assingCheckbox(${indexOfUsers})" class="solo-assigned"><label>${userName}</label><input onclick="assingCheckbox(${indexOfUsers})" name="users" id="userCheckbox-${indexOfUsers}" type="checkbox"></div>`
+	return /*html*/ `
+    <div onclick="assingCheckbox(${indexOfUsers})" class="solo-assigned"><label>${userName}</label><input onclick="assingCheckbox(${indexOfUsers})" name="users" id="userCheckbox-${indexOfUsers}" type="checkbox"></div>`;
 }
-
 
 function newCategoryInputHTML() {
-    return /*html*/`
+	return /*html*/ `
             <div class="input-group">
               <input id="newCategoryInput" type="text" class="form-control" placeholder="New category name">
               <button onclick="loadCategory()" id="subtaskDelete" class="" type="button">
@@ -295,24 +297,21 @@ function newCategoryInputHTML() {
       `;
 }
 
-
 function errorMessageHTML() {
-    return /*html*/`
+	return /*html*/ `
     <p> Add a category and a color! </p>
-  `
+  `;
 }
-
 
 function categoryColorPickerHTML(i) {
-    return /*html*/`
+	return /*html*/ `
                 <input class="input-radio" type="radio" name="color" id="${addTaskCategoryColors[i]}" value="${addTaskCategoryColors[i]}" />
                 <label for="${addTaskCategoryColors[i]}" class="add-task-color-picker"><span class="color-${i}"></span></label> 
-    `
+    `;
 }
 
-
 function loadCategoryHTML() {
-    return /*html*/`
+	return /*html*/ `
       <div onclick="openCategory()" id="dropbtnCategory" class="dropbtn-category">Select task category <img src="./img/addtask/dropdown-Vector.png" alt=""></div>
       <div id="categoryDropdown" class="dropdown-content">
         <p onclick="addNewCategory()">New category</p>
@@ -321,9 +320,8 @@ function loadCategoryHTML() {
       </div>`;
 }
 
-
 function currentCategoryHTML(i) {
-    return /*html*/` 
+	return /*html*/ ` 
       <div   class="active-category">
       <p> ${addTaskCategorys[i]}</p>
       <div style="background-color:#${usedColors[i]}" class="categoryColor">
@@ -332,9 +330,8 @@ function currentCategoryHTML(i) {
       `;
 }
 
-
 function allCategoryHTML(i) {
-    return /*html*/`
+	return /*html*/ `
     <div onclick="currentCategory(${i})"  class="current-category">
       <p> ${addTaskCategorys[i]}</p>
       <div style="background-color:#${usedColors[i]}" class="categoryColor">
@@ -343,10 +340,9 @@ function allCategoryHTML(i) {
       `;
 }
 
-
 function subtaskListHTML(indexOfSubtask) {
-    let subtask = addTaskSubtasks[indexOfSubtask];
-    return /*html*/`
+	let subtask = addTaskSubtasks[indexOfSubtask];
+	return /*html*/ `
         <div onclick="subtasksCheckbox(${indexOfSubtask})" class="subtask-list-form-check">
           <input onclick="subtasksCheckbox(${indexOfSubtask})" class="subtask-list-input" type="checkbox" value="" id="${subtask}-${indexOfSubtask}">
             <label class="subtask-list-label" onclick="" for="flexCheckDefault" id="${subtask}${indexOfSubtask}">
@@ -355,17 +351,15 @@ function subtaskListHTML(indexOfSubtask) {
           </div>`;
 }
 
-
 function loadAssignedHTML() {
-    return /*html*/`
+	return /*html*/ `
     <div onclick="openAssign()" id="dropbtnAssign" class="dropbtn-assign" type="button">Select contacts to assign<img src="./img/addtask/dropdown-Vector.png" alt=""><input required class="checkCheckboxes" id="assignedInput"></div>
     <div id="assignDropdown" class="dropdown-content">
     `;
 }
 
-
 function searchEmailInputHTML() {
-    return /*html*/`
+	return /*html*/ `
     <div class="input-group">
     
       <input id="search-input" type="search" id="form1" class="form-control" placeholder="Contact eMail "/>
@@ -381,12 +375,11 @@ function searchEmailInputHTML() {
   </div>
     `;
 }
-// ################################ ADD TASK TEMPLATE END ################################################### 
+// ################################ ADD TASK TEMPLATE END ###################################################
 
-
-// ################################ CONTACTS TEMPLATE START ################################################### 
+// ################################ CONTACTS TEMPLATE START ###################################################
 function firstLetterListHTML(firstSurnameLetter) {
-    return /*html*/`
+	return /*html*/ `
     <div class="letter-list" >
         <div>
             <h4>${firstSurnameLetter}</h4>
@@ -397,14 +390,13 @@ function firstLetterListHTML(firstSurnameLetter) {
         </div>
         
     </div>
-    `
+    `;
 }
 
-
 function contactHTML(user) {
-    let fullName = user['name'];
-    let letter = fullName.match(/\b(\w)/g).join('');
-    return /*html*/`
+	let fullName = user["name"];
+	let letter = fullName.match(/\b(\w)/g).join("");
+	return /*html*/ `
     <div class="contact-container" id="contactContainer" onclick="contactInformation('${fullName}', '${user.color}', '${user.email}', '${user.phone}')">
         <div style="background-color: ${user.color}" class="contact-letter">
             <p>${letter}</p>
@@ -414,19 +406,17 @@ function contactHTML(user) {
             <p class="nameEmailP2">${user.email}</p>
         </div>
     </div>
-    `
+    `;
 }
-
 
 function contactListHTML(user) {
-    let fullName = user['name'];
-    let letter = fullName.match(/\b(\w)/g).join('');
+	let fullName = user["name"];
+	let letter = fullName.match(/\b(\w)/g).join("");
 }
 
-
 function contactInformationHTML(fullName, userColor, userEmail, userPhone) {
-    let letter = fullName.match(/\b(\w)/g).join('');
-    return /*html*/`
+	let letter = fullName.match(/\b(\w)/g).join("");
+	return /*html*/ `
     <div class="contactInformationBG animationFadeIn">
        
         <div class="contactInformationHealine">
@@ -470,15 +460,14 @@ function contactInformationHTML(fullName, userColor, userEmail, userPhone) {
     <div class="edit-icone" onclick="openEditContact('${fullName}', '${userEmail}', '${userPhone}','${userColor}')">
             <img src="img/contact/edit-contact.png" alt="" >
         </div>
-    `
+    `;
 }
 
-
 function editContactHTML(fullName, email, phone, color) {
-    let letter = fullName.match(/\b(\w)/g).join('');
-    return /*html*/`
-    <div class="addContactEditBG ">
-        <div class="addContactEditContainer animationFadeIn">
+	let letter = fullName.match(/\b(\w)/g).join("");
+	return /*html*/ `
+    <div class="addContactEditBG " onclick="closeAddContact()">
+        <div class="addContactEditContainer animationFadeIn" onclick="dontClose(event)">
         <img class="white-x" style="display:none;" src="img/contact/white-x.png" alt="" srcset="" onclick="closeAddContact()">
             <div class="addContactEditContainerLeft">
                 <img src="./img/contact/joinIcon.png" alt="" >
@@ -511,26 +500,25 @@ function editContactHTML(fullName, email, phone, color) {
             </div>
         </div>
     </div>
-`
+`;
 }
 
-
 function addNewContactHTML() {
-    return /*html*/`
-    <div id="addContactEditBG" class="addContactEditBG">
-        <div class="animationFadeIn">
-        <div class="addContactEditContainer">
-            <img class="white-x" style="display:none;" src="img/contact/white-x.png" alt="" srcset="" onclick="closeAddContact()">
-            <div class="addContactEditContainerLeft">
-                <img src="./img/contact/joinIcon.png" alt="">
-                <h3>Add contact</h3>
-                <p>Tasks are better with a team!</p>
-            <div class="addContactSepline"></div>
-        </div>
-        <div class="addContactEditContainerRight">
-            <div class="closeAddContact">
-               <img onclick="closeAddContact()" class="closeAddContactIcon" src="./img/contact/x-icon.png">
+	return /*html*/ `
+    <div id="addContactEditBG" class="addContactEditBG" onclick="closeAddContact()">
+        <div class="animationFadeIn" onclick="dontClose(event)">
+            <div class="addContactEditContainer">
+                <img class="white-x" style="display:none;" src="img/contact/white-x.png" alt="" srcset="" onclick="closeAddContact()">
+                <div class="addContactEditContainerLeft">
+                    <img src="./img/contact/joinIcon.png" alt="">
+                    <h3>Add contact</h3>
+                    <p>Tasks are better with a team!</p>
+                <div class="addContactSepline"></div>
             </div>
+            <div class="addContactEditContainerRight">
+                <div class="closeAddContact">
+                    <img onclick="closeAddContact()" class="closeAddContactIcon" src="./img/contact/x-icon.png">
+                </div>
             <div class="addContactEditContainerSubmit">
                 <div class="circleIcone">
                     <img src="./img/contact/user-line.png" alt="">
@@ -557,9 +545,11 @@ function addNewContactHTML() {
             </div>
 
         </div>
-        </div>
-        <div class="added-new-contact d-none" id="addedNewContact">
-            <img src="img/contact/Conyact succ.. created overlay.png" alt="">
-        </div>
     </div>
-`}
+    <div class="added-new-contact d-none" id="addedNewContact">
+        <img src="img/contact/Conyact succ.. created overlay.png" alt="">
+    </div>
+        
+    </div>
+`;
+}

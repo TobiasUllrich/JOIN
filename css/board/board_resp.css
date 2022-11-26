@@ -1,203 +1,199 @@
 /* RESPONSIVE_ANSICHT */
 @media (min-width: 1501px) and (max-width: 1650px) {
-    .headline-task {
-      width: 270px;
-    }
-  
-  }
-  
-  @media (min-width: 1450px) and (max-width: 1500px) {
-    .headline-task {
-      width: 250px;
-    }
-  
-  }
-  
-  @media (min-width: 1400px) and (max-width: 1449px) {
-    .headline-task {
-      width: 270px;
-      justify-content: space-around;
-    }
-  }
-  
-  @media (min-width: 1180px) and (max-width: 1399px) {
-  
-    .headline-navbar {
-      height: 120px;
-    }
-  
-    .headline-task {
-      width: 270px;
-      justify-content: space-around;
-    }
-  
-    .headline-tasks {
-      display: none;
-    }
-  
-    .main-task-container {
-      flex-direction: column;
-      width: 65%;
-      justify-content: space-evenly;
-      align-items: center;
-      height: 250px;
-    }
-  
-    .main-tasks-container {
-      flex-direction: column;
-      margin-top: 0px;
-    }
-  
-    .headline-task-phone {
-      display: flex;
-      width: 50%;
-    }
-  
-    .headline-task-phone h3 {
-      font-size: 27px;
-    }
-  
-    .main-solo-task-container {
-      width: 90%;
-      height: auto;
-      margin-bottom: 35px;
-    }
-  
-    .category-status-container {
-      width: 90%;
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-      justify-content: space-evenly;
-      height: auto;
-      box-sizing: border-box;
-    }
-  
-    .headline-solo-task {
-      width: 250px;
-      height: 35px;
-    }
-  
-    .headline-solo-task h3 {
-      font-size: 22px;
-    }
-  
-    .task-title {
-      text-align: center;
-    }
-  
-    .task-title span {
-      font-size: 22px;
-    }
-  
-    .task-description span {
-      font-size: 20px;
-    }
-  
-    .workers-prio {
-      padding-left: 18px;
-      padding-right: 18px;
-    }
-  
-    .prio-img img {
-      width: 40px;
-      height: 40px;
-    }
-  }
-  
-  @media (min-width: 900px) and (max-width: 1179px) {
-  
-    .headline-navbar {
-      height: 120px;
-    }
-  
-    .headline-task {
-      width: 270px;
-      justify-content: space-around;
-    }
-  
-    .headline-tasks {
-      display: none;
-    }
-  
-    .main-task-container {
-      flex-direction: column;
-      width: 65%;
-      justify-content: space-evenly;
-      align-items: center;
-      height: 250px;
-    }
-  
-    .main-tasks-container {
-      flex-direction: column;
-      margin-top: 0px;
-    }
-  
-    .headline-task-phone {
-      display: flex;
-      width: 50%;
-    }
-  
-    .headline-task-phone h3 {
-      font-size: 27px;
-    }
-  
-    .main-solo-task-container {
-      width: 90%;
-      height: auto;
-      margin-bottom: 35px;
-    }
-  
-    .category-status-container {
-      width: 90%;
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-      justify-content: space-evenly;
-      height: auto;
-      box-sizing: border-box;
-    }
-  
-    .headline-solo-task {
-      width: 250px;
-      height: 35px;
-    }
-  
-    .headline-solo-task h3 {
-      font-size: 22px;
-    }
-  
-    .task-title {
-      text-align: center;
-    }
-  
-    .task-title span {
-      font-size: 22px;
-    }
-  
-    .task-description span {
-      font-size: 20px;
-    }
-  
-    .workers-prio {
-      padding-left: 18px;
-      padding-right: 18px;
-    }
-  
-    .prio-img img {
-      width: 40px;
-      height: 40px;
-    }
+	.headline-task {
+		width: 270px;
+	}
+}
 
-    .navbar{
-      width: 400px;
-    }
+@media (min-width: 1450px) and (max-width: 1500px) {
+	.headline-task {
+		width: 250px;
+	}
+}
 
-    .search-task{
-      width: 200px;
-    }
+@media (min-width: 1400px) and (max-width: 1449px) {
+	.headline-task {
+		width: 270px;
+		justify-content: space-around;
+	}
+}
 
-    .search-task input{
-      width: 175px;
-    }
-  }
+@media (min-width: 1180px) and (max-width: 1399px) {
+	.headline-navbar {
+		height: 120px;
+	}
+
+	.headline-task {
+		width: 270px;
+		justify-content: space-around;
+	}
+
+	.headline-tasks {
+		display: none;
+	}
+
+	.main-task-container {
+		flex-direction: column;
+		width: 65%;
+		justify-content: space-evenly;
+		align-items: center;
+		height: 250px;
+	}
+
+	.main-tasks-container {
+		flex-direction: column;
+		margin-top: 0px;
+	}
+
+	.headline-task-phone {
+		display: flex;
+		width: 50%;
+	}
+
+	.headline-task-phone h3 {
+		font-size: 27px;
+	}
+
+	.main-solo-task-container {
+		width: 90%;
+		height: auto;
+		margin-bottom: 35px;
+	}
+
+	.category-status-container {
+		width: 90%;
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		justify-content: space-evenly;
+		height: auto;
+		box-sizing: border-box;
+	}
+
+	.headline-solo-task {
+		width: 250px;
+		height: 35px;
+	}
+
+	.headline-solo-task h3 {
+		font-size: 22px;
+	}
+
+	.task-title {
+		text-align: center;
+	}
+
+	.task-title span {
+		font-size: 22px;
+	}
+
+	.task-description span {
+		font-size: 20px;
+	}
+
+	.workers-prio {
+		padding-left: 18px;
+		padding-right: 18px;
+	}
+
+	.prio-img img {
+		width: 40px;
+		height: 40px;
+	}
+}
+
+@media (min-width: 900px) and (max-width: 1179px) {
+	.headline-navbar {
+		height: 120px;
+	}
+
+	.headline-task {
+		width: 270px;
+		justify-content: space-around;
+	}
+
+	.headline-tasks {
+		display: none;
+	}
+
+	.main-task-container {
+		flex-direction: column;
+		width: 65%;
+		justify-content: space-evenly;
+		align-items: center;
+		height: 250px;
+	}
+
+	.main-tasks-container {
+		flex-direction: column;
+		margin-top: 0px;
+	}
+
+	.headline-task-phone {
+		display: flex;
+		width: 50%;
+	}
+
+	.headline-task-phone h3 {
+		font-size: 27px;
+	}
+
+	.main-solo-task-container {
+		width: 90%;
+		height: auto;
+		margin-bottom: 35px;
+	}
+
+	.category-status-container {
+		width: 90%;
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		justify-content: space-evenly;
+		height: auto;
+		box-sizing: border-box;
+	}
+
+	.headline-solo-task {
+		width: 250px;
+		height: 35px;
+	}
+
+	.headline-solo-task h3 {
+		font-size: 22px;
+	}
+
+	.task-title {
+		text-align: center;
+	}
+
+	.task-title span {
+		font-size: 22px;
+	}
+
+	.task-description span {
+		font-size: 20px;
+	}
+
+	.workers-prio {
+		padding-left: 18px;
+		padding-right: 18px;
+	}
+
+	.prio-img img {
+		width: 40px;
+		height: 40px;
+	}
+
+	.navbar {
+		width: 400px;
+	}
+
+	.search-task {
+		width: 200px;
+	}
+
+	.search-task input {
+		width: 175px;
+	}
+}
