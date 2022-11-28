@@ -49,14 +49,15 @@
     <script src="js/help.js"></script> <!-- Statt <script> ... </script> -->
     <script src="js/login.js"></script> <!-- Statt <script> ... </script> -->
     <script src="templates/template.js"></script>
-
+    <script src="js/dummy.js"></script>
     <!-- KOPFBEREICH STANDARD-->
 </head>
 
 
 <!--Sobald der body-Bereich geladen wurde, wird das Java-Script ausgeführt-->
+
 <body onload="init();">
-    
+
     <!-- Only visible in LogIn-Formular -->
     <img id="animatedlogo" class="moving-logo-later" src="img/JOIN-Logo.png">
 
@@ -64,10 +65,10 @@
     <div class="login-container">
         <!-- ForgotPassword Seite -->
         <div id="forgotpassword-Box" class="forgotpassword-Box">
-                    <h1>Success</h1>
-                    <div class="dummy"></div>
-                    <span>We have sent you an E-Mail with a link to reset your password. </span>
-        </div> 
+            <h1>Success</h1>
+            <div class="dummy"></div>
+            <span>We have sent you an E-Mail with a link to reset your password. </span>
+        </div>
     </div>
     <!-- MAIN -->
 
@@ -80,9 +81,10 @@
     <!-- Wrong PW or Email animations -->
     <div id="alert-box" class="d-none">
     </div>
-    <button id="alert-info"><img src="img/alert.png" style="padding-right:15px;"><span id="alert-text">Wrong Password!</span></button>
+    <button id="alert-info"><img src="img/alert.png" style="padding-right:15px;"><span id="alert-text">Wrong
+            Password!</span></button>
     <!-- Wrong PW or Email animations -->
-    
+
 </body>
 
 

@@ -68,6 +68,8 @@
 
 	.main-tasks-container {
 		flex-direction: column;
+		overflow-y: visible;
+		height: 100%;
 	}
 
 	.headline-task-phone {

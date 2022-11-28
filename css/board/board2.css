@@ -150,7 +150,7 @@
 }
 
 .big-box-tasks-container-full-size {
-	position: absolute;
+	position: fixed;
 	display: flex;
 	align-items: center;
 	height: 100vh;

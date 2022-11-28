@@ -50,15 +50,16 @@
     <script src="js/help.js"></script> <!-- Statt <script> ... </script> -->
     <script src="js/login.js"></script> <!-- Statt <script> ... </script> -->
     <script src="templates/template.js"></script>
-
+    <script src="js/dummy.js"></script>
     <!-- KOPFBEREICH STANDARD-->
 </head>
 
 
 <!--Sobald der body-Bereich geladen wurde, wird das Java-Script ausgeführt-->
+
 <body onload="init();setArrow('backfromforgotten','login-container');">
 
-    
+
     <!-- Only visible in LogIn-Formular -->
     <img id="animatedlogo" class="moving-logo-later" src="img/JOIN-Logo.png">
 
@@ -67,15 +68,18 @@
     <div id="login-container" class="login-container">
         <!-- ForgotPassword Seite -->
         <div id="forgotpassword-Box" class="forgotpassword-Box">
-                    <h1>I forgot my password</h1>
-                    <div class="dummy"></div>      
-                    <span>Don't worry! We will send you an email with the instruction to reset your password.</span>
-                    <form action="https://gruppe-2970.developerakademie.net/send_mail.php" method="POST" onsubmit="tryToSendEmail();" class="form-style"> <!-- "return false;" rausgenommen, weil sonst keine E-Mail gesendet wird -->
-                    <div class="formular-inputdesign"><input name="email" required type="email" id="forgotpassword-email" placeholder="Email" type="text"><img src="img/email-icon.png"></div>
-                    <div class="login-buttons"><button class="forgotpassword-send">Send me the email</button></div>
-                    </form>  
-                    <img id="backfromforgotten" onclick="showLoginForm2();" class="backbutton" src="">
-        </div> 
+            <h1>I forgot my password</h1>
+            <div class="dummy"></div>
+            <span>Don't worry! We will send you an email with the instruction to reset your password.</span>
+            <form action="https://gruppe-2970.developerakademie.net/send_mail.php" method="POST"
+                onsubmit="tryToSendEmail();" class="form-style">
+                <!-- "return false;" rausgenommen, weil sonst keine E-Mail gesendet wird -->
+                <div class="formular-inputdesign"><input name="email" required type="email" id="forgotpassword-email"
+                        placeholder="Email" type="text"><img src="img/email-icon.png"></div>
+                <div class="login-buttons"><button class="forgotpassword-send">Send me the email</button></div>
+            </form>
+            <img id="backfromforgotten" onclick="showLoginForm2();" class="backbutton" src="">
+        </div>
     </div>
     <!-- MAIN -->
 

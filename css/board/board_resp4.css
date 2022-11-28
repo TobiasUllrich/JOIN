@@ -72,6 +72,8 @@
 
 	.main-tasks-container {
 		flex-direction: column;
+		overflow-y: visible;
+		height: 100%;
 	}
 
 	.headline-task-phone {
@@ -339,35 +341,47 @@
 @media (min-height: 750px) and (max-height: 900px) and (max-width: 1300px) {
 	.main-tasks-container {
 		margin-top: 80px;
+		overflow-y: visible;
+		height: 100%;
 	}
 }
 
 @media (min-height: 750px) and (max-height: 900px) and (max-width: 720px) {
 	.main-tasks-container {
 		margin-top: -50px;
+		overflow-y: visible;
+		height: 100%;
 	}
 }
 
 @media (min-height: 600px) and (max-height: 749px) and (max-width: 1300px) {
 	.main-tasks-container {
 		margin-top: 60px;
+		overflow-y: visible;
+		height: 100%;
 	}
 }
 
 @media (min-height: 600px) and (max-height: 749px) and (max-width: 720px) {
 	.main-tasks-container {
 		margin-top: -40px;
+		overflow-y: visible;
+		height: 100%;
 	}
 }
 
 @media (min-height: 450px) and (max-height: 599px) and (max-width: 1300px) {
 	.main-tasks-container {
 		margin-top: 40px;
+		overflow-y: visible;
+		height: 100%;
 	}
 }
 
 @media (min-height: 450px) and (max-height: 599px) and (max-width: 720px) {
 	.main-tasks-container {
 		margin-top: -30px;
+		overflow-y: visible;
+		height: 100%;
 	}
 }

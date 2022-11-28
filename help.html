@@ -23,7 +23,7 @@
     <!-- Bootstrap CSS only -->
 
     <link href="img/favicon.ico" type="image/x-icon" rel="icon" /> <!-- Bindet FavIcon ein-->
-    
+
     <!-- Fonts downloaden in entsprechenden Ordner legen und über Extra-CSS-Datei einbinden (https://google-webfonts-helper.herokuapp.com/) -->
     <link rel="stylesheet" type='text/css' media='screen' href="css/fonts.css">
     <link rel="stylesheet" type='text/css' media='screen' href="css/style.css">
@@ -46,12 +46,13 @@
     <script src="js/contacts.js"></script> <!-- Statt <script> ... </script> -->
     <script src="js/help.js"></script> <!-- Statt <script> ... </script> -->
     <script src="js/login.js"></script> <!-- Statt <script> ... </script> -->
-
+    <script src="js/dummy.js"></script>
     <!-- KOPFBEREICH STANDARD-->
 </head>
 
 
 <!--Sobald der body-Bereich geladen wurde, wird das Java-Script ausgeführt-->
+
 <body onload="includeHTML();setactUser();">
 
     <!-- Header einbinden -->
@@ -59,15 +60,15 @@
     <!-- Header einbinden -->
 
 
-       <!-- MAIN -->
-       <div class="help-container">
+    <!-- MAIN -->
+    <div class="help-container">
 
 
         <div class="mobile-headline">
             <span id="mobile-tool-title">Kanban Project Management Tool</span>
         </div>
         <img onclick="backtoSummary();" class="backbutton" src="img/black-arrow2.png">
-        
+
         <h1>Help</h1>
         <div class="subsection">
             <h2 class="whatisjoin">What is Join?</h2>
@@ -81,25 +82,28 @@
                 <div class="howtouseit-container2">
                     <div class="bulletpoint">1.</div>
                     <span>"Summary": Shows a quick overview over tasks in the tool.</span>
-                 </div>
+                </div>
                 <div class="howtouseit-container2">
-                   <div class="bulletpoint">2.</div>
-                   <span>"Add Task": Create a task with title & description and assign it to one or more users. You also have to select the category, due date and the priority of the task. Subtasks can be created if you like to.</span>
+                    <div class="bulletpoint">2.</div>
+                    <span>"Add Task": Create a task with title & description and assign it to one or more users. You
+                        also have to select the category, due date and the priority of the task. Subtasks can be created
+                        if you like to.</span>
                 </div>
                 <div class="howtouseit-container2">
                     <div class="bulletpoint">3.</div>
-                    <span>"Board": Here you can see all tasks ordered by category. Tasks can be shifted to another status by Drag & Drop.</span>
-                 </div>
-                 <div class="howtouseit-container2">
+                    <span>"Board": Here you can see all tasks ordered by category. Tasks can be shifted to another
+                        status by Drag & Drop.</span>
+                </div>
+                <div class="howtouseit-container2">
                     <div class="bulletpoint">4.</div>
                     <span>"Contacts": Here you can find all users that are registered at JOIN.</span>
-                 </div>
+                </div>
             </div>
-           </div>
-
-
         </div>
-        <!-- MAIN -->
+
+
+    </div>
+    <!-- MAIN -->
 
 
     <!-- Footer einbinden -->
