@@ -28,38 +28,8 @@
 		justify-content: space-around;
 	}
 
-	.headline-tasks {
-		display: none;
-	}
-
-	.main-task-container {
-		flex-direction: column;
-		width: 65%;
-		justify-content: space-evenly;
-		align-items: center;
-		height: 250px;
-	}
-
-	.main-tasks-container {
-		flex-direction: column;
-		margin-top: 0px;
-		overflow-y: visible;
-		height: 100%;
-	}
-
-	.headline-task-phone {
-		display: flex;
-		width: 50%;
-	}
-
 	.headline-task-phone h3 {
 		font-size: 27px;
-	}
-
-	.main-solo-task-container {
-		width: 90%;
-		height: auto;
-		margin-bottom: 35px;
 	}
 
 	.category-status-container {
@@ -72,35 +42,21 @@
 		box-sizing: border-box;
 	}
 
-	.headline-solo-task {
-		width: 250px;
-		height: 35px;
-	}
-
-	.headline-solo-task h3 {
-		font-size: 22px;
-	}
-
-	.task-title {
-		text-align: center;
-	}
-
-	.task-title span {
-		font-size: 22px;
-	}
-
-	.task-description span {
-		font-size: 20px;
-	}
-
 	.workers-prio {
 		padding-left: 18px;
 		padding-right: 18px;
 	}
 
-	.prio-img img {
-		width: 40px;
-		height: 40px;
+	.main-task-container {
+		width: 180px;
+	}
+
+	.headline-task h3 {
+		font-size: 18px;
+	}
+
+	.empty-space {
+		width: 170px;
 	}
 }
 

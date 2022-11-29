@@ -58,6 +58,7 @@ body ::-webkit-scrollbar-thumb {
 	justify-content: space-evenly;
 	flex-direction: column;
 	align-items: center;
+	overflow-x: hidden;
 }
 
 .main-headline-container {

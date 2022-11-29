@@ -1,7 +1,7 @@
 // ##############BOARD TEMPLATES START################# //
 function templateOfNewTaskToDo(taskTodo, i) {
-	return `
-    <div id="todo-task${i}" onclick="openCurrentTaskBigBox(${i}, ['to do'], '${taskTodo.categorycolor}'); showCurrentWorkersBigBox(${i}, 'todo');" ondragstart="startDragging(${taskTodo["id"]}); dragHighlight(['todo'], ${i}); showEmptyPlaces(['progress'], ['feedback'], ['done'])"; ondragend="hideEmptyPlaces(['progress'], ['feedback'], ['done'])"; class="main-task-container"; draggable="true">
+	return /*html*/`
+    <div id="todo-task${i}" onclick="openCurrentTaskBigBox(${i}, ['to do'], '${taskTodo.categorycolor}'); showCurrentWorkersBigBox(${i}, 'todo');" ondragstart="startDragging(${taskTodo['id']}); dragHighlight(['todo'], ${i}); showEmptyPlaces(['progress'], ['feedback'], ['done'])"; ondragend="hideEmptyPlaces(['progress'], ['feedback'], ['done'])"; class="main-task-container"; draggable="true">
         <div class="headline-category">
             <div id="headline-solo-task-todo${i}" class="headline-solo-task" style="background:${taskTodo.categorycolor}"><h3 id="headline-task-todo${i}">${taskTodo.category}</h3></div>
         </div>
@@ -97,7 +97,7 @@ function templateOfTaskDone(taskDone, l) {
 
 function templateBigBoxSoloTask(soloTasksArray, indexOfSoloTask) {
 	// soloTasksFeedback // 3
-	return `
+	return /*html*/ `
     <div class="big-box-tasks-container-full-size2" onclick="closeSoloTaskBigBox(${indexOfSoloTask})">
     <div id="big-box-solo-task" class="main-big-box-task-container" onclick="doNotClose(event)">
         <div onclick="closeSoloTaskBigBox(${indexOfSoloTask})" class="close-big-box-task c-pointer"><img class="close-task" src="./img/board/close.png"><img class="close-task-phone" src="img/board/back_phone.png"></div>

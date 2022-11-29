@@ -192,6 +192,7 @@
 		padding-left: 10px;
 		padding-right: 5px;
 		border-radius: 0px;
+		top: 84px;
 	}
 
 	.big-box-task-title {
@@ -338,7 +339,7 @@
 	}
 }
 
-@media (min-height: 750px) and (max-height: 900px) and (max-width: 1300px) {
+@media (min-height: 750px) and (max-height: 900px) and (max-width: 1180px) {
 	.main-tasks-container {
 		margin-top: 80px;
 		overflow-y: visible;
