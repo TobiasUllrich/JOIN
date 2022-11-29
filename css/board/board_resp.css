@@ -66,6 +66,17 @@
 }
 
 @media (min-width: 900px) and (max-width: 1179px) {
+	.headline-solo-task {
+		width: 90px;
+	}
+
+	.headline-solo-task h3 {
+		font-size: 14px;
+	}
+	.task-title span {
+		font-size: 12px;
+	}
+
 	.headline-navbar {
 		height: 120px;
 	}
@@ -75,38 +86,8 @@
 		justify-content: space-around;
 	}
 
-	.headline-tasks {
-		display: none;
-	}
-
-	.main-task-container {
-		flex-direction: column;
-		width: 65%;
-		justify-content: space-evenly;
-		align-items: center;
-		height: 250px;
-	}
-
-	.main-tasks-container {
-		flex-direction: column;
-		margin-top: 0px;
-		overflow-y: visible;
-		height: 100%;
-	}
-
-	.headline-task-phone {
-		display: flex;
-		width: 50%;
-	}
-
 	.headline-task-phone h3 {
-		font-size: 27px;
-	}
-
-	.main-solo-task-container {
-		width: 90%;
-		height: auto;
-		margin-bottom: 35px;
+		font-size: 22px;
 	}
 
 	.category-status-container {
@@ -119,46 +100,36 @@
 		box-sizing: border-box;
 	}
 
-	.headline-solo-task {
-		width: 250px;
-		height: 35px;
+
+	.main-task-container {
+		width: 120px;
+		height: 150px;
+		padding: 24px 12px;
 	}
 
-	.headline-solo-task h3 {
-		font-size: 22px;
+	.headline-task h3 {
+		font-size: 12px;
 	}
 
-	.task-title {
-		text-align: center;
+	.empty-space {
+		width: 170px;
 	}
 
-	.task-title span {
-		font-size: 22px;
+	.worker-name-start-letters {
+		width: 30px;
+		height: 30px;
 	}
 
 	.task-description span {
-		font-size: 20px;
+		display: none;
 	}
 
 	.workers-prio {
-		padding-left: 18px;
+		padding-left: 0px;
 		padding-right: 18px;
 	}
 
-	.prio-img img {
-		width: 40px;
-		height: 40px;
-	}
-
-	.navbar {
-		width: 400px;
-	}
-
-	.search-task {
-		width: 200px;
-	}
-
-	.search-task input {
-		width: 175px;
+	.main-workers{
+		display: none;
 	}
 }

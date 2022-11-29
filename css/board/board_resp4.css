@@ -339,7 +339,7 @@
 	}
 }
 
-@media (min-height: 750px) and (max-height: 900px) and (max-width: 1180px) {
+@media (min-height: 750px) and (max-height: 900px) and (max-width: 900px) {
 	.main-tasks-container {
 		margin-top: 80px;
 		overflow-y: visible;
