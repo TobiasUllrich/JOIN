@@ -127,10 +127,11 @@ async function updateTaskArray(taskId, title, description, date, prio) {
  *
  */
 function showAlert(idOfAlert) {
+	document.getElementById("background-alert").classList.remove("d-none");
 	document.getElementById(`${idOfAlert}`).classList.remove("d-none");
 	setTimeout(function () {
 		hideAlert(idOfAlert);
-	}, 3000);
+	}, 2000);
 }
 
 /**
@@ -139,6 +140,7 @@ function showAlert(idOfAlert) {
  */
 function hideAlert(idOfAlert) {
 	document.getElementById(`${idOfAlert}`).classList.add("d-none");
+	document.getElementById("background-alert").classList.add("d-none");
 }
 
 /**
@@ -262,14 +264,13 @@ function doNotClose(event) {
 async function deleteCurrentTask(idOfCurrentTask) {
 	for (let i = 0; i < tasks.length; i++) {
 		if (tasks[i].id === idOfCurrentTask) {
+			closeSoloTaskBigBox(idOfCurrentTask);
 			tasks.splice(i, 1);
+			showAlert("delete-alert");
+			await backendTWO.setItem("tasks", JSON.stringify(tasks));
+			await renderBoard();
 		}
-		await backendTWO.setItem("tasks", JSON.stringify(tasks));
 	}
-
-	closeSoloTaskBigBox(idOfCurrentTask);
-	await renderBoard();
-	showAlert("delete-alert");
 }
 
 /**

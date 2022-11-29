@@ -116,23 +116,28 @@ function renderDone() {
 function renderAssignedNamesOfTask(index, status, soloStatusArray) {
 	let renderOutputContainer = document.getElementById(`solo-worker-${status}${index}`);
 	renderOutputContainer.innerHTML = "";
-
-	for (let x = 0; x < soloStatusArray[index].assignedTo.length; x++) {
-		let assUser = soloStatusArray[index].assignedTo[x];
-		let user = getUserAsObject(assUser);
-
-		if (soloStatusArray[index].assignedTo.length <= 3) {
-			try {
-				renderOutputContainer.innerHTML += templateAssignedToOfSoloTask(user.name.charAt(0), user.surname.charAt(0), user.color);
-			} catch (e) {
-				renderOutputContainer.innerHTML += templateAssignedToOfSoloTask(
-					loggedUser.name.charAt(0),
-					loggedUser.surname.charAt(0),
-					loggedUser.color
-				);
+	if (!soloStatusArray[index] == undefined) {
+		for (let x = 0; x < soloStatusArray[index].assignedTo.length; x++) {
+			let assUser = soloStatusArray[index].assignedTo[x];
+			let user = getUserAsObject(assUser);
+			console.log(soloStatusArray);
+			if (soloStatusArray[index].assignedTo.length <= 3) {
+				try {
+					renderOutputContainer.innerHTML += templateAssignedToOfSoloTask(
+						user.name.charAt(0),
+						user.surname.charAt(0),
+						user.color
+					);
+				} catch (e) {
+					renderOutputContainer.innerHTML += templateAssignedToOfSoloTask(
+						loggedUser.name.charAt(0),
+						loggedUser.surname.charAt(0),
+						loggedUser.color
+					);
+				}
+			} else {
+				sliceArrayAndShowPlusMark(renderOutputContainer, index, soloStatusArray);
 			}
-		} else {
-			sliceArrayAndShowPlusMark(renderOutputContainer, index, soloStatusArray);
 		}
 	}
 }
