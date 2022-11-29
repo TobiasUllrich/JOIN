@@ -116,11 +116,10 @@ function renderDone() {
 function renderAssignedNamesOfTask(index, status, soloStatusArray) {
 	let renderOutputContainer = document.getElementById(`solo-worker-${status}${index}`);
 	renderOutputContainer.innerHTML = "";
-	if (!soloStatusArray[index] == undefined) {
+	if (typeof soloStatusArray[index] !== "undefined") {
 		for (let x = 0; x < soloStatusArray[index].assignedTo.length; x++) {
 			let assUser = soloStatusArray[index].assignedTo[x];
 			let user = getUserAsObject(assUser);
-			console.log(soloStatusArray);
 			if (soloStatusArray[index].assignedTo.length <= 3) {
 				try {
 					renderOutputContainer.innerHTML += templateAssignedToOfSoloTask(
