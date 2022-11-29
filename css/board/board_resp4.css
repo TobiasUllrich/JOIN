@@ -153,6 +153,7 @@
 	.big-box-tasks-container-full-size {
 		padding-left: 0px;
 		padding-top: 0px;
+		z-index: 100;
 	}
 
 	.main-headline-container {
@@ -192,7 +193,6 @@
 		padding-left: 10px;
 		padding-right: 5px;
 		border-radius: 0px;
-		top: 84px;
 	}
 
 	.big-box-task-title {

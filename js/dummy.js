@@ -71,7 +71,7 @@ let tasksScript = [
 		dueDate: "30-10-2010",
 		priority: "Medium", // Urgent, Medium, Low
 		status: "To do", // To do, In progress, Awaiting feedback, Done
-		assignedTo: ["kateRollin@xxx.com", "edip-bahcecioglu@hotmail.de", "oswaldeugen95@gmail.com"], // Email of users Array (ist eindeutig)
+		assignedTo: ["kateRollin@xxx.com", "edip-bahcecioglu@test.de"], // Email of users Array (ist eindeutig)
 		subTasks: ["Putzen", "Spülen", "Saubermachen"],
 	},
 	{
@@ -83,7 +83,7 @@ let tasksScript = [
 		dueDate: "30-10-2015",
 		priority: "Urgent", // Urgent, Medium, Low
 		status: "To do", // To do, In progress, Awaiting feedback, Done
-		assignedTo: ["ullrich.tobias@gmx.de", "edip-bahcecioglu@hotmail.de", "oswaldeugen95@gmail.com"], // Email of users Array (ist eindeutig)
+		assignedTo: ["ullrich.tobias@test.de", "edip-bahcecioglu@test.de", "oswaldeugen95@test.com"], // Email of users Array (ist eindeutig)
 		subTasks: ["Putzen", "Spülen", "Saubermachen"],
 	},
 	{
@@ -107,7 +107,7 @@ let tasksScript = [
 		dueDate: "30-10-2010",
 		priority: "Medium", // Urgent, Medium, Low
 		status: "Awaiting feedback", // To do, In progress, Awaiting feedback, Done
-		assignedTo: ["MandM@web.de", "edip-bahcecioglu@hotmail.de", "oswaldeugen95@gmail.com"], // Email of users Array (ist eindeutig)
+		assignedTo: ["MandM@web.de", "edip-bahcecioglu@test.de"], // Email of users Array (ist eindeutig)
 		subTasks: ["Putzen", "Spülen", "Saubermachen"],
 	},
 	{
@@ -119,7 +119,7 @@ let tasksScript = [
 		dueDate: "30-10-2010",
 		priority: "Medium", // Urgent, Medium, Low
 		status: "Done", // To do, In progress, Awaiting feedback, Done
-		assignedTo: ["kateRollin@xxx.com", "MandM@web.de", "rickyC@gmail.com"], // Email of users Array (ist eindeutig)
+		assignedTo: ["kateRollin@xxx.com", "MandM@web.de"], // Email of users Array (ist eindeutig)
 		subTasks: ["Putzen", "Spülen", "Saubermachen"],
 	},
 	{
@@ -131,7 +131,7 @@ let tasksScript = [
 		dueDate: "11-09-2022",
 		priority: "Urgent", // Urgent, Medium, Low
 		status: "Awaiting feedback", // To do, In progress, Awaiting feedback, Done
-		assignedTo: ["ullrich.tobias@gmx.de", "kateRollin@xxx.com", "oswaldeugen95@gmail.com"], // Email of users Array (ist eindeutig)
+		assignedTo: ["ullrich.tobias@test.de", "kateRollin@xxx.com"], // Email of users Array (ist eindeutig)
 		subTasks: ["Putzen", "Spülen", "Saubermachen"],
 	},
 	{
@@ -143,7 +143,7 @@ let tasksScript = [
 		dueDate: "05-08-2022",
 		priority: "Urgent", // Urgent, Medium, Low
 		status: "In progress", // To do, In progress, Awaiting feedback, Done
-		assignedTo: ["ullrich.tobias@gmx.de", "edip-bahcecioglu@hotmail.de", "rickyC@gmail.com"], // Email of users Array (ist eindeutig)
+		assignedTo: ["ullrich.tobias@test.de", "edip-bahcecioglu@test.de", "rickyC@gmail.com"], // Email of users Array (ist eindeutig)
 		subTasks: ["Putzen", "Spülen", "Saubermachen"],
 	},
 ];

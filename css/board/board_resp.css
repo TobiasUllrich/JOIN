@@ -58,6 +58,11 @@
 	.empty-space {
 		width: 170px;
 	}
+
+	.worker-name-start-letters {
+		width: 30px;
+		height: 30px;
+	}
 }
 
 @media (min-width: 900px) and (max-width: 1179px) {
