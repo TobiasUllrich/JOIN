@@ -98,6 +98,7 @@
 		justify-content: space-evenly;
 		height: auto;
 		box-sizing: border-box;
+		margin-bottom: 0px;
 	}
 
 
@@ -112,7 +113,8 @@
 	}
 
 	.empty-space {
-		width: 170px;
+		width: 100px;
+		min-height: 120px;
 	}
 
 	.worker-name-start-letters {
