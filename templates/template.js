@@ -1,7 +1,7 @@
 // ##############BOARD TEMPLATES START################# //
 function templateOfNewTaskToDo(taskTodo, i) {
-	return /*html*/`
-    <div id="todo-task${i}" onclick="openCurrentTaskBigBox(${i}, ['to do'], '${taskTodo.categorycolor}'); showCurrentWorkersBigBox(${i}, 'todo');" ondragstart="startDragging(${taskTodo['id']}); dragHighlight(['todo'], ${i}); showEmptyPlaces(['progress'], ['feedback'], ['done'])"; ondragend="hideEmptyPlaces(['progress'], ['feedback'], ['done'])"; class="main-task-container"; draggable="true">
+	return /*html*/ `
+    <div id="todo-task${i}" onclick="openCurrentTaskBigBox(${i}, ['to do'], '${taskTodo.categorycolor}'); showCurrentWorkersBigBox(${i}, 'todo');" ondragstart="startDragging(${taskTodo["id"]}); dragHighlight(['todo'], ${i}); showEmptyPlaces(['progress'], ['feedback'], ['done'])"; ondragend="hideEmptyPlaces(['progress'], ['feedback'], ['done'])"; class="main-task-container"; draggable="true">
         <div class="headline-category">
             <div id="headline-solo-task-todo${i}" class="headline-solo-task" style="background:${taskTodo.categorycolor}"><h3 id="headline-task-todo${i}">${taskTodo.category}</h3></div>
         </div>
@@ -550,4 +550,12 @@ function addNewContactHTML() {
         
     </div>
 `;
+}
+
+function workerLetterContainerHTML(fL, lL, color) {
+	return /*html*/ `
+        <div style="background:${color}" class="selceted-worker-letter-addtask d-center">
+            ${fL}${lL}
+        </div>
+    `;
 }

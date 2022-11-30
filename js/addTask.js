@@ -5,6 +5,8 @@ let addTaskCategoryColors = ["8aa4ff", "ff0000", "2ad300", "ff8a00", "e200be", "
 let usedColors = ["fc71ff", "1fd7c1 "];
 let assignUsers = [];
 let selectedUsers = [];
+let selectedUserName = [];
+let selectedUserColor = [];
 let selectedPrio;
 
 /**
@@ -299,8 +301,25 @@ function assingCheckbox(idOfCheckbox) {
  * @param {string} idOfCheckbox - id of the checked checkbox
  */
 function checkIfWorkerPushable(idOfCheckbox) {
-	if (!selectedUsers.includes(users[idOfCheckbox])) {
+	if (!selectedUsers.includes(users[idOfCheckbox]) && !selectedUserName.includes(users[idOfCheckbox].name)) {
 		selectedUsers.push(users[idOfCheckbox].email);
+		selectedUserName.push(users[idOfCheckbox].name);
+		selectedUserColor.push(users[idOfCheckbox].color);
+	}
+	renderWorkerLetterContainer();
+}
+
+/**
+ * Renders the names to the first letters and passes them on
+ */
+function renderWorkerLetterContainer(color) {
+	let workerContainerLetter = document.getElementById("workerContainerLetter");
+	workerContainerLetter.innerHTML = "";
+	for (let index = 0; index < selectedUserName.length; index++) {
+		let [first, last] = selectedUserName[index].split(" ");
+		let fL = first.match(/\b(\w)/g).join("");
+		let lL = last.match(/\b(\w)/g).join("");
+		workerContainerLetter.innerHTML += workerLetterContainerHTML(fL, lL, selectedUserColor[index]);
 	}
 }
 
@@ -312,8 +331,11 @@ function checkIfWorkerRemoveable(idOfCheckbox) {
 	for (let p = 0; p < selectedUsers.length; p++) {
 		if (selectedUsers[p] === users[idOfCheckbox].email) {
 			selectedUsers.splice(p, 1);
+			selectedUserName.splice(p, 1);
+			selectedUserColor.splice(p, 1);
 		}
 	}
+	renderWorkerLetterContainer(users[idOfCheckbox].color);
 }
 
 /**

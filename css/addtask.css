@@ -110,6 +110,26 @@ label {
 	animation: fadeUp 1s ease 0s 1 normal forwards;
 }
 
+.worker-container-letter {
+	margin-top: 10px;
+	margin-left: 10px;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	width: 100%;
+}
+
+.selceted-worker-letter-addtask {
+	padding: 10px 12px;
+	gap: 10px;
+	width: 45px;
+	height: 45px;
+	border: 1px solid #ffffff;
+	border-radius: 58px;
+	color: white;
+	margin-left: -10px;
+}
+
 @keyframes fadeUp {
 	from {
 		opacity: 0;
@@ -753,6 +773,7 @@ input#dueDate::-webkit-calendar-picker-indicator {
 		align-items: center;
 		margin-left: 0px;
 		margin-bottom: 50px;
+		padding-right: 0px;
 	}
 
 	.add-task-board {
@@ -879,6 +900,7 @@ input#dueDate::-webkit-calendar-picker-indicator {
 		align-items: center;
 		margin-left: 0px;
 		margin-bottom: 50px;
+		padding-right: 0px;
 	}
 
 	.add-task-board {
