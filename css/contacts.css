@@ -201,6 +201,21 @@ body {
 	border-radius: 70px;
 }
 
+.backgroundAddedNewContact{
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    right: 0;
+    z-index: 1100;
+    position: fixed;
+    top: 0;
+    left: 0;
+    backdrop-filter: brightness(35%);
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
 .contactInformationLetter p {
 	display: flex;
 	align-items: center;

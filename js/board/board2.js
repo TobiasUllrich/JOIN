@@ -122,6 +122,12 @@ function hideOtherTasks(statusOne, statusTwo, statusThree) {
  */
 function startDragging(id) {
 	currentDraggingElement = id;
+	 if (somethingGotDeleted) {
+			id--;
+			currentDraggingElement = id;
+		} else {
+			currentDraggingElement = id;
+	}
 }
 
 /**
@@ -187,6 +193,9 @@ function hideEmptyPlaces(otherStatusOne, otherStatusTwo, otherStatusThree) {
  * @param {number} idOfCurrentTask - this is the index of clicked task
  */
 function editCurrentTask(idOfCurrentTask) {
+	if (somethingGotDeleted && idOfCurrentTask > 0) {
+		idOfCurrentTask--;
+	}
 	let currentTask = tasks[idOfCurrentTask];
 
 	let bigBoxContainer = document.getElementById("big-box-solo-task");

@@ -268,9 +268,12 @@ async function deleteCurrentTask(idOfCurrentTask) {
 			tasks.splice(i, 1);
 			showAlert("delete-alert");
 			await backendTWO.setItem("tasks", JSON.stringify(tasks));
+			await filterTasks();
 			await renderBoard();
+			somethingGotDeleted = true;
 		}
 	}
+
 }
 
 /**

@@ -10,6 +10,7 @@ let assignedPeople = [];
 let selectedWorkers = [];
 let selectedWorkersEmail = [];
 let loggedUser = getArray("arrayOfactUser");
+somethingGotDeleted = false;
 
 /**
  * Loads all Tasks und Users from Backendserver and checks if Board is renderable

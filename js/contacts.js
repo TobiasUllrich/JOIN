@@ -14,6 +14,8 @@ async function initContacts() {
  */
 function renderLettersList() {
 	let cCC = document.getElementById("childContactsContainer");
+	cCC.innerHTML = "";
+	letter = [];
 	for (let i = 0; i < users.length; i++) {
 		let user = users[i]["surname"];
 		let firstSurnameLetter = user.match(/\b(\w)/g).join("");
@@ -57,11 +59,13 @@ function contactInformation(fullName, userColor, userEmail, userPhone) {
  * @param {string} userEmail - email of the user
  */
 async function deleteContactUser(userEmail) {
+	let tampletContainer = document.getElementById("tampletContainer");
+	let contactInformation = document.getElementById("contactInformation");
 	let index = getUserIndexForEmail(userEmail);
 	await delUser(index);
-	setTimeout(function () {
-		location.reload();
-	}, 1000);
+	tampletContainer.innerHTML = "";
+	contactInformation.innerHTML = "";
+	initContacts();
 }
 
 /**
@@ -159,6 +163,8 @@ function makeFirstLetterOfSurnameGreat(surname) {
  * @param {string} oldEmail - the old/current email address
  */
 async function newEditContact(oldEmail) {
+	let tampletContainer = document.getElementById("tampletContainer");
+	let contactInformation = document.getElementById("contactInformation");
 	let fullname = makeFirstLettersOfFullnameGreat(document.getElementById("editName").value);
 	let surname = makeFirstLetterOfSurnameGreat(fullname.slice(fullname.indexOf(" ") + 1, fullname.length));
 	let email = document.getElementById("editEmail").value;
@@ -171,7 +177,9 @@ async function newEditContact(oldEmail) {
 		oldEmail: oldEmail,
 	};
 	await changeUser(object);
-	location.reload();
+	tampletContainer.innerHTML = "";
+	contactInformation.innerHTML = "";
+	initContacts();
 }
 
 /**
@@ -184,10 +192,13 @@ function addedNewContact() {
 	document.getElementById("addedNewContact").style.top = `calc(${hoehe}/2)`;
 	document.getElementById("addedNewContact").style.left = `calc(${breite}/2)`;
 	let addedToBoard = document.getElementById("addedNewContact");
+	let tampletContainer = document.getElementById("tampletContainer");
 	addedToBoard.classList.toggle("d-none");
-	setTimeout(function () {
-		location.reload();
-	}, 2000);
+	tampletContainer.classList.toggle("d-none");
+	setTimeout(() => {
+		initContacts();
+		addedToBoard.classList.toggle("d-none");
+	}, 1000);
 }
 
 /**

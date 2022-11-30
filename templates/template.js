@@ -546,9 +546,7 @@ function addNewContactHTML() {
 
         </div>
     </div>
-    <div class="added-new-contact d-none" id="addedNewContact">
-        <img src="img/contact/Conyact succ.. created overlay.png" alt="">
-    </div>
+    
         
     </div>
 `;
