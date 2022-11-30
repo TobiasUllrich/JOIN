@@ -93,8 +93,10 @@
                         <div class="login-forgotpw"><a onclick="showPasswordForgottenForm();">Forgot my password</a>
                         </div>
                     </div>
-                    <div class="login-buttons"><button class="login-user">Log in</button><button
-                            onclick="loginAsGuest();" class="login-guest">Guest Log in</button></div>
+                    <div class="login-buttons">
+                        <button type="onsubmit"  class="login-user">Log in</button>
+                        <button type="button" onclick="loginAsGuest();" class="login-guest">Guest Log in</button>
+                    </div>
                 </form>
             </div>
         </div>

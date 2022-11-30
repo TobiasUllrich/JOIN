@@ -196,7 +196,6 @@
 	outline: none;
 	border: 1px solid lightgrey;
 	margin-bottom: 12px;
-	caret-color: transparent;
 	padding-left: 12px;
 	padding-right: 12px;
 	color: black;
@@ -211,7 +210,6 @@
 .edit-headline input::placeholder {
 	color: gray;
 	font-size: 20px;
-	caret-color: transparent;
 }
 
 .edit-description textarea {
@@ -219,7 +217,6 @@
 	width: 100%;
 	border-radius: 8px;
 	border-color: lightgray;
-	caret-color: transparent;
 	outline: none;
 	padding-left: 12px;
 	padding-right: 12px;

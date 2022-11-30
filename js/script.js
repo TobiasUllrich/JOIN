@@ -273,7 +273,7 @@ function setactUser() {
 	//Without setTimeout it trys to write into src before page is loaded (Hint: src="" as Standard of the Element you want to write in)
 	setTimeout(function () {
 		document.getElementById("footer-picture").src = `img/${actUserArray["picture"]}`;
-	}, 1000);
+	}, 2000);
 }
 
 /**

@@ -176,7 +176,7 @@ function templateEditCurrentTask(currentTask, idOfCurrentTask) {
                 <h3>Title</h3>
                 <input required type="text" id="edit-title" onclick="clearPlaceholder('title', 'Enter a title', '${
 					currentTask.title
-				}')" class="edit-container-inputstyle c-pointer" placeholder="${currentTask.title}">
+				}')" class="edit-container-inputstyle" placeholder="${currentTask.title}">
             </div>
 
             <div class="edit-description">
@@ -188,7 +188,7 @@ function templateEditCurrentTask(currentTask, idOfCurrentTask) {
 
             <div class="edit-date">
                 <h3>Due date</h3>
-                <input required id="edit-date" type="date" class="edit-container-inputstyle c-pointer" placeholder="${currentTask.dueDate.replaceAll(
+                <input required id="edit-date" type="date" class="edit-container-inputstyle" placeholder="${currentTask.dueDate.replaceAll(
 					"-",
 					"."
 				)}">
