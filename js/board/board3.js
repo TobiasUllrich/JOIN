@@ -268,12 +268,20 @@ async function deleteCurrentTask(idOfCurrentTask) {
 			tasks.splice(i, 1);
 			showAlert("delete-alert");
 			await backendTWO.setItem("tasks", JSON.stringify(tasks));
+			counterDeletedTasks++;
+			somethingGotDeleted = true;
+			minusTasksId();
 			await filterTasks();
 			await renderBoard();
-			somethingGotDeleted = true;
 		}
 	}
-
+}
+function minusTasksId() {
+	for (let index = 0; index < tasks.length; index++) {
+		let id = tasks[index].id;
+		id -= 1;
+		tasks[index].id = id;
+	}
 }
 
 /**

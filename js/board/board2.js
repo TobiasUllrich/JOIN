@@ -122,13 +122,16 @@ function hideOtherTasks(statusOne, statusTwo, statusThree) {
  */
 function startDragging(id) {
 	currentDraggingElement = id;
-	 if (somethingGotDeleted) {
-			id--;
-			currentDraggingElement = id;
-		} else {
-			currentDraggingElement = id;
+	if (somethingGotDeleted) {
+		currentDraggingElement = id;
+		console.log(id);
+		somethingGotDeleted = false;
+	} else {
+		currentDraggingElement = id;
 	}
 }
+
+
 
 /**
  * This function allowed the user to drop the dragged element in current space
