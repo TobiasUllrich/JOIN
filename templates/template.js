@@ -226,6 +226,9 @@ function templateEditCurrentTask(currentTask, idOfCurrentTask) {
                         <div id="scbx-1" onclick="submitCheckbox('-1')" class="solo-contact"><label>You</label><input onclick="submitCheckbox('-1')"; name="users" id="checkbox--1" type="checkbox"></div>
                     </div>
                 </div>
+                <div class="worker-name-start-letters-board" id="workerContainerLetterBoard">
+
+                    </div>
             </div>   
 
             <div class="close-edit-container c-pointer"><img onclick="closeEditContainer()" src="./img/board/close.png">
@@ -559,3 +562,13 @@ function workerLetterContainerHTML(fL, lL, color) {
         </div>
     `;
 }
+
+
+function workerLetterContainerBoardHTML(fL, lL, color) {
+	return /*html*/ `
+        <div style="background:${color}" class="selceted-worker-letter-board d-center">
+            ${fL}${lL}
+        </div>
+    `;
+}
+

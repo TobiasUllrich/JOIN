@@ -32,6 +32,23 @@ function checkIfWorkerIsPushable(id) {
 			selectedWorkersEmail.push(loggedUser.email);
 		}
 	}
+	renderWorkerLetterContainerBoard();
+}
+
+function renderWorkerLetterContainerBoard() {
+	let workerContainerLetterBoard = document.getElementById("workerContainerLetterBoard");
+	workerContainerLetterBoard.innerHTML = "";
+	for (let index = 0; index < selectedWorkers.length; index++) {
+		let [first, last] = selectedWorkers[index].name.split(" ");
+		console.log(first, last);
+		let fL = first.match(/\b(\w)/g).join("");
+		if (last == undefined) {
+			last = "Undefined";
+		}
+		let lL = last.match(/\b(\w)/g).join("");
+
+		workerContainerLetterBoard.innerHTML += workerLetterContainerBoardHTML(fL, lL, selectedWorkers[index].color);
+	}
 }
 
 /**
@@ -50,6 +67,7 @@ function checkIfWorkerIsRemoveable(id) {
 			selectedWorkersEmail.splice(p, 1);
 		}
 	}
+	renderWorkerLetterContainerBoard();
 }
 
 /**

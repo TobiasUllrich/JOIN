@@ -118,3 +118,28 @@
 	background-color: rgba(0, 0, 0, 0.2);
 	color: rgba(0, 0, 0, 0.2);
 }
+
+.worker-name-start-letters-board{
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	padding: 10px 8px;
+    gap: 0px;
+    width: 45px;
+    height: 45px;
+    border: 1px solid #ffffff;
+    border-radius: 58px;
+    color: white;
+	    margin-bottom: 10px;
+}
+
+.selceted-worker-letter-board{
+	padding: 10px 12px;
+	gap: 0px;
+	width: 45px;
+	height: 45px;
+	border: 1px solid #ffffff;
+	border-radius: 58px;
+	color: white;
+	margin-left: -10px;
+}

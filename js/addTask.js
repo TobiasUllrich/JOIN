@@ -312,7 +312,7 @@ function checkIfWorkerPushable(idOfCheckbox) {
 /**
  * Renders the names to the first letters and passes them on
  */
-function renderWorkerLetterContainer(color) {
+function renderWorkerLetterContainer() {
 	let workerContainerLetter = document.getElementById("workerContainerLetter");
 	workerContainerLetter.innerHTML = "";
 	for (let index = 0; index < selectedUserName.length; index++) {
