@@ -124,7 +124,6 @@ function startDragging(id) {
 	currentDraggingElement = id;
 	if (somethingGotDeleted) {
 		currentDraggingElement = id;
-		console.log(id);
 		somethingGotDeleted = false;
 	} else {
 		currentDraggingElement = id;
@@ -240,7 +239,6 @@ function selectUsersAssignedToThisTask(currentTask) {
 			for (j = 0; j < users.length; j++) {
 				if (currentTask.assignedTo[i] == users[j].email) {
 					submitCheckbox(j);
-					console.log(users[j].email);
 				}
 			}
 		}

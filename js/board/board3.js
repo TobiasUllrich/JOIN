@@ -40,7 +40,6 @@ function renderWorkerLetterContainerBoard() {
 	workerContainerLetterBoard.innerHTML = "";
 	for (let index = 0; index < selectedWorkers.length; index++) {
 		let [first, last] = selectedWorkers[index].name.split(" ");
-		console.log(first, last);
 		let fL = first.match(/\b(\w)/g).join("");
 		if (last == undefined) {
 			last = "Undefined";
