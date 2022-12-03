@@ -209,19 +209,19 @@ function editCurrentTask(idOfCurrentTask) {
 }
 
 /**
- *
- * @param {*} currentTask
+ * All attributes of the currently viewed task get selected
+ * @param {object} currentTask - object that contains all attributes of the currently viewed task
  */
 function fillContainerwithData(currentTask) {
 	selectTitleDescriptionDate(currentTask);
-	selectTasksOfContainer(currentTask);
+	selectUsersAssignedToThisTask(currentTask);
 	selectPriority(currentTask);
 	selectStatus(currentTask);
 }
 
 /**
- *
- * @param {*} currentTask
+ * title & description & date of the currently viewed task gets selected
+ * @param {object} currentTask - object that contains all attributes of the currently viewed task
  */
 function selectTitleDescriptionDate(currentTask) {
 	document.getElementById("edit-title").value = currentTask.title;
@@ -230,16 +230,17 @@ function selectTitleDescriptionDate(currentTask) {
 }
 
 /**
- *
- * @param {*} currentTask
+ * All users of the currently viewed task get selected
+ * @param {object} currentTask - object that contains all attributes of the currently viewed task
  */
-function selectTasksOfContainer(currentTask) {
+function selectUsersAssignedToThisTask(currentTask) {
 	showCompleteContainer();
 	setTimeout(function () {
 		for (i = 0; i < currentTask.assignedTo.length; i++) {
 			for (j = 0; j < users.length; j++) {
 				if (currentTask.assignedTo[i] == users[j].email) {
 					submitCheckbox(j);
+					console.log(users[j].email);
 				}
 			}
 		}
@@ -248,8 +249,8 @@ function selectTasksOfContainer(currentTask) {
 }
 
 /**
- *
- * @param {*} currentTask
+ * Priority of the currently viewed task gets selected
+ * @param {object} currentTask - object that contains all attributes of the currently viewed task
  */
 function selectPriority(currentTask) {
 	if (currentTask.priority == "Urgent") {
@@ -264,8 +265,8 @@ function selectPriority(currentTask) {
 }
 
 /**
- *
- * @param {*} currentTask
+ * Status of the currently viewed task gets selected
+ * @param {object} currentTask - object that contains all attributes of the currently viewed task
  */
 function selectStatus(currentTask) {
 	if (currentTask.status == "To do") {

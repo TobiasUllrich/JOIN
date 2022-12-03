@@ -52,7 +52,6 @@ function renderToDo() {
 	let todoOutput = document.getElementById("category-todo");
 	let todos = tasks.filter((status) => status.status == "To do");
 	todoOutput.innerHTML = "";
-	console.log(soloTasksTodo);
 	for (let i = 0; i < todos.length; i++) {
 		const taskTodo = todos[i];
 		todoOutput.innerHTML += templateOfNewTaskToDo(taskTodo, i);
